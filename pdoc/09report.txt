@@ -1,0 +1,93 @@
+---------------------------------------------------------------------------  
+          Chapter 9--Data Structures Part 3: Report data objects
+
+                   Date of Last Revision: July 28, 1998
+---------------------------------------------------------------------------
+
+Describes report data objects and code that builds reports and
+graphs. 
+
+---------------------------
+Report data objects
+---------------------------
+
+The report data is stored in a hierarchy.  This hierarchy is fully
+described in reprotd.hpp and summarized here.  The uppermost to lowest
+levels are:
+
+   AllFVSCases:RWOrdered - a collection of cases
+      FVSCase:CStringRWC   - a case that contains a collection of reports
+	 FVSReport:CStringRWC  - a report that contains a collection
+                                 of variables
+	    FVSVariable:CStringRWC  - a variable that contains a
+			              collection of observations
+	       FVSObservation:CStringRWC - an observation and an
+			                   observation identification.
+
+Each level contains a pointer to its upper level. 
+
+---------------------------
+Reading FVS outputs
+---------------------------
+
+ReadFVSOutputWindow:CWwindow contains the code that causes FVS output
+files to be read. This is done by a class called FVSParser. When data
+are scanned, FVSParser searches for a new case by looking for the
+"Keywords Selected by Input" table.  A new case is established (by a
+class CaseDefineUsingKeywordTable) if a new table is found.
+ 
+Once a new case is found, other parsers, including
+ParseSummaryOutputTable, ParseComputeVariables,
+ParseFirePotentialFlameReport, and ParseFireAllFuelsReport, parse
+reports they are intended to read.  Each record from the FVS output
+file is passed to all the parsers (by calling member functions,
+generally called ParseTable()).  If a parser finds "its" report, it
+creates a report and attaches it to the case.  Then it creates all the
+variables for the report, then starts collecting the observations.
+
+In the future, other files besides the FVS output file will be
+scanned. When this is implemented, the FVSParser will only create and
+call parser member functions appropriate to the kind of file being
+processed.  For example, if the treelist file is being parsed, only
+the tree list parser(s) will be called, and so on.
+
+The structure of the parsers somewhat changes depending on the file
+being parsed.  To build a new table, study the ParseTable() member
+functions and follow the pattern that best suits the new need.
+
+AverageFVSOutputWindow:CWwindow is used to create weight averages over
+cases that have been read.  
+
+---------------------------
+Displaying FVS data
+---------------------------
+
+Two classes, GenerateReportWindow:CWwindow and
+GenerateGraphWindow:CWwindow are used to generate reports and display
+graphs.  Either of them can recall, recreate the
+ReadFVSOutputWindow:CWwindow class.  Both use the same
+PickVariableWindow:CWwindow class to pick variables.  
+
+These routines are long and complex but self explanatory.
+
+---------------------------
+Related files:
+---------------------------
+
+avefvsw.?pp
+graphwn.?pp
+reportd.?pp
+parser.?pp
+readfvsw.?pp
+readfire.?pp
+reportwn.?pp (contains code for PickVariableWindow).
+rdtreels.hpp NOT YET COMPLETE
+
+---------------------------
+Thoughts:
+---------------------------
+
+1.  Suppose needs printer support to print the graphics or to store
+them in a portable format.
+
+

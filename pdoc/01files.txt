@@ -1,0 +1,131 @@
+---------------------------------------------------------------------------
+                              Chapter 1--Files
+
+                   Date of Last Revision: December 9, 1997
+---------------------------------------------------------------------------
+
+The file structure is similar on AIX and Windows.  There is a
+directory called program/.  Inside it are the following
+subdirectories:
+
+>>>>>>>>>>  This structure has changed... we need to renew this list 9/3/03
+
+pdoc/     -- this document
+help/     -- the help system source files
+parms/    -- the source for the parms file.
+src/      -- the source code, header files, and on AIX libSuppose.a
+             and the Makefile used to build libSuppose.a
+bin/      -- the resources files, compiled help and parms, the linked
+             program, and on Windows the .obj files.
+test/     -- on AIX only, a few test files and run script.
+suppose/  -- on Windows only, a few test files.
+bin/      -- on AIX: the resource files, compiled help, suppose.prm, and
+             the linked program and makefiles.
+             on Windows: the resources files, the .obj files.
+fvsbin/   -- on Windows: the .exe file, compiled help, and suppose.prm
+supposeReleaseNotes/ -- itemized list of changes made to each release.
+
+---------------------------
+pdoc/
+---------------------------
+
+The sections are named with a sequence number followed by some
+meaningful name.  Are are .txt files.
+
+---------------------------
+help/
+---------------------------
+
+The help system is composed of a series of files.  The helpc compiler
+preprocesses these files to form a single source file for compilation.
+The head of the files is helpfile.txt.  It includes the rest of the
+help system.  The files names of the component parts of the help
+system are meaningful.  If the help is directly tied to a window, say
+the Shelterwood window, for example, then its name is identical to the
+corresponding source code files that it supports.  The Shelterwood
+window is created using source sheltwin.cpp and its corresponding help
+file is sheltwin.txt.  There are additional files that are not related
+to individual windows, like these: glossary.txt, intro.txt,
+appendix.txt, and contents.txt.
+
+The Figures/ subdirectory contains the few .bmp images used as
+illustrations.
+
+Commands to compile the help files are included in make (on AIX) and
+in MAKE.BAT (on Windows).
+
+---------------------------
+parms/
+---------------------------
+
+suppose.prm is created by the concatenation of most files in this
+directory.  For Windows, use MKPRM.BAT to build this file.  On AIX,
+use Mkprm to build it.  The concatenation can be done in any order.
+However, I prefer to insure that prefer.prm and ppif.prm are near the
+top of the file.
+
+Mods.txt is a listing of changes made.
+
+There is extensive information about the content of the parms file in
+the on line help files under Appendix.
+
+File sufficies (not all that important):
+ .prm  Most files
+ .kwd  Those that define keywords.
+ .rul  Those that define rules.
+ .evm  Those that define event monitor functions.
+
+
+---------------------------
+src/
+---------------------------
+
+The source modules have the file suffix .cpp and the headers .hpp.
+The top of each .cpp files contains a very short identification of the
+file's content.  Notes regarding the functionality and so on are in
+the header files, not the .cpp files.
+
+I have made no attempt to keep a "beautiful" list of the information
+contained in a header file as is done by some developers.  If you want
+to know a header file's contents, simply read it.  This approach is
+the most accurate besides being quicker.  I have made every effort to
+insure that objects, member data elements, and so on are clearly
+named.  Use the names and search tools to find out what is what.
+
+XVT has a naming convention that I often used.  A member data element
+carries the prefix, "its", like itsParent.  If the element is passed
+into the function, it has the prefix the, like theParent. If the data
+element has only function scope, then it does not start with either of
+these words.  I did not understand the wisdom of using this convention
+early on so in some source files the words its and the are not used in
+this context.
+
+My class and function names usually start with a capital letter.  All
+variable names start with a lower case letter.  All words after the
+first word in a name start with a capital letter.  So, GetParent() is a
+function, PostProcWin is a class name, and theParent is a variable.
+Rogue Wave starts their function names with a lower case letter, so be
+aware of the difference in style.
+
+The source file names are a short form of the class name they contain
+or some other descriptive name.  Some major facilities in Suppose are
+implemented in a set of related source files.  These sets are listed in the
+chapter that describes the functionality.  They are worth remembering.
+
+A word on notation: the colon, :, used between two class names,
+signifies that one class inherits from another.  For example, if
+ClassTwo:ClassOne is written, then ClassTwo inherits ClassOne.  When
+inheritance is shown using this notation, I'll only list it up to the
+XVT or Rogue Wave base class.  These base classes may have long
+inheritance lines of their own that are not listed in any of this
+documentation (but are listed in the XVT or Rogue Wave documentation).
+
+Rather than writing a list of the source files and providing a summary
+of their contents, I invite you to browse through the source and check
+out the contents.  Here is a hint: the program starts in main.cpp, it
+creates an instance of SpGlobal (the Suppose global class), then it
+creates CsupposeApp:CApplication, calls Go(), and never returns!  Go()
+initializes system resources and then creates a Suppose document,
+which is called CsupposeDoc:CDocument.  This class, flushed out in
+appdoc.cpp, is where the Suppose code really begins.
+

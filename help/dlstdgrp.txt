@@ -1,0 +1,67 @@
+
+HTOPIC DELETEStandWindow "Delete Stand(s)" stand delete
+\fbDelete Stand(s)\f0
+
+Use this window to delete a \bstanD:stand\b.  
+
+This window is accessed from the Extras menu.
+
+From the \f1Delete stand\f0 list box, select the stand(s) you wish
+to delete.  Multiple stands can be selected by using the Shift key
+to select a range of stands or Ctrl key to select/deselect individual
+stands.
+
+Once a stand is selected, the \bcomponenT:components\b
+that are directly attached to the stand are listed in the list box
+labeled \f1And these attached components\f0.  As expected, deleting
+the stand will also delete the listed components.
+
+Press \f1Delete\f0 to actually delete the stand.
+
+Repeat the process of selecting and deleting stands, if you so desire.
+
+Press \f1Close\f0 to close the window.
+
+Note that if you delete any stand, and if any stand is set as the
+\lCURRENTRadioGroup:current stand\l, then the last stand in the list
+of all stands is set to be the current stand.  If you delete all stands,
+then the first \bgroupCode:group\b in the list of all groups will 
+become the current group.
+
+Items selected for deletion are only removed from the simulation and
+are not applied to the underlying data.
+
+HTOPIC DELETEGroupWindow "Delete Group(s)" group delete
+\fbDelete Group(s)\f0
+
+Use this window to delete a \bgroupCode:group\b.  
+
+This window is accessed from the Extras menu.
+
+From the \f1Delete group\f0 list box, select the group(s) you wish
+to delete.  Multiple groups can be selected by using the Shift key
+to select a range of groups or Ctrl key to select/deselect individual
+groups.
+
+Once a group is selected, the \bcomponenT:components\b
+that are directly attached to the group are listed in the list box
+labeled \f1And these attached components\f0.  As expected, deleting
+the group will also delete the listed components.
+
+Press \f1Delete\f0 to actually delete the group.
+
+Repeat the process of selecting and deleting groups, if you so desire.
+
+Press \f1Close\f0 to close the window.
+
+Note that if you delete a group that is set to be the
+\lCURRENTRadioGroup:current group\l, then the first
+\bgroupCode:group\b in the list of groups will become the current
+group.  
+
+Suppose does not allow you to delete all the groups.  It is generally
+very unwise to delete group \f1All\f0.
+
+Items selected for deletion are only removed from the simulation and
+are not applied to the underlying data.
+

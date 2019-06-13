@@ -1,0 +1,231 @@
+---------------------------------------------------------------------------
+                          Chapter 3--The keyword file
+
+                   Date of Last Revision: December 11, 1997
+---------------------------------------------------------------------------
+
+The keyword file structure is documented here.  Some general rules and
+ideas are presented first, then a formal definition of the file is
+presented.
+
+---------------------------
+General concepts
+---------------------------
+
+The keyword file is line oriented.  When the first two characters are
+!!, the line is directly interpreted by Suppose and ignored when the
+keyword file is read by FVS.  Generally, following the !! characters,
+there is a alpha string that, together with the !! forms a Suppose
+identifier.  For example, !!End is an often used Suppose identifier
+that signals the end of a multi-line section.
+
+Suppose identifiers are often followed by data which is on the same
+line with the identifier, on following lines, or both.  For example, the
+identifier !!PP is followed by a list of post processors listed on the
+same line.
+
+Sometimes the identifier's data spans many lines.  When FVS should
+read the data, the lines are do not start with !!.  For example, !!Top is
+a Suppose identifier.  Its data is an FVS comment that contains
+several lines.  Therefore, the lines do not start with !!.  Suppose
+and FVS both use the data in this section.
+
+In other cases, the identifier's data is not for FVS to read.  For
+example, !!P signals that a component's parameter data follows on one
+or several records.  Each record starts with !! so that FVS will
+ignore it.
+
+In some cases, a line is inserted by Suppose into a keyword file
+because it is needed by FVS but it is ignored by Suppose when Suppose
+reads the same file.  This is often the case with the End keyword that
+is used by FVS to signal the end of the keywords associated with an
+FVS extension.  In this case, Suppose knows that the keyword belongs
+to the extension and realizes the following keywords do not.  To
+Suppose, the End is not necessary and is therefore ignored.  To FVS it
+is critical.
+
+Many identifiers are used by Suppose only when they are needed.  For
+example, consider the !!P identifier.  If a component has no
+parameters, the !!P identifier is not written and therefore reading is
+is optional.
+
+---------------------------
+Formal definition, part 1
+---------------------------
+
+The notation used to describe the simulation file follows a diagram
+format.  The lines with pointers indicate how one item follows the
+other in the file.  Lines that show that an item is optional are drawn
+below and around the item.  For example:
+
+	 ----> [item] ----->
+          \->--------->/
+
+shows that [item] can be bypassed and is therefore optional.  When the
+line below the item contains arrows that point the other direction,
+the [item] can be repeated.
+
+The file starts with the header, identified by !!Suppose.
+
+  [StartOfFile]---> !!Suppose ---->
+
+Data for !!Suppose, same line:
+
+Field 1: Suppose version id, currently not used.
+Field 2: Variant id used to run the keyword file.
+Field 3: Flag, 1 if PPE is being used, 0 otherwise, currently not used.
+Field 4: Flag, 1 if PPE use is locked, 0 otherwise, currently not used.
+
+
+  ---> !!Top ---- [comment] ---- !!End ---->
+
+Where [comment] is several lines of data, for example:
+
+Comment
+Starting year for simulation is 1989
+Ending year for simulation is   2029
+Min and Max inventory years are 1989 1989
+End
+
+The years listed in these comment records are used by Suppose to set
+YearObj member data.
+
+  ---> !!Timing ---- [keywords] ---- !!End ---->
+    \->------------------------------------>/
+
+The !!Timing section is currently not used.  It is intended to hold
+the data necessary to fully support varying the number and length of
+cycles independently within each stand.
+
+  ---> !!SN ---- [comment] ---- !!End ---->
+    \->-------------------------------->/
+
+Where [comment] is the simulation notes created using the Edit
+Simulation Notes feature for the entire run (rather than a specific
+component).
+
+  ---> !!Stand ---- [stand] ---- !!EndStand ---->
+    \<-------------------------------------<-/
+
+Where [stand] is described in the Formal definition part 2, below.  As
+indicated by the backward arrows, the [stand] section is repeated for
+each stand in the simulation.  After all stands are written, the FVS
+STOP keyword is written, followed by the groups and group membership
+data, and finally by the current subset data.  Note that the
+structure allows for several stands, groups, or both to be in the
+current subset even though Suppose GUI elements do not support this
+idea any longer.
+
+  ---> STOP ---- !!G ----------- !!S -------->
+             \ \<-----<-/    \<-----<-/ /
+              \<---------------------<-/
+
+  ---> !!Subset ------ !!S -------- !!End --->[EndOfFile]
+                 \  \<----<-/   /
+                  \->-- !!G -->/
+                     \<---<-/
+
+Data for !!S, same line:
+
+Field 1: Stand identification.
+Field 2: Suppose assigned stand serial number.
+
+Data for !!G, same line:
+
+Field 1: Group identification.
+Field 2: Suppose assigned group serial number.
+
+---------------------------
+Formal definition, part 2, [stand]
+---------------------------
+
+A [stand] is defined as follows:
+
+  [BeginStandDefinition]---- StdIdent ---- !!SK ---- !!End ---->
+
+Data for !!Stand, same line:
+
+Field 1: Stand identification.
+Field 2: Suppose assigned stand serial number.
+
+StdIdent is followed by it's normal supplemental data record.
+
+Data for !!SK, same line, a list of variant id's for which the stand
+applies.  Following the !!SK is a set of keywords for the stand site
+variables.
+
+  ---> !!TK ---- [keywords] ---- !!End ---->
+
+Following !!TK are the timing keywords for the stand.  These include
+the NumCycle and any needed TimeInt keywords.
+
+  ---> !!C ---- [component] ---- !!End ---->
+    \<--------------------------------<-/
+     \->------------------------------>/
+
+Where [component] is a set of elements described below under Formal
+Definition, part 3, [component].
+
+  ---> !!TR ---- [keywords] ---- !!End ---->
+
+Where [keywords] is a set of keywords used to open the tree data files
+for the stand and read them.  If there are not tree data, then NoTrees
+is written.
+
+  ---> SPLabel ---- Process ----[EndOfStandDefinition]
+
+SPLablel is followed by a list of groups to which a stand is a
+member.
+
+---------------------------
+Formal definition, part 3, [component]
+---------------------------
+
+There are several data elements to the !!C record, as follows:
+
+All the text up to the ~ character is the component title.  It is
+followed by the Suppose-assigned component serial number, the
+component type (see compon.hpp for component type information), the
+serial number of the related condition if there is one (-1 otherwise),
+the variant id of the variant to which the component is tied, the FVS
+extension identification, and finally the Group name and serial
+number when the component is part of a group (@ otherwise).
+
+  [BeginComponentDefinition]---- !!SW ---- !!P ---->
+                              \        \->------>/
+                               \->------------->/
+
+Data for !!SW, same line: the name of the Suppose window that owns the
+component.
+
+Data for !!P, same line: # followed by the number of additional
+records needed to hold the parameters for the component.  If all the
+parameters fit on the !!P line, then the # character is absent.
+Several lines may be needed for the !!P data.  The format and meaning
+of these data elements depends on and is owned by the window that
+created the component (if there is one).
+
+  ---> !!CE ---- [comment] --->
+   \->--------------------->/
+
+Where [comment] is a set of data starting with the Comment keyword and
+ending with End.  These comments are created using the Edit Simulation
+Notes tool.
+
+  ---> !!K ---- [keywords] ---- !!End ---- [EndOfComponentDefinition]
+   \->-------------------------------->/
+
+Where [keywords] is a set of data that contain the keywords for the
+component.
+
+Note that when a component is written to the simulation file the first
+time, all the data elements are output.  When it is written the second
+time (for multi-stand simulation), only some of the data are written.
+When Suppose reads a simulation file, it creates on one instance of
+each unique component.  If a component has been read, the second or
+subsequent occurrence only signifies that the component belongs to the
+stand or group.
+
+
+
+

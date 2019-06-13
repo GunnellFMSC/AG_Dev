@@ -1,0 +1,53 @@
+HTOPIC SHELTWINWindow "One Entry Shelterwood" uneven-age management silviculture
+\fbOne Entry Shelterwood\f0
+
+This window is used to specify the elements of a form of the
+Shelterwood silvicultural method.  It is found under the Even-aged:Regeneration
+Harvesting action.
+
+Use the text box at the top of this window to change the name of the 
+component if you want a different name than that presented as a default.
+
+Use the elements of the scrolling part of the window to set the
+parameters of the clearcut.  
+
+For information about how to schedule the clearcut, see 
+\lSCHEDOBJSubview:Scheduling Actions by Year or Condition\l
+
+Use the check box to specify if you desire a "Prep cut" to the
+shelterwood regeneration harvest.  If you check that you desire a prep
+cut, then use the radio buttons to select the units of measure for the
+residual left from the prep cut.  Then, use the horizontal slide bars
+to set the residual.
+
+If you check that you do want a prep cut, then the scheduling of
+the shelterwood cut is, by default, in the FVS \bcyclE:cycle\b following
+the prep cut.  If the number of years after the prep cut the shelterwood
+cut is scheduled is set to a value less than the cycle length, FVS will
+simulate the prep cut and the shelterwood cut in the same year.  This is
+witless.  So, you must insure that the shelterwood cut is scheduled for
+a number of years after the prep cut that is at least as long as the FVS
+cycles.  By default, Suppose sets this to be the length of a cycle for most
+\bvarianT:variants\b.  Perhaps you shouldn't change it!  
+
+Use the radio buttons to select the unit of measure you want to used
+in specifying the residual density and then use the corresponding
+horizontal slide bar to set the density.
+
+Use the check box to schedule a removal cut if you want FVS to
+simulate one.  You can set the percent of the shelterwood removed
+using the horizontal slide bar.  Note that changing the removal cut
+schedule offers the same dismal problem described above for
+changing shelterwood schedule.
+
+Press \f1Ok\f0 to accept the selections and close the window.  
+
+Press \f1Reset\f0 to reset the window to the state it was in when it
+was opened.
+
+Press \f1Cancel\f0 to close the window without creating a component
+(or without saving changes to a component you are editing).
+
+Use the \f1Extras\f0 menu and the \f1View Component Keywords\f0 item
+if you want to view the FVS keywords generated for the component.
+

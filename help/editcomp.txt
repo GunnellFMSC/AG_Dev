@@ -1,0 +1,80 @@
+HTOPIC  EDITSimulationFile "Edit Simulation File" edit component insert delete
+\fbEdit Simulation\f0
+
+The major purpose of this window is to provide you with a list of the
+\bcomponenT:components\b in a simulation and to allow you to edit or
+modify those components.  Secondary purposes include deleting, cutting,
+pasting, writing to a file, and inserting components from a file. You
+can also select a \bstanD:stand\b or \bgroupCode:group\b to delete.
+
+The components are listed in the order they will appear in the
+simulation file. Nesting within stands and conditions is shown using a
+tree structure. A single component is listed more than once if it is
+part of a group that contains more than one stand. If you select one
+of these components, it will show as selected each place it
+appears. The list of stands that would be affected by editing a
+component is displayed in the "Affected Stands" list located on the
+right hand side of the window.
+
+Right-clicking any \bstanD:stand\b or \bgroupCode:group\b will make
+that item \lCURRENTRadioGroup:current\l. The current \bstanD:stand\b
+or \bgroupCode:group\b is noted by its red font.
+
+To \f1edit\f0 a component, double-click it or select it and press the
+Edit Selection button found at the bottom of the window.
+
+To \f1cut\f0 a component from the list, and place it in the
+\f1paste\f0 space, press the Cut button.
+
+To \f1copy\f0 a component to the paste space, press the Copy button.
+
+To \f1delete\f0 a component, select it and press the Delete button or 
+the Delete key on the keyboard. If a stand or group is selected, the
+\lDELETEStandWindow:Delete Stand\l or \lDELETEGroupWindow:Delete Group\l
+window is opened.
+
+To \f1paste\f0 a component from the paste space, press the Paste
+button.  To understand where the component will be pasted, see the
+description below on Inserting from a file.
+
+The Cut, Copy and Paste features can also be accessed through standard
+menu short cuts, i.e. Ctrl+X for Cut, Ctrl+C for Copy and Ctrl+V for
+Paste.
+
+To \f1write\f0 a component to a file for future use in another run,
+press the Write button (or the Append button if you want the component
+to be appended to an existing file).  When you use this feature, a file open
+dialog will appear asking you to specify a file name.  By convention,
+use the file suffix \fc.kcp\f0 for these "keyword component files".
+
+To \f1insert\f0 one or more components from a file, press the Insert
+from file button.
+
+When you insert a component from a file, or if you paste a component,
+Suppose will select the placement location.  You can control the exact
+placement by selecting an existing component in the component list
+prior to doing the paste or insert operation.  In this case, Suppose
+will ask you if you wish the inserted component to be placed before,
+after, or according to placement rules Suppose contains.  If you do the
+insert or paste operation without any components selected, Suppose
+will use the placement rules automatically.
+
+The placement rules account for the ordering of components as required
+by FVS.  For example, if a component is predicated on a condition,
+then the placement must be placed after the condition.  In fact, it is
+placed directly after the last component that is predicated on the
+same condition.  If a component is related to an FVS
+\bextenS:extension\b, then it is (usually) placed after the last
+component that is part of the same extension.  
+
+The placement rules dictate that a component is added to the 
+\lCURRENTRadioGroup:current group or stand\l (set on the 
+\lMAINWINWindow:Selections\l window).  If you have selected a group or 
+stand, the component is added to that group or stand.
+
+A file of several components can be inserted.  When this is done,
+Suppose treats the components as a related collection.  It uses the
+insertion rules to place the first component, and then places each of
+the following components from the file after the first component in
+their order of occurrence.
+

@@ -1,0 +1,124 @@
+HTOPIC MENUbar "Menus"
+\fbMenus\f0
+
+All of the features and functions of Suppose can be accessed through the 
+menus.  As an alternative to using the menus, the most basic features
+of suppose are also available using the main
+\lMAINWINWindow:Selections\l window.  
+The following menus are available:
+
+\fbFile Menu\f0
+
+Create, open, or save the \bsimfilE:simulation file\b.  Exit Suppose.
+
+\i50.New	- Resets Suppose, sets the file name to *new file*.
+
+\i50.Open	- Open an existing simulation file.
+
+\i50.Save	- Save the simulation file on which you are working.
+
+Save As
+\i50.	- Like Save, except that you can specify a different
+name for the simulation file.
+
+\i50.Exit	- Exits Suppose, see \lEXITButton:Exit\l.
+
+Open Locations File 
+\i50.	- Opens a \llocationsFile:Locations file\l 
+and then opens the \lSELECTSIWindow:Select Simulation Stands\l window.
+
+\fbEdit Menu\f0
+
+This menu is activated in the windows that allow these actions.  In the
+window used to \lEXPRESSWindow:edit expressions\l the menu is used to
+cut, copy, paste, or delete text.  In the window used to 
+\lEDITSimulationFile:edit the simulation file\l, or the lists of
+\bcomponenT:components\b in a the
+simulation, the menu is used to cut, copy, paste, or delete components.
+
+\i50.Cut	- Delete text or a component and save it in
+memory so that it can be "pasted" to some other place.
+
+\i50.Copy	- Copy text or a component to memory so that it can 
+be "pasted" to some other place. 
+
+\i50.Paste	- Paste text or a component to a new place in the text
+you are editing or in the list of components.
+
+\i50.Delete	- Delete text and do not save it in memory.
+
+\fbBasics Menu\f0
+
+All the functions in the basics menu can also be accessed from the 
+\lMAINWINWindow:Selections\l window.  Help on each element is accessed
+by selecting from the following topics:
+
+\n
+\lSELECTSIWindow:Select Simulation Stands\l
+\lTIMESCALWindow:Set Time Scale\l
+\lSELECTEcosystemButton:Select Ecosystem Components\l
+\lSELECTModelOutputButton:Select Model Outputs\l
+\lCMNGWINWindow:Management Actions\l
+\lSPECIFYModelModButton:Specify Model Modifiers\l
+\lUSEKEYWindow:Use FVS Keywords\l
+\lPOSTPWINWindow:Select Post Processors\l
+\lRUNSimulation:Run Simulation\l
+\lGENERATEReports:Generate Reports\l
+\lEDITSimulationFile:Edit Simulation File\l
+\lRUNWizard:Use The Run Wizard\l
+\lGRPMEMBWindow:Change Group Membership\l 
+
+\w
+
+\fbExtras Menu\f0
+
+Help on most "extra" features of Suppose are accessed by selecting
+from the following topics:
+
+\n
+Establish Policy Scheme - (a planned feature)
+Parallel Processing Options - (a planned feature)
+\lSELVARWindow:Select Variant and Extension\l
+\lSIMNOTESWindow:Edit Simulation Notes\l
+\lEXPRESSWindow:Edit Logical Expression\l
+\lVIEWKEYWindow:View Component Keyword\l
+\lDELETEStandWindow:Delete Stand(s)\l
+\lDELETEGroupWindow:Delete Group(s)\l
+\w
+
+\fbOptions Menu\f0
+
+Options are features of Suppose that change the way Suppose behaves.
+
+\n
+\lSPPREFERWindow:Suppose Preferences\l
+\lEDITLOCSWindow:Edit Locations File\l
+\lEDITSLFWindow:Edit Stand List File\l
+\lEDITFVSTWindow:Edit FVS Tree Data File\l
+\w
+
+\fbHelp Menu\f1 (on Motif systems)\f0
+
+For "On" topics, pull down the help menu, and request "On Help":
+
+\i50.On Context
+\i50.On Window
+\i50.On Help
+\i50.On Keys
+\i50.On Version
+
+\i50.Contents	- Access the help table of contents.
+\i50.Tutorial	- Access the on line tutorial.
+
+\fbHelp Menu\f1 (on Windows systems)\f0
+
+For the first three topics, use the help menu, and request "How to use help":
+
+\i50.Object click	
+\i50.Search for help on...	
+\i50.How to use help	
+
+\i50.Contents	- Access the help table of contents.
+\i50.Tutorial	- Access the on line \lRUNTUTORIAL:tutorial\l
+
+

@@ -1,0 +1,76 @@
+----------------------------------------------------------------------------
+Chapter 2--Data Structures Part 1: RunStream, Stands, Groups, and Components
+
+                   Date of Last Revision: December 10, 1997
+----------------------------------------------------------------------------
+
+Class RunStream holds pointers to all the stands, groups, and
+components.  There is only one instance, it is created in appdoc.cpp
+as needed.  The pointer to it is in SpGlobal.
+
+RunSteam contains collections that make up the elements of a .key file
+and related items.  Since .key files are made up of stands, groups,
+components, selected post processors, and the like, it is natural that
+these items are in the RunStream class.
+
+RunStream has member functions that read and write keyword files, add
+and delete components, stands, and groups.  It is a complicated part
+of Suppose.  All interactions with this data structure are handled
+with this class' member functions.
+
+Note two member collections called subsetGroups and subsetStands.
+These collections contain pointers to the current stand or group.
+Suppose only allows one stand or one group to be current at a time.
+These are collections rather than single pointers to "the" current
+stand or group because an early idea was that Suppose would allow
+users the ability to define any collection of stands, groups, or both
+to be "current".  This is the reason for the term "currentSubset".  It
+is an obsolete term that refers to the current group or current stand.
+
+Stands, Groups, and Components all inherent form CStringRWC.
+Therefore they can be in any RWCollection and be inserted into any
+list box or list button.  The methods used to create these new species
+of collectable objects (in this case, collectable strings) are
+detailed in the Rogue Wave programmers guide.  You can also see how it
+is done by reading the stand.hpp and stand.cpp.
+
+See runstr.hpp for more information on all the related classes and
+functions.
+
+---------------------------
+Related files:
+---------------------------
+
+runstr.?pp
+group.?pp
+compon.?pp
+stand.?pp
+spglobal.?pp
+readcomp.?pp
+
+---------------------------
+Thoughts:
+---------------------------
+
+Besides the obsolete term of current subset, I also point out the a
+few other flaws in the program organization.
+
+1. Several member functions are currently public that should be
+private.  The friendship relationships between classes should be
+defined to protect the data.
+
+2. Streams should be used rather than the stdio.h methods.
+
+3. The program that writes components is very complex.  The rules for
+building extension-start keywords, like RRIN, Estab, and so on, and
+the rules for building End and EndIF keywords are complicated and not
+well understood by reading the code.  This is a documentation and
+coding problem that should be fixed.  On the otherhand, the code works.
+
+4. The are two misnamed functions: PutComponentOnClipBoard and
+GetComponentFromClipBoard.  They are misnamed in that they don't
+really use "the" clip board but simply a spot RunStream's memory.
+Also, this pseudo-clip board should actually be a list of deleted
+items so that a user can pick from any one of the items in the list of
+deleted items.  The graphical elements to the Edit Simulation File
+window would need adjustment to allow for this functionality.

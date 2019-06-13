@@ -1,0 +1,4 @@
+HTOPIC SPPREFERWindow "Suppose Preferences" preferences options
+\fbSuppose Preferences\f0
+
+<< Not yet drafted >>

@@ -1,0 +1,228 @@
+#define keywordS    9000
+#define FVs         9001
+#define krecordS    9002
+#define simfilE     9003
+#define extenS      9004
+#define varianT     9005
+#define stanD       9006
+#define landscapE   9007
+#define treedatA    9008
+#define locatioN    9009
+#define SLf         9010
+#define spacescopE  9011
+#define timescopE   9012
+#define prograM     9013
+#define commanD     9014
+#define availStanD  9015
+#define translatoR  9016
+#define addfilE     9017
+#define groupCode   9018
+#define freeForm    9019
+#define componenT   9020
+#define mstexT      9021
+#define msnamE      9022
+#define pkeY        9023
+#define atlisT      9024
+#define parameteR   9025
+#define pkeydatA    9026
+#define pstrinG     9027
+#define startYeaR   9028
+#define endYeaR     9029
+#define postproC    9030
+#define cyclE       9031
+#define parmS       9032
+#define selecTW     9033
+#define mgmtiD      9034
+#define casE        9035
+#define cycInterval 9036
+#define ppE         9037
+
+HTOPIC XVT_TPC_GLOSSARY "Glossary"
+'
+\n
+'note that glossary.fmt is made from glossary.lst
+#include "glossary.fmt"
+\w
+BTOPIC keywordS "Keywords"
+Keywords are FVS commands.  They are entered in the first 8 columns
+of the input records to FVS.
+
+BTOPIC FVs "FVS"
+FVS is the acronym for Forest Vegetation Simulator, previously known
+as the Prognosis Model for Stand Development.  FVS is the simulation
+model that Suppose uses to run simulations.
+
+BTOPIC krecordS "Keyword Records"
+Keyword records contain data that are read by FVS in running a simulation.  
+A file of keyword records, called a simulation file, is created by Suppose 
+for each simulation. 
+
+BTOPIC simfilE "Simulation file"
+The file of keyword records read by FVS to run a simulation.  This file is 
+created by Suppose, and can also be read and edited from within
+Suppose.  The file name has the extension \fc.key\f0.
+
+BTOPIC extenS "Extension"
+An FVS extension is an optional addition to FVS that extends the base
+FVS system capabilities.  Examples include the Regeneration
+Establishment model, the Cover/Shrub model, and pest models.
+
+BTOPIC varianT  "Variant"
+An FVS variant is a base FVS model that is calibrated for a specific
+geographic region.  Variants are know by two-letter abbreviations for
+example: NI=Inland Empire, EC=East Cascades, and BC=British Columbia.
+
+BTOPIC stanD    "Stand"
+A forest stand is an area of land occupying between 2 and 50 hectares (4
+to 100 acres) wherein the primary vegetation is recognized as similar
+in habitat and composition.
+
+BTOPIC landscapE "Landscape"
+In Suppose, a landscape is a collection of forest stands.  Most
+landscapes are a collection of contiguous forest stands.
+
+BTOPIC treedatA  "Tree Data"
+The measurements for each tree in a stand are entered into tree data 
+records.  All the records for one stand are called the tree data.
+
+BTOPIC locatioN  "Location"  scope space location
+A location represents a set of stands.  All locations are defined in 
+a locations file. 
+
+BTOPIC SLf "Stand List File" scope space location
+A stand list file contains a list of stands corresponding to a single 
+location.  All locations are defined in a locations file.
+
+BTOPIC spacescopE "Spatial Scope" scope space 
+The geographic extent of a simulation is the simulation's spatial
+scope.  Within Suppose, the collection of stands in a simulation
+defines the simulation's spatial scope.
+
+BTOPIC timescopE "Temporal Scope" scope time
+The length of time that a simulation represents defines the 
+simulation's temporal scope.
+
+BTOPIC prograM "Program"
+An FVS program is a computer program that is based upon a specific 
+geographical FVS variant and may contain one or more FVS extensions.
+
+BTOPIC commanD "Command"
+A command, in the context of Suppose, is an specific operating system
+command used to run FVS.  (e.g., "Run command: test.bat" in the
+information window you see when you use the Run Simulation button.)
+
+BTOPIC availStanD "Available Stand" scope space location
+An available stand is one that can be included in the simulation.  All
+available stands are listed in a stand list file.  All stand list
+files are listed in the locations file.
+
+BTOPIC translatoR "Translator" stand file location
+A computer program that reads tree- and stand-level data from some 
+existing source to a format that can be read directly by Suppose and FVS.
+
+BTOPIC addfilE "Addfile" stand keyword include
+A file of keywords that is added as a component in a run.  Addfiles
+can be specified in the stand list file or in the locations file.
+
+BTOPIC groupCode "Group Code" stand group addfile include
+A stand can be a member of one or more groups.  A group code is the
+name of a group.
+
+BTOPIC freeForm "Free form" file locations stand_list group_code
+"Free form" is a method of coding a text file wherein the fields are
+all coded on each data record in the correct order but without regard
+to exact column placement.  Most Suppose files are coded free form.
+
+BTOPIC componenT "Component" component keywords
+A component contains one or more keywords that typically represent
+some management action.  Each component is associated with a Suppose
+window that can be used to create and edit it.  Components are part of
+the simulation file. 
+
+BTOPIC mstexT "MSText" parameters_file
+MSText is a major section of the parameters file.  
+
+BTOPIC parameteR "Parameters File" parameters_file MSText PKeyData
+The parameters file is a data file that contains information critical
+to Suppose.  Definitions of keywords and their fields and lists of
+species codes by FVS variant are examples of information in this file.
+
+BTOPIC msnamE "MSName" parameters_file
+MSName is the name of a major section of the parameters file.  An
+example of a major section may be the information related to a single
+FVS keyword or the list of species codes for a single FVS variant.  A
+major section is comprized of a collection of parts called PKeyData
+objects.
+
+BTOPIC pkeydatA "PKeyData" parameters_file 
+PKeyData are subcomponents of major sections in the parameters file.
+Each PKeyData object contains 3 parts: a PKey, an ATList, and a  
+and PString.  
+
+BTOPIC pkeY "PKey" parameters_file
+A PKey is the name of a PKeyData object. 
+
+BTOPIC atlisT "ATList" parameters_file 
+An ATList (an "applies-to list") is a list of tokens (usually Variant
+identifiers) that define the case(s) to which a given PKeyData object applies.
+
+BTOPIC pstrinG "PString" parameters_file
+The PString is the data part of a PKeyData object.
+
+BTOPIC startYeaR "Common starting year" scope time 
+Stand dynamics for all of the stands in a simulation are automatically
+simulated to the common starting year.  Suppose insures that the
+common starting year is not prior to the most recent inventory year
+of any stand in the simulation.
+
+BTOPIC endYeaR "Common ending year" scope time
+The simulation will end on, or after, the common ending year for all
+stands in the simulation.  This year must be greater than the common
+starting year.  The simulation will end after the common ending year
+when that year does not coincide with an FVS cycle year.
+
+BTOPIC cycInterval "Common cycle length" scope time
+The cycle length in years used for all the cycles that follow the
+common starting year and for all the stands in the simulation.
+
+BTOPIC cyclE "FVS cycle" scope time
+The temporial resolution of FVS is a cycle.  Typical cycles are 10 years long 
+but 5 years is used in some variants.
+
+BTOPIC postproC "Post processor"
+A computer program that further processes the output of a simulation.  
+A post processor can be added to a simulation using Suppose.
+
+BTOPIC parmS "FVS Parms feature"
+A feature of some FVS keywords whereby parameters of the keyword are
+entered as expressions of Event Monitor variables rather than
+constants.
+
+BTOPIC selecTW "Selections Window"
+The Selections window is the window that contains a major set of
+buttons for accessing the most important features of Suppose.  On Unix
+systems, it is the only "opened" Suppose window when you start
+Suppose.  On MS-Windows it is a Window within the Suppose Task Window.
+The features of Suppose accessed using the Selections window can also
+be accessed using the Basics menu item.
+
+BTOPIC mgmtiD "Management Identification"
+Within FVS, each stand is identified with a stand identification and a
+4 character management identification.  The MgmtID keyword is used by
+FVS to set this value.  Suppose automatically adds this keyword using
+the value you specify in the "Change Group Membership" window.
+
+BTOPIC casE "Case"
+A case is a one stand run with one set of FVS options or a case may be
+the weighted average of two or more other cases.  There may be many
+cases in a simulation file, each representing several different stands
+all run with the same options.  On the otherhand, many cases in a
+simulation file may be the same stand run with several different
+options.  The term is used in the Generate Reports window.
+
+BTOPIC ppE "Parallel Processing Extension (PPE)"
+The PPE is an Extension to the FVS system that simulates all the
+stands in a run through time in parallel rather than serially. It
+allows the system to represent the dynamic interactions between
+stands, like the spread of insects and constraints on the size of
+cutting blocks, to be directly represented in the simulation.

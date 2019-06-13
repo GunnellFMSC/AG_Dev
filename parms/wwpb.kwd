@@ -1,0 +1,1375 @@
+//start keyword.wwpb.APhero
+
+description:
+{Controls the simulation of application of attracting pheromone.
+
+User may optionally specify the stand ID's for the affected stands manually
+by pressing the Parms button.
+}
+
+f1title:{Year of application}
+f1:{scheduleBox}
+
+f2:{longTextEdit Name of file listing stands where pheromone will be applied.}
+f2v:{aphero.sid}
+
+f3:{intNumberBox File reference number}
+f3v:{60 31 Fmax}
+
+f4:{numberBox Percent efficiency of pheromones}
+f4v:{75 0 100}
+
+answerForm:
+{\
+END
+Open      !3,10!
+!2!
+BMPPIN
+APhero    !1,10!!3,10!!4,10!
+END
+Close     !3,10!
+BMPPIN
+}
+
+parmsForm:
+{APhero    !1,10!          !4,10!
+*Stand_ID
+!delete this line and add your list of stand ID's here
+-999
+}
+
+ppe:{bottom}
+
+//end keyword.wwpb.APhero
+
+//start keyword.wwpb.Attract
+
+description:
+{Controls several of the parameters in the between-stand attractiveness
+equation (see Westwide Pine Beetle Model User's Guide for details).  If Ips
+is present as a driving variable the keyword should be entered once for 
+the main beetle species and once for Ips.
+
+The "Select beetle type" field may remain blank IF this keyword follows
+keyword BMPARM, and IF the beetle species is correctly defined in BMPARM.
+If this keyword occurs BEFORE BMPARM, then a beetle species MUST be selected
+in the "Select beetle type" field.
+}
+
+f1:{listButton Select beetle type:}
+f1v:{MPB - Dendroctonus ponderosae Hopkins
+WPB - Dendroctonus brevicomis LeConte
+Ips
+>}
+
+f2:{numberBox Minimum host dbh (inches) that will attract beetles}
+f2v:{6.0}
+
+f3:{numberBox Special tree weight "a"}
+f3v:{1.0}
+
+f4:{numberBox Distance between stands weight "c"}
+f4v:{100.0}
+
+f5:{numberBox Attractiveness of a stand to itself "n"}
+f5v:{1.0}
+
+f6:{numberBox maximum dispersal distance for BKP (miles)}
+f6v:{15.0}
+
+answerForm:{ATTRACT   !1,10,lut!!2,10!!3,10!!4,10!!5,10!!6,10!}
+parmsForm=answerForm
+lut:{1 2 3}
+
+ppe:{top}
+
+//end keyword.wwpb.Attract
+
+//start keyword.wwpb.BKPKill
+
+description:
+{This keyword allows users to specify a period of years when the
+BKP multiplier BMULT is fixed, rather than determined by the tree
+size class.  The specified BKP multiplier value will be used for all
+trees, regardless of size.  The BKP level in the outside world will
+also be reduced by this amount in the specified years.  BKP in
+strip-killed trees will have a multiplier of 0 in these years.
+
+The "Select beetle type" field may remain blank IF this keyword follows
+keyword BMPARM, and IF the beetle species is correctly defined in BMPARM.
+If this keyword occurs BEFORE BMPARM, then a beetle species MUST be selected
+in the "Select beetle type" field.
+}
+
+f1title:{Year to start lowered multiplier.}
+f1:{scheduleBox}
+
+f2:{intNumberBox Number of years to apply the change}
+f2v:{25 1 Fmax}
+
+f3:{listButton Select beetle type:}
+f3v:{MPB - Dendroctonus ponderosae Hopkins
+WPB - Dendroctonus brevicomis LeConte
+Ips
+Both Ips and (MPB or WPB)
+>}
+
+f4:{numberBox New fixed BKP multiplier value}
+f4v:{0.35}
+
+f5:{numberBox New fixed Ips BKP multiplier value(use only with both)}
+f5v:{0.035}
+
+ppe:{top}
+
+answerForm:{Bkpkill   !1,10!!2,10!!3,10,lut!!4,10!!5,10!!6,10!}
+parmsForm=answerForm
+lut:{1 2 3 4}
+
+//end keyword.wwpb.BKPKill
+
+//start keyword.wwpb.BMDamage
+
+description:
+{This keyword causes the BKP levels in the model to be initialized through 
+damage codes in the inventory (code3, severity 0 or 3 only).  Damage codes 
+in stands inventoried more than the field-specified years prior to the
+master start year will be ignored.  This keyword MUST be placed after the
+BMParm keyword.
+}
+
+f1:{intNumberBox Number of years prior to master start year}
+f1v:{2}
+
+parmsForm:{
+BMDamage  !1,10!}
+
+ppe:{top}
+
+//end keyword.wwpb.BMDamage
+
+//start keyword.wwpb.BMDetail
+
+description:
+{This keyword is now obsolete!
+Users may request various detailed output on a stand-by-stand basis
+via keywords: MAINOUT, TREEOUT, BKPOUT, or VOLOUT.  
+See also WWPB Model keyword BMOUT.
+}
+
+f1:{noInput}
+ppe:{top}
+
+//end keyword.wwpb.BMDetail
+
+//start keyword.wwpb.BMDVOut
+
+description:
+{This keyword is now obsolete!
+Use new *STAND-LEVEL* WWPB Model keyword BKPOUT to request driving
+variable output, or any of the other *stand-level* output-generating
+keywords: MAINOUT, TREEOUT, or VOLOUT.  
+See also WWPB Model keyword BMOUT.
+}
+
+f1:{noInput}
+ppe:{top}
+
+//end keyword.wwpb.BMDVOut
+
+//start keyword.wwpb.BMFdbk
+
+description:
+{Sets the BKP density-dependent feedback function threshold level.
+This level represents two things:(1) if a stand's BKP/acre exceeds this
+amount, it will experience (the following year) the negative feedback 
+function invoked by this keyword; and (2) this is the level to which 
+BKP/acre is reduced, (in every stand meeting criteria #1) if this keyword is used.
+}
+
+f1:{numberBox Mean stand-level BKP/acre triggering feedback}
+f1v:{50.0 0 Fmax}
+
+parmsForm:{
+BMFdbk    !1,10!}
+
+ppe:{top}
+
+//end keyword.wwpb.BMFdbk
+
+//start keyword.wwpb.BMHist
+
+description:
+{Initializes the BKP levels in stands.  Supplemental records need to 
+contain stand IDs (up to 26 charcters in columns 1-30), size class (#1-10)
+of tree(s) beetle-killed the previous year (in columns 31-40), and the 
+number of trees (per acre) in that size-class killed (in columns 41-50).
+
+The "Select beetle type" field may remain blank IF this keyword follows
+keyword BMPARM, and IF the beetle species is correctly defined in BMPARM.
+If this keyword occurs BEFORE BMPARM, then a beetle species MUST be selected
+in the "Select beetle type" field.
+
+If supplemental records are not being read from an external file, the 
+user may optionally specify the supplemental records for the affected
+stands manually by pressing the Parms button.
+}
+
+f1:{longTextEdit Name of file listing beetle damage information}
+f1v:{bmhist.bmh}
+
+f2:{intNumberBox File reference number}
+f2v:{63 31 Fmax}
+
+f3:{listButton Select beetle type:}
+f3v:{MPB - Dendroctonus ponderosae Hopkins
+WPB - Dendroctonus brevicomis LeConte
+Ips
+>}
+
+answerForm:{\
+END
+Open      !2,10!
+!1!
+BMPPIN
+BMHist    !2,10!!3,10,lut!
+END
+Close     !2,10!
+BMPPIN}
+
+parmsForm:{\
+BMHist              !3,10,lut!
+*Stand_ID dbh_class trees/ac
+!Delete this line and enter your stands, classes, and trees killed per acre
+-999
+}
+lut:{1 2 3}
+
+ppe:{top}
+
+//end keyword.wwpb.BMHist
+
+//start keyword.wwpb.BMOut
+
+description:
+{Used to request either or both of 2 output files: 
+(1) the annual Landscape Average file (suffixed ".bml"), and/or
+(2) the Cycle output file (suffixed ".bmc").
+The "bml" file reports landscape average values (stand-area weighted) of 
+of various WWPBM variables, reported annually.  
+The "bmc" file reports cycle-beginning values of various output variables 
+for ALL stands simulated in the WWPBM.  
+
+Note: 
+Additional output options are available via *Stand-Level* WWPBM keywords:
+     MAINOUT, BKPOUT, TREEOUT, and VOLOUT.
+}
+
+f1:{listButton Write the Landscape Average output file?} 
+f1v:{>Yes
+No}
+
+f2:{listButton Write the Cycle output file?} 
+f2v:{>Yes
+No}
+
+lut1:{0 1}
+answerForm:{BMOut     !1,10,lut!!2,10,lut!}
+parmsForm=answerForm
+
+ppe:{top}
+
+//end keyword.wwpb.BMOut
+
+//start keyword.wwpb.BMParm
+
+description:
+{Used to define the main species of pine beetle that is being simulated.  
+The beetle species selected will be the default species for all
+keywords that follow.  It will set the default values in keywords Attract,
+BMHist, BKPKill, and Reprodn (if they occur after BMParm). The user must
+specify a beetle species, and at least one host tree species (numeric code 
+required).
+}
+
+
+f1:{listButton Select beetle species (REQUIRED)}
+f1v:{MPB - Dendroctonus ponderosae Hopkins
+WPB - Dendroctonus brevicomis LeConte
+Ips
+>}
+
+f2:{intNumberBox Number of beetle generations within a year}
+f2v:{1 1 5}
+
+f3:{intNumberBox Main host species number for this variant (REQUIRED)}
+f3v:{blank}
+
+f4:{intNumberBox Other host species number for this variant}
+f4v:{blank}
+
+f5:{intNumberBox Other host species number for this variant}
+f5v:{blank}
+
+f6:{intNumberBox Other host species number for this variant}
+f6v:{blank}
+
+f7:{intNumberBox Other host species number for this variant}
+f7v:{blank}
+
+ppe:{top}
+
+lut:{1 2 3}
+answerForm:{BMParm    !1,10,lut!!2,10!!3,10!!4,10!!5,10!!6,10!!7,10!}
+parmsForm=answerForm
+
+//end keyword.wwpb.BMParm
+
+//start keyword.wwpb.BMTotals
+
+description:
+{This keyword is now obsolete (September, 2005).
+Please use keyword BMOUT to request annual landscape average output,
+and/or cycle boundary output for all stands.  Additionally available are 
+STAND LEVEL WWPB Model keywords: MAINOUT, BKPOUT, TREEOUT, and VOLOUT.
+}
+
+f1:{noInput}
+ppe:{top}
+
+//end keyword.wwpb.BMTotals
+
+//start keyword.wwpb.Debug_Top
+
+description:
+{Turn on the WWPB debugging mode prior to reading in stand information.
+May be turned off with NoDebug_Top, NoDebug_Bottom, and NoDebug_Report
+keywords.
+}
+
+f1:{noInput}
+
+answerForm:{Debug}
+
+ppe:{top}
+
+//end keyword.wwpb.Debug_Top
+
+//start keyword.wwpb.Debug_Bottom
+
+description:
+{Turn on the WWPB debugging mode after to reading in stand information
+but before Projecting the model.  May be turned off with NoDebug_Bottom and
+NoDebug_Report keywords.
+}
+
+f1:{noInput}
+
+answerForm:{Debug}
+
+ppe:{bottom}
+
+//end keyword.wwpb.Debug_Bottom
+
+//start keyword.wwpb.Debug_Report
+
+description:
+{Turn on the WWPB debugging mode after to projecting the model when 
+reporting the output.  May be turned off with NoDebug_Report keyword.
+}
+
+f1:{noInput}
+
+answerForm:{Debug}
+
+ppe:{report}
+
+//end keyword.wwpb.Debug_Report
+
+//start keyword.wwpb.Disperse
+
+description:
+{Defines the start year and number of years to simulate the model.
+Is Required to run the model.  Must be placed after all other landscape-
+level WWPB model keywords that require a year field entry.
+}
+
+f1title:{Start year for WWPB model}
+f1:{scheduleBox}
+
+f2:{intNumberBox Number of years to simulate model}
+f2v:{50 1 Fmax}
+
+parmsForm:{
+Disperse  !1,10!!2,10!}
+
+ppe:{top}
+
+//end keyword.wwpb.Disperse
+
+//start keyword.wwpb.IpsDV
+
+description:
+{Turn on Ips as a driving variable (i.e. as a secondary beetle).
+This keyword also defines the minimum and maximum dbh that Ips attacks
+in the model, if Ips is the main beetle species.
+}
+
+f1:{numberBox Minimum dbh that Ips attack}
+f1v:{3}
+
+f2:{numberBox Max dbh that Ips can kill the entire tree}
+f2v:{15}
+
+f3:{intNumberBox Number of Ips generations in a year}
+f3v:{2}
+
+f4:{sliderBox Proportion of deadwood to fill before live attack}
+f4v:{0.9 0 1 0 1}
+
+ppe:{top}
+
+parmsForm:{
+IpsDV     !1,10!!2,10!!3,10!!4,10!}
+
+//end keyword.wwpb.IpsDV
+
+//start keyword.wwpb.Lightn
+
+description:
+{Controls the density of simulated lighting struck trees in the landscape. 
+Lighting is a landscape-level event, meaning that it is either active or 
+inactive for all stands.  Lighting is always present but it can be turned 
+off by setting field 2 to 0 in any year.}
+
+f1title:{Year to turn on lightning strike simulations}
+f1:{scheduleBox}
+
+f2:{numberBox Density of lighting strikes (trees/acre/year)}
+f2v:{0.002}
+
+parmsForm:{
+Lightn    !1,10!!2,10!}
+
+ppe:{top}
+
+//end keyword.wwpb.Lightn
+
+//start keyword.wwpb.NoDebug_Top
+
+description:
+{Turn off the WWPB debugging mode prior to reading in stand information.
+}
+
+f1:{noInput}
+
+answerForm:{NoDebug}
+
+ppe:{top}
+
+//end keyword.wwpb.NoDebug_Top
+
+//start keyword.wwpb.NoDebug_Bottom
+
+description:
+{Turn off the WWPB debugging mode after to reading in stand information
+but before Projecting the model.  
+}
+
+f1:{noInput}
+
+answerForm:{NoDebug}
+
+ppe:{bottom}
+
+//end keyword.wwpb.NoDebug_Bottom
+
+//start keyword.wwpb.NoDebug_Report
+
+description:
+{Turn off the WWPB debugging mode after to projecting the model when
+reporting the output.  
+}
+
+f1:{noInput}
+
+answerForm:{NoDebug}
+
+ppe:{report}
+
+//end keyword.wwpb.NoDebug_Report
+
+//start keyword.wwpb.NonStock
+
+description:
+{Tells the simulation which stands are non-stockable stands.  It assumes 
+that the area and centroid information is included in the Arealocs file.
+
+User may optionally specify the stand ID's for the affected stands manually
+by pressing the Parms button.
+}
+
+f1:{longTextEdit Name of file listing nonstockable stands.}
+f1v:{nonstock.sid}
+
+f2:{intNumberBox File reference number}
+f2v:{65 31 Fmax}
+
+answerForm:{\
+END
+Open      !2,10!
+!1!
+BMPPIN
+NonStock  !2,10!
+END
+Close     !2,10!
+BMPPIN
+}
+
+parmsForm:
+{NonStock
+*Stand_ID
+!delete this line and add your list of stand ID's here
+-999
+}
+
+ppe:{bottom}
+
+//end keyword.wwpb.NonStock
+
+//start keyword.wwpb.OtherBB
+
+description:
+{Controls simulation of bark beetles that are not the main beetle species 
+simulated and that are not Ips.  Attacks from "other bark beetles" occur
+only if a minimum number of eligible stems is reached, and only affect the
+rating values of trees--no direct tree mortality occurs.
+This is a landscape-level keyword and specified parameters are used 
+for all stands in the landscape.
+}
+
+f1title:{Year to start outbreak}
+f1:{scheduleBox}
+
+f2:{intNumberBox Number of years to remain active}
+f2v:{25}
+
+f3:{numberBox Minimum dbh to attack}
+f3v:{10}
+
+f4:{numberBox Minimum eligible stems for outbreak}
+f4v:{10}
+
+f5:{sliderBox Attack rate}
+f5v:{0.75 0 1 0 1}
+
+f6:{sliderBox Maximum rating value eligible for attack}
+f6v:{0.7 0 1 0 1}
+
+parmsForm:{
+OtherBB   !1,10!!2,10!!3,10!!4,10!!5,10!!6,10!}
+
+ppe:{top}
+
+//end keyword.wwpb.OtherBB
+
+//start keyword.wwpb.OWIpsDV
+
+description:
+{If the outside world is assumed to be "constant" (see OWType), and Ips is 
+present as a driving variable, this keyword allows the user to change the 
+conditions for Ips in the outside world in any year of the simulation.  
+Note that the keyword OWValues should be used to set the conditions for 
+the main beetle type, the total BA/acre, and the average rating value in 
+the outside world.  Levels set by this keyword remain in effect until 
+replaced by new values when the keyword is used again.
+}
+
+f1title:{Change values at the start of year}
+f1:{scheduleBox}
+
+f2:{numberBox BKP level in the outside (sq.ft./acre)}
+f2v:{blank}
+
+f3:{numberBox BA/acre of attractive host trees}
+f3v:{blank}
+
+f4:{numberBox BA/acre of special trees}
+f4v:{blank}
+
+f5:{numberBox Trees/acre of special trees}
+f5v:{blank}
+
+parmsForm:{
+OWIpsDV   !1,10!!2,10!!3,10!!4,10!!5,10!}
+
+ppe:{top}
+
+//end keyword.wwpb.OWIpsDV
+
+//start keyword.wwpb.OWType
+
+description:
+{Set the type of outside world that is being simulated.  If an outside 
+\world is to be used, the user has two options: 1) conditions in the 
+outside world can remain constant throughout the model (either as defined 
+by the user (see OWValues and OWIpsDV), or by default, in the same 
+condition as the landscape average at the start of the simulation); or 
+2) the outside world can always be the same as the average of the landscape 
+over time (a "floating" outside world).
+}
+
+f1:{listButton Turn outside world }
+f1v:{>On
+Off}
+
+f2:{listButton Type of conditions in outside world}
+f2v:{> Constant
+Average of the landscape}
+
+f3:{sliderBox Percent that is non-stockable (e.g., lake)}
+f3v:{0 0 99 0 99}
+
+ppe:{top}
+
+lut1:{1 0}
+lut2:{1 -1}
+
+answerForm:{\
+OWType    !1,10,lut1!!2,10,lut2!!3,10!}
+parmsForm=answerForm
+
+//end keyword.wwpb.OWType
+
+//start keyword.wwpb.OWValues
+
+description:
+{If the outside world is assumed constant (set with OWType keyword), this
+keyword allows the user to change the conditions in the outside world in 
+any year of the simulation.  Note that this keyword is used for setting 
+the conditions for the main beetle type.  If Ips is present as a driving 
+variable, the keyword OWIpsDV should also be used.  Levels set by this
+keyword remain in effect until replaced by new values when the keyword is 
+used again.  Also note that if the keyword BKPKill is used, it will 
+over-ride the BKP-level in the outside world (set herein) during the
+years BKPKill is active.
+}
+
+f1title:{Beginning calendar year to change values}
+f1:{scheduleBox}
+
+f2:{numberBox BKP level in the outside (sq.ft./acre)}
+f2v:{blank}
+
+f3:{numberBox BA/acre of attractive trees}
+f3v:{blank}
+
+f4:{numberBox BA/acre of special trees}
+f4v:{blank}
+
+f5:{numberBox Trees/acre of special trees}
+f5v:{blank}
+
+f6:{numberBox Total BA/acre in the outside}
+f6v:{blank}
+
+f7:{numberBox Stress-level (rating value of host trees in outside world}
+f7v:{blank}
+
+ppe:{top}
+
+parmsForm:{
+OWValues  !1,10!!2,10!!3,10!!4,10!!5,10!!6,10!!7,10!}
+
+//end keyword.wwpb.OWValues
+
+//start keyword.wwpb.QDefol
+
+description:{
+Activates the "quick" defoliator model.  In the model, defoliators only act
+on host trees and only reduce the rating value of the trees, without
+actually (directly) killing trees.  This is a landscape-level keyword, so 
+if invoked, defoliators will occur in all stands with host trees within
+the given dbh range.}
+
+f1title:{Year to start defoliation event.}
+f1:{scheduleBox}
+
+f2:{intNumberBox Number of years to for defoliation}
+f2v:{25 1 Fmax}
+
+f3:{numberBox Proportion of host trees defoliated}
+f3v:{0.25 0 1}
+
+f4:{numberBox Minimum dbh}
+f4v:{8.0}
+
+f5:{numberBox Maximum dbh}
+f5v:{30.0}
+
+parmsForm:{
+QDefol    !1,10!!2,10!!3,10!!4,10!!5,10!}
+
+ppe:{top}
+
+//end keyword.wwpb.QDefol
+
+//start keyword.wwpb.QFire
+
+description:
+{Activates the "quick" fire model.  Fire can kill all trees (host and
+non-host) and may affect the rating values of surviving trees.  This is 
+a landscape-level keyword, so if invoked, fires may occur in any stand.
+Note that the same fuel moisture code is used for all stands.
+}
+
+
+f1title:{Year to start fire simulation.}
+f1:{scheduleBox}
+
+f2:{intNumberBox First year for fire to occur}
+f2v:{50 1 Fmax}
+
+f3:{listButton Landscape-level fuel moisture code}
+f3v:{\
+Very low (wildfire)
+Low
+> Moderate
+High}
+
+ppe:{top}
+
+answerForm:{\
+QFire     !1,10!!2,10!!3,10,lut!}
+parmsForm=answerForm
+lut:{1 2 3 4}
+
+//end keyword.wwpb.Qfire
+
+//start keyword.wwpb.QMort
+
+description:
+{Activates the "quick" extra mortality model.  It increases mortality levels
+on the type of tree specified by the user (host or non-host only) within 
+the dbh limits specified.  QMort is a landscape-level keyword and will be 
+active in all stands that contain trees within the given dbh range.}
+
+f1title:{Year to start mortality event.}
+f1:{scheduleBox}
+
+f2:{intNumberBox Number of years to extra mortality}
+f2v:{5 1 Fmax}
+
+f3:{listButton Select type of tree dying:}
+f3v:{>non-host
+host of main pine beetle}
+
+f4:{numberBox Minimum dbh}
+f4v:{0}
+
+f5:{numberBox Maximum dbh}
+f5v:{100}
+
+f6:{numberBox Total mortality of eligible stems}
+f6v:{0.5 0 1}
+
+answerForm:{QMort     !1,10!!2,10!!3,10,lut!!4,10!!5,10!!6,10!}
+parmsForm=answerForm
+lut:{2 1}
+
+ppe:{top}
+
+//end keyword.wwpb.QMort
+
+//start keyword.wwpb.QRRot
+description:
+{Controls the spread rate of root rot through an infected root system in 
+the "quick" root disease model. This keyword requires that damage codes be
+included in tree records (codes 61, 62, or 64; severity codes are not used).
+This model only affects rating values of trees, and does not (dirctly)
+cause tree mortality.  This is a landscape-level keyword, hence parameters
+are used for all stands in the landscape.
+}
+
+f1:{sliderBox Annual infection rate}
+f1v:{0.1 0 1 0 1}
+
+parmsForm:{
+QMort     !1,10!}
+
+ppe:{top}
+
+//end keyword.wwpb.QRRot
+
+//start keyword.wwpb.QSRust
+
+description:
+{Controls the spread rate of stem rust through infected trees in
+the quick stem rust model.  This keyword requires that damage codes be
+included in tree records (codes 35-39; severity codes are not used).
+This model only affects rating values of trees, and does not (dirctly)
+cause tree mortality.  This is a landscape-level keyword, hence parameters
+are used for all stands in the landscape.
+}
+
+f1:{sliderBox Annual infection rate}
+f1v:{0.001 0 1 0 1}
+
+parmsForm:{
+QRRot     !1,10!}
+
+ppe:{top}
+
+//end keyword.wwpb.QSRust
+
+//start keyword.wwpb.QWindth
+
+description:
+{Simulate quick windthrow event.  Windthrow is a landscape-level model so 
+if this keyword activates windthrow, windthrow can occur in any stand.
+Windthrow creates special trees for Ips.
+}
+
+f1title:{Year to start windthrow simulation.}
+f1:{scheduleBox}
+
+f2:{intNumberBox Number of years to apply windthrow simulation}
+f2v:{25 1 Fmax}
+
+f3:{numberBox Minimum tree height eligible for windthrow(ft)}
+f3v:{8}
+
+f4:{numberBox Min number of eligible stems (TPA) for windthrow to occur}
+f4v:{1}
+
+f5:{numberBox Portion of eligible stems to windthrow}
+f5v:{0.4 0 1.0}
+
+ppe:{top}
+
+parmsForm:{
+QWidth    !1,10!!2,10!!3,10!!4,10!!5,10!}
+
+//end keyword.wwpb.QWindth
+
+//start keyword.wwpb.RANNSeed
+
+description:
+{Reseeds the pseudorandom number generators used in WWPB Model.}
+
+f1title:{Replacement value for the seed (should be an odd integer
+value)}
+f1:{intNumberBox Replacement value}
+f1v:{blank}
+
+parmsForm:{
+RANNSeed  !1,10!}
+
+ppe:{top}
+
+//end keyword.wwpb.RANNSeed
+
+//start keyword.wwpb.Reprodn
+
+description:
+{Controls the multiplication (BMULT in the Model Description) of BKP in 
+successfully attacked or strip-killed trees.   These values are used in 
+all stands in all years (except for specified years when BKPKill is 
+invoked).
+
+The "Select beetle type" field may remain blank IF this keyword follows
+keyword BMPARM, and IF the beetle species is correctly defined in BMPARM.
+If this keyword occurs BEFORE BMPARM, then a beetle species MUST be selected
+in the "Select beetle type" field.
+}
+
+f1:{listButton Select beetle species type}
+f1v:{MPB - Dendroctonus ponderosae Hopkins
+WPB - Dendroctonus brevicomis LeConte
+Ips
+>}
+
+f2title:{This field is the dbh at which the BKP produced (in year "t") equals
+the amount of BKP assigned to the class in year t-1, or in other words...}
+f2:{numberBox The dbh at which BMULT=1}
+f2v:{6}
+
+f3:{numberBox The maximum multiplier value.}
+f3v:{4}
+
+f4:{numberBox The dbh above which the multiplier does not increase}
+f4v:{36}
+
+ppe:{top}
+
+lut:{1 2 3}
+answerForm:{Reprodn   !1,10,lut!!2,10!!3,10!!4,10!}
+parmsForm=answerForm
+
+//end keyword.wwpb.Reprodn
+
+//start keyword.wwpb.RPhero
+
+description:
+{Controls the simulation of application of repelling pheromone.  Repelling
+pheromones are only assumed successful if used against mountain pine beetle
+in lodgepole pine in stands at least 2.5 acres in size and in which less 
+than 10% of the stems have been successfully attacked the previous year.
+
+User may optionally specify the stand ID's for the affected stands manually
+by pressing the Parms button.
+}
+
+f1title:{Year of application}
+f1:{scheduleBox}
+
+f2:{textEdit File name for list of stand ID's to apply pheromone to}
+f2v:{rphero.sid}
+
+f3:{intNumberBox File reference number}
+f3v:{66 31 Fmax}
+
+f4:{sliderBox Percent efficiency}
+f4v:{75 0 100 0 100}
+
+ppe:{bottom}
+
+answerForm:{\
+END
+Open      !3,10!
+!2!
+BMPPIN
+RPhero    !1,10!!3,10!!4,10!
+END
+Close     !3,10!
+BMPPIN
+}
+
+parmsForm:
+{RPhero    !1,10!          !4,10!
+*Stand_ID
+!delete this line and add your list of stand ID's here
+-999
+}
+//end keyword.wwpb.RPhero
+
+//start keyword.wwpb.RVDense
+
+description:
+{Deactivate the calcuation of the rating value (RV) from the stand density 
+effects.
+}
+
+f1:{noInput}
+
+ppe:{top}
+
+//end keyword.wwpb.RVDense
+
+//start keyword.wwpb.Salvage
+
+description:
+{Simulate removal of standing dead trees (after beetle emergence).
+
+User may optionally specify the stand IDs for the affected stands manually
+by pressing the Parms button.
+}
+
+f1title:{Year to perform salvage}
+f1:{scheduleBox}
+
+f2:{textEdit Name of file listing stands to salvage}
+f2v:{salvage.sid}
+
+f3:{intNumberBox File reference number}
+f3v:{67}
+
+f4:{numberBox Minimum dbh (inches) to remove}
+f4v:{10}
+
+f5:{numberBox Maximum dbh (inches) to remove}
+f5v:{60}
+
+f6:{numberBox Maximum age (years) to remove}
+f6v:{2}
+
+f7:{numberBox Minimum eligible volume to be present before salvage will occur (cu.ft./acre)}
+f7v:{10.0}
+
+f8:{sliderBox Efficiency of harvest}
+f8v:{0.8 0 1 0 1}
+
+answerForm:{\
+END
+Open      !3,10!
+!2!
+BMPPIN
+Salvage   !1,10!!3,10!!4,10!!5,10!!6,10!!7,10!!8,10!
+END
+Close     !3,10!
+BMPPIN
+}
+
+parmsForm:{\
+Salvage   !1,10!          !4,10!!5,10!!6,10!!7,10!!8,10!
+*Stand_ID
+!delete this line and add your list of stand ID's here
+-999}
+
+ppe:{bottom}
+
+
+//end keyword.wwpb.Salvage
+
+//start keyword.wwpb.Sanitize
+
+description:
+{Simulate the removal of beetle-attacked trees before beetle emergence, or
+live, unattacked trees with a low RV.
+
+User may optionally specify the stand IDs for the affected stands manually
+by pressing the Parms button.
+}
+
+f1title:{Year of sanitation cut}
+f1:{scheduleBox}
+
+f2:{textEdit File name of file listing stands to sanitize}
+f2v:{sanitize.sid}
+
+f3:{intNumberBox File reference number}
+f3v:{68}
+
+f4:{numberBox Minimum dbh (inches) to remove}
+f4v:{6.0}
+
+f5:{numberBox Maximum dbh (inches) to remove}
+f5v:{999}
+
+f6:{sliderBox Maximum rating value of unattacked trees to remove}
+f6v:{0.0 0.0 1.0 0.0 1.0}
+
+f7:{numberBox Minimum eligible volume to be present before sanitation will occur (cu.ft./acre)}
+f7v:{10.0}
+
+f8:{sliderBox Efficiency of harvest}
+f8v:{0.95 0 1 0 1}
+
+answerForm:{\
+END
+Open      !3,10!
+!2!
+BMPPIN
+Sanitize  !1,10!!3,10!!4,10!!5,10!!6,10!!7,10!!8,10!
+END
+Close     !3,10!
+BMPPIN
+}
+
+parmsForm:{\
+Sanitize  !1,10!          !4,10!!5,10!!6,10!!7,10!!8,10!
+*Stand_ID
+!delete this line and add your list of stand ID's here
+-999
+}
+
+ppe:{bottom}
+
+//end keyword.wwpb.Sanitize
+
+//start keyword.wwpb.SlashMgt
+
+description:
+{Simulate the removal of fresh (this year's) slash created from harvesting
+or salvage logging.
+
+User may optionally specify the stand IDs for the affected stands manually
+by pressing the Parms button.
+}
+
+f1title:{Year of slash removal}
+f1:{scheduleBox}
+
+f2:{textEdit Name of file listing stands to remove slash}
+f2v:{slashmgt.sid}
+
+f3:{intNumberBox File reference number}
+f3v:{69}
+
+f4:{sliderBox Proportion of slash less than 3 inches diameter to remove}
+f4v:{0 0 1 0 1}
+
+f5:{sliderBox Proportion of slash greater than 3 inches diameter to remove}
+f5v:{0.8 0 1 0 1}
+
+answerForm:{\
+END
+Open      !3,10!
+!2!
+BMPPIN
+SlashMgt  !1,10!!3,10!!4,10!!5,10!
+END
+Close     !3,10!
+BMPPIN
+}
+
+parmsForm:{\
+SlashMgt  !1,10!          !4,10!!5,10!
+*Stand_ID
+!delete this line and add your list of stand ID's here
+-999
+}
+
+ppe:{bottom}
+
+//end keyword.wwpb.SlashMgt
+
+//start keyword.wwpb.Spray
+
+description:
+{Simulates the application of pesticide.  Simulated sprayings are effective
+(will keep BKP out of the stand for 2 years after spraying) only if no BKP
+is present in the stand the year it is treated.
+
+User may optionally specify the stand ID's for the affected stands manually
+by pressing the Parms button.
+}
+
+f1title:{Year of application}
+f1:{scheduleBox}
+
+f2:{textEdit Name of file listing stands to be sprayed}
+f2v:{spray.sid}
+
+f3:{intNumberBox File reference number}
+f3v:{71}
+
+f4:{sliderBox Efficiency}
+f4v:{0 0 1 0 1}
+
+answerForm:{\
+END
+Open      !3,10!
+!2!
+BMPPIN
+Spray     !1,10!!3,10!!4,10!
+END
+Close     !3,10!
+BMPPIN
+}
+
+parmsForm:{\
+Spray     !1,10!          !4,10!
+*Stand_ID
+!delete this line and add your list of stand ID's here
+-999
+}
+
+ppe:{bottom}
+
+//end keyword.wwpb.Spray
+
+//start keyword.wwpb.VaryRain
+
+description:
+{Controls the stand and tree class rating values due to climate effects 
+for specific years.  There are two different ways to use this keyword.
+In the first, random variation is generated automatically.  In the second, 
+the user can define a constant coefficient each time the keyword is used. 
+The effect remains active until the keyword is repeated (whereby the user 
+would turn VaryRain off, or change its value(s)).  This is a landscape-
+level keyword and specified parameters are used for all stands in the
+landscape.
+
+Field 3:
+
+If the type of change is random variation, field 3 contains the
+standard deviation of the distribution effects and the input value must be
+positive.
+
+If the type of change is user-defined constant, field 3 contains the change
+in effects from their normal value of 1.0, where negative values indicate
+lower RV (tree stressed) conditions and positive values indicate increased
+RV conditions.  Range: all real values, but generally -3.0 to 3.0.}
+
+f1title:{Year to start rating change.}
+f1:{scheduleBox}
+
+f2:{listButton Select type of change:}
+f2v:{Off
+>random variation
+user-defined}
+
+f3:{numberBox Field 3 see documentation.}
+f3v:{3.0 -10 10}
+
+f4:{numberBox Coefficient - influence of dbh}
+f4v:{0}
+
+f5:{numberBox Coefficient - elevation}
+f5v:{0}
+
+f6:{numberBox Coefficient - SDI}
+f6v:{-1}
+
+f7:{numberBox Coefficient - moisture-score}
+f7v:{0}
+
+lut:{-1 0 1}
+answerForm:{VaryRain  !1,10!!2,10,lut!!3,10!!4,10!!5,10!!6,10!!7,10!}
+parmsForm=answerForm
+
+ppe:{top}
+
+//end keyword.wwpb.VaryRain
+
+//start keyword.wwpb.WetScore
+
+description:
+{If Field 7 of keyword VaryRain is NOT zero, then this keyword must be used
+(in conjunction with VaryRain).  It allows the user to input a "site moisture
+score" or other measure of habitat quality that will influence how VaryRain
+affects each stand.
+
+User may optionally specify the stand IDs for the affected stands manually
+by pressing the Parms button.
+
+Supplemental records must contain stand ID (up to 26 characters) in columns
+1-30, followed by the moisture score in columns 31-40.
+}
+
+f1:{textEdit Name of file listing stands and moisture scores}
+f1v:{wetscore.bmm}
+
+f2:{intNumberBox File reference number}
+f2v:{70}
+
+answerForm:{\
+END
+Open      !2,10!
+!1!
+BMPPIN
+WetScore  !2,10!
+END
+Close     !2,10!
+BMPPIN
+}
+
+parmsForm:{\
+WetScore     
+*Stand_ID MoistScr
+!delete this line and add your list of stand ID's and moisture score here
+-999
+}
+
+ppe:{bottom}
+
+//end keyword.wwpb.WetScore
+
+!----------------------------
+! Stand Level WWPBM Keywords 
+!----------------------------
+
+//start keyword.wwpb2.MainOut
+
+description:
+{Requests the "Main" WWPBM output file, reporting various model variables
+in years requested by user, for stands to which this keyword is attached.
+
+Note:
+Multiple instances of this keyword are allowed; user thus has the ability
+to schedule output writing at different frequecies in different simulation 
+intervals.}
+
+f1title:{Starting year for the WWPBM Main output file:}
+f1:{scheduleBox}
+
+f2:{intSliderBox Reporting period duration (years)}
+f2v:{100 0 400 0 200}
+
+f3:{intSliderBox Reporting interval (years)}
+f3v:{1 1 50 1 21}
+
+
+parmsForm:{
+MainOut   !1,10!!2,10!!3,10!}
+
+//end keyword.wwpb2.MainOut
+
+//start keyword.wwpb2.TreeOut
+
+description:
+{Requests the detailed tree size-class level WWPBM output file, 
+reporting various model variables in years requested by user, 
+for stands to which this keyword is attached.
+
+Note:
+Multiple instances of this keyword are allowed; user thus has the ability
+to schedule output writing at different frequecies in different simulation 
+intervals.}
+
+f1title:{Starting year for the detailed tree size-class output file:}
+f1:{scheduleBox}
+
+f2:{intSliderBox Reporting period duration (years)}
+f2v:{100 0 400 0 200}
+
+f3:{intSliderBox Reporting interval (years)}
+f3v:{1 1 50 1 21}
+
+parmsForm:{
+TreeOut   !1,10!!2,10!!3,10!}
+
+//end keyword.wwpb2.TreeOut
+
+//start keyword.wwpb2.BKPOut
+
+description:
+{Requests the detailed BKP and driving variable output file, 
+reporting various model variables in years requested by user, 
+for stands to which this keyword is attached.
+
+Note:
+Multiple instances of this keyword are allowed; user thus has the ability
+to schedule output writing at different frequecies in different simulation 
+intervals.}
+
+f1title:{Starting year for the detailed BKP output file:}
+f1:{scheduleBox}
+
+f2:{intSliderBox Reporting period duration (years)}
+f2v:{100 0 400 0 200}
+
+f3:{intSliderBox Reporting interval (years)}
+f3v:{1 1 50 1 21}
+
+parmsForm:{
+BKPOut    !1,10!!2,10!!3,10!}
+
+//end keyword.wwpb2.BKPOut
+
+//start keyword.wwpb2.VolOut
+
+description:
+{Requests the detailed tree volume output file, 
+reporting various model variables in years requested by user, 
+for stands to which this keyword is attached.
+
+Note:
+Multiple instances of this keyword are allowed; user thus has the ability
+to schedule output writing at different frequecies in different simulation 
+intervals.}
+
+f1title:{Starting year for the detailed Volume output file:}
+f1:{scheduleBox}
+
+f2:{intSliderBox Reporting period duration (years)}
+f2v:{100 0 400 0 200}
+
+f3:{intSliderBox Reporting interval (years)}
+f3v:{1 1 50 1 21}
+
+parmsForm:{
+VolOut    !1,10!!2,10!!3,10!}
+
+//end keyword.wwpb2.VolOut

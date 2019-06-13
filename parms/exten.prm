@@ -1,0 +1,58 @@
+//start extensions
+
+! The PKey is the extension abbreviation, the PString is the name.
+
+base:    {Base FVS system}
+cover:   {Cover Model}
+estb:    {Full Establishment Model}
+strp:    {Partial Establishment Model}
+dbs:     {Database Extension}
+
+econ:    {Economic Analysis Extension}
+mist:    {Dwarf Mistletoe Impact Model}
+organon: {ORGANON in FVS}
+
+fire:    {Fire and Fuels Extension}
+climate: {Climate-FVS Extension}
+
+ardwrd3: {WRD (Annosus Root Disease)}
+armwrd3: {WRD (Armillaria Root Disease)}
+phewrd3: {WRD (Laminated Root Rot)}
+
+dfb:     {Douglas-fir Beetle}
+dftm:    {Douglas-fir Tussock Moth}
+lpmpb:   {LP Mountain Pine Beetle}
+wpbr:    {White Pine Blister Rust}
+wsbwd:   {General Defoliation Model}
+wsbwd:   {   --"Manual" Defoliation}
+wsbwe:   {General Defoliation Model}
+wsbwe:   {   (replaces old WSBW model)}
+
+bgc:     {BGC (Biogeochemical Cycles)}
+
+//end extensions
+
+//start extensPrefixes
+
+estb   : Estab
+strp   : Estab
+cover  : Cover
+fire   : FMIn
+mist   : Mistoe
+ardwrd3: RDIn
+armwrd3:{RDIn\nRRType             3}
+phewrd3:{RDIn\nRRType             4}
+wpbr   : BRust
+lpmpb  : MPB
+dfb    : DFB
+dftm   : DFTM
+wsbwd  : WSBW
+wsbwe  : WSBW
+dbs    : DataBase
+econ   : Econ
+bgc    : BGCIn
+climate: Climate
+organon: Organon
+
+//end extensPrefixes
+

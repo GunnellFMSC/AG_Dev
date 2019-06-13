@@ -1,0 +1,1205 @@
+===========================================================================
+                      Suppose Programmers Documentation
+===========================================================================
+
+                            Nicholas L. Crookston
+                                RMRS - Moscow
+
+                   Date of Last Revision: September 24, 1998
+
+--------------------------- 
+Preface 
+---------------------------
+
+The goal of this document is to provide professionals with knowledge
+of C++, XVT, Rouge Wave Tools.h, and the FVS system some guidance
+concerning the Suppose computer program and some explanation about
+the program's design.  Reading this document should be the first step
+for anyone who plans to change or extend Suppose. Any one thinking of
+building a replacement might also pick up a few tips.
+
+This document, the parms files, the source code, the help files, XVT,
+and and Rogue Wave documents must be taken together as there is little
+overlap among these sources of information.  Furthermore, as long as
+Suppose is under development, this document will never be complete in
+every respect.  It will evolve as the program does.
+
+Writing Suppose has been a learning experience for me.  I did not know
+C++ before I started and had little experience with C.  I did not know
+XVT nor Rouge Wave Tools.h either.  As I learned, the coding went
+better and I was able to take better advantage of C++ and the
+supporting tools.  Modules written later in the development process
+greatly benefited from my newly found experience and knowledge.  Some
+of the older modules are, as some would say, are a bit more C-like
+than like C++!
+
+I have high hopes that writing this documentation will pay off.  You
+may think of it as a long letter to future programmers.  That is my
+view!
+
+--------------------------- 
+Introduction 
+---------------------------
+
+As pointed out in the Preface, Suppose is written in C++.  It uses as
+a foundation the XVT-Power++ application framework.  This framework is
+a library of classes that provide the bases for coding graphical user
+interfaces.  The framework uses an underlying API from XVT called the
+XVT Portability Toolkit.  XVT uses, and supplies, the Rogue Wave
+Tools.h library.  The Suppose code takes great advantage of all these
+elements.  XVT also supplies a GUI builder called Architect.  As this
+product was not fully functional when Suppose development was started.
+For this reason and because money for training was not available,
+Architect was not used.  If I had it all to do over again, I'd likely
+use Architect for those features it supports.  But, going to it now
+would be a lot of work that would most likely not pay off.  Suppose
+contains many features that Architect does not directly support
+anyway.
+
+Suppose was written to run on PC's under Windows and on AIX as a Motif
+application.  Most of the of the differences between these to systems
+are completely handled by XVT.  Differences within Suppose include how
+system calls are done, a few font considerations, and how the program
+is compiled.  On AIX, I use IBM's CSet and on Windows, I use Microsoft
+Visual C++ version 5.0 (Borland was used in the past, but I changed
+when I went to Win32 only).
+
+Here is the organization of this document:
+
+Chapter 1--Files.  Outlines the file structure of the source code,
+parms files, help files, and this programmers documentation.  There is
+also some information on naming and coding conventions.
+
+Chapter 2--Data Structures Part 1: RunStream, Stands, Groups, and
+Components.  Documents these elements of the Suppose data structure.
+
+Chapter 3--The keyword file.  Documents the content of the keyword
+file.
+
+Chapter 4--Data Structures Part 2: Parms file objects.  Describes
+these data objects and the utilities provided to manipulate them.
+
+Chapter 5--class CWwindow:CWindow. Describes the role of this class.
+
+Chapter 6--The General Purpose Screen Builder.  Describes how the
+"GPKeyword" class works and the supporting utilities.
+
+Chapter 7--The Management window.  Describes the purpose of this
+abstract class and how it is used to build management windows.
+
+Chapter 8--Automatic data propagation.  Describes how Suppose passes
+information from place to place.
+
+Chapter 9--Data Structures Part 3: Report data objects. Describes
+these data objects and code that builds reports and graphs.
+
+Chapter 10--Data Structures Part 4: External stands. Describes
+the objects used to hold information about stands that are not part of
+the simulation (read directly from the stand list files).
+
+Chapter 11--Variants, extensions, programs, and commands. Describes
+the objects used to support variant, program, and command selection.
+
+  
+---------------------------------------------------------------------------
+                              Chapter 1--Files
+
+                   Date of Last Revision: December 9, 1997
+---------------------------------------------------------------------------
+
+The file structure is similar on AIX and Windows.  There is a
+directory called program/.  Inside it are the following
+subdirectories:
+
+>>>>>>>>>>  This structure has changed... we need to renew this list 9/3/03
+
+pdoc/     -- this document
+help/     -- the help system source files
+parms/    -- the source for the parms file.
+src/      -- the source code, header files, and on AIX libSuppose.a
+             and the Makefile used to build libSuppose.a
+bin/      -- the resources files, compiled help and parms, the linked
+             program, and on Windows the .obj files.
+test/     -- on AIX only, a few test files and run script.
+suppose/  -- on Windows only, a few test files.
+bin/      -- on AIX: the resource files, compiled help, suppose.prm, and
+             the linked program and makefiles.
+             on Windows: the resources files, the .obj files.
+fvsbin/   -- on Windows: the .exe file, compiled help, and suppose.prm
+supposeReleaseNotes/ -- itemized list of changes made to each release.
+
+---------------------------
+pdoc/
+---------------------------
+
+The sections are named with a sequence number followed by some
+meaningful name.  Are are .txt files.
+
+---------------------------
+help/
+---------------------------
+
+The help system is composed of a series of files.  The helpc compiler
+preprocesses these files to form a single source file for compilation.
+The head of the files is helpfile.txt.  It includes the rest of the
+help system.  The files names of the component parts of the help
+system are meaningful.  If the help is directly tied to a window, say
+the Shelterwood window, for example, then its name is identical to the
+corresponding source code files that it supports.  The Shelterwood
+window is created using source sheltwin.cpp and its corresponding help
+file is sheltwin.txt.  There are additional files that are not related
+to individual windows, like these: glossary.txt, intro.txt,
+appendix.txt, and contents.txt.
+
+The Figures/ subdirectory contains the few .bmp images used as
+illustrations.
+
+Commands to compile the help files are included in make (on AIX) and
+in MAKE.BAT (on Windows).
+
+---------------------------
+parms/
+---------------------------
+
+suppose.prm is created by the concatenation of most files in this
+directory.  For Windows, use MKPRM.BAT to build this file.  On AIX,
+use Mkprm to build it.  The concatenation can be done in any order.
+However, I prefer to insure that prefer.prm and ppif.prm are near the
+top of the file.
+
+Mods.txt is a listing of changes made.
+
+There is extensive information about the content of the parms file in
+the on line help files under Appendix.
+
+File sufficies (not all that important):
+ .prm  Most files
+ .kwd  Those that define keywords.
+ .rul  Those that define rules.
+ .evm  Those that define event monitor functions.
+
+
+---------------------------
+src/
+---------------------------
+
+The source modules have the file suffix .cpp and the headers .hpp.
+The top of each .cpp files contains a very short identification of the
+file's content.  Notes regarding the functionality and so on are in
+the header files, not the .cpp files.
+
+I have made no attempt to keep a "beautiful" list of the information
+contained in a header file as is done by some developers.  If you want
+to know a header file's contents, simply read it.  This approach is
+the most accurate besides being quicker.  I have made every effort to
+insure that objects, member data elements, and so on are clearly
+named.  Use the names and search tools to find out what is what.
+
+XVT has a naming convention that I often used.  A member data element
+carries the prefix, "its", like itsParent.  If the element is passed
+into the function, it has the prefix the, like theParent. If the data
+element has only function scope, then it does not start with either of
+these words.  I did not understand the wisdom of using this convention
+early on so in some source files the words its and the are not used in
+this context.
+
+My class and function names usually start with a capital letter.  All
+variable names start with a lower case letter.  All words after the
+first word in a name start with a capital letter.  So, GetParent() is a
+function, PostProcWin is a class name, and theParent is a variable.
+Rogue Wave starts their function names with a lower case letter, so be
+aware of the difference in style.
+
+The source file names are a short form of the class name they contain
+or some other descriptive name.  Some major facilities in Suppose are
+implemented in a set of related source files.  These sets are listed in the
+chapter that describes the functionality.  They are worth remembering.
+
+A word on notation: the colon, :, used between two class names,
+signifies that one class inherits from another.  For example, if
+ClassTwo:ClassOne is written, then ClassTwo inherits ClassOne.  When
+inheritance is shown using this notation, I'll only list it up to the
+XVT or Rogue Wave base class.  These base classes may have long
+inheritance lines of their own that are not listed in any of this
+documentation (but are listed in the XVT or Rogue Wave documentation).
+
+Rather than writing a list of the source files and providing a summary
+of their contents, I invite you to browse through the source and check
+out the contents.  Here is a hint: the program starts in main.cpp, it
+creates an instance of SpGlobal (the Suppose global class), then it
+creates CsupposeApp:CApplication, calls Go(), and never returns!  Go()
+initializes system resources and then creates a Suppose document,
+which is called CsupposeDoc:CDocument.  This class, flushed out in
+appdoc.cpp, is where the Suppose code really begins.
+
+----------------------------------------------------------------------------
+Chapter 2--Data Structures Part 1: RunStream, Stands, Groups, and Components
+
+                   Date of Last Revision: December 10, 1997
+----------------------------------------------------------------------------
+
+Class RunStream holds pointers to all the stands, groups, and
+components.  There is only one instance, it is created in appdoc.cpp
+as needed.  The pointer to it is in SpGlobal.
+
+RunSteam contains collections that make up the elements of a .key file
+and related items.  Since .key files are made up of stands, groups,
+components, selected post processors, and the like, it is natural that
+these items are in the RunStream class.
+
+RunStream has member functions that read and write keyword files, add
+and delete components, stands, and groups.  It is a complicated part
+of Suppose.  All interactions with this data structure are handled
+with this class' member functions.
+
+Note two member collections called subsetGroups and subsetStands.
+These collections contain pointers to the current stand or group.
+Suppose only allows one stand or one group to be current at a time.
+These are collections rather than single pointers to "the" current
+stand or group because an early idea was that Suppose would allow
+users the ability to define any collection of stands, groups, or both
+to be "current".  This is the reason for the term "currentSubset".  It
+is an obsolete term that refers to the current group or current stand.
+
+Stands, Groups, and Components all inherent form CStringRWC.
+Therefore they can be in any RWCollection and be inserted into any
+list box or list button.  The methods used to create these new species
+of collectable objects (in this case, collectable strings) are
+detailed in the Rogue Wave programmers guide.  You can also see how it
+is done by reading the stand.hpp and stand.cpp.
+
+See runstr.hpp for more information on all the related classes and
+functions.
+
+---------------------------
+Related files:
+---------------------------
+
+runstr.?pp
+group.?pp
+compon.?pp
+stand.?pp
+spglobal.?pp
+readcomp.?pp
+
+---------------------------
+Thoughts:
+---------------------------
+
+Besides the obsolete term of current subset, I also point out the a
+few other flaws in the program organization.
+
+1. Several member functions are currently public that should be
+private.  The friendship relationships between classes should be
+defined to protect the data.
+
+2. Streams should be used rather than the stdio.h methods.
+
+3. The program that writes components is very complex.  The rules for
+building extension-start keywords, like RRIN, Estab, and so on, and
+the rules for building End and EndIF keywords are complicated and not
+well understood by reading the code.  This is a documentation and
+coding problem that should be fixed.  On the otherhand, the code works.
+
+4. The are two misnamed functions: PutComponentOnClipBoard and
+GetComponentFromClipBoard.  They are misnamed in that they don't
+really use "the" clip board but simply a spot RunStream's memory.
+Also, this pseudo-clip board should actually be a list of deleted
+items so that a user can pick from any one of the items in the list of
+deleted items.  The graphical elements to the Edit Simulation File
+window would need adjustment to allow for this functionality.---------------------------------------------------------------------------
+                          Chapter 3--The keyword file
+
+                   Date of Last Revision: December 11, 1997
+---------------------------------------------------------------------------
+
+The keyword file structure is documented here.  Some general rules and
+ideas are presented first, then a formal definition of the file is
+presented.
+
+---------------------------
+General concepts
+---------------------------
+
+The keyword file is line oriented.  When the first two characters are
+!!, the line is directly interpreted by Suppose and ignored when the
+keyword file is read by FVS.  Generally, following the !! characters,
+there is a alpha string that, together with the !! forms a Suppose
+identifier.  For example, !!End is an often used Suppose identifier
+that signals the end of a multi-line section.
+
+Suppose identifiers are often followed by data which is on the same
+line with the identifier, on following lines, or both.  For example, the
+identifier !!PP is followed by a list of post processors listed on the
+same line.
+
+Sometimes the identifier's data spans many lines.  When FVS should
+read the data, the lines are do not start with !!.  For example, !!Top is
+a Suppose identifier.  Its data is an FVS comment that contains
+several lines.  Therefore, the lines do not start with !!.  Suppose
+and FVS both use the data in this section.
+
+In other cases, the identifier's data is not for FVS to read.  For
+example, !!P signals that a component's parameter data follows on one
+or several records.  Each record starts with !! so that FVS will
+ignore it.
+
+In some cases, a line is inserted by Suppose into a keyword file
+because it is needed by FVS but it is ignored by Suppose when Suppose
+reads the same file.  This is often the case with the End keyword that
+is used by FVS to signal the end of the keywords associated with an
+FVS extension.  In this case, Suppose knows that the keyword belongs
+to the extension and realizes the following keywords do not.  To
+Suppose, the End is not necessary and is therefore ignored.  To FVS it
+is critical.
+
+Many identifiers are used by Suppose only when they are needed.  For
+example, consider the !!P identifier.  If a component has no
+parameters, the !!P identifier is not written and therefore reading is
+is optional.
+
+---------------------------
+Formal definition, part 1
+---------------------------
+
+The notation used to describe the simulation file follows a diagram
+format.  The lines with pointers indicate how one item follows the
+other in the file.  Lines that show that an item is optional are drawn
+below and around the item.  For example:
+
+	 ----> [item] ----->
+          \->--------->/
+
+shows that [item] can be bypassed and is therefore optional.  When the
+line below the item contains arrows that point the other direction,
+the [item] can be repeated.
+
+The file starts with the header, identified by !!Suppose.
+
+  [StartOfFile]---> !!Suppose ---->
+
+Data for !!Suppose, same line:
+
+Field 1: Suppose version id, currently not used.
+Field 2: Variant id used to run the keyword file.
+Field 3: Flag, 1 if PPE is being used, 0 otherwise, currently not used.
+Field 4: Flag, 1 if PPE use is locked, 0 otherwise, currently not used.
+
+
+  ---> !!Top ---- [comment] ---- !!End ---->
+
+Where [comment] is several lines of data, for example:
+
+Comment
+Starting year for simulation is 1989
+Ending year for simulation is   2029
+Min and Max inventory years are 1989 1989
+End
+
+The years listed in these comment records are used by Suppose to set
+YearObj member data.
+
+  ---> !!Timing ---- [keywords] ---- !!End ---->
+    \->------------------------------------>/
+
+The !!Timing section is currently not used.  It is intended to hold
+the data necessary to fully support varying the number and length of
+cycles independently within each stand.
+
+  ---> !!SN ---- [comment] ---- !!End ---->
+    \->-------------------------------->/
+
+Where [comment] is the simulation notes created using the Edit
+Simulation Notes feature for the entire run (rather than a specific
+component).
+
+  ---> !!Stand ---- [stand] ---- !!EndStand ---->
+    \<-------------------------------------<-/
+
+Where [stand] is described in the Formal definition part 2, below.  As
+indicated by the backward arrows, the [stand] section is repeated for
+each stand in the simulation.  After all stands are written, the FVS
+STOP keyword is written, followed by the groups and group membership
+data, and finally by the current subset data.  Note that the
+structure allows for several stands, groups, or both to be in the
+current subset even though Suppose GUI elements do not support this
+idea any longer.
+
+  ---> STOP ---- !!G ----------- !!S -------->
+             \ \<-----<-/    \<-----<-/ /
+              \<---------------------<-/
+
+  ---> !!Subset ------ !!S -------- !!End --->[EndOfFile]
+                 \  \<----<-/   /
+                  \->-- !!G -->/
+                     \<---<-/
+
+Data for !!S, same line:
+
+Field 1: Stand identification.
+Field 2: Suppose assigned stand serial number.
+
+Data for !!G, same line:
+
+Field 1: Group identification.
+Field 2: Suppose assigned group serial number.
+
+---------------------------
+Formal definition, part 2, [stand]
+---------------------------
+
+A [stand] is defined as follows:
+
+  [BeginStandDefinition]---- StdIdent ---- !!SK ---- !!End ---->
+
+Data for !!Stand, same line:
+
+Field 1: Stand identification.
+Field 2: Suppose assigned stand serial number.
+
+StdIdent is followed by it's normal supplemental data record.
+
+Data for !!SK, same line, a list of variant id's for which the stand
+applies.  Following the !!SK is a set of keywords for the stand site
+variables.
+
+  ---> !!TK ---- [keywords] ---- !!End ---->
+
+Following !!TK are the timing keywords for the stand.  These include
+the NumCycle and any needed TimeInt keywords.
+
+  ---> !!C ---- [component] ---- !!End ---->
+    \<--------------------------------<-/
+     \->------------------------------>/
+
+Where [component] is a set of elements described below under Formal
+Definition, part 3, [component].
+
+  ---> !!TR ---- [keywords] ---- !!End ---->
+
+Where [keywords] is a set of keywords used to open the tree data files
+for the stand and read them.  If there are not tree data, then NoTrees
+is written.
+
+  ---> SPLabel ---- Process ----[EndOfStandDefinition]
+
+SPLablel is followed by a list of groups to which a stand is a
+member.
+
+---------------------------
+Formal definition, part 3, [component]
+---------------------------
+
+There are several data elements to the !!C record, as follows:
+
+All the text up to the ~ character is the component title.  It is
+followed by the Suppose-assigned component serial number, the
+component type (see compon.hpp for component type information), the
+serial number of the related condition if there is one (-1 otherwise),
+the variant id of the variant to which the component is tied, the FVS
+extension identification, and finally the Group name and serial
+number when the component is part of a group (@ otherwise).
+
+  [BeginComponentDefinition]---- !!SW ---- !!P ---->
+                              \        \->------>/
+                               \->------------->/
+
+Data for !!SW, same line: the name of the Suppose window that owns the
+component.
+
+Data for !!P, same line: # followed by the number of additional
+records needed to hold the parameters for the component.  If all the
+parameters fit on the !!P line, then the # character is absent.
+Several lines may be needed for the !!P data.  The format and meaning
+of these data elements depends on and is owned by the window that
+created the component (if there is one).
+
+  ---> !!CE ---- [comment] --->
+   \->--------------------->/
+
+Where [comment] is a set of data starting with the Comment keyword and
+ending with End.  These comments are created using the Edit Simulation
+Notes tool.
+
+  ---> !!K ---- [keywords] ---- !!End ---- [EndOfComponentDefinition]
+   \->-------------------------------->/
+
+Where [keywords] is a set of data that contain the keywords for the
+component.
+
+Note that when a component is written to the simulation file the first
+time, all the data elements are output.  When it is written the second
+time (for multi-stand simulation), only some of the data are written.
+When Suppose reads a simulation file, it creates on one instance of
+each unique component.  If a component has been read, the second or
+subsequent occurrence only signifies that the component belongs to the
+stand or group.
+
+
+
+
+---------------------------------------------------------------------------  
+            Chapter 4--Data Structures Part 2: Parms file objects
+
+                   Date of Last Revision: December 30, 1997
+---------------------------------------------------------------------------
+
+Before continuing to read this section, read the Suppose on line help
+about the parameters file.  That help file will provide you with an
+understanding of the file's role, contents, and the supporting
+terminology.    
+
+When Suppose starts, it creates one instance of class
+SpParms:RWBinaryTree.  A pointer to this object is held in SpGlobals.
+The general approach is this: The constructor of this class is passed
+a const char * to the parameter file name.  The code in SpParms reads
+this file and creates a collection of MSText:CStringRWC objects.  Each MSText
+object contains a file position value that points to the beginning of
+the data related to that object.  If and when Suppose needs the data,
+the file is opened to that position and the MSText is read and parsed
+into is member elements.  In short, Suppose only stores the names of
+each MSText not all the included data until that data is needed.
+
+---------------------------
+Related files:
+---------------------------
+
+spparms.?pp
+
+---------------------------
+Thoughts:
+---------------------------
+
+1.  The basic idea of the Suppose parms file works well.  The ability
+to modify many basic data elements within Suppose without having XVT
+and without C++ is a major selling point. 
+
+2.  The file is completely reread when the File, New or Open menu
+items are selected.  This is likely not necessary and takes a lot of
+extra computer time.  I suggest adding a Reset menu item to the File
+menu and then change the CsupposeDoc::ResetSuppose method so that the
+parms file is not reset unless the reset command is selected.
+
+3.  As it turned out, there is a lot of duplication in the Parms file.
+Much could be eliminated by creating a reference logic for MSText that
+works like the PKeyData's equal sign (=).  This allows one PKeyData to
+refer to another.  I don't know if this would be used much, however.
+
+4.  Some programmers may wonder why I did not use dictionary objects for
+MSText and PKeyData.  The reason is simple: I did not understand them
+very well at the time and now that I do understand them I'm sure that
+the current approach works just fine.
+---------------------------------------------------------------------------  
+                     Chapter 5--class CWwindow:CWindow
+
+                   Date of Last Revision: February 9, 1998
+---------------------------------------------------------------------------
+
+Class CWwindow:CWindow is a base class for most Suppose windows.  It's
+role is to establish help associations for the menu items and to close
+the application if the last window is closed.  
+
+All windows that need the standard help associations should inherent
+form this class.  Otherwise, inherent from CWindow directly, or
+inherent from this window and then change the help associations as
+necessary. 
+
+---------------------------
+Related files:
+---------------------------
+
+cwwindow.?pp
+
+---------------------------------------------------------------------------
+                Chapter 6--The General Purpose Screen Builder
+
+                   Date of Last Revision: December 30, 1997
+---------------------------------------------------------------------------
+
+Nearly all keywords are supported using a "facility" called the
+General Purpose Keyword facility.  This is a window that builds basic
+elements by default, including the component title, a CScroller, and
+these buttons: OK, Use Parms, Reset, and Close.  The technique has
+been extended to support some parts of the free form edit window
+(a.k.a the expression editor).
+
+Read the on line help file entries to understand the supporting terms
+and purpose of the GPKeyword facility.
+
+When the user presses the "Use FVS Keywords" button, Suppose creates
+an instance of UseFVSKey:CWwindow.  This window displays keywords
+organized by FVS extension, category within the extension, and then
+the keywords.  The data for this information are loaded from
+the parms file MSText sections named: keycats, exten, and
+keyword_list.
+
+When a keyword is selected, and the Accept button pushed,
+UseFVSKey::LaunchKeywordWindow is called.  This method usually creates
+a new instance of GPKeyword for the keyword.  LaunchKeywordWindow
+contains a table that allows any keyword to be supported with any
+window.  So, creating a special window to support a keyword is simply
+done by adding the relationship between the keyword and the window in
+the table and launching the correct window.
+
+GPKeyword can alternatively be started from the Edit Simulation
+window.  In this case, the keyword's component already exists but the
+user desires to change some setting(s).  A lot of complicated code
+exists in GPKeyword to handle these two alternative modes (see
+Thoughts, below for some comments on this matter).
+
+Note that GPKeyword does not create a component until the OK button is
+pushed (unless it is editing a component, in which case it never
+creates one).  It also maintains a relationship between a keyword
+component and its condition, when a related condition exists.
+
+---------------------------
+The CScroller
+---------------------------
+
+The graphical elements of a keyword are loaded into a CScroller a
+regular function called BuildField (see spfuncs.?pp).  Companion
+functions are used to BuildTheKeywords, ResetObjects, BuildCParms, and
+so on.  Read the spfuncs.cpp file understand the basic functions that
+support loading the CScroller and the keywords.
+
+To add a new graphical element to the list of those supported with the
+GPKeyword facility simply requires that the functions in spfuncs.?pp
+be modified according to the needs of the new graphical element.
+
+Note that the functions in spfuncs.?pp are used by express.?pp to
+support setting function arguments.
+
+---------------------------
+Related files:
+---------------------------
+
+parms/keylist.prm
+parms/exten.prm
+parms/keycats.prm
+parms/*.kwd
+
+src/usekey.?pp
+src/gpkey.?pp
+src/boxsldr.?pp
+src/schedobj.?pp
+src/schcond.?pp
+src/express.?pp
+src/spfuncs.?pp
+
+and a few others, see the include file list in gpkey.cpp
+
+---------------------------
+Thoughts:
+---------------------------
+
+1.  GPKeyword works differently when it is creating a new keyword
+component (where Cancel means don't create the component, among other
+things) and when it is editing an existing component (where Cancel
+means don't save the changes to the existing component).  Best C++
+programming would be to identify the common program elements for these
+two approaches and place them in a supporting class that is inherited
+from two new classes that each have only one mode.  This was not
+done.
+
+2.  There is another class, called CMgtClassWindow (cmgtclas.?pp),
+that duplicates much of the code in GPKeyword for supporting editing
+verses creating components and the program logic to handle related
+condition components (IF-Then).  GPKeyword should inherent form
+CMgtClassWindow but does not.
+
+3.  The code that deals with related condition components is different
+for the case where a component is being edited verses initially
+created.  GPKeyword suffers from very complex code to handle all the
+various cases.  This code was a source of many early core dumps and
+general protection faults.  If it is correct now (and it seems to
+work), then I am of the mind to LEAVE IT BE!  The "leave it be"
+approach is why item 2 was not done.
+
+4.  Many functions in spfuncs.cpp could have been more C++ like than
+C-like.  Any rewrite should take better advantage of the Rogue Wave
+string class manipulation functions and they are easy to use and work
+well (I used them a lot in other parts of the code). What is done is
+done, however.
+
+5.  Some may wonder why the function in spfuncs.?pp are not member
+functions of GPKeyword.  The reason is that these functions are called
+by other classes that do not have common inheritance (another C-like
+rather than C++-like feature of the code).
+
+
+---------------------------------------------------------------------------  
+                      Chapter 7--The Management windows
+
+                   Date of Last Revision: February 9, 1998
+---------------------------------------------------------------------------
+
+The management window is the one that opens when the user presses the
+"Select Management Actions" button on the main window.
+
+The class is CMngWin:CcatWin:CWwindow:CWindow.  CWwindow provides base
+window support and relates the help topics to menu items.  CcatWin
+provides a "Category-Item" relationship in twin list boxes.  The first
+list is a list of categories, the second a list of items in each
+category.  The user selects an item, and the window that supports that
+item is launched.
+
+However, CcatWin is an abstract class in that it does not provide this
+behavior to a specific list of categories and items.  For that,
+CMngWin is used.  This class processes the list in the parameter file
+stored as MSText mgmtCategories.  Each item is related to an actual
+object name in this list.
+
+Note that the source code in CMngWin must be updated if new windows
+are written to provide functionality beyond those CMngWin can open.
+
+Once an item is selected by the user, the Window that supports the
+management action is opened.  These windows are either based on the
+GPSB or class CMgtClassWindow:CWwindow:CWindow 
+
+This class provides the bases for all the management windows that are
+built without using the GPSB.  It has the built in tools necessary to
+handle creating components and relating them to condition components.
+It can deal with a component that is being edited verses one that is
+being created.  The code for these various states is complicated.
+Future management windows should also be based on CMgtClassWindow.
+For a recent example of this window, see
+PlantNaturalWin:CMgtClassWindow:CWwindow:CWindow in the files
+plantwin.?pp. 
+
+---------------------------
+Related files:
+---------------------------
+
+cmngwin.?pp
+ccatwin.?pp
+cmgtclas.?pp
+clearwin.?pp
+seedwin.?pp
+sheltwin.?pp
+thinwin.?pp
+plantwin.?pp
+
+mgmtcats.prm
+
+---------------------------
+Thoughts:
+---------------------------
+
+1.  The "Select Model Outputs" and "Select Ecosystem Components"
+components of Suppose should be build to work like the management
+window.  That is, each should be based on a class that directly
+inherits from CcatWin:CWwindow:CWindow.  The parms file can then be
+used to load the categories and action lists and relate them to
+actions.  The GPSB could be used to build some of the windows and
+CMgtClassWindow can be the basis of others.
+---------------------------------------------------------------------------  
+                    Chapter 8--Automatic Data Propagation
+
+                   Date of Last Revision: April 14, 1998
+---------------------------------------------------------------------------
+
+Describes how Suppose passes information from place to place.  This is
+called Automatic Data Propagation.  Be aware of the following ways
+data are passed from class to class:
+
+1. There is movement of data along the inheritance line of any C++
+based application. That is, public variables that are in a class that
+is the base class to another class are publicly available to the class
+that inherits form the base.  XVT does not use this method.  Suppose
+does use it in the CMgtClassWindow:CWwindow:CWindow class to pass
+information in CMgtClassWindow to the classes which are based on it.
+
+2. XVT has a method that uses the "DoCommand" process.  For example,
+if a button has a SetCommand value, the button calls the DoCommand for
+its container (ie, itsParent) when the button is pushed.  If the
+container does not process the command (and thereby trap it), the
+container automatically calls the DoCommand for itsParent, and so on
+up to the application level.  This call sequence is tricky to track.
+If you override the DoCommand method for a class from which you
+inherit, you can break the call sequence by not calling the DoCommand
+method for the parent class.  Sometimes the sequence is broken, and
+sometimes it is not. 
+
+3. XVT has a new method of passing data between objects called
+Transparent Data Integration.  This is a process where the programmer
+relates two or more visual objects (like text edits) together.  The
+XVT software passes characters typed in one to the other.  Suppose
+does not use this facility.
+
+4. Suppose code contains a notification mechanism that uses the
+DoCommand methods of CWindow based objects.  Note that XVT keeps a
+list of all windows that are instantiated at a given time.  The idea
+is that a user may "do something" in one window that needs to be
+reported to other instantiated windows.  This mechanism is to use a
+function called SendUpdateMessage to send the message.
+
+See suppdefs.hpp for a list of defined message actions.  See
+appdoc.?pp for the code that actually sends the messages.
+
+Code that causes one of several application-level events, like
+deleting or adding stands, calls SendUpdateMessage with a message
+number corresponding to the event.  If the class that causes the event
+does not want to be informed that the event occured, it can suppress
+notification by setting passing the value of "this".  
+
+Note:  Each (new) routine in Suppose must be reviewed in two
+respects.  First, if the routine can cause any of the actions listed
+in the defined message list, then the routine should include
+SendUpdateMessage to cause notification that the action took place.
+Second, if a window should respond to one of the update messages, then
+code should be inserted into the window's DoCommand method to
+correctly process the message if it is received.  For an example of
+these two approaches, review the code found in class
+GroupMembershipWindow:CWwindow:CWindow that handles the case where the
+user changes the name of a stand or group using this window, and where
+the user uses a different window to change the number of stands in the
+simulation.
+
+
+---------------------------
+Related files:
+---------------------------
+
+suppdefs.hpp
+sendupdt.?pp
+appdoc.?pp
+
+---------------------------
+Thoughts:
+---------------------------
+
+1.  The approach works fine.
+
+---------------------------------------------------------------------------  
+          Chapter 9--Data Structures Part 3: Report data objects
+
+                   Date of Last Revision: July 28, 1998
+---------------------------------------------------------------------------
+
+Describes report data objects and code that builds reports and
+graphs. 
+
+---------------------------
+Report data objects
+---------------------------
+
+The report data is stored in a hierarchy.  This hierarchy is fully
+described in reprotd.hpp and summarized here.  The uppermost to lowest
+levels are:
+
+   AllFVSCases:RWOrdered - a collection of cases
+      FVSCase:CStringRWC   - a case that contains a collection of reports
+	 FVSReport:CStringRWC  - a report that contains a collection
+                                 of variables
+	    FVSVariable:CStringRWC  - a variable that contains a
+			              collection of observations
+	       FVSObservation:CStringRWC - an observation and an
+			                   observation identification.
+
+Each level contains a pointer to its upper level. 
+
+---------------------------
+Reading FVS outputs
+---------------------------
+
+ReadFVSOutputWindow:CWwindow contains the code that causes FVS output
+files to be read. This is done by a class called FVSParser. When data
+are scanned, FVSParser searches for a new case by looking for the
+"Keywords Selected by Input" table.  A new case is established (by a
+class CaseDefineUsingKeywordTable) if a new table is found.
+ 
+Once a new case is found, other parsers, including
+ParseSummaryOutputTable, ParseComputeVariables,
+ParseFirePotentialFlameReport, and ParseFireAllFuelsReport, parse
+reports they are intended to read.  Each record from the FVS output
+file is passed to all the parsers (by calling member functions,
+generally called ParseTable()).  If a parser finds "its" report, it
+creates a report and attaches it to the case.  Then it creates all the
+variables for the report, then starts collecting the observations.
+
+In the future, other files besides the FVS output file will be
+scanned. When this is implemented, the FVSParser will only create and
+call parser member functions appropriate to the kind of file being
+processed.  For example, if the treelist file is being parsed, only
+the tree list parser(s) will be called, and so on.
+
+The structure of the parsers somewhat changes depending on the file
+being parsed.  To build a new table, study the ParseTable() member
+functions and follow the pattern that best suits the new need.
+
+AverageFVSOutputWindow:CWwindow is used to create weight averages over
+cases that have been read.  
+
+---------------------------
+Displaying FVS data
+---------------------------
+
+Two classes, GenerateReportWindow:CWwindow and
+GenerateGraphWindow:CWwindow are used to generate reports and display
+graphs.  Either of them can recall, recreate the
+ReadFVSOutputWindow:CWwindow class.  Both use the same
+PickVariableWindow:CWwindow class to pick variables.  
+
+These routines are long and complex but self explanatory.
+
+---------------------------
+Related files:
+---------------------------
+
+avefvsw.?pp
+graphwn.?pp
+reportd.?pp
+parser.?pp
+readfvsw.?pp
+readfire.?pp
+reportwn.?pp (contains code for PickVariableWindow).
+rdtreels.hpp NOT YET COMPLETE
+
+---------------------------
+Thoughts:
+---------------------------
+
+1.  Suppose needs printer support to print the graphics or to store
+them in a portable format.
+
+
+---------------------------------------------------------------------------  
+           Chapter 10--Data Structures Part 4: External stands
+
+                Date of Last Revision: September 24, 1998
+---------------------------------------------------------------------------
+
+Describes the objects used to hold information about stands that are
+not part of the simulation (read directly from the stand list files).
+
+---------------------------
+Objects that hold the data
+---------------------------
+
+class AllLocationData holds two lists, one is a list of locations
+(read from the suppose.loc file) and the other is a list of groups
+(created by reading all of the .slf files referenced in the
+suppose.loc file.
+
+Each location is stored as an instance of class ExLocation:CStringRWC.
+One of the data members is a list of all the stands at the location.
+Another data member is a list of all the groups that are represented
+at the location.
+
+Each stand is stored as an instance of class ExStand:CStringRWC.  The
+stands membership in groups is stored in a member list.
+
+Each group is stored as an instance of class ExGroup:CStringRWC.  The
+locations where at least one stand exists that is a member of the
+group are stored in a member list.
+
+The usage notes in alllocd.hpp provide information on how this set of
+classes are used.
+
+---------------------------
+Select Simulations Stands
+---------------------------
+
+When the Select Simulations Stands window is opened (class
+SelectSimStandWin:CWindow), an instance of AllLocationData is
+created.  The data in this structure are used to load the pick lists
+in the window and to convert chosen ExStands into Stands.    
+
+---------------------------
+Related files:
+---------------------------
+
+alllocd.?pp
+selectsi.?pp
+
+---------------------------
+Thoughts:
+---------------------------
+
+1.  Some of the data, like the contents of the .slf records, are
+stored as character vectors.  They should be stored as CStringRW data.
+The fact that they are character vectors (in fact, simply pointers to
+char), means that the data are not easily manipulated.  This caused
+some coding errors in early releases and makes changing the program
+difficult as coding errors could easily creep back into the code if
+changes are made.
+
+2.  The "Stand Locations Editor" and "Stand List File Editor" also
+store the information about locations and stands.  The classes used
+those cases are separate and different from the classes used in this
+case.  This was done because each data element in the files needed to
+be editable (see file editslf.hpp and not how class
+SLFRecord:CStringRWC is constructed).  In the AllLocationData class
+structure, the data are not editable.  The editors were written over a
+year after the AllLocationData were constructed so a consistent
+approach was not designed at the start of development.
+
+---------------------------------------------------------------------------
+         Chapter 11--Variants, extensions, programs, and commands
+
+                Date of Last Revision: September 24, 1998
+---------------------------------------------------------------------------
+
+Describes the objects used to support variant, program, and command
+selection.
+
+This part of Suppose is perhaps the most complicated part.  Here is the
+idea.  As a user makes selections, like selecting one or more stands,
+or a keyword that requires a specific extension, and so on, then
+Suppose reacts by eliminating choices that conflict with the
+choices already made.  For example, lets say the user picks a stand the
+requires a specific variant and furthermore, that variant is part of
+an FVS program be run that does not contain the Full Establishment
+model.  Suppose will then eliminate the ability for the user to pick
+keyword options that are only available through the Full Establishment
+Model.  What if the reverse action is taken.  The user could pick a
+keyword option that requires the Full Establishment model prior to
+picking a stand.  Suppose will then eliminate the ability for the user
+to pick stands that require variants linked to the Full Establishment
+model.
+
+Once choices are eliminated they can not be recovered.  To understand
+this rule, consider again the Establishment example.  Say the user
+realizes that using the Full Establishment Model keyword is
+inconsistent with picking the desired stand.  A solution would be to
+delete the keyword.  But, Suppose will still not allow the user to
+pick the stand because Suppose does not have the ability to UNDO the
+process of eliminating choices that conflict with the
+choices already made.  The user must start over (using the New item of
+the File menu). See the "Thoughts" below to see how this restriction
+might be removed in the future.
+
+This facility in Suppose is supported by a set of classes, member data
+and member functions.  It is further supported by entries in the
+Suppose parameter file.
+
+---------------------------
+Important parameter file data
+---------------------------
+
+When the user presses the "Run Simulation" button, Suppose must
+determine what is going to be run.  It picks a "command" from a list
+supplied in the MSText section called commands.  There are entries for
+unix and dos (used for Win95).
+
+Suppose must pick an FVS program.  It picks the first program listed in the
+MSText section called programs that contains the desired variant and
+the desired extensions.
+
+Suppose knows the required extensions because it keeps a list of those
+implied by the chooses made by the user.  Keywords and other options
+in Suppose have a corresponding entry in the parameters file (or in
+some cases, hard coded in Suppose), that tags the option as to the
+required extension.  If no tag is present, then the base model is
+required.  All FVS programs contain the base model.
+
+Suppose knows the desired variant because it keeps track of the
+preferred and acceptable variants for each stand in the simulation.
+When a Keyword is included in the run (a keyword Component), it is
+tagged with the variant being used.  This implies that the variant is
+required for the run (see the section on thoughts, below).
+
+Suppose knows the relationship between a variant abbreviation and a
+full name because of the contents of the MSText section called
+variants.  It knows the relationship between an extension abbreviation
+and a full name because of the contents of the MSText section called
+extensions.
+
+---------------------------
+Objects that hold the data
+---------------------------
+
+class SpCommands holds the list of commands and contains member
+functions to select the needed command for the run.
+
+class SpPrograms holds the list of programs and the member functions
+to select the needed program.  For each program, the variant on which
+it is based and the list of extensions it contains are provided.
+
+class SpVariants holds the list of variants and the member functions
+to update the list of legal variants from which the user, or Suppose,
+may pick.
+
+class SpExtensions holds the list of extensions and the member
+functions to update the list of legal extensions from which the user,
+or Suppose may pick.
+
+Calls to the update functions are scattered through out the code as
+necessary.  For some examples, see the code in selectsi.cpp
+SelectSimStandWin::SpAcceptStandList() that signals that some specific
+variant(s) are required NewStandVariantsInteraction() and the call to
+AddExtensionInUse in function RunStream::AddComponent() found in file
+runstr.cpp.
+
+---------------------------
+User interface to the data structure
+---------------------------
+
+SelectVariant:CWwindow (selvar.?pp) is an interface to the data structure.  It
+displays the currently selected command, program, variant, and
+extensions, and the lock status. It allows the user to make the
+selections manually and to lock them if desired.  It illustrates the
+calls to the functions that update the data.
+
+---------------------------
+Related files:
+---------------------------
+
+commands.?pp
+programs.?pp
+variants.?pp
+extens.?pp
+selvar.?pp
+
+commands.prm
+programs.prm
+variants.prm
+exten.prm
+
+Also see the help files on the command line arguments.  Users can
+specify required and default variants on the command line.
+
+---------------------------
+Thoughts:
+---------------------------
+
+1. This code is complicated, but I don't have a better approach.  I
+think the capability for Suppose to have this feature is important and
+should not be removed.
+
+2. The ability to "reset" the selection of a command, program, variant
+(or list of legal variants), and list of required extensions would be
+a nice enhancement.  This would allow an "Unlock" feature to be
+supported.  The approach in coding this kind of feature is to write
+code that first resets the entire data structure (like a New), and then
+processes through the simulation stands to update the listed of
+required variants, then the components to update the list of required
+extensions and variants.  This would allow a user to "delete" an
+option and then attempt to clear restriction.
+
+3. The program should be smarter about tagging keyword components as
+requiring specific variants.  Initially, this tagging was done to keep
+a user from using a keyword component that contains species, forests,
+habitat, or other codes that are correct for one variant in a variant
+to which those codes do not apply.  Yet many keywords are not variant
+specific.  An enhancement would be to add a "variantSpecific" PKey to
+the keyword entries in the parameters file and only tag keyword
+components with a variant identification if the "variantSpecific" PKey
+was present.
+
+[the following has been done]
+4. Just because a program is listed in the parms file does not insure
+that it is available to the user on the machine being used.  Another
+enhancement to Suppose would be for the program to attempt to "open"
+the program file in hopes of finding out if it is present.  If it is
+not present, then Suppose to try to find an alternative program that
+has the required elements.  If none are found, then suppose would
+issue a warning message and ask the user to "Cancel" or "Run anyway"
+(where the Run Anyway would be useful in the case that the user knows
+that the program will be found when the OS searches the path).
+
+
+
+
+
+

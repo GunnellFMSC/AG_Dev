@@ -1,0 +1,514 @@
+
+//start keyword.wsbwe.GenDefol
+
+description:
+{This keyword instructs the system to run the General Defoliation model.
+
+Enter the first year of noticeable defoliation for the most recent regional outbreak.
+For example, consider the recent budworm outbreak in the Blue Mountains of north-
+eastern Oregon beginning in 1981.  Even though some individual stands did not
+experience defoliation until 1983 or later, a user simulating stands of this region
+should enter 1981.
+
+Choose "yes" if defoliation is still occurring in the general region, even if the
+outbreak has subsided in the particular stand being simulated.
+Otherwise, choose "no".}
+
+f1title:{Use General Defoliation Model}
+f1:{intNumberBox Specify the year that last outbreak started.}
+f1v:{blank}
+f2:{listButton Is the outbreak still active?}
+f2v:{ > no \n yes}
+
+answerForm:{GenDefol  !2,10,first!!1,10!}
+parmsForm=answerForm
+first:{0 1}
+
+//end keyword.wsbwe.GenDefol
+
+//start keyword.wsbwe.Bwoutput
+
+description:
+{Seven tables are available as output options.  Two of the files are designed
+to be imported into templates prepared for Microsoft Excel.
+* File names will be name of the FVS run with appended table identifiers.
+
+1.      Detailed within-year population dynamics summary - very voluminous:
+	use with caution! (WITHIN.TAB) [See DYNAMICS.TAB (below, #7) for a brief
+        population dynamics summary table.]
+2.      Comparison of defoliation by tree species, size, and crown-third
+	(output file = CANOPY.TAB, Excel template = CANOPY_T.XLT)
+3.      Defoliation summary table. (Currently unavailable)(DEFSUM.TAB)
+4.      Parameter values for the simulation and a list of notable events
+	(episodes of mass larval starvation, major asynchrony between hosts
+	and emerging second instars, etc.) (PARAMS.TAB)
+5.      Brief annual summary of defoliation, and defoliator density and mortality
+        by tree species (ANNUAL.TAB)
+6.      Percent defoliation of new foliage and egg density -- whole stand
+	averages (output file = DEFOL.TAB, Excel template = DEFOL_T.XLT)
+7.      Summary of annual population dynamics for defoliators and associated
+        predators/parasites (DYNAMICS.TAB)
+
+Note: These output files are only available if simulating defoliators via the
+use of keyword GENDEFOL.  If "manual" defoliation is being simulated (keyword
+DEFOL), only the output files generated via keywords DAMAGE and PERDAM are
+available.
+}
+
+f1title:{General Defoliation Model Output Options \n
+(These tables are available ONLY in conjunction with keyword GENDEFOL.)\n}
+f1:{listButton Detailed, within-year pop-dyn summary}
+f1v:{no \n > print to file *_WITHIN.TAB}
+f2:{listButton Defoliation summary table (Excel)}
+f2v:{no \n > print to file *_CANOPY.TAB}
+f3:{listButton "Conventional" defoliation summary}
+f3v:{no \n > print to file *_DEFSUM.TAB}
+f4:{listButton Parameters and key events}
+f4v:{no \n > print to file *_PARAMS.TAB}
+f5:{listButton Brief annual summary}
+f5v:{no \n > print to file *_ANNUAL.TAB}
+f6:{listButton Annual summary table (Excel)}
+f6v:{no \n > print to file *_DEFOL.TAB}
+f7:{listButton  Brief pop'n dynamics summary table}
+f7v:{no \n > print to file *_DYNAMICS.TAB}
+
+parmsForm:{
+Bwoutput  !1,10!!2,10!!3,10!!4,10!!5,10!!6,10!!7,10!}
+
+//end keyword.wsbwe.Bwoutput
+
+//start keyword.wsbwe.Bwspray
+
+description: {Insecticide application is simulated only when specified by the user.
+Users may identify up to 5 different years when insecticide applications
+are to be simulated, or they may identify a threshold level of defoliation
+that will trigger an application.  In the latter case, users may specify
+that insecticides be applied only once per outbreak (the default condition)
+or whenever the threshold level of defoliation is reached.
+
+The target life stage is set to peak fourth-instar larvae by default.
+To reflect what sometimes occurs in the field, however, options are provided
+that specify application at peak fifth-instar and peak-sixth instar.
+
+In practice, insecticide efficacy can be highly variable.
+The user must specify insecticide-caused mortality rates (percent).
+}
+
+f1title: {Pesticide applications}
+f1:{listButton When will pesticide be applied?}
+f1v:{On a specific year. \n When defoliation condition is met.}
+f2:{numberBox Enter the year, OR the % defoliation that will trigger a spraying}
+f2v:{blank}
+f3:{listButton Target life stage}
+f3v:{peak fourth instar
+\n peak fifth instar
+\n peak sixth instar}
+f4:{numberBox Enter efficiency of this application (target life stage's mortality in %.)}
+f4v:{0}
+f5:{listButton Maximum # of sprays per outbreak}
+f5v:{spray only once per outbreak \n spray whenever condition is met}
+
+answerForm:{Bwspray   !1,10,first!!2,10!!3,10,third!!4,10!!5,10!}
+parmsForm=answerForm
+first:{1 2}
+third:{1 2 3}
+
+//end keyword.wsbwe.Bwspray
+
+//start keyword.wsbwe.Fqualdev
+
+description:
+{Specifies larval development times during outbreak.
+
+The general defoliator model simulates defoliator biology such that, by default,
+pupal weights decrease and larval development times increase over simulated time.
+This treatment of larval development times and pupal weights represents defoliator
+response to changing foliage quality over the course of an outbreak.
+
+Users may "turn off" these simulated biological effects via this keyword (FQualDev)
+to make development times insensitive to outbreak status, and/or via keyword 
+FQualWt, to make pupal weights insensitive to outbreak status.
+}
+
+f1:{listButton Larval development times }
+f1v:{remain constant. \n > increase during outbreak.}
+
+answerForm:{Fqualdev  !1,10,first!}
+parmsForm=answerForm
+first:{2 1}
+
+//end keyword.wsbwe.Fqualdev
+
+//start keyword.wsbwe.Fqualwt
+
+description:
+{Specifies pupal weights during outbreak.
+
+The general defoliator model simulates defoliator biology such that, by default,
+pupal weights decrease and larval development times increase over simulated time.
+This treatment of larval development times and pupal weights represents defoliator
+response to changing foliage quality over the course of an outbreak.
+
+Users may "turn off" these simulated biological effects via this keyword (FQualWt)
+to make pupal weights insensitive to outbreak status, and/or via keyword FQualDev,
+to make development times insensitive to outbreak status.
+}
+
+f1:{listButton Pupal weight}
+f1v:{remains constant. \n > decreases during outbreak.}
+answerForm:{Fqualdwt  !1,10,first!}
+parmsForm=answerForm
+first:{2 1}
+
+//end keyword.wsbwe.Fqualwt
+
+//start keyword.wsbwe.Nemult
+
+description:
+{Specifies multipliers that modify effects of natural defoliator enemies.
+
+Predation on defoliator larvae is simulated to be a function of defoliator
+lifestage, weather (through its effect on the duration of defoliator lifestages),
+position of defoliators in the tree canopy, and defoliator density.
+The model does not consider site or stand conditions (such as numbers of snags
+or downed logs) in its estimation of predation due to the lack of quantitative
+information about such relationships.
+To simulate the effects of management practices aimed at enhancing predation
+rates, users may adjust the natural enemy multipliers via this keyword.
+}
+
+f1title: {Natural enemy category}
+f1:{listButton Select natural enemy type}
+f1v:{\n ants \n birds \n parasites \n other}
+
+f2:{numberBox Multiplier for small larve 2nd - mid 4th instars}
+f2v:{1.0 0.0 1000.0}
+
+f3:{numberBox Multiplier for large larve mid 4th -- 6th instars}
+f3v:{1.0 0.0 1000.0}
+
+f4:{numberBox Multiplier for pupae}
+f4v:{1.0 0.0 1000.0}
+
+answerForm:{Nemult    !1,10,first!!2,10!!3,10!!4,10!}
+parmsForm=answerForm
+first:{1 2 3 4}
+
+//end keyword.wsbwe.Nemult
+
+//start keyword.wsbwe.Obsched
+
+description:
+{Users may choose one of four options that will dictate how outbreaks will be 
+scheduled in the General Defoliation Model:
+
+Option:
+
+   1:	The model schedules the start of an outbreak based on historical records.
+        The simulated outbreak will end when the average percent defoliation of
+	new foliage (average for the whole stand) is less than 10% for three
+	consecutive years--and at least five years have passed since the outbreak
+	began.
+
+   2:	The  model schedules both the start and the end of oubreaks based on
+        historical records.
+
+   3:	Users specify the starting and ending years for up to three outbreaks.
+        This option is useful for testing the model with data from recorded
+	outbreaks.
+
+   4:	The model schedules the only the start of the outbreak (based on historical
+        records).  No "end" of the outbreak is scheduled.  The General Defoliation
+	Model will run for as long as the FVS simulation is scheduled to run.
+
+In all but the third options, the model uses observed mean outbreak frequency and
+variance data (associated with the location selected by the user via keyword
+OUTBRLOC) to randomly schedule the onset of simulated outbreak(s).  The second
+option also uses observed outbreak duration data.
+}
+
+f1:{listButton Outbreak scheduling options}
+f1v:{1) start using historical statistics
+\n 2) start and end using historical statistics
+\n 3) user-specified start and end dates
+\n 4) user-specified start date only}
+
+f2:{intNumberBox Starting year of outbreak 1}
+f2v:{0}
+f3:{intNumberBox Ending year of outbreak 1}
+f3v:{0}
+f4:{intNumberBox Starting year of outbreak 2}
+f4v:{0}
+f5:{intNumberBox Ending year of outbreak 2}
+f5v:{0}
+f6:{intNumberBox Starting year of outbreak 3}
+f6v:{0}
+f7:{intNumberBox Ending year of outbreak 3}
+f7v:{0}
+
+answerForm:{Obsched   !1,10,first!!2,10!!3,10!!4,10!!5,10!!6,10!!7,10!}
+parmsForm=answerForm
+first:{1 2 3 4}
+
+//end keyword.wsbwe.Obsched
+
+//start keyword.wsbwe.Outbrloc
+
+description:
+{Specifies historical statistics to determine defoliator outbreak pattern(s).
+
+By default, the model randomly starts and ends outbreaks based on historical
+data.  The user may select one of three documented regional outbreak patterns.
+In addition, the user may specify a seed number to be used in the model's 
+random number generator, (thereby changing the random timing of the onset of 
+simulated defoliator outbreaks.)
+
+It is possible to override the default outbreak scheduling with the
+OBSCHED keyword. }
+
+f1title: {Historical statistics have been collected at 3 geographic locations}
+f1:{listButton Choose outbreak pattern statistics}
+f1v:{ > Based on Northern New Mexico data
+\n Based on Pacific Northwest (BM) data
+\n Based on Montana data}
+f1v{cr ut ws}:{ > Based on Northern New Mexico data
+\n Based on Pacific Northwest (BM) data
+\n Based on Montana data}
+f1v{em ci ni kt tt}:{Based on Northern New Mexico data
+\n Based on Pacific Northwest (BM) data
+\n > Based on Montana data}
+f1v{ak pn wc ec bm so ca nc}:{Based on Northern New Mexico data
+\n > Based on Pacific Northwest (BM) data
+\n Based on Montana data}
+
+f2:{intNumberBox Outbreak random number generator seed value}
+f2v:{889347}
+
+answerForm:{Outbrloc  !1,10,first!!2,10!}
+parmsForm=answerForm
+first:{1 2 3}
+
+//end keyword.wsbwe.Outbrloc
+
+
+//start keyword.wsbwe.Parasite
+
+description:
+{Specifies how rates of parasitism change during an outbreak.
+
+Parasitism rates, by default, increase during the course of a simulated outbreak.
+As an aid to understanding model behavior, users may opt to keep parasitism rates
+constant throughout simulated time.}
+
+f1title: {During an outbreak...}
+f1:{listButton ...rates of parasitism upon defoliators:}
+f1v:{remain constant \n > increase}
+answerForm:{Parasite  !1,10,first!}
+parmsForm=answerForm
+first:{2 1}
+
+//end keyword.wsbwe.Parasite
+
+//start keyword.wsbwe.Weather
+
+description:
+{The model uses ten weather-related parameters to simulate changes in defoliator
+populations.  The model requires a file that includes the mean, variance, and upper
+and lower bounds (i.e. a minimum and maximum value) for each of the ten 
+parameters.
+
+These weather-related parameter data files have been prepared for many locations
+using data from numerous weather stations (From many western states), and are 
+included with the model.  To use these pre-established data files, select the 
+first option, then choose a state and a weather station.
+
+The second option allows users to provide his or her own weather-related parameter
+data file (to be used in place of the file(s) provided herein).  This user-
+supplied file must be in the same format as the files provided herein.  (A user may
+generate such a file using the program BUDWEATH).
+
+The third option is for the use of RAWS daily weather data and a correspnding
+option to specify a range of years from the RAWS dataset that will be used in a 
+repetitive manner. Leave the years range entries at zeros to use all complete years
+in the RAWS dataset and to determine years contained in it. Instructions on how to 
+retrieve and prepare a RAWS data set are available.
+	
+By default, the value of each of the ten parameters used by the model randomly
+varies, year-by-simulated year.  The parameters are randomly "chosen" from a 
+distribution having a mean, variance, and bounds as indicated in the file.  
+Users may change the seed number used in the random number generator.
+
+Alternatively, users may "turn off" the stochasticity of these parameters thus 
+dictating that the model use the mean value each year.  (This option is useful
+for sensitivity analyses.)
+}
+
+f1title: {Weather data source options.}
+f1:{listButton Weather-related parameters will be from}
+f1v:{station data provided w/ the model
+\n a user-provided parameter file
+\n RAWS daily weather data file}
+
+f2:{listButton The location of the stand(s) }
+f2v:{Arizona
+\n California
+\n Colorado
+\n Idaho
+\n Montana
+\n New Mexico
+\n Oregon
+\n Utah
+\n Washington
+\n Wyoming}
+f2v{cr}:{Arizona
+\n California
+\n Colorado
+\n Idaho
+\n Montana
+\n > New Mexico
+\n Oregon
+\n Utah
+\n Washington
+\n Wyoming}
+f2v{em}:{Arizona
+\n California
+\n Colorado
+\n Idaho
+\n > Montana
+\n New Mexico
+\n Oregon
+\n Utah
+\n Washington
+\n Wyoming}
+f2v{tt}:{Arizona
+\n California
+\n Colorado
+\n Idaho
+\n Montana
+\n New Mexico
+\n Oregon
+\n Utah
+\n Washington
+\n > Wyoming}
+f2v{ci ni kt}:{Arizona
+\n California
+\n Colorado
+\n > Idaho
+\n Montana
+\n New Mexico
+\n Oregon
+\n Utah
+\n Washington
+\n Wyoming}
+f2v{ws ca nc}:{Arizona
+\n > California
+\n Colorado
+\n Idaho
+\n Montana
+\n New Mexico
+\n Oregon
+\n Utah
+\n Washington
+\n Wyoming}
+f2v{pn so bm}:{Arizona
+\n California
+\n Colorado
+\n Idaho
+\n Montana
+\n New Mexico
+\n > Oregon
+\n Utah
+\n Washington
+\n Wyoming}
+f2v{wc ec}:{Arizona
+\n California
+\n Colorado
+\n Idaho
+\n Montana
+\n New Mexico
+\n Oregon
+\n Utah
+\n > Washington
+\n Wyoming}
+f2v{ut}:{Arizona
+\n California
+\n Colorado
+\n Idaho
+\n Montana
+\n New Mexico
+\n Oregon
+\n > Utah
+\n Washington
+\n Wyoming}
+
+f3:{intNumberBox Weather station number for weather station closest to the stand(s).}
+f3v:{0}
+
+f4:{intNumberBox Logical unit number for reading weather data.}
+f4v:{40}
+
+f5:{textEdit Name of weather file (REQUIRED)}
+f5v:{weather.dat}
+
+f6title: {* * Years range option for RAWS data only. Entries of 0 will use all years present.}
+f6:{textEdit      4-digit start year and end year:}
+f6v:{0000 0000}
+
+f7title: {Weather variation options.}
+f7:{listButton Generate weather parameters from:}
+f7v:{ means and standard deviations
+\n  average values (no stochasticity)}
+
+f8:{numberBox Weather random number generator seed value}
+f8v:{889347}
+
+answerForm:{Weather   !7,10,first!!4,10!!8,10!!1,10,first!!3,10!!2,10,states!
+!5!\n!6!}
+parmsForm=answerForm
+first:{1 2 3}
+states:{1 2 3 4 5 6 7 8 9 10}
+
+//end keyword.wsbwe.Weather
+
+
+//start keyword.wsbwe.Damage
+
+description:
+{Instructs the model to print an output table containing a summary of
+the simulated defoliation, whether invoked via DEFOL ("manual"
+defoliation) or via GENDEFOL (insect-simulated defoliation).
+
+This table will be printed at the end of the main FVS output file.}
+
+answerForm:{Damage}
+
+//end keyword.wsbwe.Damage
+
+//start keyword.wsbwe.PerDam
+
+description:
+{Instructs the model to print an output table that displays the periodic
+results of simulated defoliation.
+
+This table will be printed at the end of the main FVS output file.}
+
+answerForm:{PerDam}
+
+//end keyword.wsbwe.PerDam
+
+//start keyword.wsbwe.NoTopKil
+
+description:
+{Turns off the Western Spruce Budworm model topkill calculations.  In the
+Budworm Damage model reduction in tree growth rates, increased tree mortality
+rates, and top damage are simulated.
+
+Note:
+FVS also contains options to simulate top damage.  If you use the FVS
+options, you may wish to stop the Budworm Damage mode from estimating
+further top damage.}
+
+answerForm:{NoTopKil}
+
+//end keyword.wsbwe.NoTopKil
+

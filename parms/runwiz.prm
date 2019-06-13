@@ -1,0 +1,253 @@
+
+//start runWizard
+
+! The taskList loads the list box with "general tasks".
+! For each task, there is a set of PKeys.  For the first task
+! all the PKeys start with t1, for the second, all start with t2,
+! and so on, for all tasks t1...tN, where N is the number of tasks.
+
+! Within each task, there are a set of steps, and the PKeys have step 
+! names.  For example, t1s1 is the PKey for step 1 of task 1.  t1s2 is
+! the PKey for the second step, and so on for all steps t1s1...t1sN, 
+! where N is the number of steps within a task.
+
+taskList:{Run the tutorial to learn Suppose!
+Single stand run, simple silviculture
+Modify silviculture of single stand run
+Schedule a thinning to occur when density is too high
+Make "Bare Ground" run
+Add an FVS keyword to a simulation
+Customize a "Condition" using the Expression editor
+****  You can help build The Run Wizard ****}
+
+! ***** Task 1
+
+t1s1:{Press the Help menu item, select the Tutorial}
+
+t1s2:{Let Suppose install the tutorial data.}
+
+t1s3:{Close The Run Wizard and follow instructions in the tutorial.}
+
+! ***** Task 2
+
+t2s1:{Press "Select Simulation Stands" to access the stands
+available for your simulation, then do the following:
+
+1. Select one or more locations from the locations list.
+
+2. Select one or more groups from the group list.
+
+3. Select 1 stand from the available stands list.
+
+4. Use the "Add 1 Stand" button to add the selected stand to the 
+simulation.
+
+5. Close the Select Simulation Stands window.}
+
+t2s2:{Press "Management Actions" to access the available
+actions, then do the following:
+
+1.  Select one of the categories of management actions listed in the
+left list box.  A list of actions under each category appears in the
+right list box.  You may browse the actions until you find one you
+want.
+
+2.  Select a management action from the right list box.  A window used
+to specify the parameters of the action will appear.  If you don't
+want that action, press the cancel button in the management window.
+If you do, then set the parameters as to those you desire, and press
+OK.
+
+3.  Close the Management actions window.}
+
+t2s3:{Press "Run Simulation" to run the simulation.  You will be asked
+to save the simulation file (always use the file suffix of .key) and
+then asked to confirm that you want to run the simulation.}
+
+! ***** Task 3
+
+t3s1:{If the simulation file you wish to change is openned, skip this
+step.  To open an existing simulation file, do the following:
+
+1. Use the file menu, select Open.
+
+2. Find the simulation file you desire to edit.  Always use the file
+suffix .key for simulation files.
+
+3. Select the file and press OK.}
+
+t3s2:{Press "Edit Simulation File" and do the following:
+
+1. Select the management action component you wish to edit from the
+list on the left.  If you do not see the component listed, press the
+"Entire simulation" radio button above the list.  If no components are
+listed, you don't have any thing to edit.
+
+2. To delete the existing component, press the "Delete" button.
+
+3. To modify the existing component, press the "Edit Selection"
+button.  The window used to create the action will then appear.
+
+4. Make any changes you desire in the management action and press OK.}
+
+t3s3:{Close the Edit Simulation File window.}
+
+t3s4 = t2s3
+
+! ***** Task 4
+
+t4s1:{This sequence of steps assumes that you have created a
+simulation file containing at least one stand.  It provides the steps
+needed schedule management actions as a function of condition the
+stand is in rather than by year.
+
+Press "Management Actions" to access the available actions, 
+then select the thinning category and a thin activity.}
+
+t4s2:{At the top of the thinning window, you will see two radio
+buttons, one marked Schedule by Year/Cycle, the other Schedule by
+Condition. Select the Schedule by Condition, then press the Condition
+button.}
+
+t4s3:{Adjust the rule for the thinning as you wish, then press Ok.
+The condition window will close.}
+
+t4s4:{Adjust the thinning window elements as you wish, then press Ok.
+The thinning will be scheduled by FVS if and when the condition is
+found true by FVS for the stand(s) in your simulation.}
+
+! ***** Task 5
+
+t5s1:{Making a Bare Ground run with this version of Suppose requires
+that you first add the definition of a stand to your available stands
+list.  Then you pick that stand from the list of available stands, add
+it to the simulation, and make your projection. 
+
+These instructions detail the process of creating a new location entry
+in the suppose.loc file (see help if you need a description of the
+files used by Suppose) and then adding a stand to that location.}
+
+t5s2:{Add a location to suppose.loc
+
+1.  Press the Options menu item and select "Edit Locations File"
+
+2.  Press New to add a record.  Fill in the location name with a
+descriptive name, for example, "My bare ground stands".
+
+3.  Fill in a file name for the stand list file that corresponds to
+the location you are defining.  For example, "baregrnd.slf" (typed
+without the quotation marks).
+
+4.  Press OK on the window thereby saving the file with the new
+location entry.}
+
+t5s3:{Create the stand list file and define the bare ground stand(s).
+
+1.  Press the Options menu item and select "Edit Stand List File"
+
+2.  Enter the name of the stand list file you desire to create is the
+top text box.  If you are editing an existing file, use the Browse
+button to select the file.
+
+3.  Specify a stand identification.
+
+4.  Fill out the information on window.  For bare ground runs, you
+should leave the FVS tree file name text box empty.  This signals that
+there are no tree records associated with your stand.  Only enter
+information you know and leave the other fields empty.  You must
+specify an FVS variant.
+
+5.  If you desire to create more bare ground stands, you can use the
+New button to create more records.  Review the help available for this
+window if you need more information.
+
+6.  Press OK to save the file and close the window.}
+
+t5s4:{Press "Select Simulation Stands" to access the stands
+available for your simulation.  Your newly created location will be
+listed.  Select it and then pick the stand you wish to simulate, add
+it to the simulation as you would any other stand.}
+
+t5s5:{Use FVS Keywords to specify any desired plantings or other
+regeneration options.}
+
+! ***** Task 6
+
+t6s1:{This sequence of steps assumes that you have created a
+simulation file containing at least one stand.  
+
+Press "Use FVS Keywords" to access the FVS keywords.}
+
+t6s2:{Insure that the "Extension" to which the keyword belongs is
+selected.  Suppose automatically selects the Base FVS system, for
+other extensions, you must pick the one you desire.}
+
+t6s3:{Within an extension, keywords are grouped into categories.  The
+first category, All keywords, includes all the keywords in an
+extension.  You may select a category to limit the keyword list found
+on the right side of this window.  Find the category you desire.}
+
+t6s4:{Select a keyword.  For each keyword, text that describes the
+function of the keyword is displayed at the bottom of the window.
+Once you have found the keyword you want, press Accept.  A window used
+to set the parameters of the keyword opens.}
+
+t6s5:{If you do not want the keyword shown in this window added to
+your simulation, press cancel.  Otherwise, set the parameters
+for the keyword to desired settings and press Ok.  The keyword is now
+part of the simulation.}
+
+t6s6:{Close the Use FVS Keywords window, or add an additional keyword
+if you desire.}
+
+t6s7 = t2s3
+
+! ***** Task 7
+
+t7s1:{This sequence of steps assumes that you have created a
+simulation file containing at least one stand and at least one
+conditional component.  Following the steps under the general task
+"Schedule a thinning to occur when density is too high" will provide
+the needed simulation file.  
+
+Press "Edit Simulation File".}
+
+t7s2:{Select the condition component you wish to refine.  If you do
+not see the component listed, press the "Entire simulation" radio
+button above the list.  If no components are listed, you don't have
+a condition component to edit.}
+
+t7s3:{Press the "Edit Selection" button.  The window used to create
+the condition will then appear.}
+
+t7s4:{Press the Extras menu item, select "Edit Logical Expression".
+Press the Yes button on the dialog asking if you want to proceed.}
+
+t7s5:{An edit window will come up that contains the FVS Event Monitor
+rule corresponding to the condition you are refining.  You may change
+the express as you wish.  Note that Suppose does not insure that what
+you code will work in FVS.}
+
+t7s6:{Press OK to save the changes, press Cancel to leave the
+expression unchanged.  Once the condition has be edited with this
+window, even if you press Cancel on this window, you can not get back
+to the window originally used to create the condition.}
+
+! ***** Task 8
+
+t8s1:{You can help provide input into the Run Wizard.  Send your
+General Tasks and step-by-step instructions to:
+
+Nicholas L. Crookston
+
+1221 South Main
+
+Moscow, ID 83843
+
+E-Mail: crookstn/rmrs_moscow@fs.fed.us
+
+Internet: crookstn@forest.moscowfsl.wsu.edu
+
+Electronic copies are best!}
+
+//end runWizard

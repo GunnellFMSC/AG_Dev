@@ -1,0 +1,18 @@
+HTOPIC RUNWizard "The Run Wizard" help road-map
+\fbThe Run Wizard\f0
+
+The Run Wizard provides you with a step by step set of instructions
+you can follow when performing a typical task in Suppose.  
+
+Select the task from the list of \f1General Tasks\f0 that seems to
+best describe the work you need to accomplish.  A list of steps you
+need to follow in accomplishing the task are presented in the window
+below the task list.  A check box is provided for you to use to keep
+track of your work.
+
+After the Run Wizard is opened, you can move and/or resize as
+necessary so you can refer to it while you work.
+
+The Run Wizard does not directly accomplish the tasks, it simply
+directs you to the steps you must follow in accomplishing the tasks.
+

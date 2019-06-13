@@ -1,0 +1,72 @@
+HTOPIC TIMESCALWindow "Set Time Scale" time scope
+\fbSet Time Scale\f0
+
+The \bstartYeaR:common starting\b, \bcycInterval:common cycle length\b, and
+\bendYeaR:common ending\b years of a simulation are set using this
+window.
+
+Set the \bstartYeaR:common starting year\b by entering a value in the
+text edit box or changed using the thumb wheel located to the right of
+the text box.
+
+You can not set a common starting year that is prior to the most
+recent inventory year.  If you add a stand to the simulation that has
+a more recent inventory year than the common starting you set using
+this window, Suppose changes the value you set without warning you.
+
+The default common starting year is the most recent inventory year of
+all stands in the simulation, or a year taken from the computer system
+clock when no stands are in the simulation.
+
+Set the \bendYeaR:common cycle length\b by entering a value in text
+edit box.  The value must be greater than 0 and less than or equal to
+20.
+
+Set the \bendYeaR:common ending year\b by entering a value in the text
+edit box or changed using the slide bar located below the text edit box.
+The slide bar's thumb buttons change the bar in one year increments.
+The bar's "page" increment is equal to the preferred cycle length for
+the variant you are using. 
+
+The default common ending year is equal to the starting year plus the
+product of the preferred time interval times 10 intervals.  For most
+FVS \bvarianT:variants\b the default is 100 years, for some it is 50.
+
+You can not set an ending year that is prior to the starting year.
+
+Two buttons appear on this window.  
+
+\f1Ok\f0 will cause Suppose to remember the settings you have made in
+this window.
+
+\f1Cancel\f0 will cause Suppose to ignore the settings you have made
+in this window.
+
+In either case, the window is closed when the buttons are pushed.
+
+\fbNotes:\f0
+
+If some of the stands in a simulation were inventoried prior to the
+common starting year, Suppose sets up the proper FVS commands to
+insure that they are simulated up to the common starting year.
+
+Suppose sets up the proper FVS commands to insure that the simulation
+of all stands ends on the common ending year.
+
+FVS allows for up to 40 time intervals in a given simulation.
+Furthermore, FVS allows for the length of the time intervals to vary.
+Suppose has \bvarianT:variant\b-specific data (stored in the
+\bparameteR:parameters file\b) that dictates the preferred length of
+each time interval.  The maximum simulation length is the product of
+40 times the preferred interval length.  Suppose insures that FVS uses
+the preferred lengths (unless you use the TimeInt keyword, see below)
+for all intervals except those needed to simulate the time between the
+inventory year and the common starting year.
+
+Suppose Version 1 does not provide the capability to control the
+time intervals of each stand independently in a coordinated way.  
+Knowledgeable FVS users may find it possible to use the FVS TimeInt
+\bkrecordS:keyword\b to modify the cycle lengths for individual
+stands.  While this may work, please note that the use of this
+capability is not coordinated with the time scale window.  
+

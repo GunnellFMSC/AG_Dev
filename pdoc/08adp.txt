@@ -1,0 +1,78 @@
+---------------------------------------------------------------------------  
+                    Chapter 8--Automatic Data Propagation
+
+                   Date of Last Revision: April 14, 1998
+---------------------------------------------------------------------------
+
+Describes how Suppose passes information from place to place.  This is
+called Automatic Data Propagation.  Be aware of the following ways
+data are passed from class to class:
+
+1. There is movement of data along the inheritance line of any C++
+based application. That is, public variables that are in a class that
+is the base class to another class are publicly available to the class
+that inherits form the base.  XVT does not use this method.  Suppose
+does use it in the CMgtClassWindow:CWwindow:CWindow class to pass
+information in CMgtClassWindow to the classes which are based on it.
+
+2. XVT has a method that uses the "DoCommand" process.  For example,
+if a button has a SetCommand value, the button calls the DoCommand for
+its container (ie, itsParent) when the button is pushed.  If the
+container does not process the command (and thereby trap it), the
+container automatically calls the DoCommand for itsParent, and so on
+up to the application level.  This call sequence is tricky to track.
+If you override the DoCommand method for a class from which you
+inherit, you can break the call sequence by not calling the DoCommand
+method for the parent class.  Sometimes the sequence is broken, and
+sometimes it is not. 
+
+3. XVT has a new method of passing data between objects called
+Transparent Data Integration.  This is a process where the programmer
+relates two or more visual objects (like text edits) together.  The
+XVT software passes characters typed in one to the other.  Suppose
+does not use this facility.
+
+4. Suppose code contains a notification mechanism that uses the
+DoCommand methods of CWindow based objects.  Note that XVT keeps a
+list of all windows that are instantiated at a given time.  The idea
+is that a user may "do something" in one window that needs to be
+reported to other instantiated windows.  This mechanism is to use a
+function called SendUpdateMessage to send the message.
+
+See suppdefs.hpp for a list of defined message actions.  See
+appdoc.?pp for the code that actually sends the messages.
+
+Code that causes one of several application-level events, like
+deleting or adding stands, calls SendUpdateMessage with a message
+number corresponding to the event.  If the class that causes the event
+does not want to be informed that the event occured, it can suppress
+notification by setting passing the value of "this".  
+
+Note:  Each (new) routine in Suppose must be reviewed in two
+respects.  First, if the routine can cause any of the actions listed
+in the defined message list, then the routine should include
+SendUpdateMessage to cause notification that the action took place.
+Second, if a window should respond to one of the update messages, then
+code should be inserted into the window's DoCommand method to
+correctly process the message if it is received.  For an example of
+these two approaches, review the code found in class
+GroupMembershipWindow:CWwindow:CWindow that handles the case where the
+user changes the name of a stand or group using this window, and where
+the user uses a different window to change the number of stands in the
+simulation.
+
+
+---------------------------
+Related files:
+---------------------------
+
+suppdefs.hpp
+sendupdt.?pp
+appdoc.?pp
+
+---------------------------
+Thoughts:
+---------------------------
+
+1.  The approach works fine.
+

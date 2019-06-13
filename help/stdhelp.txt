@@ -1,0 +1,52 @@
+
+HTOPIC XVT_TPC_HELPONHELP  "Help on Operating Help" help comments
+
+Suppose provides an extensive help system.  The current help was crafted
+by Nicholas L. Crookston from an initial version by Kathleen Duncan,
+and is based on Suppose design documentation and several FVS user's
+guides and supporting documents.
+
+Comments on the Help system should be addressed to:
+
+\n
+Nicholas L. Crookston
+USDA-Forest Service
+Rocky Mountain Research Station
+1221 South Main
+Moscow, ID 83843.
+Phone: 208-883-2317
+Fax:   208-883-2318
+
+Email: ncrookston@fs.fed.us
+\w
+Operate the Help system by selecting items from the Help menu bar 
+at the top of the Suppose window.
+
+Common operations include:
+
+\i50.Searches	- Calling up information from a list of available topics.
+
+\i50.Contextual Help	- Selecting related information from a topic 
+description.
+
+\i50.Keyboard Help	- Get information on using the keyboard.
+
+\i50.Click Help	- Get information on a screen object by clicking on it.
+
+Each selection under the Help menu contains information on how it is used.
+To use contextual help, select any colored-text topic within any Help window
+with the cursor.
+
+HTOPIC XVT_TPC_ABOUTHELP "About Help Viewer"  help
+
+Suppose help is viewed using the following program:
+\a\n
+XVT Help Viewer
+Copyright (c) 1994 XVT Software Inc.
+\w
+
+HTOPIC XVT_TPC_ONVERSION "Suppose Version" version
+\pFigures/logo.bmp\p
+
+You are using Suppose Version 1.16
+

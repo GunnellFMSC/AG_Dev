@@ -1,0 +1,111 @@
+HTOPIC SCHEDOBJSubview "Scheduling Actions by Year or Condition" scheduling_activities logical condition scheduling
+\fbScheduling Actions by Year or Condition\f0
+
+Management activities and many other actions in \bFVs:FVS\b (including several 
+\bkeywordS:keywords\b) can be scheduled by Year or Condition.  You pick which 
+scheduling option you desire using a common set of elements found in many 
+windows.  The elements include the following:
+
+The \f1Schedule by Year/Cycle\f0 radio button is used when the activity is 
+being scheduled to occur in a given year of simulated time, or in a given 
+\bcyclE:FVS cycle\b.  
+
+The \f1Schedule by Condition\f0 radio button is used when the activity is 
+being scheduled to occur when a condition, or logical expression, is found to 
+be true by FVS. 
+
+Below each radio button, additional elements are used to further specify the 
+year or condition. 
+
+When you Schedule by Year, enter the year or cycle in a text edit field.  The
+default year is the inventory year, or the year last defined using the 
+scheduling year dialog (described below).  If an integer value between 1 
+and 40 is coded, FVS interprets the value as a cycle number.  If zero is 
+coded, FVS will automatically schedule the activity for every cycle in a 
+simulation.  
+
+Use the \f1Select Year\f0 button to start a dialog designed for
+\lSCHYEARDialog:selecting a scheduling year\l.
+
+Whey you Schedule by Condition, you must select the condition using another 
+window.  During the simulation, FVS will schedule the activity in the year 
+that the condition is found true plus the number of years entered in the text 
+edit field below the Schedule by Condition radio button.  
+
+Press the \f1Condition\f0 button to open a window used to 
+\lSCHCONDWindow:specify a condition\l.  
+
+HTOPIC SCHYEARDialog "Selecting a Scheduling Year" scheduling_activities
+\fbSelecting a Scheduling Year\f0
+
+This window is used to pick a scheduling year for an activity.  When the 
+dialog is opened, the default year is set to the year last used in this 
+window, or the \bstartYeaR:common starting year\b of the simulation. 
+
+Use the slide bar to change the year, or type in a year in the text edit box.
+
+Press \f1Ok\f0 to close the window and report the selected year to the 
+activity window.
+
+Press \f1Cancel\f0 to close the window and discard the scheduling year.
+
+Note that many FVS activities are actually simulated at the beginning 
+of an \bcyclE:FVS cycle\b.  Suppose does not insure that the date you specify 
+occurs at a year equal to the beginning of an FVS cycle.  And, Suppose does 
+not automatically add cycles to insure that a cycle boundary occurs at the 
+date you specify as a scheduling date. 
+
+HTOPIC SCHCONDWindow "Specifying a Condition" logical condition scheduling_activities
+\fbSpecifying a Condition\f0
+
+Use this window to select the condition on which scheduling the activity is 
+predicated.  This window is also used to edit an existing condition.
+
+Use the text box at the top of this window to change the name of the condition 
+if you want a different name than the default (the condition is a separate 
+\bcomponenT:component\b from the activity, so it has it's own name).
+
+Pick a condition from the \f1Condition library\f0.  A default condition is 
+often preselected for your use.  Each activity may have a unique default 
+condition.  If no condition is picked, you must pick one.
+
+When a condition from the Condition library is selected, you will find
+elements used to set the parameters of the condition in the main body
+of this window.  Each condition will have different elements and
+instructions.
+
+As an alternative to using a condition from the 
+\f1Condition library\f0, you can pick one of \f1Your conditions\f0.
+To access your conditions, open the list button and pick 
+\f1Your conditions\f0 rather than \f1Condition library\f0.  When you
+select this alternative, Suppose attempts to open a file stored in
+your working directory called \fccondlib.kcp\f0 (if Suppose can not
+open this file, it will allow you to specify a different file name or
+cancel the operation).  The list box is loaded with condition
+components found in this file.  You may select one from the list. 
+
+Note that you can not edit the condition component nor set it's
+parameters when you pick it.  You may edit it after it is in the
+simulation using the \lEDITSimulationFile:Edit Simulation File\l
+tool.  
+
+Press \f1Ok\f0 to accept the selections and close the window.
+
+Press \f1Attach to...\f0 to notify Suppose that you want the 
+activity predicated on a condition that is already part of the simulation.  
+Conditions that are part of the 
+\lCURRENTRadioGroup:current group or stand\l are displayed in a list
+box.  An example use of this feature would be scheduling the setting
+of cutting preferences predicated on the same rule used to schedule a
+thinning that uses those cutting preferences.
+
+Press \f1Free form\f0 to transfer the currently selected condition
+from the \f1Condition library\f0, or a blank condition in the case
+where no condition is selected, to the Expression Editor.  Using this
+button is the same as using the "Edit Logical Expression" menu item.
+You can then change or expand the logic of a condition in any way you
+desire using the full power of the FVS Event Monitor.
+
+Press \f1Cancel\f0 to close the window without creating a condition or 
+without changing a condition that your are editing. 
+

@@ -1,0 +1,47 @@
+
+HTOPIC SIMNOTESWindow "Edit Simulation Notes" comments notes 
+\fbEditSimulation Notes\f0
+
+You can add notes to the \bsimfilE:simulation file\b that are output 
+as \bFVs:FVS\b comments.
+
+There are two categories of simulation notes that can be entered or
+edited using this window.
+
+Press the \f1Simulation Notes\f0 radio button to enter or edit text
+that is output with the first stand's \bkeywordS:keywords\b.  This is
+at the beginning of the FVS output file.
+
+Press the \f1Component Notes\f0 radio button to enter or edit text
+that is attached to an existing \bcomponenT:component\b.  You can pick
+the component using the list button to the right.  These notes are
+output in the FVS output file along with the keywords that represent
+the component.
+
+Note that if you delete the component the attached notes are deleted
+as well (deleting a component can be done with the
+\lEDITSimulationFile:Edit Simulation File\l window).
+
+FVS limits comments to 80 characters per line.  This limit is enforced
+by Suppose using automatic word wrap.
+
+In the future, Suppose will automatically generate initial text for
+notes that are attached to some components.  This is a planned feature
+designed to facilitate automatic run narrative generation.  The
+narrative will be created, viewed, printed, and/or transfered to other
+documents using the \lGENERATEReports:Generate Reports\l window.  When
+this facility is working, you will still be able to edit the text
+associated with any component using this window.
+
+Use the \f1Edit\f0 menu item to cut, copy, paste, and delete text.
+
+Press \f1Ok\f0 to save the notes currently being edited and close the
+window.
+
+Press \f1Save\f0 to save the notes currently being edited.  Note that
+\f1Save\f0 is automatic when you switch between Simulation Notes and
+Component Notes, or if you change from one component to another.
+
+Press \f1Reset\f0 to change the notes currently being edited to the
+way they were before they were last saved.
+

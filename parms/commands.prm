@@ -1,0 +1,104 @@
+//start commands
+
+! Dos commands
+
+command{dos}:{rem StdFVS run on DOS.
+echo !run!.key >  !run!.rsp
+echo !run!.tre >> !run!.rsp
+echo !run!.out >> !run!.rsp
+echo !run!.trl >> !run!.rsp
+echo !run!.sum >> !run!.rsp
+echo !run!.chp >> !run!.rsp
+if not exist !run! mkdir !run!
+"!fvsbin!\\!program!.exe" < !run!.rsp
+if not exist !run!_index.svs rmdir !run!
+del !run!.rsp
+}
+
+command{dos ppe}:{rem FVS with PPE run on DOS.
+echo !run!.a_d  > !run!.rsp
+echo !run!.p_d >> !run!.rsp
+echo !run!.hst >> !run!.rsp
+echo !run!.key >> !run!.rsp
+echo !run!.tre >> !run!.rsp
+echo !run!.out >> !run!.rsp
+echo !run!.trl >> !run!.rsp
+echo !run!.sum >> !run!.rsp
+echo !run!.chp >> !run!.rsp
+if not exist !run! mkdir !run!
+"!fvsbin!\\!program!.exe" < !run!.rsp
+if not exist !run!_index.svs rmdir !run!
+del !run!.rsp
+}
+
+! Unix commands
+
+command{unix}:{# StdFVS run on unix.
+FN=!run!
+if [ -s $FN.key ]
+then
+   echo $FN.key >  !run!.rsp
+   echo $FN.tre >> !run!.rsp
+   echo $FN.out >> !run!.rsp
+   echo $FN.trl >> !run!.rsp
+   echo $FN.sum >> !run!.rsp
+   echo $FN.chp >> !run!.rsp
+
+   if [ ! -s $FN ]
+   then
+     mkdir $FN
+   fi
+
+   !fvsbin!/!program! < !run!.rsp 
+
+   if [ ! -s $FN/* ]
+   then
+     rmdir $FN
+   fi
+
+
+   rm !run!.rsp
+   find $FN.* -size 0c -exec rm \{\} \\;
+   find $FN.* -size 1c -exec rm \{\} \\;
+else
+   echo $0: $FN.key not found.
+fi
+}
+
+command{ppe unix}:{# FVS with PPE run on unix.
+FN=!run!
+if [ -s $FN.key ]
+then
+   echo $FN.a_d >> !run!.rsp
+   echo $FN.p_d >> !run!.rsp
+   echo $FN.hst >> !run!.rsp
+   echo $FN.key >> !run!.rsp
+   echo $FN.tre >> !run!.rsp
+   echo $FN.out >> !run!.rsp
+   echo $FN.trl >> !run!.rsp
+   echo $FN.sum >> !run!.rsp
+   echo $FN.chp >> !run!.rsp
+
+   if [ ! -s $FN ]
+   then
+     mkdir $FN
+   fi
+
+   !fvsbin!/!program! < !run!.rsp
+
+   if [ ! -s $FN/* ]
+   then
+     rmdir $FN
+   fi
+
+
+   rm !run!.rsp
+   find $FN.* -size 0c -exec rm \{\} \\;
+   find $FN.* -size 1c -exec rm \{\} \\;
+else
+   echo $0: $FN.key not found.
+fi
+}
+
+//end   commands
+

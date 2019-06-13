@@ -1,0 +1,190 @@
+
+//start keyword.lpmpb.CurrMort
+
+description:
+{Specify the number of trees/acre killed by MPB in the year prior
+to inventory.}
+
+f1title:{The mortality values entered below are mortality for
+the year prior to inventory}
+f1:{sliderBox Trees/acre in the  2" DBH class killed by MPB}
+f1v:{0.0 0.0 1000.0 0.0 500.0}
+f2:{sliderBox Trees/acre in the  4" DBH class killed by MPB}
+f2v:{0.0 0.0 1000.0 0.0 500.0}
+f3:{sliderBox Trees/acre in the  6" DBH class killed by MPB}
+f3v:{0.0 0.0 1000.0 0.0 500.0}
+f4:{sliderBox Trees/acre in the  8" DBH class killed by MPB}
+f4v:{0.0 0.0 1000.0 0.0 500.0}
+f5:{sliderBox Trees/acre in the 10" DBH class killed by MPB}
+f5v:{0.0 0.0 1000.0 0.0 500.0}
+f6:{sliderBox Trees/acre in the 12" DBH class killed by MPB}
+f6v:{0.0 0.0 1000.0 0.0 500.0}
+f7:{sliderBox Trees/acre in the 14" DBH class killed by MPB}
+f7v:{0.0 0.0 1000.0 0.0 500.0}
+f8:{sliderBox Trees/acre in the 16" DBH class killed by MPB}
+f8v:{0.0 0.0 1000.0 0.0 500.0}
+f9:{sliderBox Trees/acre in the 18" DBH class killed by MPB}
+f9v:{0.0 0.0 1000.0 0.0 500.0}
+f10:{sliderBox Trees/acre in the 20" DBH class killed by MPB}
+f10v:{0.0 0.0 1000.0 0.0 500.0}
+
+answerForm:{CurrMort  !1,10!!2,10!!3,10!!4,10!!5,10!!6,10!!7,10!
+!8,10!!9,10!!10,10!}
+parmsForm=answerForm
+
+//end keyword.lpmpb.CurrMort
+
+
+//start keyword.lpmpb.InitMort
+
+description:
+{Specify the initial mortality rates used to determine the initial
+number of infested trees for each 2" DBH class.}
+
+f1:{sliderBox Initial mortality rate for  2" DBH class}
+f1v:{0.0 0.0 1.0 0.0 1.0}
+f2:{sliderBox Initial mortality rate for  4" DBH class}
+f2v:{0.0 0.0 1.0 0.0 1.0}
+f3:{sliderBox Initial mortality rate for  6" DBH class}
+f3v:{0.0038 0.0 1.0 0.0 1.0}
+f4:{sliderBox Initial mortality rate for  8" DBH class}
+f4v:{0.0128 0.0 1.0 0.0 1.0}
+f5:{sliderBox Initial mortality rate for 10" DBH class}
+f5v:{0.0206 0.0 1.0 0.0 1.0}
+f6:{sliderBox Initial mortality rate for 12" DBH class}
+f6v:{0.0353 0.0 1.0 0.0 1.0}
+f7:{sliderBox Initial mortality rate for 14" DBH class}
+f7v:{0.0500 0.0 1.0 0.0 1.0}
+f8:{sliderBox Initial mortality rate for 16" DBH class}
+f8v:{0.1429 0.0 1.0 0.0 1.0}
+f9:{sliderBox Initial mortality rate for 18" DBH class}
+f9v:{0.1500 0.0 1.0 0.0 1.0}
+f10:{sliderBox Initial mortality rate for 20" DBH class}
+f10v:{0.1500 0.0 1.0 0.0 1.0}
+
+answerForm:{InitMort  !1,10!!2,10!!3,10!!4,10!!5,10!!6,10!!7,10!
+!8,10!!9,10!!10,10!}
+parmsForm=answerForm
+
+//end keyword.lpmpb.InitMort
+
+
+//start keyword.lpmpb.InvMort
+
+description:
+{Instructs the model to use the inventoried attack data from
+the tree data records for initialization.  The default is that
+no damage codes are read from the tree data records.}
+
+answerForm:{InvMort}
+parmsForm=answerForm
+
+//end keyword.lpmpb.InvMort
+
+
+//start keyword.lpmpb.ManStart
+
+description:
+{Schedule a lodgepole mountain pine beetle outbreak.}
+
+f1:{scheduleBox}
+f1v:{1}
+
+answerForm:{ManStart  !1,10!}
+parmsForm=answerForm
+
+//end keyword.lpmpb.ManStart
+
+
+//start keyword.lpmpb.MaxYears
+
+description:
+{Specify the maximum number of years an epidemic is allowed to run.}
+
+f1:{intSliderBox Maximum length of epidemic, in years}
+f1v:{10 1 30 1 30}
+
+answerForm:{MaxYears  !1,10!}
+parmsForm=answerForm
+
+//end keyword.lpmpb.MaxYears
+
+
+//start keyword.lpmpb.MPBEcho
+
+description:
+{Instructs the model to write the Mountain Pine Beetle model summary
+tables to a seperate file.}
+
+f1:{longTextEdit Name of file}
+f1v:{ }
+
+answerForm:{MpbEcho 
+!1!}
+parmsForm=answerForm
+
+//end keyword.lpmpb.MPBEcho
+
+
+//start keyword.lpmpb.QValues
+
+description:
+{Specify the probability that a tree will NOT be infested with beetles
+for each 2" DBH class.}
+
+f1:{sliderBox Probability that a  2" DBH class tree will NOT be infested}
+f1v:{1.0 0.0 1.0 0.0 1.0}
+f2:{sliderBox Probability that a  4" DBH class tree will NOT be infested}
+f2v:{1.0 0.0 1.0 0.0 1.0}
+f3:{sliderBox Probability that a  6" DBH class tree will NOT be infested}
+f3v:{0.9935 0.0 1.0 0.0 1.0}
+f4:{sliderBox Probability that a  8" DBH class tree will NOT be infested}
+f4v:{0.982 0.0 1.0 0.0 1.0}
+f5:{sliderBox Probability that a 10" DBH class tree will NOT be infested}
+f5v:{0.965 0.0 1.0 0.0 1.0}
+f6:{sliderBox Probability that a 12" DBH class tree will NOT be infested}
+f6v:{0.909 0.0 1.0 0.0 1.0}
+f7:{sliderBox Probability that a 14" DBH class tree will NOT be infested}
+f7v:{0.743 0.0 1.0 0.0 1.0}
+f8:{sliderBox Probability that a 16" DBH class tree will NOT be infested}
+f8v:{0.309 0.0 1.0 0.0 1.0}
+f9:{sliderBox Probability that a 18" DBH class tree will NOT be infested}
+f9v:{0.285 0.0 1.0 0.0 1.0}
+f10:{sliderBox Probability that a 20" DBH class tree will NOT be infested}
+f10v:{0.285 0.0 1.0 0.0 1.0}
+
+answerForm:{QValues   !1,10!!2,10!!3,10!!4,10!!5,10!!6,10!!7,10!
+!8,10!!9,10!!10,10!}
+parmsForm=answerForm
+
+//end keyword.lpmpb.QValues
+
+
+//start keyword.lpmpb.RannSeed
+
+description:
+{Specify the seed value for the random number generator.}
+
+f1:{intSliderBox Seed value}
+f1v:{55329 0 Fmax 0 99999999}
+
+answerForm:{RannSeed  !1,10!}
+parmsForm=answerForm
+
+//end keyword.lpmpb.RannSeed
+
+
+//start keyword.lpmpb.RanStart
+
+description:
+{Schedule a beetle outbreak if the probability of an outbreak is greater
+than a drawn random number.}
+
+f1:{intNumberBox Date (cycle/year) from which outbreaks will start to be scheduled}
+f1v:{1 1 9000}
+
+answerForm:{RanStart  !1,10!}
+parmsForm=answerForm
+
+//end keyword.lpmpb.RanStart
+

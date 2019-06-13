@@ -1,0 +1,68 @@
+HTOPIC PLANTNATURALWindow "Planting and Natural Regeneration" plant natural management silviculture
+\fbPlanting and Natural Regeneration\f0
+
+This window is used to specify planting and natural regeneration
+options.
+
+Use the text box at the top of this window to change the name of the 
+component if you want a different name than that presented as a default.
+
+Use the elements of the scrolling part of the window to set the
+parameters of the planting or natural regeneration.  
+
+The elements of the window are different depending on the capabilities
+of the \bprograM:FVS program\b you are using. Those elements are noted
+on a case by case basis.
+
+Set \f1Sprouting Yes/No\f0 to control the use of the sprouting logic.
+This control is present only for \bvarianT:variants\b that contain
+sprouting species. 
+
+Set \f1In Growth Yes/No\f0 to control the in growth logic of the Full
+Establishment Model of the sprouting logic.  When the Partial
+Establishment Model is being used, this control is not present.
+
+Set the \f1Date of disturbance\f0 using the scheduling box.  The year
+specified, or the year the condition is true, is taken by the model as
+the date of disturbance.  This date is used to compute the amount of 
+regeneration you will have when using the Full Establishment
+Model.  In any case, it is used to set the site preparation and
+planting dates described below.  For information about how to schedule
+the options, see \lSCHEDOBJSubview:Scheduling Actions by Year or Condition\l
+
+Set the \f1StockAdj\f0 value to zero or to a number you specify.
+StockAdj is only used with the Full Establishment Model to adjust the
+probability stocking upward (numbers over 1.0) or downward (numbers
+less than 1.0).
+
+Set the \f1Site preparation\f0 timing and methods using the text edit
+boxes.  Again, these elements are only displayed if you are using the Full
+Establishment Model.  If you leave the percentages blank, the
+model predicts average percentages.
+
+Set the number of years after the disturbance for
+\f1Planting/Natural\f0 activities.  The same year will be used of all
+the planting/natural activities that follow.
+
+Specify as many \f1Planting/Natural\f0 activities as you desire.  Set the
+parameters of each in the text boxes grouped together by a box.  You
+must specify a \f1Species\f0 to plant or naturally establish and the
+\f1Trees/acre\f0.  You can optionally modify or specify the remaining
+parameters.
+
+Press \f1Ok\f0 to accept the selections and close the window.  
+
+Press \f1Another Plant/Natural\f0 to create an additional planting or
+natural regeneration box.  You can create as many as you wish, each
+will result in an additional planting or natural establishment activity.
+
+Press \f1Reset\f0 to reset the window to the state it was in when it
+was opened.
+
+Press \f1Cancel\f0 to close the window without creating a component
+(or without saving changes to a component you are editing).
+
+Use the \f1Extras\f0 menu and the \f1View Component Keywords\f0 item
+if you want to view the FVS keywords generated for the component.
+
+

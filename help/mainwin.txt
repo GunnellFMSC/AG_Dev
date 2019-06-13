@@ -1,0 +1,177 @@
+HTOPIC MAINWINWindow "Selections" selections
+\fbSelections\f0
+
+This window provides access to all of the basic Suppose functions
+plus it displays the name of the simulation file, the number of
+\bstanD:stands\b and \bgroupCode:groups\b in the simulation,
+and the group or stand that is \lCURRENTRadioGroup:current\l.
+
+Additional features of Suppose are accessed using menu items.  Press
+on this hot link to view help on all menus: \lMENUbar:The Menus.\l
+
+See \loperatioN:Basic Operation\l for an overview of how to use Suppose.
+
+Each element of the Selections window has an associated 
+context-sensitive help topic.  Use context sensitve help feature 
+or go to the \lXVT_TPC_CONTENTS:Table of Contents\l to pick the item
+you wish to view.
+
+HTOPIC SELECTEcosystemButton "Select Ecosystem Components"
+\fbSelect Ecosystem Components\f1 -- a planned feature\f0
+
+When complete, this feature will allow you to select from a list of
+ecosystem components that have been modeled for your geographic area.
+For example, if you wish to represent root disease or fires in your
+simulation, and if there are \bFVs:FVS\b \bextenS:extensions\b
+available that represent these components, then you will be able to
+select them.  Management actions that apply to those extensions will
+then be available from the \lCMNGWINWindow:Management Actions\l
+window.
+
+Furthermore, the lists in this window will be coordinated with those
+presented in under \lSELECTModelOutputButton:Select Model Outputs\l.
+
+HTOPIC SELECTModelOutputButton "Select Model Outputs"
+\fbSelect Model Outputs\f1 -- a planned feature\f0
+
+When complete, this feature will allow you to select from a list of
+model outputs that are optionally available for the simulation.
+Requesting a specific model output might imply the selection of a
+specific \bFVs:FVS\b \bextenS:extensions\b that represents an ecosystem
+component that is not represented in the base model.  In this way,
+selecting model outputs and the 
+\lSELECTEcosystemButton:Select Ecosystem Components\l features are
+coordinated. 
+
+HTOPIC  SPECIFYModelModButton "Specify Model Modifiers"
+\fbSpecify Model Modifiers\f1 -- a planned feature\f0
+
+You can modify behavior of many \bFVs:FVS\b submodels, such as the diameter
+increment submodel.  This planned feature will provide a graphic
+interface to the tools used to modify model behavior.  
+
+The ability to make such modifications is justified for at least two
+reasons.  First, FVS may be known to contain a consistent or systematic
+bias for your conditions.  If you understand and have measurements for
+this bias, you can include those measurements in the simulation using
+the model modifiers.  Second, some ecosystem components, or
+biophysical processes, may be operating in your area that are not
+represented by FVS.  For example, you may have winds that cause top
+damage.  This condition is not directly represented by FVS, but there
+are model modifiers that allow you to represent this condition.
+
+HTOPIC  RUNSimulation "Run Simulation"
+\fbRun Simulation\f0
+
+When you press this button, Suppose does the following:
+
+Picks an \bFVs:FVS\b \bvarianT:variant\b for the simulation.
+
+Picks an FVS \bprograM:program\b that contains the variant and any
+\bextenS:extensions\b you are using.
+
+Picks an FVS \bcommanD:command\b that will run the program on the
+operating system you are using.  
+
+Insures that the \bsimfilE:simulation file\b is saved.  If it is not
+saved, you will be asked if it is ok to save.
+
+If you are using Windows, a batch file is created to run the
+simulation and any post processors you have selected.  The name of the
+batch file will be formed by taking the simulation file name, removing
+the suffix (\fc.key\f0) and adding the suffix \fc.bat\f0.  For
+example, if your simulation file is named \fcjohnson.key\f0, the batch
+file will be named \fcjohnson.bat\f0.
+
+If you are using Unix, a shell script is created to run the
+simulation and any post processors you have selected.  The name of the
+script file will be formed by taking the simulation file name, removing
+the suffix (\fc.key\f0) and adding the suffix \fc.sh\f0.  For
+example, if your simulation file is named \fcjohnson.key\f0, the script
+file will be named \fcjohnson.sh\f0.
+ 
+You are asked if Suppose may actually submit the batch file or shell
+script for processing.  You may Run or Cancel.  If you Run, the
+simulation will start, if you Cancel, you make other selections.  In
+either case, the batch file or shell script will be created and may be
+run later from the operating system command line.
+
+HTOPIC SIMULATIONFile "Simulation File"
+\fbSimulation File\f0
+
+A simulation file is a computer data file which contains FVS
+\bkrecordS:keyword records\b and data used directly by Suppose.
+
+Simulation files have the file name suffix \fc.key\f0. 
+
+You can open an existing file by pulling down the File menu item and
+selecting the \f1Open\f0 option. 
+
+You can also open a file by specifying the file name on the 
+\lcommandLine:command line\l used to start Suppose.
+
+You can start a new simulation file by selecting the 
+\f1New\f0 option under the File menu.
+
+The file name \fb*new file*\f0 indicates that you have not specified a
+simulation file name, or that you used the \f1New\f0 file menu item.
+
+HTOPIC  CURRENTRadioGroup "Current Group or Stand"  current group stand 
+\fbCurrent Group or Stand\f0
+
+When you create a \bcomponenT:component\b in Suppose it is added to
+the current \bstanD:stand\b or \bgroupCode:group\b.  You use the 
+Current Group or Current Stand radio buttons on the 
+\lMAINWINWindow:selections window\l to tell Suppose that you
+want newly created components to be added to a group or a stand.  You
+use the list button found to the right of the radio buttons to select
+which group or which stand.
+
+For example, say you have three stands in a run and you wish
+to add a thinning management action to the first stand and not to the
+others.  To insure that the thinning is added to the desired stand,
+you must first select Current Stand, then use the list button to
+select the desired stand from the list of 3 stands in the simulation.
+
+Here is another example.  Say you have 10 stands in the simulation and
+you want to simulate a shelterwood harvest in 5 of the stands.
+Furthermore, the 5 stands are all in a single group named \f1Timber\f0
+(they may also be in other groups and they will be in the group \f1All\f0).
+Adding a shelterwood harvest to each of the 5 stands can be
+accomplished in 2 different ways.  A good way is to select Current Group
+and pick the \f1Timber\f0 group using the list button.  Then use the
+Management Actions button, select, and create the shelterwood 
+\bcomponenT:component\b.  You need only create one shelterwood
+component as it will be part of the group and each stand in the group
+will receive a copy of the shelterwood when the simulation file is
+created by Suppose.  If you wish to modify the shelterwood, you have
+only to modify it once as it will apply to each of the members of the
+group.
+
+Another way to add a shelterwood harvest to each of the 5 stands is to
+use the Current Stand option, select the first of the 5 stands, create
+the shelterwood for the first stand and then repeat this sequence of
+actions for each of the 5 stands.  This approach will allow you to
+customize the shelterwood for each of the 5 stands but it also
+requires you to repeat the sequence several times.
+
+Using the Group approach is best for simulations involving large
+numbers of stands, or in the case where you are sure you want the
+component to be added to most, or perhaps \f1All\f0 of the stands.
+This is often the case when selecting an Output option or a model
+modifier.
+
+Using the Stand approach is best when you are running 2 or 3 stands
+and you need to greatly customize the components for the individual
+stands.  
+
+When you are running just 1 stand, it makes no difference
+which approach you use because Group \f1All\f0 is the default group
+and your 1 stand is part of that group.
+
+HTOPIC EXITButton "Exit"
+\fbExit\f0
+
+Exit will terminate Suppose.  If you have not saved a modified
+\bsimfilE:simulation file\b, you will first be asked if you so desire.
+

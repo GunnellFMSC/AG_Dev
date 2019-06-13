@@ -1,0 +1,432 @@
+//start ppif.01viewOut
+
+name:{Main Output File}
+
+command{dos}:{!editor! !run!.out}
+command{unix}:{!editor! !run!.out &}
+
+description:{\
+After the simulation, the Main Output file is viewed with the system
+editor.  On Unix, Dtpad is often used and in Windows, Notepad is often
+used.}
+
+//end ppif.01viewOut
+
+
+//start ppif.02viewTls
+
+name:{Treelist File}
+
+command{dos}:{!editor! !run!.trl}
+command{unix}:{!editor! !run!.trl &}
+
+description:{\
+After the simulation, the treelist and cutlist output file is viewed with the 
+system editor.  On Unix, Dtpad is often used and in Windows, Notepad is often used.
+
+You must select the "Base FVS Treelists - Build Standard Treelist and Cutlist" 
+model output or the TreeList, Cutlist, and ATRTList keywords to produce the required 
+input for live, dead, cut, and residual trees.}
+
+//end ppif.02viewTls
+
+
+//start ppif.03standtab
+
+name:{Stand and Stock Tables}
+
+command{dos}:{
+"!fvsbin!\\standtbl.exe" -!run!.trl -!run!.stb}
+
+command{unix}:{
+!fvsbin!/standtbl -!run!.trl -!run!.stb
+!editor! !run!.stb}
+
+description:{\
+This post processor reads FVS TreeList and CutList output and creates
+stand tables for each tree list in the output file.
+
+You must select the "Base FVS Treelists - Build Standard Treelist and Cutlist" 
+model output or the TreeList and Cutlist keywords to produce the required input 
+for live, dead and cut trees.
+
+The output file name has the suffix .stb}
+
+//end ppif.03standtab
+
+
+//start ppif.04compute
+
+name:{Compute - Table of Compute Variables}
+
+command{dos}:{
+"!fvsbin!\\compute.exe" -!run!.out -!run!.cmp -t -SIMULATION:!run!}
+
+command{unix}:{
+!fvsbin!/compute -!run!.out -!run!.cmp -t -SIMULATION:!run!
+!editor! !run!.cmp}
+
+description:{\
+This post processor reads the FVS-generated standard output file and
+creates a compute output file which contains a summary listing of the 
+values of all the Event Monitor Compute variables displayed by year. 
+The format can be changed to concatenate variables or to average them for
+all stands included in the run.    
+
+You must select the "Event Monitor (EM) Compute Variables -  Compute User-
+Defined Variables" model output or the Compute keyword to define the variables 
+used as input for this post processor.
+
+The output file has a suffix of .cmp.}
+
+//end ppif.04compute
+
+
+//start ppif.05svs
+
+name:{Stand Visualization System (SVS)}
+
+command{dos}:{
+"!fvsbin!\\winsvs.exe" -a315 -e135 -s75 -d445 -l50 !run!_index.svs
+}
+
+description:{\
+The Stand Visualization System (SVS) will provide a 3D drawing of
+a stand.  Don't run this and "SVS Movies" in the same run.
+
+You must select the "Base FVS Treelists - Build SVS Treelist" model output or SVS 
+keyword to generate the SVS tree list files directly from FVS.
+
+SVS for Windows was developed by Robert J. McGaughey of the Pacific
+Northwest Research Station, Seattle, WA}
+
+//end   ppif.05svs
+
+
+//start ppif.06svsmetric
+
+name:{Stand Visualization System (SVS) (Metric units)}
+
+command{dos}:{
+"!fvsbin!\\winsvs.exe" -a315 -e82 -s38 -d226 -l51 !run!_index.svs
+}
+
+description:{\
+The Stand Visualization System (SVS) will provide a 3D drawing of
+a stand in Metric units. Don't run this and "SVS Movies" in the same run.
+
+You must select the "SVS" keyword and indicate metric units to generate 
+the SVS tree list files directly from FVS. 
+
+SVS for Windows was developed by Robert J. McGaughey of the Pacific
+Northwest Research Station, Seattle, WA}
+
+//end   ppif.06svsmetric
+
+
+//start ppif.07svsmovie
+
+name:{Stand Visualization System (SVS) - "Movies" }
+
+command{dos}:{
+if exist !run!\\* "!fvsbin!\\winsvs.exe" -a315 -e135 -s75 -d445 -l50 -i -f -c!run!\\!run!.bmp !run!_index
+}
+
+
+description:{\
+The Stand Visualization System (SVS) will provide 3D drawings of
+a stand and display them sequentially.  Don't run this and the
+non-Movies post processor in the same run.
+
+You must select the "Base FVS Treelists - Build SVS Treelist" model output or SVS 
+keyword to generate the SVS tree list files directly from FVS.
+
+SVS for Windows was developed by Robert J. McGaughey of the Pacific
+Northwest Research Station, Seattle, WA}
+
+//end   ppif.07svsmovie
+
+
+//start ppif.08avgsum
+
+name:{Average Summary Table}
+
+command{dos}:{
+"!fvsbin!\\sumavg.exe" -!run!.sum  -!run!.avg}
+
+command{unix}:{
+!fvsbin!/sumavg -!run!.sum  -!run!.avg
+!editor! !run!.avg}
+
+
+description:{\
+This post processor reads the EchoSum output for all stands in the run
+and creates an output file that contains an average summary table.
+
+You must select the "Multi-Stand Reports - Build Summary Statistics Report" 
+model output or the EchoSum keyword to produce the required input file.
+
+The output file name has the suffix of .avg}
+
+//end ppif.08avgsum
+
+
+//start ppif.09calibrat
+
+name:{Calibration Summary Statistics}
+
+command{dos}:{
+"!fvsbin!\\calib.exe"  -!run!.chp}
+
+command{unix}:{
+!fvsbin!/calib  -!run!.chp
+!editor! !run!.csf}
+
+description:{\
+This post processor reads the CalbStat output for all stands in the
+run and calculates an average scale factor for each species for which
+FVS calculated an initial scale factor.
+
+You must select the "Multi-Stand Reports - Build Calibration Summary Statistics 
+Report" model output or the CalbStat keyword to produce the required input file.
+
+The output file name has the suffix of .csf}
+
+//end ppif.09calibrat
+
+
+//start ppif.10errlog
+
+name:{Error Log}
+
+command{dos}:{
+"!fvsbin!\\ErrorRpt.exe" -!run!.out
+!editor! !run!.err
+}
+command{unix}:
+{
+!fvsbin!\\ErrorRpt.exe -!run!.out
+!editor! !run!.err &
+}
+
+description:{\
+This post processor creates and displays an error log file 
+with FVS error messages that are displayed within the Main 
+Output file.
+In Windows, Notepad is often used. On Unix, Dtpad
+is often used.}
+
+//end ppif.10errlog
+
+
+//start ppif.11toss
+
+name:{TOSS: Table Output Selection Screen}
+
+command{dos}:{"!fvsbin!\\toss.exe" !run!.out}
+
+description:{\
+The Table Output Selection Screen (TOSS) program allows users the
+ability to pick desired tables from the vast FVS main output file.
+
+Only selected tables are stored in a file called "TOSS.LOG".  The
+user can rename this for file for later retrieval if desired.
+
+Multi-plot runs that are common with forest planning analysis can
+use TOSS to quickly examine individual plot projections without
+having to wade through the volume of output produced by Suppose.
+
+TOSS was developed by Don Vandendriesche of the Forest Management
+Service Center, Fort Collins, CO}
+
+//end ppif.11toss
+
+
+//start ppif.12fvsstand
+
+name:{FVSSTAND Alone: Generate Dynamic Yield Reports}
+
+command{dos}:{"!fvsbin!\\fvsstand.exe" !run!.fst}
+
+description:{\
+FVSSTAND Alone produces standard stand and stock tables.  Species-size
+class reports are generated that account for stocking, growth, harvest,
+and mortality components.
+
+You must use the "FvsStand" keyword to generate the tree list output needed
+for input into FVSSTAND.  Enter a "0" in the 'Select Year' input box to
+create tree lists for all cycles.
+
+Two types of yield reports are available: age dependent and time dependent.
+They are specifically designed for importation into forest planning models.
+Structure class forecasting and species product merchandising are an added
+benefit.
+
+Stand visualization features are built into FVSSTAND to dynamically display
+a movie of the simulated stand profile through time.
+
+FVSSTAND Alone was developed by Don Vandendriesche of the Forest Management
+Service Center, Fort Collins, CO}
+
+//end ppif.12fvsstand
+
+
+//start ppif.13r1classifier
+
+name:{R1 Existing Vegetation Classifier}
+
+command{dos}:{
+"!fvsbin!\\Classifier.exe" !run!.trl > !run!_R1Classifier.txt
+}
+
+description:{\
+The Region 1 Existing Vegetation Classifier classifies treelist data 
+according to the vegetation classification algorithms used in Region 1 
+for dominance type, size class, and vertical structure.
+
+This output is sent to a text file named after the simulation run with 
+the following text and extension: "_R1Classifier.txt".  You must select 
+the "Base FVS Treelists - Build Standard Treelist and Cutlist" model 
+output [making sure only the Build Treelist is checked] or the TreeList  
+keyword to produce the required input.
+
+User's Guide:  Region 1 Existing Vegetation Classification Program Overview  
+Numbered Report 10-9 v3.0   Dec. 9, 2010
+http://fsweb.r1.fs.fed.us/forest/inv/fvs/index.htm
+
+Reference :  Region 1 Existing Vegetation Classification and its Relationship 
+to Inventory Data and the Region 1 Existing Vegetaion Map Products. Numbered 
+Report 09-03 5.0   April  23, 2009
+http://fsweb.r1.fs.fed.us/forest/inv/fvs/index.htm }
+
+//end ppif.13r1classifier
+
+
+//start ppif.14rmvss
+
+name:{Rocky Mountain Vegetative Structural Stage}
+
+command{dos}:{
+!fvsbin!\\rmvss.exe -!run!.fst
+!editor! !run!.vss}
+
+command{unix}:{
+!fvsbin!/rmvss -!run!.fst -!run!.key -!run!.vss -3
+!editor! !run!.vss}
+
+description:{\
+This post processor (for Regions 1, 2, 3, and 4) reads the 
+FVSStand TreeList and creates an output file that contains a 
+Vegetative Structural Stage assessment. 
+
+You must select the "Base FVS Treelists - Build FVSStand Alone Treelist"
+model output or the FVSSTAND keyword to produce the required input for
+live, dead, and cut trees.
+
+The output file name has the suffix of .vss}
+
+//end ppif.14rmvss
+
+//start ppif.15mpbrisk
+
+name:{Mountain Pine Beetle Risk Rating}
+
+command{dos}:{
+"!fvsbin!\\pinebtl.exe" -!run!.out -!run!.trl -!run!.btl}
+
+command{unix}:{
+!fvsbin!/pinebtl -!run!.out -!run!.trl -!run!.btl
+!editor! !run!.btl}
+
+description:{\
+This post processor reads the FVS TreeList output file and creates an
+output file that contains an assessment of risk factors for mountain
+pine beetle in ponderosa pine. The risk rating factors were developed for use 
+in Utah (UT Variant), but it will produce output for any stand in which 
+ponderosa pine is found.
+
+You must select the "Base FVS Treelists - Build Standard Treelist and Cutlist" 
+model output or the TreeList and Cutlist keywords to produce the required input 
+for live, dead and cut trees.
+
+The output file name has the suffix of .btl}
+
+//end ppif.15mpbrisk
+
+
+//start ppif.16sprucbtl
+
+name:{Spruce Beetle Risk Rating}
+
+command{dos}:{
+"!fvsbin!\\sprucbtl.exe" -!run!.out}
+
+command{unix}:{
+!fvsbin!/sprucbtl -!run!.trl
+!editor! !run!.sbr}
+
+description:{\
+Available in post processor packages dated 4/12/01 and later.
+This post processor reads the FVS TreeList output file and the
+FVS-generated main output file and creates an output file that 
+contains an assessment of risk of potential spruce beetle outbreak
+in Engelmann spruce. The risk rating factors were developed based 
+on information in Schmid and Frye, 1976, Stand Ratings for Spruce 
+Beetles, Research Note RM-309 using data collected in the Central 
+and Southern Rockies (CR Variant).
+
+You must select the "Base FVS Treelists - Build Standard Treelist and Cutlist" 
+model output or the TreeList and Cutlist keywords to produce the required input 
+for live, dead and cut trees.
+
+The output file name has the suffix of .sbr}
+
+//end ppif.16sprucbtl
+
+
+//start ppif.17elkCov
+
+name:{Elk Hiding Cover (Multistory)}
+
+command{dos}:{
+"!fvsbin!\\elkcover.exe"  -!run!.trl -!run!.elk}
+
+command{unix}:{
+!fvsbin!/elkcover  -!run!.trl  -!run!.elk
+!editor! !run!.elk}
+
+description:{\
+This post processor reads the FVS generated TreeList output file
+and creates an output file that contains tables of estimated
+proportion of an elk hidden at a viewing distance of 200 feet. 
+Calculations are based on research by F.W. Smith and J.N. Long 
+(1987) with lodgepole pine data collected on the Medicine Bow 
+National Forest in Wyoming (CR Variant).  
+
+You must select the "Base FVS Treelists - Build Standard Treelist and Cutlist" 
+model output [making sure only the Build Treelist is checked] or the TreeList 
+keyword to produce the required input for live and dead trees.
+
+The output file name has the suffix .elk}
+
+//end ppif.17elkCov
+
+
+//start ppif.18wrenss
+
+name:{WRENSS Water Yield}
+
+command{dos}:{"!fvsbin!\\fvs-wrenss.exe" !run!.out}
+
+description:{\
+This post processor reads the FVS-generated main output file and creates 
+output files that summarize water yield information. WRENSS is a useful tool
+for predicting the change in water yield. 
+
+You must select the "Event Monitor (EM) Compute Variables - Compute WRENSS
+Variables" to calculate the stand maximum basal area. This is used to estimate the
+stand maximum hydrologic potential in WRENSS ET calculations.
+
+}
+
+//end ppif.18wrenss

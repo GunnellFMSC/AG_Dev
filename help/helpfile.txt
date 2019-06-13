@@ -1,0 +1,64 @@
+HEADER
+VERSION 300
+APPNAME "Suppose..."
+
+#ifdef AIXV4
+FONT 0 "TIMES,18"
+FONT 1 "TIMES,18,ITALIC"
+FONT B "TIMES,18,BOLD"
+FONT C "COURIER,18"
+#else
+FONT 0 "TIMES,12"
+FONT 1 "TIMES,12,ITALIC"
+FONT B "TIMES,12,BOLD"
+FONT C "WIN01:COURIER,12" 
+#endif
+
+BODYSTANZA
+
+#scan "xvt_help.h"
+#include "supphelp.hpp"
+
+#include "stdhelp.txt"
+#include "contents.txt"
+#include "index.txt"
+#include "glossary.txt"
+#include "intro.txt"
+#include "tutorial.txt"
+#include "appendix.txt"
+#include "menus.txt"       // MENUbar
+#include "mainwin.txt"     // MAINWINWindow
+#include "selectsi.txt"    // SELECTSIWindow 
+#include "timescal.txt"    // TIMESCALWindow
+#include "postpwin.txt"    // POSTPWINWindow
+#include "spprefer.txt"    // SPPREFERWindow
+#include "schedobj.txt"    // SCHEDOBJSubview, SCHYEARDialog, SCHCONDWindow
+#include "cmngwin.txt"     // CMNGWINWindow
+#include "clearwin.txt"    // CLEARWINWindow
+#include "sheltwin.txt"    // SHELTWINWindow
+#include "seedwin.txt"     // SEEDWINWindow
+#include "thinwin.txt"     // THINWINWindow
+#include "plantwin.txt"    // PLANTNATURALWindow
+#include "editcomp.txt"    // EDITSimFileWindow
+#include "express.txt"     // EXPRESSWindow
+#include "gpkey.txt"       // GPKEYWindow 
+#include "grpmemb.txt"     // GRPMEMBWindow
+#include "selvar.txt"      // SELVARWindow
+#include "simnotes.txt"    // SIMNOTESWindow
+#include "usekey.txt"      // USEKEYWindow
+#include "viewkey.txt"     // VIEWKEYWindow
+#include "runwizw.txt"     // RUNWIZWindow
+#include "reportwn.txt"    // GENERATEReports, READFVSOutput, AVERAGEFVSOutput
+#include "dlstdgrp.txt"    // DELETEStandWindow, DELETEGroupWindow
+#include "editlocs.txt"    // EDITLOCSWindow
+#include "editslf.txt"     // EDITSLFWindow 
+#include "editfvst.txt"    // EDITFVSTWindow 
+#include "referenc.txt"    // for reference section and citation 
+
+#undef  XVT_TPC_ABOUTHELP
+#define XVT_TPC_ABOUTHELP  -1
+#undef  XVT_TPC_HELPONHELP
+#define XVT_TPC_HELPONHELP -1
+#undef  XVT_TPC_ONVERSION
+#define XVT_TPC_ONVERSION  -1
+#include "xvt_help.csh"

@@ -1,0 +1,1422 @@
+
+//start species_ni
+
+! For each character species code, create one record where the PKey is
+! the species code, the ATList is the numeric code, and the PString
+! is the common name.
+
+! If a numeric code in the sequence of integers, {1, 2, 3,...}, is not
+! used, DON'T define it.  The sequence need not be complete.
+
+! The species pickers display species in order specified.
+
+DF {3} :{Douglas-fir}
+ES {8} :{Engelmann spruce}
+GF {4} :{Grand fir}
+LP {7} :{Lodgepole pine}
+PP {10}:{Ponderosa pine}
+AF {9} :{Subalpine fir}
+WH {5} :{Western hemlock}
+WL {2} :{Western larch}
+RC {6} :{Western redcedar}
+WP {1} :{White pine}
+OT {11}:{Other species}
+
+//end   species_ni
+
+
+//start species_ak
+
+! see species_ni for instructions.
+
+YC{6}:{Alaska cedar}
+CW{11}:{Black cottonwood}
+LP{7}:{Lodgepole pine}
+MH{4}:{Mountain hemlock}
+SF{3}:{Pacific silver fir}
+RA{10}:{Red alder}
+SS{8}:{Sitka spruce}
+AF{9}:{Subalpine fir}
+WH{5}:{Western hemlock}
+RC{2}:{Western red cedar}
+WS{1}:{White spruce}
+OH{12}:{Other hardwoods}
+OS{13}:{Other softwoods}
+
+//end   species_ak
+
+
+//start species_bm
+
+! see species_ni for instructions.
+YC{14}:{Alaska cedar}
+CW{16}:{Black Cottonwood}
+DF{3}:{Douglas-fir}
+ES{8}:{Engelmann spruce}
+GF{4}:{Grand fir/White fir}
+LM{12}:{Limber pine}
+LP{7}:{Lodgepole pine}
+MH{5}:{Mountain hemlock}
+PY{13}:{Pacific yew}
+PP{10}:{Ponderosa pine}
+AS{15}:{Quaking aspen}
+AF{9}:{Subalpine fir}
+WJ{6}:{Western juniper}
+WL{2}:{Western larch}
+WP{1}:{Western white pine}
+WB{11}:{Whitebark pine}
+OS{17}:{Other Softwoods}
+OH{18}:{Other Hardwoods}
+
+//end  species_bm
+
+
+//start species_ca
+
+! see species_ni for instructions.
+
+BM{34}:{Bigleaf maple}
+CW{45}:{Black cottonwood}
+BL{28}:{Blue oak}
+BR{22}:{Brewer spruce}
+BO{31}:{California black oak}
+BU{35}:{California buckeye}
+CL{48}:{California-laurel}
+CN{47}:{California nutmeg}
+RF{5}:{California red fir}
+SY{43}:{California sycamore}
+CY{27}:{Canyon live oak}
+LO{26}:{Coast live oak}
+CP{13}:{Coulter pine}
+DF{7}:{Douglas-fir}
+EO{29}:{Engelmann oak}
+GC{38}:{Giant chinquapin}
+GS{23}:{Giant sequoia}
+GP{20}:{Gray pine}
+IC{2}:{Incense-cedar}
+IO{33}:{Interior live oak}
+JP{15}:{Jeffrey pine}
+KP{11}:{Knobcone pine}
+LM{14}:{Limber pine}
+LP{12}:{Lodgepole pine}
+MP{19}:{Monterey pine}
+MH{9}:{Mountain hemlock}
+FL{40}:{Oregon ash}
+WO{30}:{Oregon white oak}
+DG{39}:{Pacific dogwood}
+MA{37}:{Pacific madrone}
+PY{24}:{Pacific yew}
+PP{18}:{Ponderosa pine}
+PC{1}:{Port-Orford-cedar}
+AS{44}:{Quaking aspen}
+RA{36}:{Red alder}
+SH{6}:{Shasta red fir}
+SP{16}:{Sugar pine}
+TO{42}:{Tanoak}
+VO{32}:{Valley white oak}
+WN{41}:{Walnut species}
+WH{8}:{Western hemlock}
+WJ{21}:{Western juniper}
+RC{3}:{Western redcedar}
+WP{17}:{Western white pine}
+WF{4}:{White fir}
+WB{10}:{Whitebark pine}
+WI{46}:{Willow species}
+OH{49}:{Other hardwoods}
+OS{25}:{Other softwoods}
+
+//end  species_ca
+
+
+//start species_ci
+
+! see species_ni for instructions.
+
+CW{17}:{Black cottonwood}
+MC{15}:{Curlleaf mountain-mahogany}
+DF{3}:{Douglas-fir}
+ES{8}:{Engelmann spruce}
+GF{4}:{Grand fir}
+LM{16}:{Limber pine}
+LP{7}:{Lodgepole pine}
+PY{12}:{Pacific yew}
+PP{10}:{Ponderosa pine}
+AS{13}:{Quaking aspen}
+AF{9}:{Subalpine fir}
+WH{5}:{Western hemlock}
+WJ{14}:{Western juniper}
+WL{2}:{Western larch}
+RC{6}:{Western redcedar}
+WP{1}:{Western white pine}
+WB{11}:{Whitebark pine}
+OH{19}:{Other hardwoods}
+OS{18}:{Other softwoods}
+
+//end   species_ci
+
+
+
+//start species_cr
+
+! see species_ni for instructions.
+AJ{29}:{ Alligator juniper}
+AZ{35}:{Arizona pinyon}
+AW{24}:{Arizona white oak}
+BS{17}:{Blue spruce}
+PD{34}:{Border pinyon}
+BC{9}:{Bristlecone pine}
+BK{26}:{Bur oak}
+CI{36}:{Chihuahua pine}
+CB{2}:{Corkbark fir}
+PI{12}:{Common pinyon}
+DF{3}:{Douglas-fir}
+ER{32}:{Eastern redcedar}
+EM{25}:{Emory oak}
+ES{18}:{Engelmann spruce}
+GO{23}:{Gambel oak}
+GF{4}:{Grand fir}
+UJ{16}:{Utah juniper}
+LM{10}:{Limber pine}
+LP{11}:{Lodgepole pine}
+MH{6}:{Mountain hemlock}
+NC{21}:{Narrowleaf cottonwood}
+OJ{31}:{Oneseed juniper}
+PB{28}:{Paper birch}
+PW{22}:{Plains cottonwood}
+PP{13}:{Ponderosa pine}
+AS{20}:{Quaking aspen}
+RM{30}:{Rocky Mountain juniper}
+SO{27}:{Silverleaf oak}
+PM{33}:{singleleaf pinyon}
+SW{15}:{Southwestern white pine}
+AF{1}:{Subalpine fir}
+WL{8}:{Western larch}
+RC{7}:{Western redcedar}
+WF{5}:{White fir}
+WS{19}:{White spruce}
+WB{14}:{Whitebark pine}
+OS{37}:{Other softwoods}
+OH{38}:{Other hardwoods}
+
+//end  species_cr
+
+//start species_sw
+
+! cr variant, model type 1
+! see species_ni for instructions.
+
+AJ{29}:{ Alligator juniper}
+AZ{35}:{Arizona pinyon}
+AW{24}:{Arizona white oak}
+BS{17}:{Blue spruce}
+PD{34}:{Border pinyon}
+BC{9}:{Bristlecone pine}
+BK{26}:{Bur oak}
+CI{36}:{Chihuahua pine}
+CB{2}:{Corkbark fir}
+PI{12}:{Common pinyon}
+DF{3}:{Douglas-fir}
+ER{32}:{Eastern redcedar}
+EM{25}:{Emory oak}
+ES{18}:{Engelmann spruce}
+GO{23}:{Gambel oak}
+GF{4}:{Grand fir}
+UJ{16}:{Utah juniper}
+LM{10}:{Limber pine}
+LP{11}:{Lodgepole pine}
+MH{6}:{Mountain hemlock}
+NC{21}:{Narrowleaf cottonwood}
+OJ{31}:{Oneseed juniper}
+PB{28}:{Paper birch}
+PW{22}:{Plains cottonwood}
+PP{13}:{Ponderosa pine}
+AS{20}:{Quaking aspen}
+RM{30}:{Rocky Mountain juniper}
+SO{27}:{Silverleaf oak}
+PM{33}:{singleleaf pinyon}
+SW{15}:{Southwestern white pine}
+AF{1}:{Subalpine fir}
+WL{8}:{Western larch}
+RC{7}:{Western redcedar}
+WF{5}:{White fir}
+WS{19}:{White spruce}
+WB{14}:{Whitebark pine}
+OS{37}:{Other softwoods}
+OH{38}:{Other hardwoods}
+
+//end  species_sw
+
+//start species_sp
+
+! cr variant, model type 2
+! see species_ni for instructions.
+
+AJ{29}:{ Alligator juniper}
+AZ{35}:{Arizona pinyon}
+AW{24}:{Arizona white oak}
+BS{17}:{Blue spruce}
+PD{34}:{Border pinyon}
+BC{9}:{Bristlecone pine}
+BK{26}:{Bur oak}
+CI{36}:{Chihuahua pine}
+CB{2}:{Corkbark fir}
+PI{12}:{Common pinyon}
+DF{3}:{Douglas-fir}
+ER{32}:{Eastern redcedar}
+EM{25}:{Emory oak}
+ES{18}:{Engelmann spruce}
+GO{23}:{Gambel oak}
+GF{4}:{Grand fir}
+UJ{16}:{Utah juniper}
+LM{10}:{Limber pine}
+LP{11}:{Lodgepole pine}
+MH{6}:{Mountain hemlock}
+NC{21}:{Narrowleaf cottonwood}
+OJ{31}:{Oneseed juniper}
+PB{28}:{Paper birch}
+PW{22}:{Plains cottonwood}
+PP{13}:{Ponderosa pine}
+AS{20}:{Quaking aspen}
+RM{30}:{Rocky Mountain juniper}
+SO{27}:{Silverleaf oak}
+PM{33}:{singleleaf pinyon}
+SW{15}:{Southwestern white pine}
+AF{1}:{Subalpine fir}
+WL{8}:{Western larch}
+RC{7}:{Western redcedar}
+WF{5}:{White fir}
+WS{19}:{White spruce}
+WB{14}:{Whitebark pine}
+OS{37}:{Other softwoods}
+OH{38}:{Other hardwoods}
+
+//end  species_sp
+
+//start species_bp
+
+! cr variant, model type 3
+! see species_ni for instructions.
+
+AJ{29}:{ Alligator juniper}
+AZ{35}:{Arizona pinyon}
+AW{24}:{Arizona white oak}
+BS{17}:{Blue spruce}
+PD{34}:{Border pinyon}
+BC{9}:{Bristlecone pine}
+BK{26}:{Bur oak}
+CI{36}:{Chihuahua pine}
+CB{2}:{Corkbark fir}
+PI{12}:{Common pinyon}
+DF{3}:{Douglas-fir}
+ER{32}:{Eastern redcedar}
+EM{25}:{Emory oak}
+ES{18}:{Engelmann spruce}
+GO{23}:{Gambel oak}
+GF{4}:{Grand fir}
+UJ{16}:{Utah juniper}
+LM{10}:{Limber pine}
+LP{11}:{Lodgepole pine}
+MH{6}:{Mountain hemlock}
+NC{21}:{Narrowleaf cottonwood}
+OJ{31}:{Oneseed juniper}
+PB{28}:{Paper birch}
+PW{22}:{Plains cottonwood}
+PP{13}:{Ponderosa pine}
+AS{20}:{Quaking aspen}
+RM{30}:{Rocky Mountain juniper}
+SO{27}:{Silverleaf oak}
+PM{33}:{singleleaf pinyon}
+SW{15}:{Southwestern white pine}
+AF{1}:{Subalpine fir}
+WL{8}:{Western larch}
+RC{7}:{Western redcedar}
+WF{5}:{White fir}
+WS{19}:{White spruce}
+WB{14}:{Whitebark pine}
+OS{37}:{Other softwoods}
+OH{38}:{Other hardwoods}
+
+//end  species_bp
+
+//start species_sf
+
+! cr variant, model type 4
+! see species_ni for instructions.
+
+AJ{29}:{ Alligator juniper}
+AZ{35}:{Arizona pinyon}
+AW{24}:{Arizona white oak}
+BS{17}:{Blue spruce}
+PD{34}:{Border pinyon}
+BC{9}:{Bristlecone pine}
+BK{26}:{Bur oak}
+CI{36}:{Chihuahua pine}
+CB{2}:{Corkbark fir}
+PI{12}:{Common pinyon}
+DF{3}:{Douglas-fir}
+ER{32}:{Eastern redcedar}
+EM{25}:{Emory oak}
+ES{18}:{Engelmann spruce}
+GO{23}:{Gambel oak}
+GF{4}:{Grand fir}
+UJ{16}:{Utah juniper}
+LM{10}:{Limber pine}
+LP{11}:{Lodgepole pine}
+MH{6}:{Mountain hemlock}
+NC{21}:{Narrowleaf cottonwood}
+OJ{31}:{Oneseed juniper}
+PB{28}:{Paper birch}
+PW{22}:{Plains cottonwood}
+PP{13}:{Ponderosa pine}
+AS{20}:{Quaking aspen}
+RM{30}:{Rocky Mountain juniper}
+SO{27}:{Silverleaf oak}
+PM{33}:{singleleaf pinyon}
+SW{15}:{Southwestern white pine}
+AF{1}:{Subalpine fir}
+WL{8}:{Western larch}
+RC{7}:{Western redcedar}
+WF{5}:{White fir}
+WS{19}:{White spruce}
+WB{14}:{Whitebark pine}
+OS{37}:{Other softwoods}
+OH{38}:{Other hardwoods}
+
+//end  species_sf
+
+//start species_lp
+
+! cr variant, model type 5
+! see species_ni for instructions.
+
+AJ{29}:{ Alligator juniper}
+AZ{35}:{Arizona pinyon}
+AW{24}:{Arizona white oak}
+BS{17}:{Blue spruce}
+PD{34}:{Border pinyon}
+BC{9}:{Bristlecone pine}
+BK{26}:{Bur oak}
+CI{36}:{Chihuahua pine}
+CB{2}:{Corkbark fir}
+PI{12}:{Common pinyon}
+DF{3}:{Douglas-fir}
+ER{32}:{Eastern redcedar}
+EM{25}:{Emory oak}
+ES{18}:{Engelmann spruce}
+GO{23}:{Gambel oak}
+GF{4}:{Grand fir}
+UJ{16}:{Utah juniper}
+LM{10}:{Limber pine}
+LP{11}:{Lodgepole pine}
+MH{6}:{Mountain hemlock}
+NC{21}:{Narrowleaf cottonwood}
+OJ{31}:{Oneseed juniper}
+PB{28}:{Paper birch}
+PW{22}:{Plains cottonwood}
+PP{13}:{Ponderosa pine}
+AS{20}:{Quaking aspen}
+RM{30}:{Rocky Mountain juniper}
+SO{27}:{Silverleaf oak}
+PM{33}:{singleleaf pinyon}
+SW{15}:{Southwestern white pine}
+AF{1}:{Subalpine fir}
+WL{8}:{Western larch}
+RC{7}:{Western redcedar}
+WF{5}:{White fir}
+WS{19}:{White spruce}
+WB{14}:{Whitebark pine}
+OS{37}:{Other softwoods}
+OH{38}:{Other hardwoods}
+
+//end  species_lp
+
+
+//start species_cs
+
+! see species_ni for instructions.
+
+BW{42}:{American basswood}
+AB{24}:{American beech}
+AE{33}:{American elm}
+AH{86}:{American hornbeam}
+AS{44}:{Ash species}
+BY{80}:{Baldcypress}
+BP{74}:{Balsam poplar}
+BT{75}:{Bigtooth aspen}
+BH{21}:{Bitternut hickory}
+BA{25}:{Black ash}
+BC{32}:{Black cherry}
+BI{23}:{Black hickory}
+BK{77}:{Black locust}
+BO{50}:{Black oak}
+WN{8}:{Black walnut}
+BL{84}:{Black willow}
+BG{13}:{Blackgum, black tupelo}
+BJ{52}:{Blackjack oak}
+UA{27}:{Blue ash}
+BE{30}:{Boxelder}
+BR{55}:{Bur oak}
+BN{9}:{Butternut}
+CA{71}:{Catalpa}
+CB{61}:{Cherrybark oak}
+CO{59}:{Chestnut oak}
+CK{53}:{Chinkapin oak}
+PS{72}:{Common Persimmon}
+CT{92}:{Cucumbertree}
+DO{58}:{Delta post oak}
+EC{28}:{Eastern cottonwood}
+HH{95}:{Eastern hophornbeam}
+RD{87}:{Eastern redbud}
+RC{1}:{Eastern redcedar}
+WP{7}:{Eastern white pine}
+EL{37}:{Elm species}
+DW{88}:{Flowering dogwood}
+GA{46}:{Green ash}
+HK{35}:{Hackberry}
+HT{89}:{Hawthorn species}
+HI{19}:{Hickory species}
+HL{73}:{Honeylocust}
+JU{2}:{Juniper species}
+KC{90}:{Kentucky coffeetree}
+LP{5}:{Loblolly pine}
+MH{17}:{Mockernut hickory}
+MB{94}:{Mulberry species}
+RO{48}:{Northern red oak}
+NK{65}:{Nuttall oak}
+OB{70}:{Ohio buckeye}
+OO{91}:{Osage-orange}
+OV{63}:{Overcup oak}
+PE{22}:{Pecan}
+PH{18}:{Pignut hickory}
+PN{60}:{Pin oak}
+PO{57}:{Post oak}
+PA{26}:{Pumpkin ash}
+QA{76}:{Quaking aspen}
+RM{29}:{Red maple}
+RB{81}:{River birch}
+RE{40}:{Rock elm}
+SS{69}:{Sassafras}
+SO{51}:{Scarlet oak}
+HS{14}:{Select hickory}
+SH{15}:{Shagbark hickory}
+SL{16}:{Shellbark hickory}
+QI{62}:{Shingle oak}
+SP{3}:{Shortleaf pine}
+QS{67}:{Shumard oak}
+SI{38}:{Siberian elm}
+SV{31}:{Silver maple}
+RL{39}:{Slippery (red) elm}
+SD{96}:{Sourwood}
+SK{49}:{Southern red oak}
+SM{43}:{Sugar maple}
+SG{34}:{Sugarberry}
+SN{56}:{Swamp chestnut oak}
+TS{11}:{Swamp tupelo}
+SW{54}:{Swamp white oak}
+MV{93}:{Sweetbay}
+SU{82}:{Sweetgum}
+SY{79}:{Sycamore}
+TL{10}:{Tupelo species}
+VP{4}:{Virginia pine}
+WH{20}:{Water hickory}
+WK{64}:{Water oak}
+WT{12}:{Water tupelo}
+WA{45}:{White ash}
+WO{47}:{White oak}
+WL{66}:{Willow oak}
+WI{83}:{Willow species}
+WE{36}:{Winged elm}
+YP{41}:{Yellow-poplar}
+NC{85}:{Non-commercial hardwoods}
+OL{78}:{Other lowland species}
+OS{6}:{Other softwoods}
+UH{68}:{Other upland hardwoods}
+
+//end  species_cs
+
+
+//start species_ec
+
+! see species_ni for instructions.
+
+YC{18}:{Alaska cedar} 
+BM{20}:{Bigleaf maple}      
+CW{27}:{Black cottonwood}        
+PL{29}:{Cherry and plum species} 
+DF{3}:{Douglas-fir}
+ES{8}:{Engelmann spruce}        
+GC{24}:{Giant Chinquapin}        
+GF{6}:{Grand fir}      
+LP{7}:{Lodgepole pine}          
+MH{12}:{Mountain hemlock}        
+NF{15}:{Noble fir}       
+WO{28}:{Oregon white oak}        
+DG{25}:{Pacific dogwood}       
+SF{4}:{Pacific silver fir}      
+PY{13}:{Pacific yew}      
+PB{23}:{Paper birch}            
+PP{10}:{Ponderosa pine}          
+AS{26}:{Quaking aspen}         
+RA{22}:{Red alder}          
+AF{9}:{Subalpine fir}           
+LL{17}:{Subalpine larch}         
+VN{21}:{Vine maple}        
+WH{11}:{Western hemlock}         
+WJ{19}:{Western juniper}        
+WL{2}:{Western larch}       
+RC{5}:{Western redcedar}        
+WP{1}:{Western white pine}      
+WF{16}:{White fir}      
+WB{14}:{Whitebark pine}          
+WI{30}:{Willow species}         
+OS{31}:{Other softwoods}         
+OH{32}:{Other hardwood}
+
+//end  species_ec
+
+
+//start species_em
+
+! see species_ni for instructions.
+
+BA{14}:{Balsam poplar}
+CW{13}:{Black cottonwood}
+DF{3}:{Douglas-fir}
+ES{8}:{Engelmann spruce}
+GA{11}:{Green ash}
+LM{4}:{Limber pine}
+LP{7}:{Lodgepole pine}
+NC{16}:{Narrowleaf cottonwood}
+PB{17}:{Paper birch}
+PW{15}:{Plains cottonwood}
+PP{10}:{Ponderosa pine}
+AS{12}:{Quaking aspen}
+RM{6}:{Rocky Mountain juniper}
+AF{9}:{Subalpine fir}
+LL{5}:{Subalpiine larch}
+WL{2}:{Western larch}
+WB{1}:{Whitebark pine}
+OS{18}:{Other softwoods}
+OH{19}:{Other hardwoods}
+
+//end  species_em
+
+//start species_ie
+
+CO {19}:{Cottonwood species}
+DF {3} :{Douglas-fir}
+ES {8} :{Engelmann spruce}
+GF {4} :{Grand fir}
+LM {13}:{Limber pine}
+LP {7} :{Lodgepole pine}
+MH {11}:{Mountain hemlock}
+PY {17}:{Pacific yew}
+PB {21}:{Paper birch}
+PI {15}:{Pinyon pine}
+PP {10}:{Ponderosa pine}
+AS {18}:{Quaking Aspen}
+RM {16}:{Rocky Mountain juniper}
+MM {20}:{Rocky Mountain maple}
+AF {9} :{Subalpine fir}
+LL {14}:{Subalpine larch}
+WH {5} :{Western hemlock}
+WL {2} :{Western larch}
+RC {6} :{Western redcedar}
+WP {1} :{Western white pine}
+WB {12}:{Whitebark pine}
+OH {22}:{Other hardwoods}
+OS {23}:{Other softwoods}
+
+//end   species_ie
+
+//start species_kt
+
+! See species_ni for instructions.
+
+DF {3} :{Douglas-fir}
+GF {4} :{Grand fir}
+LP {7} :{Lodgepole pine}
+PP {10}:{Ponderosa pine}
+ES {8} :{Engelmann Spruce}
+AF {9} :{Subalpine fir}
+WH {5} :{Western hemlock}
+WL {2} :{Western larch}
+RC {6} :{Western redcedar}
+WP {1} :{Western white pine}
+OT {11}:{Other species}
+
+//end   species_kt
+
+
+//start species_ls
+
+! see species_ni for instructions.
+
+BW{25}:{American basswood}
+AB{28}:{American beech}
+AC{54}:{American chestnut}
+AE{21}:{American elm}
+AH{53}:{American hornbeam}
+MA{68}:{American mountain-ash}
+AP{58}:{Apple species}
+BF{8}:{Balsam fir}
+BP{42}:{Balsam poplar}
+BT{40}:{Bigtooth aspen}
+BH{37}:{Bitternut hickory}
+BA{15}:{Black ash}
+BC{20}:{Black cherry}
+BK{48}:{Black locust}
+BM{27}:{Black maple}
+BO{35}:{Black oak}
+BS{9}:{Black spruce}
+WN{46}:{Black walnut}
+BL{65}:{Black willow}
+BG{59}:{Blackgum}
+BE{50}:{Boxelder}
+BR{32}:{Bur oak}
+BN{45}:{Butternut}
+CK{33}:{Chinkapin oak}
+CC{62}:{Chokecherry}
+DM{66}:{Diamond willow}
+EC{17}:{Eastern cottonwood}
+EH{12}:{Eastern hemlock}
+HH{47}:{Eastern hophornbeam}
+RC{14}:{Eastern redcedar}
+WP{5}:{Eastern white pine}
+DW{56}:{Flowering dogwood}
+GA{16}:{Green ash}
+HK{55}:{Hackberry}
+HT{57}:{Hawthorn species}
+JP{1}:{Jack pine}
+MM{52}:{Mountain maple}
+NP{36}:{Northern pin oak}
+RO{34}:{Northern red oak}
+WC{11}:{Northern white-cedar}
+NS{7}:{Norway spruce}
+PB{43}:{Paper birch}
+PH{38}:{Pignut hickory}
+PR{61}:{Pin cherry}
+PL{63}:{Plum, cherry species}
+QA{41}:{Quaking aspen}
+RM{19}:{Red maple}
+RN{3}:{Red pine (natural)}
+RP{4}:{Red pine (plantation)}
+RE{23}:{Rock elm}
+SS{67}:{Sassafras}
+SC{2}:{Scotch pine}
+SH{39}:{Shagbark hickory}
+SV{18}:{Silver maple}
+RL{22}:{Slippery elm}
+ST{51}:{Striped maple}
+SM{26}:{Sugar maple}
+SW{31}:{Swamp white oak}
+SY{60}:{Sycamore}
+TA{10}:{Tamarack}
+WA{29}:{White ash}
+WO{30}:{White oak}
+WS{6}:{White spruce}
+WI{64}:{Willow species}
+YB{24}:{Yellow birch}
+CH{44}:{Commercial hardwoods}
+NC{49}:{Non-commercial hardwoods}
+OS{13}:{Other softwoods}
+
+//end  species_ls
+
+
+//start species_nc
+
+! see species_ni for instructions.
+
+BO{7}:{California black oak}
+RF{9}:{California red fir}
+DF{3}:{Douglas-fir}
+IC{6}:{Incense-cedar}
+MA{5}:{Pacific madrone}
+PP{10}:{Ponderosa pine}
+SP{2}:{Sugar pine}
+TO{8}:{Tanoak}
+WF{4}:{White fir}
+OS{1}:{Other softwoods}
+OH{11}:{Other hardwoods}
+
+//end  species_nc
+
+
+//start species_ne
+
+! see species_ni for instructions.
+
+AI{101}:{Ailanthus}
+BW{93}:{American basswood}
+AB{40}:{American beech}
+AE{96}:{American elm}
+HY{77}:{American holly}
+AH{103}:{American hornbeam}
+AP{83}:{Apple species}
+AS{41}:{Ash species}
+AW{13}:{Atlantic white-cedar}
+BF{1}:{Balsam fir}
+BP{50}:{Balsam poplar}
+BT{52}:{Bigtooth aspen}
+BA{43}:{Black ash}
+BC{54}:{Black cherry}
+BK{90}:{Black locust}
+BM{28}:{Black maple}
+BO{69}:{Black oak}
+BS{6}:{Black spruce}
+WN{79}:{Black walnut}
+BL{91}:{Black willow}
+BG{85}:{Blackgum}
+BE{99}:{Boxelder}
+BU{72}:{Buckeye species}
+BR{56}:{Bur oak}
+BN{78}:{Butternut}
+CB{70}:{Cherrybark oak}
+CO{64}:{Chestnut oak}
+CK{57}:{Chinkapin oak}
+PS{76}:{Common Persimmon}
+CT{48}:{Cucumbertree}
+EC{51}:{Eastern cottonwood}
+EH{16}:{Eastern hemlock}
+HH{106}:{Eastern hophornbeam}
+RC{14}:{Eastern redcedar}
+WP{9}:{Eastern white pine}
+DW{104}:{Flowering dogwood}
+GB{34}:{Gray birch}
+GA{44}:{Green ash}
+HK{75}:{Hackberry}
+HT{105}:{Hawthorn species}
+HI{35}:{Hickory species}
+JP{19}:{Jack pine}
+LP{10}:{Loblolly pine}
+MG{81}:{Magnolia species}
+MH{39}:{Mockernut hickory}
+RO{67}:{Northern red oak}
+WC{12}:{Northern white-cedar}
+NS{5}:{Norway spruce}
+OO{80}:{Osage-orange}
+PB{33}:{Paper birch}
+PW{87}:{Paulownia}
+PH{36}:{Pignut hickory}
+PR{108}:{Pin cherry}
+PN{63}:{Pin oak}
+PP{22}:{Pitch pine}
+PL{107}:{Plum, Cherry species}
+PD{23}:{Pond pine}
+PO{58}:{Post oak}
+PA{45}:{Pumpkin ash}
+QA{49}:{Quaking aspen}
+RM{26}:{Red maple}
+RN{8}:{Red pine}
+RS{4}:{Red spruce}
+RB{32}:{River birch}
+SS{92}:{Sassafras}
+SO{60}:{Scarlet oak}
+SC{24}:{Scotch pine}
+SE{102}:{Serviceberry}
+SH{38}:{Shagbark hickory}
+SL{37}:{Shellbark hickory}
+QI{61}:{Shingle oak}
+SP{20}:{Shortleaf pine}
+SV{29}:{Silver maple}
+RL{97}:{Slippery elm}
+SD{86}:{Sourwood}
+SK{68}:{Southern red oak}
+ST{100}:{Striped maple}
+SM{27}:{Sugar maple}
+SN{66}:{Swamp chestnut oak}
+PY{53}:{Swamp cottonwood}
+SW{65}:{Swamp white oak}
+SB{31}:{Sweet birch}
+MV{82}:{Sweetbay}
+SU{47}:{Sweetgum}
+SY{88}:{Sycamore}
+TM{21}:{Table Mountain pine}
+TA{2}:{Tamarack}
+VP{11}:{Virginia pine}
+WR{74}:{Water birch}
+WK{62}:{Water oak}
+WT{84}:{Water tupelo}
+WA{42}:{White ash}
+WB{94}:{White basswood}
+WO{55}:{White oak}
+WS{3}:{White spruce}
+WL{89}:{Willow oak}
+YB{30}:{Yellow birch}
+YY{73}:{Yellow buckeye}
+YP{46}:{Yellow-poplar}
+OC{15}:{Other cedar species}
+EL{95}:{Other elm species}
+HM{17}:{Other hemlock species}
+OK{59}:{Other oak species}
+OP{18}:{Other pine species}
+PI{7}:{Other spruce species}
+NC{98}:{Non-commercial hardwoods}
+OH{71}:{Other hardwoods}
+OS{25}:{Other softwoods}
+
+//end  species_ne
+
+
+//start species_oc
+
+! see species_ni for instructions.
+
+BM{34}:{Bigleaf maple}
+CW{45}:{Black cottonwood}
+BL{28}:{Blue oak}
+BR{22}:{Brewer spruce}
+BO{31}:{California black oak}
+BU{35}:{California buckeye}
+CL{48}:{California-laurel}
+CN{47}:{California nutmeg}
+RF{5}:{California red fir}
+SY{43}:{California sycamore}
+CY{27}:{Canyon live oak}
+LO{26}:{Coast live oak}
+CP{13}:{Coulter pine}
+DF{7}:{Douglas-fir}
+EO{29}:{Engelmann oak}
+GC{38}:{Giant chinquapin}
+GS{23}:{Giant sequoia}
+GP{20}:{Gray pine}
+IC{2}:{Incense-cedar}
+IO{33}:{Interior live oak}
+JP{15}:{Jeffrey pine}
+KP{11}:{Knobcone pine}
+LM{14}:{Limber pine}
+LP{12}:{Lodgepole pine}
+MP{19}:{Monterey pine}
+MH{9}:{Mountain hemlock}
+FL{40}:{Oregon ash}
+WO{30}:{Oregon white oak}
+DG{39}:{Pacific dogwood}
+MA{37}:{Pacific madrone}
+PY{24}:{Pacific yew}
+PP{18}:{Ponderosa pine}
+PC{1}:{Port-Orford-cedar}
+AS{44}:{Quaking aspen}
+RA{36}:{Red alder}
+SH{6}:{Shasta red fir}
+SP{16}:{Sugar pine}
+TO{42}:{Tanoak}
+VO{32}:{Valley white oak}
+WN{41}:{Walnut species}
+WH{8}:{Western hemlock}
+WJ{21}:{Western juniper}
+RC{3}:{Western redcedar}
+WP{17}:{Western white pine}
+GF{4}:{Grand fir}
+WB{10}:{Whitebark pine}
+WI{46}:{Willow species}
+OH{49}:{Other hardwoods}
+OS{25}:{Other softwoods}
+
+//end  species_oc
+
+
+//start species_pn
+
+! see species_ni for instructions.
+
+YC{8}:{Alaska cedar/Western larch}
+BM{21}:{Bigleaf maple}
+CH{36}:{Bitter cherry}
+CW{27}:{Black cottonwood}
+RF{5}:{California red fir/Shasta red fir}
+RW{17}:{Coast redwood}
+DF{16}:{Douglas-fir}
+ES{10}:{Engelmann spruce}
+GC{25}:{Giant chinquapin/Tanoak}
+GF{3}:{Grand fir}
+HT{35}:{Hawthorn species}
+IC{9}:{Incense-cedar}
+JP{12}:{Jeffrey pine}
+KP{32}:{Knobcone pine}
+LP{11}:{Lodgepole pine}
+MH{20}:{Mountain hemlock}
+NF{7}:{Noble fir}
+WO{28}:{OR white oak/CA black oak}
+DG{34}:{Pacific dogwood}
+SF{1}:{Pacific silver fir}
+PY{33}:{Pacific yew}
+PB{24}:{Paper birch}
+PP{15}:{Ponderosa pine}
+AS{26}:{Quaking aspen}
+RA{22}:{Red alder}
+SS{6}:{Sitka spruce}
+AF{4}:{Subalpine fir}
+LL{30}:{Subalpine larch}
+SP{13}:{Sugar pine}
+WH{19}:{Western hemlock}
+RC{18}:{Western redcedar}
+WP{14}:{Western white pine}
+WA{23}:{White alder/Pacific madrone}
+WF{2}:{White fir}
+WB{31}:{Whitebark pine}
+WI{37}:{Willow species}
+WJ{29}:{Western juniper}
+OT{39}:{Other species}
+
+//end species_pn
+
+
+//start species_op
+
+! see species_ni for instructions.
+
+YC{8}:{Alaska cedar/Western larch}
+BM{21}:{Bigleaf maple}
+CH{36}:{Bitter cherry}
+CW{27}:{Black cottonwood}
+RF{5}:{California red fir/Shasta red fir}
+RW{17}:{Coast redwood}
+DF{16}:{Douglas-fir}
+ES{10}:{Engelmann spruce}
+GC{25}:{Giant chinquapin/Tanoak}
+GF{3}:{Grand fir}
+HT{35}:{Hawthorn species}
+IC{9}:{Incense-cedar}
+JP{12}:{Jeffrey pine}
+KP{32}:{Knobcone pine}
+LP{11}:{Lodgepole pine}
+MH{20}:{Mountain hemlock}
+NF{7}:{Noble fir}
+WO{28}:{OR white oak/CA black oak}
+DG{34}:{Pacific dogwood}
+SF{1}:{Pacific silver fir}
+PY{33}:{Pacific yew}
+TO{24}:{Tan oak}
+PP{15}:{Ponderosa pine}
+AS{26}:{Quaking aspen}
+RA{22}:{Red alder}
+SS{6}:{Sitka spruce}
+AF{4}:{Subalpine fir}
+LL{30}:{Subalpine larch}
+SP{13}:{Sugar pine}
+WH{19}:{Western hemlock}
+RC{18}:{Western redcedar}
+WP{14}:{Western white pine}
+MA{23}:{Pacific madrone}
+WF{2}:{White fir}
+WB{31}:{Whitebark pine}
+WI{37}:{Willow species}
+WJ{29}:{Western juniper}
+OT{39}:{Other species}
+
+//end species_op
+
+
+//start species_se
+
+WA{46}:{American ash}
+BW{111}:{American basswood}
+AB{44}:{American beech}
+AE{114}:{American elm}
+HY{54}:{American holly}
+AH{27}:{American hornbeam}
+AS{45}:{Ash}
+BY{13}:{Baldcypress}
+BP{75}:{Balsam poplar}
+BT{77}:{Bigtooth aspen}
+BB{23}:{Birch sp.}
+BH{30}:{Bitternut hickory}
+BA{47}:{Black ash}
+SB{25}:{Black birch}
+BC{79}:{Black cherry}
+BI{35}:{Black hickory}
+BK{107}:{Black locust}
+BO{104}:{Black oak}
+BG{68}:{Black tupelo}
+WN{56}:{Black walnut}
+BL{109}:{Black willow}
+BJ{92}:{Blackjack oak}
+UA{50}:{Blue ash}
+QN{83}:{Bluejack oak}
+BE{18}:{Boxelder}
+BR{91}:{Bur oak}
+BN{55}:{Butternut}
+CM{17}:{Chalk maple}
+CB{86}:{Cherrybark oak}
+CO{99}:{Chestnut oak}
+CK{94}:{Chinkapin oak}
+CW{74}:{Cottonwood}
+CT{60}:{Cucumbertree}
+DO{103}:{Delta post oak}
+DW{41}:{Dogwood}
+DP{106}:{Dwarf post oak}
+EC{76}:{Eastern cottonwood}
+EH{15}:{Eastern hemlock}
+HH{70}:{Eastern hornbeam}
+RC{1}:{Eastern redcedar}
+EL{112}:{Elm}
+GA{48}:{Green ash}
+HK{38}:{Hackberry sp.}
+HW{42}:{Hawthorn}
+HI{28}:{Hickory sp.}
+HL{51}:{Honeylocust}
+JU{2}:{Juniper}
+KC{53}:{Kentucky coffeetree}
+LK{89}:{Laurel oak}
+LO{105}:{Live oak}
+LP{11}:{Loblolly pine}
+LB{52}:{Loblolly-bay}
+LL{6}:{Longleaf pine}
+MG{61}:{Magnolia}
+MP{16}:{Maple}
+MH{36}:{Mockernut hickory}
+MB{63}:{Mulberry sp.}
+CA{37}:{Northern catalpa}
+NP{84}:{Northern pin oak}
+RO{100}:{Northern red oak}
+NK{96}:{Nuttall oak}
+OG{67}:{Ogeechee gum}
+OB{22}:{Ohio buckeye}
+OO{59}:{Osage-orange}
+OV{90}:{Overcup oak}
+PE{32}:{Pecan}
+PS{43}:{Persimmon}
+PH{31}:{Pignut hickory}
+PN{97}:{Pin oak}
+PP{8}:{Pitch pine}
+PD{9}:{Pond pine}
+PC{14}:{Pondcypress}
+PZ{7}:{Ponderosa pine}
+PO{102}:{Post oak}
+PA{49}:{Pumpkin ash}
+QA{78}:{Quaking aspen}
+RL{116}:{Red elm}
+RM{19}:{Red maple}
+RY{65}:{Red mulberry}
+RA{72}:{Redbay}
+RD{40}:{Redbud}
+RB{26}:{River birch}
+RE{117}:{Rock elm}
+SS{110}:{Sassafras}
+SO{82}:{Scarlet oak}
+SH{34}:{Shagbark hickory}
+SL{33}:{Shellbark hickory}
+QI{87}:{Shingle oak}
+SP{3}:{Shortleaf pine}
+QS{101}:{Shumard oak}
+SI{115}:{Siberian elm}
+SV{20}:{Silver maple}
+SA{4}:{Slash pine}
+SD{71}:{Sourwood}
+SK{85}:{Southern red oak}
+SR{5}:{Spruce pine}
+SM{21}:{Sugar maple}
+SG{39}:{Sugarberry}
+SN{93}:{Swamp chestnut oak}
+TS{69}:{Swamp tupelo}
+SW{81}:{Swamp white oak}
+MV{62}:{Sweetbay}
+SU{57}:{Sweetgum}
+SY{73}:{Sycamore}
+TO{88}:{Turkey oak}
+VP{12}:{Virginia pine}
+WH{29}:{Water hickory}
+WK{95}:{Water oak}
+WT{66}:{Water tupelo}
+WM{64}:{White mulberry}
+WO{80}:{White oak}
+WP{10}:{White pine}
+WL{98}:{Willow oak}
+WI{108}:{Willow sp.}
+WE{113}:{Winged elm}
+YB{24}:{Yellow birch}
+YP{58}:{Yellow-poplar}
+NC{118}:{Non-commercial}
+
+//end  species_se
+
+
+//start species_sn
+
+AB{33}:{American beech}
+AE{86}:{American elm}
+HY{41}:{American holly}
+AH{26}:{American hornbeam}
+AP{51}:{Apple species}
+AS{34}:{Ash species}
+BY{15}:{Baldcypress}
+BW{83}:{Basswood species}
+ML{50}:{Bigleaf magnolia}
+BT{61}:{Bigtooth aspen}
+BB{24}:{Birch species}
+BA{36}:{Black ash}
+BC{62}:{Black cherry}
+BK{80}:{Black locust}
+BO{78}:{Black oak}
+WN{43}:{Black walnut}
+BG{54}:{Blackgum, black tupelo}
+BJ{70}:{Blackjack oak}
+BE{19}:{Boxelder}
+BU{23}:{Buckeye, horsechesnut species}
+BN{42}:{Butternut}
+CA{28}:{Catalpa}
+CB{66}:{Cherrybark oak}
+CO{74}:{Chestnut oak}
+CK{72}:{Chinkapin oak}
+PS{32}:{Common persimmon}
+CW{60}:{Cottonwood species}
+CT{47}:{Cucumbertree}
+HH{56}:{Eastern hophornbeam}
+RD{30}:{Eastern redbud}
+WP{12}:{Eastern white pine}
+EL{84}:{Elm species}
+FR{1}:{Fir species}
+FM{18}:{Florida maple}
+DW{31}:{Flowering dogwood}
+GA{37}:{Green ash}
+HB{29}:{Hackberry species}
+HM{17}:{Hemlock species}
+HI{27}:{Hickory species}
+HL{38}:{Honeylocust}
+LK{68}:{Laurel oak}
+LO{79}:{Live oak}
+LP{13}:{Loblolly pine}
+LB{39}:{Loblolly-bay}
+LL{8}:{Longleaf pine}
+MG{46}:{Magnolia species}
+MB{52}:{Mulberry species}
+RO{75}:{Northern red oak}
+OV{69}:{Overcup oak}
+PP{10}:{Pitch pine}
+PD{11}:{Pond pine}
+PC{16}:{Pondcypress}
+PO{77}:{Post oak}
+RM{20}:{Red maple}
+RA{58}:{Redbay}
+JU{2}:{Redcedar species}
+PU{4}:{Sand pine}
+SS{82}:{Sassafras}
+SO{64}:{Scarlet oak}
+SP{5}:{Shortleaf pine}
+QS{76}:{Shumard oak}
+SV{21}:{Silver maple}
+HA{40}:{Silverbell}
+SA{6}:{Slash pine}
+RL{87}:{Slippery elm}
+SD{57}:{Sourwood}
+MS{48}:{Southern magnolia}
+SK{65}:{Southern red oak}
+SR{7}:{Spruce pine}
+PI{3}:{Spruce species}
+SM{22}:{Sugar maple}
+SN{71}:{Swamp chestnut oak}
+TS{55}:{Swamp tupelo}
+SB{25}:{Sweet birch}
+MV{49}:{Sweetbay}
+SU{44}:{Sweetgum}
+SY{59}:{Sycamore}
+TM{9}:{Table mountain pine}
+TO{67}:{Turkey oak}
+VP{14}:{Virginia pine}
+WK{73}:{Water oak}
+WT{53}:{Water tupelo}
+WA{35}:{White ash}
+WO{63}:{White oak}
+WI{81}:{Willow species}
+WE{85}:{Winged elm}
+YP{45}:{Yellow-poplar}
+OH{89}:{Other Hardwoods}
+OS{88}:{Other Softwoods}
+OT{90}:{Other species}
+
+//end  species_sn
+
+
+//start species_so
+
+! see species_ni for instructions.
+
+BM{23} :{Bigleaf Maple}
+MB{31} :{Birchleaf Mtn. Mahogany}
+CH{26} :{Bitter Cherry}
+CW{25} :{Black Cottonwood}
+MC{30} :{Curl-Leaf Mtn. Mahogany}
+DF{3}  :{Douglas-fir}
+ES{8}  :{Engelmann spruce}
+GC{29} :{Giant chinquapin}
+GF{12} :{Grand Fir}
+IC{6}  :{Incense-cedar}
+LP{7}  :{Lodgepole pine}
+MH{5}  :{Mountain hemlock}
+NF{15} :{Noble Fir}
+WO{27} :{Oregon White Oak}
+SF{14} :{Pacific Silver Fir}
+PY{20} :{Pacific Yew}
+PP{10} :{Ponderosa pine/Jeffrey pine}
+AS{24} :{Quaking Aspen}
+RA{22} :{Red Alder}
+SH{9}  :{Shasta Red fir}
+AF{13} :{Subalpine Fir}
+SP{2}  :{Sugar pine}
+WH{19} :{Western Hemlock}
+WJ{11} :{Western Juniper}
+WL{17} :{Western Larch}
+RC{18} :{Western Redcedar}
+WP{1}  :{Western white pine}
+WA{21} :{White Alder}
+WF{4}  :{White fir}
+WB{16} :{Whitebark Pine}
+WI{28} :{Willow species}
+OS{32} :{Other Softwoods}
+OH{33} :{Other Hardwoods}
+
+//end   species_so
+
+
+//start species_tt
+
+BI{13}:{bigtooth maple}
+BS{5} :{blue spruce}
+MC{16}:{curlleaf mountain-mahogany}
+DF{3} :{Douglas-fir}
+ES{8} :{Engelmann spruce}
+LM{2} :{limber pine}
+LP{7} :{lodgepole pine}
+NC{15}:{narrowleaf cottonwood}
+PP{10}:{ponderosa pine}
+AS{6} :{quaking aspen}
+MM{14}:{rocky mountain maple}
+RM{12}:{rocky mountain juniper}
+PM{4} :{singleleaf pinyon}
+AF{9} :{subalpine fir}
+UJ{11}:{Utah juniper}
+WB{1} :{whitebark pine}
+OH{18}:{other hardwoods}
+OS{17}:{other softwoods}
+
+//end  species_tt
+
+
+//start species_ut
+
+! see species_ni for instructions.
+
+BI{21}:{Bigtooth maple}
+BS{5} :{Blue spruce}
+BE{22}:{Boxelder}
+PI{11}:{Common pinyon}
+MC{20}:{Curl-leaf mountain-mahogany}
+DF{3} :{Douglas-fir}
+ES{8} :{Engelmann spruce}
+FC{19}:{Fremont cottonwood}
+GO{13}:{Gambel oak}
+GB{17}:{Great Basin bristlecone pine}
+LM{2} :{Limber pine}
+LP{7} :{Lodgepole pine}
+NC{18}:{Narrowleaf cottonwood}
+PP{10}:{Ponderosa pine}
+AS{6} :{Quaking aspen}
+RM{15}:{Rocky Mountain juniper}
+PM{14}:{Singleleaf pinyon}
+AF{9} :{Subalpine fir}
+UJ{16}:{Utah juniper}
+WJ{12}:{Western juniper}
+WF{4} :{White fir}
+WB{1} :{Whitebark pine}
+OH{24}:{Other hardwoods}
+OS{23}:{Other softwoods}
+
+//end  species_ut
+
+
+//start species_wc
+
+! see species_ni for instructions.
+
+YC{8} :{Alaska cedar/Western larch}
+BM{21}:{Bigleaf maple}
+CH{36}:{Bitter cherry}
+CW{27}:{Black cottonwood}
+RF{5} :{California red fir/Shasta red fir}
+RW{17}:{Coast redwood}
+DF{16}:{Douglas-fir}
+ES{10}:{Engelmann spruce/Sitka spruce}
+GC{25}:{Giant chinquapin/Tanoak}
+GF{3} :{Grand fir}
+HT{35}:{Hawthorn species}
+IC{9} :{Incense-cedar}
+JP{12}:{Jeffrey pine}
+KP{32}:{Knobcone pine}
+LP{11}:{Lodgepole pine}
+MH{20}:{Mountain hemlock}
+NF{7} :{Noble fir}
+WO{28}:{OR white oak/CA black oak}
+DG{34}:{Pacific dogwood}
+SF{1} :{Pacific silver fir}
+PY{33}:{Pacific yew}
+PB{24}:{Paper birch}
+PP{15}:{Ponderosa pine}
+AS{26}:{Quaking aspen}
+RA{22}:{Red alder}
+AF{4} :{Subalpine fir}
+LL{30}:{Subalpine larch}
+SP{13}:{Sugar pine}
+WH{19}:{Western hemlock}
+WJ{29}:{Western juniper}
+RC{18}:{Western redcedar}
+WP{14}:{Western white pine}
+WA{23}:{White alder/Pacific madrone}
+WF{2} :{White fir}
+WB{31}:{Whitebark pine}
+WI{37}:{Willow species}
+OT{39}:{Other species}
+
+//end  species_wc
+
+
+//start species_ws
+
+! see species_ni for instructions.
+
+BD{22}:{bigcone Douglas-fir}
+BM{40}:{bigleaf maple}
+BL{30}:{blue oak}
+CL{37}:{California-laurel}
+RF{7} :{California red fir}
+LO{28}:{California live oak}
+BO{31}:{California black oak}
+VO{32}:{California white oak / valley oak}
+CJ{27}:{California juniper}
+CY{29}:{canyon live oak}
+CP{16}:{Coulter pine}
+MC{41}:{curlleaf mountain-mahogany}
+DF{2} :{Douglas-fir}
+FP{15}:{foxtail pine}
+GC{35}:{giant chinquapin}
+GS{4} :{giant sequoia}
+GP{19}:{Gray or California foothill pine}
+GB{21}:{Great Basin bristlecone pine}
+IC{5} :{incense-cedar}
+IO{33}:{interior live oak}
+JP{6} :{Jeffrey pine}
+KP{14}:{knobcone pine}
+LM{17}:{limber pine}
+LP{9} :{lodgepole pine}
+MP{18}:{Monterey pine}
+MH{24}:{mountain hemlock}
+MA{38}:{Pacific madrone}
+DG{39}:{Pacific dogwood}
+SF{13}:{Pacific silver fir}
+PP{8} :{ponderosa pine}
+AS{36}:{quaking aspen}
+RW{23}:{redwood}
+PM{12}:{singleleaf pinyon}
+SP{1} :{sugar pine}
+TO{34}:{tanoak}
+UJ{26}:{Utah juniper}
+WE{20}:{Washoe pine}
+WP{11}:{western white pine}
+WJ{25}:{western juniper}
+WF{3} :{white fir}
+WB{10}:{whitebark pine}
+OS{42}:{other softwoods} 
+OH{43}:{other hardwoods} 
+
+//end  species_ws
+

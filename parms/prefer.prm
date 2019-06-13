@@ -1,0 +1,24 @@
+//start preferences
+
+defaultVariant:          {ie}
+
+defaultLocationsFile{dos unix}:
+                         {suppose.loc}
+
+defaultPreferencesFile{dos unix}:
+                         {suppose.prf}
+
+defaultPPIF{dos unix}:
+                         {suppose.ppi}
+
+defaultUsePPE:           {no}
+
+defaultEditor{dos}:      {notepad}
+defaultEditor{unix}:     {dtpad}
+
+defaultSegmentCycle:     {yes}
+
+defaultProcessplots:     {no}
+
+//end   preferences
+

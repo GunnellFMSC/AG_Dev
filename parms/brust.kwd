@@ -1,0 +1,421 @@
+
+//start keyword.wpbr.BrCLst
+
+description:
+{Write list of cankers being tracked by Blister Rust Model to a file.
+
+To request for all cycles, enter 0 (zero) in the 'Cycle' input box. 
+If an individual cyle is selected, cycle 0 will also be written.}
+
+f1:{intNumberBox Cycle number to generate canker list:}
+f1v:{0 0 40}
+
+f2:{intNumberBox Logical unit number of file:}
+f2v:{57}
+
+f3:{intNumberBox If changing default file name enter 1:}
+f3v:{blank 0 1}
+
+f4:{longTextEdit Canker list file name (default is name of run with .brc extension):}
+f4v:{ }
+
+answerForm:{BrClst    !1,10!!2,10!!3,10!
+!4!}
+parmsForm=answerForm
+
+//end keyword.wpbr.BrCLst
+
+//start keyword.wpbr.BrOut
+description:
+{Controls the summary output written to the FVS output file}
+
+f1title:{Generate blister rust host reports:}
+f1:{listButton Stand Summary Statistics?}
+f1v:{No \n >Yes}
+
+f2:{listButton Stand DBH Class Statistics?}
+f2v:{>No \n Yes}
+
+answerForm:{BrOut  !1,10!!2,10!}
+parmsForm=answerForm
+
+//end keyword.wpbr.BrOut
+
+//start keyword.wpbr.BrSeed
+description:
+{Reseeds the pseudorandom number generator used in Blister Rust Model.}
+
+f1title:{Replacement value for the seed (should be an odd integer value)}
+f1:{intNumberBox Replacement value}
+f1v:{55329}
+
+answerForm:{BrSeed !1,10!}
+parmsForm=answerForm
+
+//end keyword.wpbr.BrSeed
+
+//start keyword.wpbr.BrTLst
+
+description:
+{Write list of Blister Rust Model host trees with relevant rust parameters to a file.
+
+To request for all cycles, enter 0 (zero) in the 'Cycle' input box. 
+If an individual cyle is selected, cycle 0 will also be written.}
+
+f1:{intNumberBox Cycle number to generate host tree list:}
+f1v:{0 0 40}
+
+f2:{intNumberBox Logical unit number of file:}
+f2v:{56}
+
+f3:{intNumberBox If changing default file name enter 1:}
+f3v:{blank 0 1}
+
+f4:{longTextEdit Blister rust tree list file name (default is name of run with .brt extension):}
+f4v:{ }
+
+answerForm:{BrTlst    !1,10!!2,10!!3,10!
+!4!}
+parmsForm=answerForm
+
+//end keyword.wpbr.BrTLst
+
+//start keyword.wpbr.CanFmt
+description:
+{Define record format of canker data file if it varies from default. 
+
+Order or variables are: 
+Tree ID, Stock Type, Tree AGE, Feet UP, Inches OUT, % Girdle , Total Canker Count
+
+If used, this keyword MUST PRECEDE the CankData keyword in keyword list.}
+
+f1:{longTextEdit Format of canker record in FORTRAN syntax:}
+f1v:{(I7,1X,I1,1X,F3.0,1X,F5.1,1X,F5.1,1X,F4.0,1X,F4.0)}
+
+answerForm:{CanFmt    
+!1!}
+parmsForm=answerForm
+
+//end keyword.wpbr.CanFmt
+
+//start keyword.wpbr.CankData
+description:
+{Read canker data from external file or from keyword file directly following the 
+CankData keyword. The default file name is the name on the run with .can extension. 
+
+The run may be initialized by: 
+- Using only the maesured cankers in the canker list 
+- Random generation of cankers based on canker counts for the individual trees
+- a combination of both if cankers present in list and random generation selected.}
+
+f1:{intNumberBox Logical unit number of canker data file:}
+f1v:{55}
+
+f2:{listButton Canker data units of measure:}
+f2v:{>U.S. \n Metric}
+
+f3:{listButton Initialize canker conditions from:}
+f3v:{>cankers listed \n random generation using canker counts}
+
+f4title:{Canker data file name or canker data if Field 1=15,}
+f4:{longTextEdit Click "Use Editor" to enter data:}
+f4v:{ }
+
+answerForm:{CankData  !1,10!!2,10!!3,10!
+!4!}
+
+parmsForm:{\CankData  !1,10!!2,10!!3,10!
+!(I7,1X,I1,1X,F3.0,1X,F5.1,1X,F5.1,1X,F4.0,1X,F4.0)   
+!       Stock
+!TreeID | Age Up    Out   %Gir TotalCankerCount
+!------ - --- ----- ----- ---- ----
+replace this line with canker data
+-999
+}
+
+//end keyword.wpbr.CankData
+
+//start keyword.wpbr.Comment
+description:
+{Add comments to Blister Rust Model keyword set. 
+Click the "Use Editor" button to enter your comments.}
+
+parmsForm:{\
+COMMENT
+!Delete this line and add your comments here
+END
+}
+
+answerForm:parmsForm
+
+//end keyword.wpbr.Comment
+
+//start keyword.wpbr.DevFact
+description:
+{The deviation factor is used to truncate the infection level to assure a proportion
+ of clean (or escape) trees in the stand.
+ 
+ The default deviation factor of 0.33 results in an approximate maximum host/stock
+ type population infection level of 95%. With a deviation factor of 0.66, the
+ infection level truncates at approximately 77%. A deviation factor of 1.0 results
+ in maximum infection level of about 63%. A factor of 0.25 results in 98% and a
+ factor of 0.21 results in a 99.3% maximum blister rust infection level for the
+ host/stock type population.}
+f1:{scheduleBox}
+f2title:
+{Once a deviation factor is in effect, it remains in effect until\
+ replaced by another.}
+f2:{listButton Species deviation factor is applied}
+f2v{cr sw sp bp sf lp}:{Select species \n >1 = Lodgepole pine \n 2 = Ponderosa pine}
+f2v{ie}:{Select species \n >1 = White pine \n 2 = Limber pine}
+f2v{ni}:{Select species \n >1 = White pine}
+f2v{so}:{Select species \n >1 = White pine \n 2 = Sugar pine}
+f3:{sliderBox Deviation factor for stock type 1}
+f3v:{0.33 0.0 6.0 0.0 6.0}
+f4:{sliderBox Deviation factor for stock type 2}
+f4v:{0.33 0.0 6.0 0.0 6.0}
+f5:{sliderBox Deviation factor for stock type 3}
+f5v:{0.33 0.0 6.0 0.0 6.0}
+f6:{sliderBox Deviation factor for stock type 4}
+f6v:{0.33 0.0 6.0 0.0 6.0}
+
+answerForm:{DevFact   !1,10!!2,10!!3,10!!4,10!!5,10!!6,10!}
+parmsForm=answerForm
+
+//end keyword.wpbr.DevFact
+
+//start keyword.wpbr.Excise
+description:
+{Schedule a manamgement action to excise bole cankers.}
+f1:{scheduleBox}
+f2:{sliderBox Success rate of excising:}
+f2v:{0.50 0.0 1.0 0.0 1.0}
+
+answerForm:{Excise    !1,10!!2,10!}
+parmsForm=answerForm
+
+//end keyword.wpbr.Excise
+
+//start keyword.wpbr.ExSpecs
+description:
+{Change speicifications used during excise management action.}
+f1:{scheduleBox}
+f2:{numberBox Minimum DBH (inches) of eligible trees:}
+f2v:{3.0 0.0 99.0}
+f3:{numberBox Maximum excise height (feet):}
+f3v:{6.0 0.0 99.0}
+f4:{intNumberBox Maximum percent girdle of excisable canker:}
+f4v:{50 0 100}
+f5:{intNumberBox Percent girdle causing mortality or topkill:}
+f5v:{100 0 100}
+f6:{numberBox Minimum canker height (inches) needed to excise:}
+f6v:{3.0 0.0 99.0}
+
+answerForm:{ExSpecs   !1,10!!2,10!!3,10!!4,10!!5,10!!6,10!}
+parmsForm=answerForm
+
+//end keyword.wpbr.ExSpecs
+
+//start keyword.wpbr.GrowRate
+description:
+{Change branch and bole canker annual growth rates in centimeters 
+for host pine stock, wild (natural regen) and three families of 
+planting stock: F1, F2, and GCOP - General Combiner Open Pollinated.
+}
+
+f1:{listButton Species to which growth rate is applied}
+f1v{cr sw sp bp sf lp}:{Select species \n >1 = Lodgepole pine \n 2 = Ponderosa pine}
+f1v{ie}:{Select species \n >1 = White pine \n 2 = Limber pine}
+f1v{ni}:{Select species \n >1 = White pine}
+f1v{so}:{Select species \n >1 = White pine \n 2 = Sugar pine}
+f2:{listButton Stock type code:}
+f2v:{Select stock \n >1 = Wild/natural \n 2 = F1 stock \n 3 = F2 stock \n 4 = GCOP}
+f3:{numberBox Bole canker diameter growth rate (cm):}
+f3v:{4.5 0.1 10.0}
+f4:{numberBox Branch canker radial growth rate (cm):}
+f4v:{5.0 0.1 10.0}
+
+answerForm:{GrowRate  !1,10!!2,10!!3,10!!4,10!}
+parmsForm=answerForm
+
+//end keyword.wpbr.GrowRate
+
+//start keyword.wpbr.Inact
+description:
+{Change branch and bole canker annual inactivation rates.}
+f1:{scheduleBox}
+f2:{sliderBox Annual inactivation rate of branch cankers:}
+f2v:{0.05 0.0 1.0 0.0 1.0}
+f3:{sliderBox Annual inactivation rate of bole cankers:}
+f3v:{0.01 0.0 1.0 0.0 1.0}
+
+answerForm:{Inact     !1,10!!2,10!!3,10!}
+parmsForm=answerForm
+
+//end keyword.wpbr.Inact
+
+//start keyword.wpbr.PrnSpecs
+description:
+{Change specifications used during prune management action. 
+
+Height to which pruning is efficiently performed depends on the tools 
+used for the job, this is the keyword where the reach of the tools is 
+reflected.
+
+The minimum distance out for prunable canker is the branch canker's 
+leading visible edge toward the bole where if the branch is pruned at 
+the bole, the canker is completely removed. This is to account for 
+the advancing edge of the canker that does not yet show obvious signs 
+on the bark surface.
+
+The minimum distance out for non-lethal canker defines how far out on a 
+branch the canker needs to be in order for the canker not to be able to 
+advance to the bole and created a bole canker. Natural pruning may occur 
+as well as the canker itself killing the branch and in doing so also 
+terminates the canker.
+}
+f1:{scheduleBox}
+f2:{numberBox Maximun prunable height as a proportion of total tree height:}
+f2v:{0.50 0.00 1.00}
+f3:{numberBox Maximum absolute prune height (feet):}
+f3v:{8.0 0.0 99.0}
+f4:{numberBox Minimum distance out (inches) for a prunable canker:}
+f4v:{6.0 0.0 99.0}
+f5:{numberBox Minimum distance out (inches) for a non-lethal canker:}
+f5v:{24.0 0.0 99.0}
+
+answerForm:{PrnSpecs  !1,10!!2,10!!3,10!!4,10!!5,10!}
+parmsForm=answerForm
+
+//end keyword.wpbr.PrnSpecs
+
+//start keyword.wpbr.Prune
+description:
+{Schedule a management action to prune branches of host trees.
+The pathological pruning option allows for the removal of prunable branch 
+cankers without imposing a change to the crown base height, reflecting 
+the possibility uninfected branches remain on the tree at that height.}
+f1:{scheduleBox}
+f2:{sliderBox Success rate of pruning:}
+f2v:{0.50 0.0 1.0 0.0 1.0}
+f3:{listButton Prune infected prunable trees?}
+f3v:{No \n >Yes}
+f4:{listButton Prune uninfected/clean trees?}
+f4v:{>No \n Yes}
+f5:{listButton Pathological pruning option:}
+f5v:{>Change crown base height \n Do not change crown base height}
+
+answerForm:{Prune     !1,10!!2,10!!3,10!!4,10!!5,10!}
+parmsForm=answerForm
+
+//end keyword.wpbr.Prune
+
+//start keyword.wpbr.Ribes
+description:
+{Change population values for Ribes H, L and V to modify or calculate 
+the stand rust index.  The values provided for each ribes species is 
+old number of bushes per acre, and new number of bushes per acre.
+
+This keyword functions in two ways:
+1- as an activity when date (field 1) is > 0;
+   Fields 2-7 values are used to calculate rust indexes based on old
+   and new ribes populations. If both old and new population values
+   are present, a reduction factor is calculated as if a management
+   action to reduce ribes populations is carried out.
+   If only new population values are present, the rust index is
+   calculated.
+2- calculates rust index from ribes populations when date = 0;
+   Fields 3, 5 and 7 values (new bushes/acre) will be used to
+   to calculate rust index directly.  No activity is scheduled.}
+
+f1:{scheduleBox}
+f2title:{Northern black currant}
+f2:{numberBox Ribes hudsonianum bushes per acre (old/previous):}
+f2v:{0.0 0.0 1000.0}
+f3:{numberBox Ribes hudsonianum bushes per acre (new/current):}
+f3v:{0.0 0.0 1000.0}
+f4title:{Prickly currant}
+f4:{numberBox Ribes lacustre bushes per acre (old/previous):}
+f4v:{200.0 0.0 1000.0}
+f5:{numberBox Ribes lacustre bushes per acre (new/current):}
+f5v:{75.0 0.0 1000.0}
+f6title:{Sticky currant}
+f6:{numberBox Ribes viscosisscimum bushes per acre (old/previous):}
+f6v:{200.0 0.0 1000.0}
+f7:{numberBox Ribes viscosisscimum bushes per acre (new/current):}
+f7v:{75.0 0.0 1000.0}
+
+answerForm:{Ribes     !1,10!!2,10!!3,10!!4,10!!5,10!!6,10!!7,10!}
+parmsForm=answerForm
+
+//end keyword.wpbr.Ribes
+
+//start keyword.wpbr.RustIndx
+description:
+{Change the default value of Rust Index, Rust Index Assignment Method, 
+and Ribes species proportions of population for RI calculation.}
+f1:{sliderBox Stand Rust Index value:}
+f1v:{0.015 0.001 0.250 0.001 0.250}
+f2:{noInput }
+f3title:{Unless static, new RI value is assigned to each tree every cycle.}
+f3:{longListButton Rust Index assignment method:}
+f3v:{0 = Static RI entered above 
+1 = Static RI calculated from BA and ribes populations 
+2 = RI calculated from BA and ribes populations each cycle 
+3 = RI based on stand age Gaussian function 
+4 = RI based on stand age log function}
+         
+f4title:{Ribes population parameters relevant only to assigment methods 1 and 2.}
+f4:{numberBox Ribes H. (Northern black currant) proportion of population:}
+f4v:{0.0 0.0 1.0}
+f5:{numberBox Ribes L. (prickly currant) proportion of population:}
+f5v:{0.5 0.0 1.0}
+f6:{numberBox Ribes V. (sticky currant) proportion of population:}
+f6v:{0.5 0.0 1.0}
+
+f7title:{If RI Assignment Method 3 (stand age Gaussian function) 
+or RI Assignment Method 4 (stand age log function) selected,}
+f7:{longTextEdit Click "Use Editor" for proper keyword and supplemental record format:}
+f7v:{ }
+
+answerForm:{RustIndx  !1,10!!2,10!!3,10!!4,10!!5,10!!6,10!}
+
+parmsForm:{\RustIndx  !1,10!!2,10!!3,10!
+0.001238867  0.007222711  23.34596387  4.078136888
+! MINRI        MAXRI        PKAGE        PKSHP
+!The above parameters define the minimum and maximum Rust Index, stand
+!age at which RI peaks and the shape of the curve about that peak
+!for RI Assignment Method 3 (Gaussian function).
+!----------
+!The following coefficients are for the same variables listed above, are 
+!for RI Assignment Method 3 (Stand Age log function). Cut (ctrl-x) and 
+!paste (ctrl-v) these coefficients for method 3 remove the "!" in column 1.
+! 0.000096    0.0047       1.66         1.086
+}
+
+//end keyword.wpbr.RustIndx
+
+//start keyword.wpbr.Stock
+description:
+{Changes the default rust index adjustment factors for host pine
+ stock, wild (natural regen) and three families of planting stock
+ (F1, F2, and GCOP - General Combiner Open Pollinated) and
+ their respective proportion of the host pine species population.}
+
+f1:{scheduleBox}
+f2:{listButton Species for stocking and RI adjustment:}
+f2v{cr sw sp bp sf lp}:{Select species \n >1 = Lodgepole pine \n 2 = Ponderosa pine}
+f2v{ie}:{Select species \n >1 = White pine \n 2 = Limber pine}
+f2v{ni}:{Select species \n >1 = White pine}
+f2v{so}:{Select species \n >1 = White pine \n 2 = Sugar pine}
+f3:{listButton Stock type code:}
+f3v:{Select stock \n >1 = Wild/natural \n 2 = F1 stock \n 3 = F2 stock \n 4 = GCOP}
+f4:{numberBox Proportion of stock in population:}
+f4v:{0.0 0.0 1.0}
+f5:{numberBox Rust Index adjustment:}
+f5v:{1.0 0.0 10.0}
+
+answerForm:{Stock     !1,10!!2,10!!3,10!!4,10!!5,10!}
+parmsForm=answerForm
+
+//end keyword.wpbr.Stock

@@ -1,0 +1,764 @@
+HTOPIC RUNTUTORIAL "Running the Tutorial" operation basics tutorial
+
+\fbRunning the Tutorial\f0
+
+The best way to access the tutorial is to use the Help menu found on a
+Suppose window.  Access to the tutorial using that menu item will
+first insure that data referred to in the tutorial are installed in 
+your working directory and second that you will be starting with a
+new file.  If you are returning to the tutorial to complete some
+tutorial tasks, first reinstall the tutorial data.
+
+Select the Help menu, and the Tutorial item!  \f1Use Help menu item
+from a Suppose window, not the Help menu on this help viewer!\f0
+
+If you wish to view the tutorial without using the special tutorial
+data files, or without starting with a new file, you may do so by 
+pressing this hot link: \lXVT_TPC_TUTORIAL:Go To Tutorial.\l
+
+To directly access individual tasks use these links:
+
+\n
+\lTutorialTask1:Task 1. Create a simulation file for a single stand\l
+\lTutorialTask2:Task 2. Alter simulation file created in Task 1\l
+\lTutorialTask3:Task 3. Set up a 6 stand run\l
+\lTutorialTask4:Task 4. Explore advanced features of Suppose\l
+\w
+
+HTOPIC XVT_TPC_TUTORIAL "Tutorial" Tutorial
+\pFigures/logo.bmp\p
+
+\fbThis Tutorial\f0
+
+The purposes of this tutorial are to 1) introduce Suppose functions
+and strategies for use, and 2) to give you experience using Suppose
+and \bFVs:FVS\b.
+
+Most of the tutorial does not assume that you are familiar
+with FVS.  However your use of some advanced features of Suppose
+requires that you are familiar with corresponding FVS features.  
+Those cases are noted.
+
+Tasks in this tutorial use sample data loaded into the current
+directory when you answered "Ok" to the screen that asked to load
+tutorial data into the working directory.  If you did not load these
+data upon starting the tutorial, do so now by restarting the tutorial
+through the Help option on the Suppose menu bar (not the menu bar on
+the help viewer).  The sample data that will be loaded is dependent
+upon whether you are using an eastern or a western variant.  The
+tutorial for eastern users needs to be run with the Lake States
+variant, the tutorial for western users needs to be run with the
+Inland Empire or Kookantl variants.
+
+Topics covered include selecting stand data, selecting and
+altering the contents of a simulation, running simulations, and using
+tools designed to view the simulation results.
+
+Suppose allows you to run one or many stands in a single simulation.
+Some Suppose features are designed specifically for the construction
+of simulations that contain many stands.  Since there are features
+common to running one or many stands, those features are covered in
+the first two tasks using a single stand example for simplicity.
+Features used in multistand simulations are introduced in Task 3.
+Whether simulating one or many stands, all of the Suppose tools are
+always active and may be employed in many ways to achieve your
+objectives.
+
+The tutorial does not provide you with a complete "tour" of Suppose as
+only key elements are treated.  You are encouraged to explore and
+experiment on your own.
+
+The tasks in this tutorial are:
+
+\i20.\fbTask 1.\f0	 Create a \bsimfilE:simulation file\b for a
+single stand
+
+\i20.\fbTask 2.\f0	 Alter simulation file created in Task 1
+
+\i20.\fbTask 3.\f0	 Set up a 6 stand run
+
+\i20.\fbTask 4.\f0	 Explore advanced features of Suppose
+
+If you have FVS loaded on your computer, tutorial simulations can be
+run and output from these tasks can be viewed on screen or printed out
+for comparison.
+
+To complete the tutorial, move this window to an unoccupied portion of
+your screen and follow the steps within each task on the Suppose
+window that appears.  If your screen is not large enough to
+accommodate both windows, print out the tutorial and close the
+window, working on the Suppose window as you read along.
+
+To print the tutorial, use the File menu item on the Help
+window, select Print.  If you wish, you can set up the printer
+first.  On Unix, the help file will be "printed" to file
+\fc/tmp/suppose.ps\f0 and can be subsequently printed on a PostScript
+printer.  On Windows, the file will be printed using standard Windows
+printing methods.
+
+Each task is presented in a separate help topic file (due to a limit
+on the size of help files on Windows systems).  You can access each
+task as follows:
+
+\n
+\lTutorialTask1:Task 1. Create a simulation file for a single stand\l
+\lTutorialTask2:Task 2. Alter simulation file created in Task 1\l
+\lTutorialTask3:Task 3. Set up a 6 stand run\l
+\lTutorialTask4:Task 4. Explore advanced features of Suppose\l
+\w
+
+HTOPIC TutorialTask1 "Creating and running a simulation" Tutorial
+\fbTask 1. Creating and running a simulation\f0
+
+This task demonstrates how to initiate a simulation by selecting data,
+changing the default length of the simulation, running FVS, creating 
+an output file, and making a graph of the results.
+
+\fb1.\f0	The first step in this task is to access stand data from
+which one stand among a list of available stands will be added to the
+simulation.
+
+Some information on the current simulation is displayed on the lower
+portion of the \bselecTW:Selections\b window.  This information
+includes the facts that you have a new simulation file containing no
+stands and one group called "All".  In addition, the radio buttons
+(either-or buttons) indicate that Suppose is being run in a mode
+oriented toward groups of stands (see the "Current Group" radio button
+located just above the Exit button on the Selections window), rather
+than a mode oriented toward individual stands (see the "Current Stand"
+radio button).  The significance of this setting will be evident in
+Task 3. For now, leave the setting as it is.
+
+\i20.\fb-\f0	Find and press the "Select Simulation Stands" button on
+the Suppose \bselecTW:Selections\b window.  A new window will appear.
+
+\fb2.\f0	The second step is to pick stand 3000017 from a list
+of available stands and add it into the simulation.  This stand is at
+location "Lake Gillette" and is in group "Timber".
+
+\i20.\fb-\f0	Select "Lake Gillette" by clicking on that location.
+
+\i20.\fb-\f0	Select "Timber" by clicking on that group.
+
+\i20.\fb-\f0	Select stand 3000017 by clicking the mouse button on the
+stand number in the Available Stands list.  Notice that the stand
+number is then displayed in the "Desired Stand" box below the
+Available Stands list.
+
+\i20.\fb-\f0	Press the "Add 1 Stand" button at the bottom left-hand
+corner of the window.  This loads the stand data for the selected
+stand into the simulation.  Note that the caption "Contents: 1 Stand,
+2 Groups" indicates that the simulation contains one stand and two
+groups.  In this case, the stand is a member of two
+\bgroupCode:groups\b, All and Timber.
+
+\i20.\fb-\f0	Press the Close button at the bottom of the window.
+The window will disappear.
+
+\fb3.\f0	Change the length of the simulation from the default
+to 150 years.
+
+\i20.\fb-\f0	Press the "Set Time Scale" button on the selections
+window.
+
+\i20.\fb-\f0	Change the common ending year to year 2141 by editing
+the value in the text edit box or by using the horizontal slidebar.  
+
+\i20.\fb-\f0	Press Ok.
+
+\fb4.\f0	Run the simulation.  Having selected stand data for
+FVS, the model can be run without further input.  Default settings for
+running the simulation are set by Suppose automatically.
+
+\i20.\fb-\f0	Press the Run Simulation button on the main menu.  A
+"Save As" window will appear, prompting you to specify a simulation
+file name.
+
+\i20.\fb-\f0	Without changing the directory, enter a name for the
+simulation file.  For this example, use the name \fcTask1.key\f0.
+Always use the file suffix \fc.key\f0 for simulation files (Unix
+users, remember that file names are case sensitive).
+
+\i20.\fb-\f0	Press Ok on the Save As window.  A Run window will appear.
+
+At this point, in addition to the simulation file, a batch file (in
+Windows) or a Korn Shell script (in Unix) is created.  This batch file
+or Korn Shell script remains on the file system after the run is completed
+and can be run independently from Suppose.
+
+\i20.\fb-\f0	Press the Run button.  On Windows, all windows may
+temporarily disappear as Suppose invokes FVS to complete the
+simulation.  When the simulation is over, you will be in the system editor.
+
+At this point, the simulation is complete and the output is written to
+a file called \fcTask1.out\f0. In task 2 of the tutorial
+you will learn how to view the output using a system editor.  In the
+next step, you see how to use the \lGENERATEGraphs:Generate Graphs\l
+tool to make a graph of the output. 
+
+\fb5.\f0       Cause Suppose to scan the FVS output file (in this
+case, the file is \fcTask1.out\f0) and to draw a graph of stand's 
+top height and quadratic mean DBH over simulated time.
+
+\i20.\fb-\f0	Press Gen. Graphs.  Two windows will open.  The first
+is the \lGENERATEGraphs:Generate Graphs\l window and the second is the
+\lREADFVSOutput:Read FVS Output\l window.  The second window will be
+on top of the window stack.  Note that the File box contains the name
+\fcTask1.out\f0.
+
+\i20.\fb-\f0	Press Read File to cause Suppose to scan this output
+file and store some of the results in memory.  Note that the list box
+in the center of this window now contains one \bcasE:case\b.  Now
+press Close.  The Generate Graphs window should now be on top of the
+window stack.
+
+\i20.\fb-\f0	Press Pick Variable in the upper right-hand side of
+this window.  A \lVARIABLEPicker:Pick Variable\l window will open.  
+Pick top height by selecting \fcTopHt\f0 from the variables list.
+This is the top height variable from the FVS Summary Statistics table
+corresponding to the simulation you make for this task.  Press Ok to
+accept this selection and close the Pick Variable window.
+
+The trend of top height over time is now displayed in the Generate
+Graph window.  
+
+\i20.\fb-\f0	Press Next Variable to add quadratic mean DBH to the
+graph.  The variable name is QMD.  Since this variable is the one
+following TopHt in the list of variables, Suppose automatically
+selects it for the current \bcasE:case\b and the selected report. 
+
+Note that both lines are drawn as a proportion of their respective
+maximum values.  The purpose of the Suppose graphing tool is to
+provide quick graphs that illustrate trends in the data.  See 
+\lgraphScaling:How Scaling is Done\l for an explanation of the scaling
+logic.
+
+\fb6.\f0       If you wish to end this tutorial session and exit
+Suppose now, press the Exit button at the bottom of the Selections
+window.  To return to the tutorial at a later time, simply restart the
+tutorial using the Help menu item and selecting Tutorial.  
+
+To proceed with task two, press here:  
+\lTutorialTask2:Task 2. Alter simulation file created in Task 1\l
+
+HTOPIC TutorialTask2 "Task 2. Alter simulation file created in Task 1"Tutorial
+\fbTask 2. Alter simulation file created in Task 1\f0
+
+This task assumes that you have completed task 1 and that you have
+stored the simulation file for task 1 as file \fcTask1.key\f0.  
+
+The task includes making 2 simulations.  In the first simulation,  
+seedtree regeneration harvest is added to the simulation created in
+task 1.  The harvest is scheduled to occur when FVS detects
+culmination of mean annual increment.  In addition, a "Post
+Processor" that displays the output file in a system editor is added
+to the run.
+
+To facilitate the second simulation, a tool used to change the
+original settings for the harvest is introduced.  Some of the seedtree
+parameters are changed and the simulation is rerun.
+
+Finally, a graph of stand top height for Task1 and Task2 is drawn
+showing how this variable can be compared among simulations.
+
+\fb1.\f0	Open the simulation file.
+
+\i20.\fb-\f0	Use the File menu, and the Open item.  Use the file
+selection dialog to pick file \fcTask1.key\f0.  Press Ok.  
+
+Note that the Selections window displays the name of the simulation
+file and that the contents include 1 stand and 2 groups.
+
+\fb2.\f0	Add a Seedtree regeneration harvest to the simulation.
+
+\i20.\fb-\f0	Press the Management Actions button on the selections
+window.
+
+\i20.\fb-\f0	Select Even-aged: Regeneration Harvesting from the list of
+potential management actions in the left-hand column.  A list of
+options under this category of actions will appear in the right-hand column.
+
+\i20.\fb-\f0	Select Seedtree from the list of options in the 
+right-hand column.  The Seedtree window will appear with possible 
+settings for this management action.
+
+\i20.\fb-\f0	Select the Schedule by Condition radio button at the
+top of the window.
+
+\f1The Schedule by Condition radio button and the Condition button are
+found at the top right of the window and look like this:\f0
+
+\pFigures/sched2.bmp\p
+
+\i20.\fb-\f0	Press the Condition button to view the condition
+definition and tools used to calibrate the condition.
+
+\i20.\fb-\f0	Since the Culmination of Mean Annual Increment is
+already selected, press the OK button at the bottom of the condition
+window.  The Seedtree window will reappear.
+
+\i20.\fb-\f0	Examine all other settings in this window, scrolling
+down as necessary.
+
+\i20.\fb-\f0	Press the OK button at the bottom of the window.
+The Management Actions window will reappear.
+
+\i20.\fb-\f0	Press the Close button at the bottom of the 
+Management Actions window. The Selections window will reappear.
+
+These steps can be repeated as many times as necessary to select a
+series of management actions or to add other FVS keywords affecting
+the simulation.
+
+\fb3.\f0	Add a post processor to view the output.
+
+\i20.\fb-\f0	Press the "Select Post Processor" on the selections
+window.  
+
+\i20.\fb-\f0	Scroll down and click on the item "View the Main Output
+file using system editor."  If you single click, press the Include button
+at the bottom of the screen.  If you double click, the item will
+automatically be included.  Insure that the select post processor is
+listed in the list box labeled "Included post processors," then press the
+Close button.
+
+\fb4.\f0	Run the simulation.  
+
+\i20.\fb-\f0	Press "Run Simulation" on the main window, select Save
+As, and specify that the name is \fcTask2.key\f0.   Then press Run on
+the run dialog.
+
+Note that the simulation will run and that the output file will
+automatically be loaded into the system editor.  After viewing the
+output, close the editor and return to Suppose.
+
+\fb5.\f0	Change the settings for the condition for the seedtree.
+
+\i20.\fb-\f0	Press the Edit Simulation File button on the
+selections window. The Edit Simulation window will appear.  
+
+This window provides access to \bcomponenT:components\b of the
+simulation file.  You can select a component, and then change it using
+the same tool used to create it originally.  For an in-depth explanation
+of this window see: \lEDITSimulationFile:Edit Simulation File\l
+
+Use Edit Simulation window to modify an existing component.  If you
+use "Use FVS Keywords" or "Management Actions" instead, you will be
+creating new components rather than editing those that already exist.
+
+\i20.\fb-\f0	Select the "Condition - Seedtree" component in the
+left-hand list box. 
+
+\i20.\fb-\f0	Press the "Edit Selection" button at the bottom of the
+screen or double-click on "Condition - Seedtree" to bring up the
+appropriate screen for editing the settings.
+
+\i20.\fb-\f0	At the bottom of the condition window, you will find a
+text edit box corresponding to "Years before condition can be tested
+after being found true"  Change the number from 50 to 999 to specify
+that only one harvest will be simulated regardless of the length of
+the simulation.
+
+\i20.\fb-\f0	Press "Ok" to save the changes.
+
+\i20.\fb-\f0 	Once all actions or keywords of interest have been
+changed, press the Close button at the bottom-right corner of the
+"Edit Simulation" window.
+
+If you wish to add management actions or keywords
+(\bcomponenT:components\b) to the simulation, you may do so at any
+time.  Additions to the simulation will be reflected in the Edit
+Simulation File window once they are made.  In this way, you may add
+new components and edit existing ones in the same session.
+
+\fb6.\f0	Press "Run Simulation" to rerun the simulation. 
+
+The last step of the Task 2 is to draw a graph of stand top height for
+Task1 and Task2.  First, close the editor used to view the outputs.
+
+\fb7.\f0 	The last step of the Task 2 is to draw a graph of 
+stand top height for Task1 and Task2.  
+
+\i20.\fb-\f0	Close the editor used to view the outputs.
+
+\i20.\fb-\f0	Press "Gen. Graphs" on the Selections window.  
+
+Do \fbA\f0 or \fbB\f0:
+
+\i30.\fbA-\f0	If you exited Suppose between accomplishing Task 1 and
+Task 2, the Read FVS Output window will now be opened on top of the
+Generate Graphs window and the list of \bcasE:cases\b will be empty.
+In this situation, you need Suppose to read two files.  First, type
+the name \fcTask1.out\f0 in the file box and then press Read File.
+Second, change the name in the file box to \fcTask2.out\f0 and then
+press Read File.
+
+\i30.\fbB-\f0	If you did not exit from Suppose between accomplishing
+Task 1 and Task 2, the Read FVS Output window will \f1not\f0 open on top of
+the Generate Graphs window.  Press Read FVS Output button found on the
+bottom of the Generate Graphs window to cause the window to open.
+After it does, the file box will already contain \fcTask2.out\f0 and
+the first \bcasE:case\b will correspond to Task 1.  Press "Read File"
+to cause Suppose to read the output file for Task 2.
+
+At this point, you will have two cases listed, the first corresponds
+to the output from Task 1 and the second to Task 2.
+
+\i20.\fb-\f0	Press "Close" on the Read FVS Output window.  The
+Generate Graphs window will be on top of the window stack.
+
+\i20.\fb-\f0	Press "Pick Variable" and select TopHt for the first
+\bcasE:case\b and then press "Ok".  The TopHt from Task 1 example will
+be plotted.
+
+\i20.\fb-\f0	Press "Next Case" to cause TopHt to be plotted for the
+output from Task 2.  Can you explain why TopHt increases then falls?
+
+At this point you have completed Task 2.  
+
+For additional experience, add the FVS ResetAge keyword to the
+simulation.  Schedule the ResetAge to occur under the same condition
+used to schedule the seedtree harvest.  This is done with the "Attach
+to..." button found on the condition window and then highlighting the
+condition you are using to schedule the seedtree harvest.  Using this
+approach, the ResetAge keyword is triggered at the same time that the
+seed tree cut is triggered.  Does adding this keyword change the
+results of the simulation?  Use the Generate Graphs window to plot
+variables that are important to you.
+
+To proceed with task three, press here:  
+\lTutorialTask3:Task 3. Set up a 6 stand run\l
+
+HTOPIC TutorialTask3 "Task 3. Set up a 6 stand run" Tutorial
+\fbTask 3.  Set up a 6 stand run\f0
+
+Setting up a 6 stand run will illustrate features of Suppose designed
+to handle multiple stand projections.  It will demonstrate the
+importance of \bgroupCode:group codes\b and how to use them.  It will
+reinforce the techniques presented in tasks 1 and 2.
+
+The general steps followed by this task are to first enter the 6
+stands into the simulation, then set up some silviculture treatments
+for the stands.  Setting up the treatments will be done for each of
+two groups rather than once for each stand.  However, since one of the
+stands is bare ground, we will also set up a planting specifically for
+the stand rather than for groups.
+
+The techniques used in this exercise can be scaled up to making
+projections for several hundred stands, that is, for a landscape.
+
+There are 5 major steps to this task, ending in running the
+simulation.  Following step 5, additional steps are included that
+demonstrate ways to use the Edit Simulation tool and introduce the
+tool used to change the group membership in a run.
+
+\fb1.\f0	The first step in this task is to insure that the tutorial
+data are installed and active.  Doing so will cause the tutorial
+screen to reload.  Press the "Help" menu on the Suppose menu bar (not
+the menu bar on this help window) and select item "Tutorial".
+Allow suppose to reload the tutorial data and then scroll back to this
+location.
+
+\fb2.\f0	Add the 6 stands of the tutorial into the simulation.
+
+\i20.\fb-\f0	Press "Select Simulation Stands".
+
+\i20.\fb-\f0 	Press the "All Stands" button first, prior to
+selecting any locations or any groups.  This button actually has two
+meanings.  If pressed when there are no stands in the Available Stands
+list, Suppose automatically insures that all the stands referenced
+through the \llocationsFile:locations file\l are loaded into the
+available stands list.  Press the "All Stands" button a second time to
+cause Suppose to automatically load all the stands.  
+
+\i20.\fb-\f0 	Finally, press "Add 6 Stands" and then "Close".  
+
+Help topics regarding the
+\lSELECTSIWinStandListBox:Available Stands List\l and controling the
+logic used by Suppose in loading 
+\lSELECTSIWinStandSelectionButtons:stands from any or every group\l
+further explain the tools you just used to load the 6 stands. 
+
+Note that the contents of the simulation are 6 stands and 3 groups.
+Furthermore, the "Current Group" radio button is selected and the
+group "All" is listed in the "Current..." list button.
+
+\f1The "Current Group" or "Current Stand" list button is found in the 
+lower right part of the Selections window above the Change Group
+Membership button.\f0
+
+\pFigures/listbutt.bmp\p
+
+\fb3.\f0	Set up management actions customized for each group of
+stands.  There are two groups, Timber and Riparian.  For the Timber
+stands we will specify clear cutting at culmination of m.a.i.  For the
+Riparian stands we will specify a one entry shelterwood, without a
+shelterwood removal cut.
+
+\i20.\fb-\f0	Open the "Current Group" or "Current Stand" list 
+button on the Selections window.  You should see 3 groups listed: All,
+Timber, and Riparian.  Select the Timber group using your mouse.
+
+\i20.\fb-\f0 	Press "Management Actions", select Regeneration Harvesting,
+select clearcut, specify the condition of the clearcut and so on using
+skills developed in Task 1.  Press "Ok" on the condition and clearcut
+windows to accept the condition and action \bcomponenT:components\b.
+Return to the selections window either by closing the management
+actions window or by using your mouse bring the selections window to
+the top.
+
+\i20.\fb-\f0 	Reopen the list button on the Selections window
+and select the Riparian group.
+
+\i20.\fb-\f0 	Press "Management Actions", select Regeneration
+Harvesting, select one entry shelterwood, schedule by condition,
+press the Condition button, take the default condition, and press OK to
+both the condition and shelterwood windows.  This will schedule shelterwood
+for the Riparian group.  
+
+\fb4.\f0 	For the BareGrnd stand, plant 300 trees per
+acre of Douglas-fir if you are in the west and 300 trees per acre of
+natural red pine if you are in the east in the first year of the projection.
+
+\i20.\fb-\f0 	On the Selections window, find and select the radio button
+"Current Stand".  Then open the list button to the right.  It now
+lists stands rather than groups.  Pick the BareGrnd stand as the
+current stand.
+
+\i20.\fb-\f0 	Press the "Use FVS Keywords" button, select the
+extension "Full Establishment Model", pick the Plant keyword and click the
+accept button.  Leave the scheduling options set at the defaults.  Set the
+species to plant to Douglas fir (west) or natural red pine (east) and the
+number of trees to 300.  Press "Ok".  Close the Use FVS Keywords window.
+
+\fb5.\f0	Run the simulation.  Name the simulation file 
+\fcTask3.key\f0.  If you like, prior to running the simulation, you
+may select a post processor that will view the output file.
+
+\fb6.\f0	Use the Edit Simulation tool to better understand 
+the run's contents.
+
+\i20.\fb-\f0 	Press "Edit Simulation."
+
+Notice that the window opens with a list of components for the
+"Selected Stand" and that stand BareGrnd is selected.  This is due to
+the "Current Stand" radio button being set and BareGrnd being the
+current stand.
+
+The component list includes, in the order they will be in the
+simulation file, the components that are part of stand BareGrnd.
+Note, however, that not all components are unique to BareGrnd.  In
+fact, only the Plant keyword is in BareGrnd and not in the other
+stands.  But, since BareGrnd is part of groups All and Timber, the
+components associated with those groups are also part of stand
+BareGrnd.  
+
+\i20.\fb-\f0 	On the "Edit Simulation" window, select the component
+"Clearcut."  
+
+Notice that the list of stands changed to include only those that
+contain the clearcut and that the "Affected Groups" list now lists
+"Timber".
+
+Read the \lEDITSimulationFile:Edit Simulation File\l help topic for a
+full explanation of how this tool works and then return to the
+tutorial.
+
+\fb7.\f0	Close the "Edit Simulation" window.
+
+\fb8.\f0	Press "Change Group Membership" on the selections
+window.
+
+Notice that the groups are listed as column headings and the rows are
+stands.  Check boxes indicate which stands are members of which
+groups.  
+
+\fb9.\f0	Take BareGrnd out of the Timber group and place it in
+the Riparian group.
+
+\i20.\fb-\f0 	Click in the check box below Timber for the BareGrnd
+stand.  The check box will change to show that BareGrnd has been
+removed from the Timber group.
+
+\i20.\fb-\f0 	Click in the check box below Riparian for the BareGrnd
+stand.  The check box will change to show that BareGrnd has been
+added to the Riparian group.
+
+\i20.\fb-\f0 	Close the window and reopen the "Edit Simulation" file
+window.  Notice that a shelterwood is scheduled for the stand rather than
+a clearcut.
+
+At this point, you can rerun the simulation, if you wish.  Otherwise,
+consider this task complete.
+
+To proceed with task four, press here: 
+\lTutorialTask4:Task 4. Explore advanced features of Suppose\l
+
+HTOPIC TutorialTask4 "Task 4. Explore advanced features of Suppose" Tutorial
+\fbTask 4.  Explore advanced features of Suppose\f0
+
+In this task we will explore some advanced features of Suppose.  
+The first goal is to demonstrate how to use the free-form editor to
+modify logical expressions and to use the \bparmS:parms\b feature
+of FVS.  The second goal is to demonstrate how to save and retrieve
+sets of keywords to and from files.  A set of keywords will be created
+in one simulation and then added to another.
+
+\fb1.\f0	Restart the tutorial to insure that the tutorial data
+are loaded and being accessed by Suppose and that a new simulation
+file is being created.  When you are not using the tutorial data, you
+would start a new simulation by using the "File menu" and the "New" option.  
+
+\fb2.\f0	Press "Use FVS Keywords" to create a
+\bcomponenT:component\b that can be scheduled.  Pick the keyword
+ThinABA to schedule a thinning from above to a basal area target.
+
+\fb3.\f0	Select "Schedule by Condition", and press the
+"Condition" button.  Open the "Condition library" and select the
+condition titled "Stocking above percentage of normal".  Set the
+percentage with the slidebar to 70 percent and press "Ok".
+
+\fb4.\f0	Set the residual stand basal area for the thinning to
+99 (it will be an easy number to spot in the next step).
+
+\fb5.\f0	Press the "Use Parms" button.  At this point you will
+be warned about using the \bparmS:parms\b feature.  Press Yes to the
+warning.
+
+A window opens that displays the keyword in a form that uses the parms
+feature and the original keyword window closes.  You are now in
+a window used to edit expressions and make other "free form" changes
+to components of a simulation.  This window does no error checking.
+For more information on the window see the topic: 
+\lEXPRESSWindow:Edit Expressions\l.
+
+\fb6.\f0	Change the target residual basal area from 99 to an
+expression signifying that the residual is 50 percent of the current
+basal area (not a very well thought out silvicultural option, but it
+illustrates how to edit expressions!).
+
+\i20.\fb-\f0 	Use the list of Variables to find the one that
+tracks "Before thin basal area," or BBA.  
+
+\i20.\fb-\f0 	Click the mouse between "Parms(" and "99" thereby
+setting an insertion point. 
+
+\i20.\fb-\f0 	Press the "Insert" button at the bottom of the window.
+
+\i20.\fb-\f0 	Use the mouse and keyboard to change the first
+argument of the Parms function to BBA*.5, make sure to delete the 99.0.  
+
+\i20.\fb-\f0 	Press the "Ok" button and close the "Use FVS Keywords"
+window.
+
+You now have created 2 components.  The first is the condition, and
+the second is the thinning keyword.  
+
+\fb8.\f0	Edit the condition component using the "Expression Editor". 
+
+\i20.\fb-\f0 	Press "Edit Simulation File" on the selections
+window.  The condition and the thinning keyword are both listed as
+separate components.
+
+\i20.\fb-\f0 	Select the condition and press "Edit Selection".  
+
+\i20.\fb-\f0 	Use the "Extras" menu item found on the menu bar 
+and select "Edit Logical Expression" (on Windows there is one menu
+bar on the Suppose Task window on Unix there is a menu bar for each
+window; use the one on the Condition window).  You will get a similar 
+warning to the one issued for using the parms feature.  Press "Yes".
+
+Now you are in the expression editor and you are editing a condition.
+Change the expression so that the Event Monitor uses the average DBH
+of trees over 5 inches rather than all trees.  To do so requires
+changing the string "BADBH" to "SpMcDBH(5,All,0,5,200,0,500,0)"
+
+\fb9.\f0	There are two ways to change this string.  The first
+involves simply using the mouse to replace the unwanted string with
+the desired string.  Alternatively, you can use the tools built into
+the expression editor to aid you in creating the SpMcDBH string and
+insert it into the expression.  This alternative approach will
+demonstrate more of the capabilities of the expression editor that may
+be useful in the future.
+
+\i20.\fb-\f0 	Find the SpMcDBH function under FVS Function.
+
+\f1There are two list buttons, one on top of the other.  The top list
+ controls the content of the one below it.  This figure illustrates
+the contents when the first is set to FVS Functions and the second is
+set to SpMcDBH()\f0.
+
+\pFigures/function.bmp\p
+
+\i20.\fb-\f0 	Press "Set Function Arguments".  The contents of the
+Expression Editor window will change.  Use the elements of this window
+to set the arguments of the function.  Set the attribute to be
+returned to Quadratic mean DBH, the species to All species, the tree
+value class to All, and the lower DBH limit to 5.  Leave the other
+settings at their defaults.
+
+\i20.\fb-\f0 	Press "Finished Setting Function".
+
+\i20.\fb-\f0 	Place the insert point in the expression using the
+mouse.  Then press the "Insert" button.  
+
+\i20.\fb-\f0 	Finish the editing by removing the unwanted BADBH.
+
+\i20.\fb-\f0	Close the expression editor.  The "Edit Simulation File"
+window should now be opened and exposed.  If it is not, press the
+"Edit Simulation File" button on the selections window.
+
+\fb10.\f0	Instruct Suppose to write both of these components
+to an output file called \fcTask4.kcp\f0.
+
+\i20.\fb-\f0 	Use the mouse to select the condition component.
+
+\i20.\fb-\f0 	Press the "Append" button.  A file
+selection dialog will appear.  Set the file name to \fcTask4.kcp\f0
+and press "Ok" to save the keyword to the file.
+
+\i20.\fb-\f0 	Repeat this process for the ThinABA keyword component.
+
+\fb11.\f0	Start a new simulation file by using the Help menu
+and Tutorial item.  This approach will insure that the tutorial data
+are accessed by Suppose.  Usually you can start a new simulation file
+by using the "New" item of the "File" menu.  A dialog asking if you
+wish to discard the current simulation file will appear.  Press
+"Discard".
+
+\fb12.\f0	Select a simulation stand using the methods described
+in Task 1 of the tutorial.  
+
+\fb13.\f0	Add the components in \fcTask4.kcp\f0 using the 
+"Edit Simulation File" window.  
+
+\i20.\fb-\f0	On the "Edit Simulation File" window, press the "Insert
+from file" button.  A file selection dialog will open.  Select the
+\fcTask4.kcp\f0 and press "Ok".
+
+You can verify that the components are inserted in the simulation by
+running it.
+
+A final note concerning components that are inserted into the
+simulation file.  Suppose has the capability to automate the process
+of adding components to the simulation.  Components can be
+automatically added through group membership or they can be
+added using special records in the stand list file.  See
+help topics describing the \llocationsFile:locations\l and 
+\lstandlistFile:stand list\l files for more information.  If you
+notice some components in your simulation file that you did not add,
+they were likely automatically added using one of these techniques.
+Regardless of their origin, you can edit or delete them from your
+simulation file.  Doing so does not change the content of the original
+files.
+
+\fbThis ends Task 4.\f0
+
+\fbNow that you've come this far...\f0
+
+Now that you've come this far, please explore Suppose features not
+used during the course of the tutorial.  By creating, manipulating,
+saving, and retrieving simulations, you will gradually build up a
+familiarity with Suppose that will encourage you to more extensive use
+of all available FVS capabilities.
+

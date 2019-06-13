@@ -1,0 +1,171 @@
+HTOPIC citatioN  "Suppose Citation" reference suppose about author acknowledgments
+\pFigures/logo.bmp\p
+
+\fbSuppose Citation\f0
+
+\lauthorshiP:Crookston, Nicholas L.\l 1997. Suppose: An Interface to
+the Forest Vegetation Simulator.  In: Teck, Richard; Moeur, Melinda;
+Adams, Judy. 1997. Proceeding: Forest vegetation simulator conference.
+1997 February 3-7, Fort Collins, Co. Gen. Tech. Rep. INT-GTR-373.
+Ogden, UT: U.S. Department of Agriculture, Forest Service,
+Intermountain Research Station.
+
+Press here for \lreferenceS:references\l to FVS.
+
+HTOPIC referenceS "References" reference suppose about author acknowledgments
+\pFigures/logo.bmp\p
+
+\fbReferences\f0
+
+Press here for the \lcitatioN:citation\l to Suppose.
+
+The following references are to FVS documentation.  Some of this
+documentation was used to support Suppose development and some of it
+is cited in these help files.  
+
+Albini, F.A. 1976. Estimating wildfire behavior and effects. General
+Technical Report INT-30. Ogden, UT: USDA Forest Service, Intermountain
+Forest and Range Experiment Station.
+
+Beukema, S. J., D. C. E. Robinson, J. A. Greenough, W. A. Kurze, and
+P. J. McNamee. 1994. Westwide pine beetle model: detailed
+description.  Prepared by ESSA Technologies Ltd., Vancouver, B. C. for
+U.S. Forest Service, FPM/MAG, Fort Collins, CO.  92 pp. and
+appendices.
+
+Beukema, S.J., J.A. Greenough, W.A. Kurz, and
+D.C.E. Robinson. 1996. FVS-Fire Model: model description.  Working
+document prepared by ESSA Technologies Ltd., Vancouver, B.C. for
+U.S.D.A. Forest Service, Intermountain Research Station, Missoula, MT.
+
+Crookston, N.L. 1990. User's guide to the event monitor: part of
+Prognosis Model version 6. General Technical Report INT-275. Ogden,
+UT: USDA Forest Service, Intermountain Research Station.
+
+Crookston, N.L.	and A.R. Stage. 1991. User's guide to the Parallel
+Processing Extension of the Prognosis Model. General Technical Report
+INT-281. Ogden, UT: USDA Forest Service, Intermountain Research
+Station.
+
+Crookston, Nicholas. L.; Roelke, Robert C; Burnell, Donald G.; Stage,
+Albert R. 1978. Evaluation of management alternatives for lodgepole
+pine stands by using a stand projection model.  In: Berryman;
+A.A. [and others], eds. Theory and practice of mountain pine beetle
+management in lodgepole pine forest. Proc. Symp. held at Pullman, Wa.,
+April 25-27, 1978. pp 114-122.
+
+Edminster, B; Mowrer, H.T.; Mathiasen, T.M.; Schuler, W.K.;
+Hawksworth, F.G. 1991. GENGYM: A variable density stand table
+projection system calibrated for mixed conifer and ponderosa pine
+stands in the Southwest. Research Paper RM-297. Fort Collins, CO: USDA
+Forest Service, Rocky Mountain Forest and Range Experiment Station.
+
+Ferguson, D.E.; Stage, A.R.; Boyd, R.J. 1986. Predicting regeneration
+in the grand fir-cedar-hemlock ecosystem of the northern Rocky
+Mountains. Forest Science Monograph 26.
+
+Greenwood, G.; Eng, H. 1993. Vegetation projection and analysis of the
+cumulative effects of timber harvest. State of California Department
+of Forestry and Fire Protection Strategic Planning Program.
+
+Hamilton, D.A., JR. 1986. A logistic model of mortality in thinned and
+unthinned conifer stands of northern Idaho. Forest Science
+32:989-1000.
+
+Hawksworth, F.G.; Williams-Cipriani, J.C.; Eav, B.B.; Geils, B.G.;
+Johnson, R.R.; Marsden, M.A.; Beatty, J.S.; Shubert, G.D.; Robinson,
+D.C.E. 1995. Dwarf mistletoe impact modeling system user’s guide
+and reference manual. Report MAG-95-2. Fort Collins, CO: USDA Forest
+Service, Forest Pest Management, Methods Application Group. 120 p.
+
+Hilt, D.E.; Teck, R.M. 1989. NE TWIGS: An individual-tree growth and
+yield projection system for the northeastern United States.  The
+Compiler 7:10-16.
+
+Johnson, R.R.; Dixon, G.E. 1984. Calibration Considerations in using
+major modeling systems. In: Proceedings--growth and yield and other
+mensurational tricks: a regional technical conference. General
+Technical Report INT-193. Ogden, UT: USDA Forest Service,
+Intermountain Research Station.
+
+Meldahl, R.S.; Bolton, R.K. 1989. Summary of modeling efforts for SET:
+Southeastern TWIGS. (internal document). Auburn University.
+
+McGaughey, R.J.; McCarter, J.B. 1996. Stand Visualization System
+(SVS). General Technical Report PNW-___ (in press). Portland, OR: USDA
+Forest Service, Pacific Northwest Research Station.
+
+Moeur, M. 1985. COVER: a user's guide to the CANOPY and SHRUBS
+extension of the Stand Prognosis Model. General Technical Report
+INT-190. Ogden, UT: USDA Forest Service, Intermountain Research
+Station.
+
+Moeur, M.; Stage, A.R. 1995. Most similar neighbor: an improved
+sampling inference procedure for natural resource planning. Forest
+Science 41(2):337-359.
+
+Monserud, R.A.; Crookston, N.L. 1982. A user's guide to the combined
+stand prognosis and Douglas-fir tussock moth outbreak model. General
+Technical Report INT-127. Ogden, UT: USDA Forest Service,
+Intermountain Forest and Range Experiment Station.
+
+Reinhardt, E.D.; Keane, R.E,; Brown, J.K. 1997. First Order Fire
+Effects Model: FOFEM 4.0, user's guide. General Technical Report
+INT-344. Ogden, UT: USDA Forest Service, Intermountain Research
+Station.
+
+Shifley, S.R. 1987.  A generalized system of models forecasting
+Central States tree growth.  Research Paper NC-279. St. Paul, MN: USDA
+Forest Service, North Central Forest Experiment Station.
+
+Smith, F.W.; Long, J.N. 1987. Elk hiding and thermal cover guidelines
+in the context of lodgepole pine stand density. Western Journal of
+Applied Forestry 2:6-10.
+
+Stage, A.R. 1973. Prognosis Model for stand development. Research
+Paper INT-137. Ogden, UT: USDA Forest Service, Intermountain Forest
+and Range Experiment Station.
+
+Stage, A.R.; Hatch, C.R.; Rice, T.M.; Renner, D.L.; Korol,
+J. 1995. Calibrating a forest succession model with a single-tree
+growth model: an exercise in meta-modeling. In: Recent advances in
+forest mensuration and growth and yield research, eds. Skovsgaard,
+J.P.; Burkhart, H.E. 194-209. Proceedings from the 20th World Congress
+of International Union of Forestry Research Organisations. Horsholm,
+Denmark: Danish Forest and Landscape Research Institute.
+
+Stage, A.R.; Shaw, C.G.; Marsden, M.A.; Byler, J.W., Renner, D.L.;
+Eav, B.B.; McNamee, P.J.; Sutherland, G.D.; Webb, T.M. 1990. User’s
+manual for western root disease model. General Technical Report
+INT-GTR-267. Ogden, UT: USDA Forest Service, Intermountain Forest and
+Range Experiment Station. 49 p.
+
+Stage, A.R.; Renner, D.L. 1988. Comparison of yield-forecasting
+techniques using long-term stand histories. In: Forest growth
+modelling and prediction, eds. Ek, A.R.; Shifley, S.R.; Burk,
+T.E. Proceedings of the IUFRO conference; 1987 August 23-27;
+Minneapolis, MN. General Technical Report NC-GTR-120. St. Paul, MN:
+USDA Forest Service, North Central Forest Experiment Station, 2 vol.,
+1149 p.
+
+Teck, R.M.; Moeur, M.; Eav, B. 1976. Forecasting ecosystems with the
+forest vegetation simulator.  Journal of Forestry 94(12):7-10.
+
+Teck, R.M.; Steele, M. 1995. Forest vegetation simulation tools and
+forest health assessment.  In: Forest health through
+silviculture. Proceedings of the 1995 National Silvicultural Workshop.
+General Technical Report RM-GTR-267. Fort Collins, CO: USDA Forest
+Service, Rocky Mountain Forest and Range Experiment Station.
+
+USDA Forest Service. 1979. A generalized forest growth projection
+system applied to the Lake States Region.  General Technical Report
+NC-49. St. Paul, MN: USDA Forest Service, North Central Forest
+Experiment Station.
+
+Wykoff, W.R. 1990. A basal area increment model for individual
+conifers in the northern Rocky Mountains. Forest Science 36:1077-1104.
+
+Wykoff, W.R., Crookston, N.L.; Stage, A.R. 1982. User's guide to the
+stand Prognosis Model. General Technical Report INT-133. Ogden, UT:
+USDA Forest Service, Intermountain Forest and Range Experiment
+Station.

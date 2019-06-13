@@ -1,0 +1,43 @@
+
+HTOPIC GPKEYWindow "FVS Keyword Entry Windows" keyword
+\fbFVS Keyword Entry Windows\f0
+
+This window is used to specify the settings for most keywords.  It is
+a general purpose window, so specific help regarding each of its
+elements is not available.
+
+Use the \f1text box\f0 at the top of this window to change the name of the 
+component if you want a different name than that presented as a default.
+
+The elements of a keyword are displayed in the \f1scrolling region\f0
+that makes up the body of the window.  You can scroll through the
+elements modifying them as you go.
+
+In most all of the keyword windows, there is a \f1description\f0 found below
+the last keyword element inside the scrolling region.  This
+description often contains usage notes and additional instructions.
+
+In many of of the keyword windows, you will find an option that allows
+you to \lSCHEDOBJSubview:schedule actions by year or condition\l.
+This element is typical of many management windows as well.
+
+Press \f1Ok\f0 to accept the selections and close the window.  
+
+Press \f1Use Parms\f0, if it is activated, to transfer the keyword to the 
+window used to \lEXPRESSWindow:edit expressions\l.  This button is
+activated if the keyword is one that allows you to enter expressions
+rather than constants for the keyword parameter fields.  The transfer
+is done using the setting you have already made in the scrolling
+region of the window.  A good approach is to make all the settings you
+want to keep as constants using the elements of the scrolling window.
+
+Press \f1Reset\f0 to reset the window to the state it was in when it
+was opened.
+
+Press \f1Cancel\f0 to close the window without creating a component
+(or without saving changes to a component you are editing).
+
+Use the \f1Extras\f0 menu and the \f1View Component Keywords\f0 item
+if you want to view the FVS keywords generated for the component.
+
+

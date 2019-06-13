@@ -1,0 +1,53 @@
+HTOPIC GRPMEMBWindow "Change Group Membership" names stand group management-identification membership 
+\fbChange Group Membership\f0
+
+The Change Group Membership window is used to change the membership of
+stands to groups, add new groups, change the names of
+\bgroupCode:groups\b or \bstanD:stands\b, and set the
+\bmgmtiD:management identification codes\b for stands.  Changes you make
+in this window take place as you make them.  There is NO cancel
+button!
+
+However, changes made using this window only affect the 
+\bsimfilE:simulation file\b you are working on.  They are not
+reflected in the \bSLf:stand list files\b nor any other data source.
+
+Group membership is shown by check boxes.  Add a stand to a group by
+checking the box in the group's column corresponding to the stand.
+Remove a stand from a group by "unchecking" its membership.
+
+Change the name of a group by editing the name shown (note that
+blanks are not allowed in group names).  Add a group by typing a name
+in the first empty group column.
+
+Change the name of a stand by editing the name shown.
+
+Change, or establish, a stand management identification by entering
+or editing the management identification fields.
+
+Use the \f1vertical scrollbar\f0 to scroll to stands that are not
+shown (you can also resize this window to get additional or fewer rows
+and columns).
+
+Use the \f1horizontal scrollbar\f0 to scroll to groups that are not
+shown. 
+
+\f1Set Membership\f0 opens a dialog that allows you to set the
+membership of any group as a function of membership in one or two
+other groups.  For example, you could define a group, and then set its
+membership to be all the stands that are not in another group, or all
+the stands that are in one group and another.  Inside the dialog
+window there are two buttons, one is used to \f1Apply\f0 the group
+membership operation you defined, and the other is used to \f1Close\f0
+the dialog window.
+
+\f1Set Mgmtids\f0 (set management identifications), allows you to set
+the management identification for all stands in any selected group.
+This dialog window also has two buttons, one to \f1Apply\f0 the
+settings you made, and the other to \f1Close\f0 the dialog window.
+
+Use \f1Close\f0 to close the window.  Remember, there are no "Cancel"
+nor "Undo" buttons in this window.  Your settings take effect as you
+make them.
+
+

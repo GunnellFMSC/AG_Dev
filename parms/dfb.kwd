@@ -1,0 +1,194 @@
+
+//start keyword.dfb.CurOutbk
+
+description:
+{Informs the model of a Douglas-fir beetle outbreak already in progress
+at the time of inventory which causes the model to adjust the trees/acre
+killed according to the time remaining in the outbreak.}
+
+f1:{intSliderBox Number of years outbreak has been in progress}
+f1v:{0 0 4 0 4}
+f2:{intSliderBox Number of trees/acre that have been killed by the outbreak so far}
+f2v:{blank 0 200 0 200}
+
+answerForm:{CurOutbk  !1,10!!2,10!}
+parmsForm=answerForm
+
+//end keyword.dfb.CurOutbk
+
+
+//start keyword.dfb.DFBEcho
+
+description:
+{Instructs the model to write Douglas-fir beetle model
+summary tables to a seperate file.}
+
+f1:{longTextEdit Name of file}
+f1v:{ }
+
+answerForm:{DFBEcho
+!1!}
+parmsForm=answerForm
+
+//end keyword.dfb.DFBEcho
+
+
+//start keyword.dfb.ExYrMort
+
+description:
+{Adjusts the number of Douglas-fir trees/acre expected to be killed by the 
+Douglas-fir beetle in each year of an outbreak if the stand is a pure
+Douglas-fir stand.}
+
+f1:{sliderBox Trees/acre expected to die in each year of an outbreak}
+f1v:{6.0 0.0 100.0 0.0 100.0}
+f2:{sliderBox Standard deviation of the normal distribution}
+f2v:{2.0 0.0 20.0 0.0 20.0}
+
+answerForm:{ExYrMort  !1,10!!2,10!}
+parmsForm=answerForm
+
+//end keyword.dfb.ExYrMort
+
+
+//start keyword.dfb.ManSched
+
+description:
+{Specify a cycle/year that an area wide Douglas-fir Beetle outbreak will occur.}
+ 
+f1:{scheduleBox}
+
+answerForm:{ManSched  !1,10!}
+parmsForm=answerForm
+
+//end keyword.dfb.ManSched
+
+
+//start keyword.dfb.ManStart
+
+description:
+{Specifies that the stand will automatically be included in ALL area wide
+Douglas-fir beetle outbreaks.}
+
+answerForm:{ManStart}
+parmsForm=answerForm
+
+//end keyword.dfb.ManStart
+
+
+//start keyword.dfb.MortDis
+
+description:
+{Alters the method in which Douglas-fir beetle outbreak mortality is distributed
+through the stand.  
+
+Causes the model to distribute mortality through the stand using the 
+basal area method instead of the default DBH method.}
+
+answerForm:{MortDis}
+parmsForm=answerForm
+
+//end keyword.dfb.MortDis
+
+
+//start keyword.dfb.OLength
+
+description:
+{Modifies the length of an expected Douglas-fir beetle outbreak.}
+
+f1:{intSliderBox Length, in years, of the expected outbreak}
+f1v:{4 0 10 0 10}
+
+answerForm:{OLength   !1,10!}
+parmsForm=answerForm
+
+//end keyword.dfb.OLength
+
+
+//start keyword.dfb.RannSeed
+
+description:
+{Specify the seed value for the random number generator.}
+
+f1:{intSliderBox Seed value}
+f1v:{55329 0 Fmax 0 99999999}
+
+answerForm:{RannSeed  !1,10!}
+parmsForm=answerForm
+
+//end keyword.dfb.RannSeed
+
+
+//start keyword.dfb.RanSched
+
+description:
+{Modifies certain factors affecting the stochastic scheduling of area wide 
+Douglas-fir beetle outbreaks.}
+
+f1:{intSliderBox Minimum number of years between regional outbreaks}
+f1v:{10, 0 400 0 400}
+f2:{sliderBox Probability of a yearly outbreak}
+f2v:{0.05 0.0 1.0 0.0 1.0}
+f3:{intSliderBox Year of the last recorded Douglas-fir beetle outbreak}
+f3v:{1950 1800 3000 1800 3000}
+
+answerForm:{RanSched  !1,10!!2,10!!3,10!}
+parmsForm=answerForm
+//end keyword.dfb.RanSched
+
+
+//start keyword.dfb.RanStart
+
+description:
+{Causes the stand to be included in an area wide outbreak based on the
+probability calculated in the mmodel.
+
+Note:
+The presence of this keyword causes the model to calculate a probability
+that the stand will be included in a regional Douglas-fir beetle outbreak
+based on the basal area of all Douglas-fir trees greater than 9 inches DBH
+compared with the basal area of all trees in the stand greater than
+9 inches DBH.  To alter this probability, see the keyword STOPROB.}
+
+answerForm:{RanStart}
+parmsForm=answerForm
+
+//end keyword.dfb.RanStart
+
+
+//start keyword.dfb.StOProb
+
+description:
+{Specify a stand outbreak probability.  This is used in conjunction with the
+keyword RANSTART.}
+
+f1:{sliderBox Stand outbreak probability}
+f1v:{blank 0.0 1.0 0.0 1.0}
+
+answerForm:{StOProb   !1,10!}
+parmsForm=answerForm
+
+//end keyword.dfb.StOProb
+
+
+//start keyword.dfb.WindThr
+
+description:
+{Simulate a windthrow event in the stand. The model tests for windthrow
+eligibility base on the values entered with this keyword, kills eligible
+trees, if any, and then causes an outbreak in the stand if an area wide 
+Douglas-fir beetle outbreak was scheduled during the current cycle.}
+
+f1:{scheduleBox}
+f1v:{1}
+f2:{sliderBox Proportion of eligible trees that can be windthrown}
+f2v:{0.8 0.0 1.0 0.0 1.0}
+f3:{sliderBox Minimum density of eligible trees/acre}
+f3v:{0.0 0.0 100.0 0.0 100.0}
+
+answerForm:{WindThr   !1,10!!2,10!!3,10!}
+parmsForm=answerForm
+
+//end keyword.dfb.WindThr
+
+

@@ -1,0 +1,5 @@
+HTOPIC XVT_TPC_INDEX "Index"
+
+Suppose help does not include an index.  Use the table of
+\lXVT_TPC_CONTENTS:contents\l or the \lXVT_TPC_GLOSSARY:glossary\l.
+

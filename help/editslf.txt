@@ -1,0 +1,145 @@
+HTOPIC EDITSLFWindow "Edit Stand List File" translator stand file location names group file import
+\fbEdit Stand List File\f0
+
+The Edit Stand List File window supports the process of editing a
+\lstandlistFile:Stand List File\l.  It can also be used to convert an
+old style FVS Submittal System \fc.dir\f0 file to a stand list file
+and to add a values to all records in a file when the values are not
+defined (see the \f1Template\f0 feature described near the end of this
+help text).  
+
+An overview of the \lvegdatA:vegetation data used by Suppose\l 
+is available.
+
+Note that this window does not support an undo feature.  Press
+\f1Cancel\f0 to close the window without saving any changes to the
+currently loaded file.
+
+Changes made to a Stand List File are not available in the 
+\lSELECTSIWindow:Select Simulation Stands\l window until after the
+file is saved and the Select Simulation Stands window is opened (or
+reopened).  If you are creating a new Stand List File, you must add
+its name to the \llocationsFile:Locations File\l before the stands it
+lists are available in the Select Simulation Stands window.
+
+Press the \f1Browse\f0 button to select a Stand List File or type the
+desired file name in the text box and press the return key.  You can
+not specify a FVS Submittal System \fc.dir\f0 file using this button
+(see the \f1Import\f0 feature described near the end of this
+help text). 
+
+Note that this window does not distinguish between the various record
+types of the \lstandlistFile:Stand List File\l so you need not worry
+about them.  In this window, a record is defined to be the entry for a
+stand inclusive of all the physical record types and data.
+
+To access a given record, enter the record number in the text box and
+press the enter key.
+
+Press \f1\<\<Prev\f0 or \f1Next\>\>\f0 to navigate through the
+records.
+
+Enter a desired stand identification in the text box on the right hand
+side of the \f1Find:\f0 button to search for a given stand.  Press
+\f1Find:\f0 button or the enter key to accomplish the desired search.
+
+Press \f1New\f0 to insert a blank record (or a copy of the
+\f1Template\f0 as described near the end of this help text) after
+the current record.
+
+Press \f1Delete\f0 to delete the current record.
+
+Press \f1Duplicate\f0 to duplicate the current record, placing the
+duplicate after the current record.
+
+A scrolling box is provided to display and change the stand-level
+data associated with each record.  Note these important facts
+regarding the fields within the scrolling box.
+
+\i20.1.	Use the text boxes to change values.  Use the \f1Enter Key\f0
+on your keyboard to navigate between text boxes or use your mouse.
+
+\i20.2.	A list button is supplied when a coded value has a
+corresponding definition.  The values in the list box may depend on
+the first FVS \bvarianT:variant\b specified in the FVS variant(s) text
+box.  Changing the FVS variant will cause the contents of the list
+buttons to change.
+
+\i20.3.	The value in the text box is the value used regardless of any
+data displayed in a corresponding list button.  
+
+\i20.4.	If a text box value is blank Suppose outputs an \fc@\f0 sign
+for the field to indicate the value is unknown (blanks are distinctly
+different from zeros).
+
+\i20.5.	\f1Browse\f0 buttons can be used to select a file name for
+the text boxes that require one.  
+
+\i20.6.	See \lstandlistFile:Stand List File\l description for more
+information.
+
+Press \f1Ok\f0 to save the current file and close the window.
+
+Press \f1Save\f0 to save the current file without closing the window.
+
+Press \f1Save As\f0 to save the current data with a different file
+name without closing the window.
+
+Press \f1Template\f0 to set the current record as a template, or to
+unset the template if one is already set.  You can set, unset, and set
+again the template by pressing the button repeatedly.  Note these
+characteristics of using templates:
+
+\i20.1.	When a file is read, or imported, values that are not defined
+in the read or imported file are given the values found in the
+template.  An important use of his feature is to supply a variant
+identification and location code to imported records (see the
+\f1Import\f0 feature described below).  
+
+\i20.2.	When the \f1New\f0 button is pushed, the template is used to
+supply the new record.
+
+Press \f1Import\f0 to import a \fc.dir\f0 used by the FVS Submittal
+System.  You can use this feature to import, then save these files so
+that the data can be used in Suppose.  When a file is imported, the
+file name text box found at the top of the window is loaded with the
+file imported file's name and the suffix \fc.slf\f0.
+
+Follow these steps to import a file using the template feature:
+
+\i20.1.	Set the FVS variant(s) text box to the variant(s) to which the
+data you intend to import applies.
+
+\i20.2.	Set the Location code text box for the location code (usually a
+code corresponding to a National Forest) you want specified for all
+the records you want imported.
+
+\i20.3.	Set the \bgroupCode:group codes\b you want for each stand.
+The codes you enter will be appended to those found the imported
+\fc.dir\f0 file.  Do the same for \baddfilE:addfiles\b as they follow
+the same rules.
+
+\i20.4.	Set all other fields to values you want to use for all records
+when the fields are not defined (blank or not present in the imported 
+\fc.dir\f0 file).
+
+\i20.5.	Press \f1Template\f0 to set the template.
+
+\i20.6.	Press \f1Import\f0, select the file you want to import, and
+press \f1Ok\f0 on the file selection dialog.
+
+\i20.7.	Press \f1Save\f0 to save the data as an \fc.slf\f0 file.
+
+Use the \lEDITLOCSWindow:Edit Locations File\l window to add newly
+created stand list files and corresponding location names to your
+locations file.  Then you can include the stands in a simulation 
+using the \lSELECTSIWindow:Select Simulation Stands\l window.
+
+Press \f1Cancel\f0 to close the window without saving the data.  Note
+that this is the only way to avoid saving the changes you have made.
+
+
+
+
+
+

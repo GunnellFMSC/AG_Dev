@@ -1,0 +1,82 @@
+HTOPIC  EDITFVSTWindow "Edit FVS Tree Data File"  translator stand file location import tree_data
+\fbEdit FVS Tree Data File\f0
+
+The Edit Tree Data File window supports the process of editing 
+\lFVSTREEDATA:FVS Tree Data\l.  
+
+An overview of the \lvegdatA:vegetation data used by Suppose\l 
+is available.
+
+The contents of the tree data file are related to a stand by placing
+the name of the tree data file in \lstandlistFile:stand list file\l 
+records.  A stand list file can be edited using the 
+\lEDITSLFWindow:Edit Stand List File\l window.
+
+Note that this window does not support an undo feature.  Press
+\f1Cancel\f0 to close the window without saving any changes to the
+currently loaded file.
+
+Press the \f1Browse\f0 button to select an FVS Tree Data File or type the
+desired file name in the text box and press the return key.  If the
+file exists, it must be in the standard FVS format.
+
+Set the FVS \bvarianT:variant\b which will be used with this tree
+data.  This selection loads the list buttons with codes applicable to
+the variant.  Changing this selection does not change the selected
+variant for running a simulation.  That is done using the 
+\lSELVARWindow:Select Variant and Extension\l window.
+
+To access a given record, enter the record number in the text box and
+press the enter key.
+
+Press \f1\<\<Prev\f0 or \f1Next\>\>\f0 to navigate through the
+records.
+
+Press \f1New\f0 to insert a blank record (or a copy of the
+\f1Template\f0 as described near the end of this help text) after
+the current record.
+
+Press \f1Delete\f0 to delete the current record.
+
+Press \f1Duplicate\f0 to duplicate the current record, placing the
+duplicate after the current record.
+
+The contents of the current record are displayed just below a column
+ruler. 
+
+A scrolling box is provided to display and change the stand-level
+data associated with each record.  Note these important facts
+regarding the fields within the scrolling box.
+
+\i20.1.	Use the text boxes to change values.  Use the \f1Enter Key\f0
+on your keyboard to navigate between text boxes or use your mouse.
+
+\i20.2.	A list button is supplied when a coded value has a
+corresponding definition.  The values in the list box may depend on
+the FVS \bvarianT:variant\b selected at the top of the window.
+
+\i20.3.	The value in the text box is the value used regardless of any
+data displayed in a corresponding list button.  
+
+\i20.4.	See \lFVSTREEDATA:FVS Tree Data\l description for more information.
+Pressing the \f1Help\f0 buttons adjacent to some of the text boxes
+displays this description.  Codes needed for some of the fields are
+described in that help file.
+
+Press \f1Ok\f0 to save the current file and close the window.
+
+Press \f1Save\f0 to save the current file without closing the window.
+
+Press \f1Save As\f0 to save the current data with a different file
+name without closing the window.
+
+Press \f1Template\f0 to set the current record as a template, or to
+unset the template if one is already set.  You can set, unset, and set
+again the template by pressing the button repeatedly.  If you set a
+template, and press the \f1New\f0 button, the template is used to
+supply the new record rather than a blank record.
+
+The \f1Import\f0 feature is not yet supported. 
+
+Press \f1Cancel\f0 to close the window without saving the data.  Note
+that this is the only way to avoid saving the changes you have made.

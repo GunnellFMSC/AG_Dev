@@ -1,0 +1,780 @@
+! The forest number is the PKey and the name is the PString.
+
+//start Forests_ak
+ {blank}:{}
+ 1002:{Tongass: Stikine area}
+ 1003:{Tongass: Chatham area}
+ 1005:{Tongass: Ketchikan area}
+  701:{British Columbia / Makah Indian Reservation}
+ 1004:{Chugach}
+//end   Forests_ak
+
+
+//start Forests_cr
+ {blank}:{}
+  201:{Arapaho (mapped to Arapaho-Roosevelt)}
+  202:{Bighorn}
+  203:{Black Hills}
+  204:{Grand Mesa, Uncompahgre, Gunnison (GMUG)}
+  205:{Gunnison (mapped to GMUG)}
+  206:{Medicine Bow}
+  207:{Nebraska}
+  208:{Pike (mapped to Pike-San Isabel)}
+  209:{Rio Grande}
+  210:{Arapaho-Roosevelt}
+  211:{Routt}
+  212:{Pike-San Isabel}
+  213:{San Juan}
+  214:{Shoshone}
+  215:{White River}
+  224:{Grand Mesa (mapped to GMUG)}
+  301:{Apache-Sitgreaves}
+  302:{Carson}
+  303:{Cibola}
+  304:{Coconino}
+  305:{Coronado}
+  306:{Gila}
+  307:{Kaibab}
+  308:{Lincoln}
+  309:{Prescott}
+  310:{Sante Fe}
+  311:{Sitgreaves (mapped to Apache-Sitgreaves)}
+  312:{Tonto}
+//end   Forests_cr
+
+
+//start Forests_bm
+  {blank}:{}
+  604:{Malheur}
+  607:{Ochoco}
+  614:{Umatilla}
+  616:{Wallowa-Whitman}
+  619:{Whitman (mapped to Wallowa-Whitman)}
+//end   Forests_bm
+
+
+//start Forests_ci
+  {blank}:{}
+  117:{Nez Perce}
+  402:{Boise}
+  406:{Challis}
+  412:{Payette}
+  413:{Salmon}
+  414:{Sawtooth}
+//end   Forests_ci
+
+
+//start Forests_sw
+  {blank}:{}
+  201:{Arapaho (mapped to Arapaho-Roosevelt)}
+  202:{Bighorn}
+  203:{Black Hills}
+  204:{Grand Mesa, Uncompahgre, Gunnison (GMUG)}
+  205:{Gunnison (mapped to GMUG)}
+  206:{Medicine Bow}
+  207:{Nebraska}
+  208:{Pike (mapped to Pike-San Isabel)}
+  209:{Rio Grande}
+  210:{Arapaho-Roosevelt}
+  211:{Routt}
+  212:{Pike-San Isabel}
+  213:{San Juan}
+  214:{Shoshone}
+  215:{White River}
+  224:{Grand Mesa (mapped to GMUG)}
+  301:{Apache-Sitgreaves}
+  302:{Carson}
+  303:{Cibola}
+  304:{Coconino}
+  305:{Coronado}
+  306:{Gila}
+  307:{Kaibab}
+  308:{Lincoln}
+  309:{Prescott}
+  310:{Sante Fe}
+  311:{Sitgreaves (mapped to Apache-Sitgreaves)}
+  312:{Tonto}
+//end   Forests_sw
+
+
+//start Forests_sp
+  {blank}:{}
+  201:{Arapaho (mapped to Arapaho-Roosevelt)}
+  202:{Bighorn}
+  203:{Black Hills}
+  204:{Grand Mesa, Uncompahgre, Gunnison (GMUG)}
+  205:{Gunnison (mapped to GMUG)}
+  206:{Medicine Bow}
+  207:{Nebraska}
+  208:{Pike (mapped to Pike-San Isabel)}
+  209:{Rio Grande}
+  210:{Arapaho-Roosevelt}
+  211:{Routt}
+  212:{Pike-San Isabel}
+  213:{San Juan}
+  214:{Shoshone}
+  215:{White River}
+  224:{Grand Mesa (mapped to GMUG)}
+  301:{Apache-Sitgreaves}
+  302:{Carson}
+  303:{Cibola}
+  304:{Coconino}
+  305:{Coronado}
+  306:{Gila}
+  307:{Kaibab}
+  308:{Lincoln}
+  309:{Prescott}
+  310:{Sante Fe}
+  311:{Sitgreaves (mapped to Apache-Sitgreaves)}
+  312:{Tonto}
+//end   Forests_sp
+
+
+//start Forests_bp
+  {blank}:{}
+  201:{Arapaho (mapped to Arapaho-Roosevelt)}
+  202:{Bighorn}
+  203:{Black Hills}
+  204:{Grand Mesa, Uncompahgre, Gunnison (GMUG)}
+  205:{Gunnison (mapped to GMUG)}
+  206:{Medicine Bow}
+  207:{Nebraska}
+  208:{Pike (mapped to Pike-San Isabel)}
+  209:{Rio Grande}
+  210:{Arapaho-Roosevelt}
+  211:{Routt}
+  212:{Pike-San Isabel}
+  213:{San Juan}
+  214:{Shoshone}
+  215:{White River}
+  224:{Grand Mesa (mapped to GMUG)}
+  301:{Apache-Sitgreaves}
+  302:{Carson}
+  303:{Cibola}
+  304:{Coconino}
+  305:{Coronado}
+  306:{Gila}
+  307:{Kaibab}
+  308:{Lincoln}
+  309:{Prescott}
+  310:{Sante Fe}
+  311:{Sitgreaves (mapped to Apache-Sitgreaves)}
+  312:{Tonto}
+//end   Forests_bp
+
+
+//start Forests_sf
+  {blank}:{}
+  201:{Arapaho (mapped to Arapaho-Roosevelt)}
+  202:{Bighorn}
+  203:{Black Hills}
+  204:{Grand Mesa, Uncompahgre, Gunnison (GMUG)}
+  205:{Gunnison (mapped to GMUG)}
+  206:{Medicine Bow}
+  207:{Nebraska}
+  208:{Pike (mapped to Pike-San Isabel)}
+  209:{Rio Grande}
+  210:{Arapaho-Roosevelt}
+  211:{Routt}
+  212:{Pike-San Isabel}
+  213:{San Juan}
+  214:{Shoshone}
+  215:{White River}
+  224:{Grand Mesa (mapped to GMUG)}
+  301:{Apache-Sitgreaves}
+  302:{Carson}
+  303:{Cibola}
+  304:{Coconino}
+  305:{Coronado}
+  306:{Gila}
+  307:{Kaibab}
+  308:{Lincoln}
+  309:{Prescott}
+  310:{Sante Fe}
+  311:{Sitgreaves (mapped to Apache-Sitgreaves)}
+  312:{Tonto}
+//end   Forests_sf
+
+
+//start Forests_lp
+  {blank}:{}
+  201:{Arapaho (mapped to Arapaho-Roosevelt)}
+  202:{Bighorn}
+  203:{Black Hills}
+  204:{Grand Mesa, Uncompahgre, Gunnison (GMUG)}
+  205:{Gunnison (mapped to GMUG)}
+  206:{Medicine Bow}
+  207:{Nebraska}
+  208:{Pike (mapped to Pike-San Isabel)}
+  209:{Rio Grande}
+  210:{Arapaho-Roosevelt}
+  211:{Routt}
+  212:{Pike-San Isabel}
+  213:{San Juan}
+  214:{Shoshone}
+  215:{White River}
+  224:{Grand Mesa (mapped to GMUG)}
+  301:{Apache-Sitgreaves}
+  302:{Carson}
+  303:{Cibola}
+  304:{Coconino}
+  305:{Coronado}
+  306:{Gila}
+  307:{Kaibab}
+  308:{Lincoln}
+  309:{Prescott}
+  310:{Sante Fe}
+  311:{Sitgreaves (mapped to Apache-Sitgreaves)}
+  312:{Tonto}
+//end   Forests_lp
+
+
+//start Forests_ec
+  {blank}:{}
+  603:{Gifford Pinchot (mapped to Wenatchee)}
+  606:{Mount Hood}
+  608:{Okanogan}
+  617:{Wenatchee}
+  699:{Okanogan (Tonasket RD)}
+  613:{Mt Baker-Snowualmie (mapped to Wenatchee)}
+//end   Forests_ec
+
+
+//start Forests_em
+  {blank}:{}
+  102:{Beaverhead}
+  108:{Custer}
+  109:{Deerlodge}
+  111:{Gallatin}
+  112:{Helena}
+  115:{Lewis and Clark}
+//end   Forests_em
+
+
+//start Forests_ie
+  {blank}:{}
+  103:{Bitterroot}
+  104:{Idaho Panhandle}
+  105:{Clearwater}
+  106:{Coeur d'Alene}
+  110:{Flathead}
+  113:{Kaniksu}
+  114:{Kootenai}
+  116:{Lolo}
+  117:{Nez Perce}
+  118:{St. Joe}
+  621:{Colville}
+  613:{Kaniksu-administered by Colville (mapped to Kaniksu)}
+  102:{Beaverhead (mapped to Bitterroot)}
+  109:{Deerlodge (mapped to Bitterroot)}
+  112:{Helena (mapped to Lolo)}
+//end   Forests_ie
+
+
+//start Forests_kt
+  {blank}:{}
+  11401016:{Kootenai NF, District 1, Compartments 16-27, Rexford East geographic area}
+  11401001:{Kootenai NF, District 1, Compartments not 16-27, Rexford West geographic area}
+  11402001:{Kootenai NF, District 2, All Compartments, Yaak geographic area}
+  11403001:{Kootenai NF, District 3, All Compartments, Fortine geographic area}
+  11404001:{Kootenai NF, District 4, All Compartments, Troy geographic area}
+  10407001:{Idaho Panhandle NFs, District 7, All Compartments, Bonners Ferry geographic area}
+  11405001:{Kootenai NF, District 5, Compartments 1-4,8-19,27, Libby West geographic area}  
+  11406001:{Kootenai NF, District 6, Compartments 1-4 Fisher River West geographic area}  
+  10401001:{Idaho Panhandle NFs, Any Other District and Compartments, Any other IPNF geographic area}
+  11407001:{Kootenai NF, District 7, Compartments All, Cabinet-Sandpoint geographic area}
+  10406001:{Idaho Panhandle NFs, District 6, All Compartments, Cabinet-Sandpoint geographic area}
+  11001013:{Flathead NF, Any other District, Any other Compartments, Any other Flathead NF geographic area}
+  11001001:{Flathead NF, District 1, Compartments 1-12, Swan Lake Island Unit geographic area}
+  11008001:{Flathead NF, District 8, All Compartments, Tally Lake geographic area}
+  11406005:{Kootenai NF, District 6, All Compartments but 1-4, Fisher River East geographic area}  
+  11405005:{Kootenai NF, District 5, All Compartments but 1-4,8-19,27, Libby East geographic area}
+//end   Forests_kt
+
+
+//start Forests_nc
+  {blank}:{}
+  505:{Klamath}
+  507:{Los Padres (mapped to Six Rivers)}
+  508:{Mendocino (mapped to Six Rivers)}
+  510:{Six Rivers}
+  514:{Shasta-Trinity}
+  518:{Trinity (mapped to Shasta-Trinity)}
+  611:{Siskiyou}
+  712:{BLM Coos Bay}
+  705:{Hoopa Indian Reservation}
+  800:{Simpson Timber}
+//end   Forests_nc
+
+
+//start Forests_ni
+  {blank}:{}
+  103:{Bitterroot}
+  104:{Idaho Panhandle}
+  105:{Clearwater}
+  106:{Coeur d'Alene}
+  110:{Flathead}
+  113:{Kaniksu}
+  114:{Kootenai}
+  116:{Lolo}
+  117:{Nez Perce}
+  118:{St. Joe}
+  621:{Colville}
+  613:{Kaniksu-administered by Colville (mapped to Kaniksu)}
+  102:{Beaverhead (mapped to Bitterroot)}
+  109:{Deerlodge (mapped to Bitterroot)}
+  112:{Helena (mapped to Lolo)}
+//end   Forests_ni
+
+
+//start Forests_so
+  {blank}:{}
+  505:{Klammath}
+  506:{Lassen}
+  509:{Modoc}
+  511:{Plumas}
+  514:{Shasta-Trinity (mapped to Klammath)}
+  601:{Deschutes}
+  602:{Fremont}
+  620:{Winema}
+  701:{Industry}
+  799:{Warm Springs Reservation}
+//end   Forests_so
+
+
+//start Forests_tt
+  {blank}:{}
+  403:{Bridger}
+  405:{Caribou}
+  415:{Targhee}
+  416:{Teton}
+//end   Forests_tt
+
+
+//start Forests_ut
+  {blank}:{}
+  401:{Ashley}
+  404:{Cache (mapped to Wasatch}
+  407:{Dixie}
+  408:{Fishlake}
+  409:{Humboldt (mapped to Fishlake)}
+  410:{Manti-La Sal}
+  417:{Toiyabe (mapped to Fishlake)}
+  418:{Uinta}
+  419:{Wasatch-Cache}
+//end   Forests_ut
+
+
+//start Forests_wc
+  {blank}:{}
+  603:{Gifford Pinchot}
+  605:{Mt. Baker-Snoqualmie}
+  606:{Mount Hood}
+  610:{Rogue River}
+  613:{Mt Baker-Snoqualmie (mapped to Mt Baker-Snoqualmie)}
+  615:{Umpqua}
+  618:{Willamette}
+  708:{BLM Salem admin. unit}
+  709:{BLM Eugene admin. unit}
+  710:{BLM Roseburg admin. unit}
+  711:{BLM Medford admin. unit}
+//end   Forests_wc
+
+
+//start Forests_pn
+  {blank}:{}
+  609:{Olympic}
+  612:{Siuslaw}
+  708:{BLM Salem admin. unit}
+  709:{BLM Eugene admin. unit}
+  712:{BLM Coos Bay admin. unit}
+  800:{Quinault Indian Reservation}
+//end   Forests_pn
+
+//start Forests_op
+  {blank}:{}
+  609:{Olympic}
+  612:{Siuslaw}
+  708:{BLM Salem admin. unit}
+  709:{BLM Eugene admin. unit}
+  712:{BLM Coos Bay admin. unit}
+  800:{Quinault Indian Reservation}
+//end   Forests_op
+
+//start Forests_ws
+  {blank}:{}
+  417:{Toiyabe (mapped to Stanislaus)}
+  501:{Angeles (mapped to Sequoia)}
+  502:{Cleveland (mapped to Sequoia)}
+  503:{Eldorado}
+  504:{Inyo (mapped to Sequoia)}
+  507:{Los Padres (mapped to Sequoia)}
+  511:{Plumas}
+  512:{San Bernadino (mapped to Sequoia)}
+  513:{Sequoia}
+  515:{Sierra}
+  516:{Stanislaus}
+  517:{Tahoe}
+  519:{Lake Tahoe Basin Mgmt Unit (mapped to Eldorado)}
+//end   Forests_ws
+
+
+//start Forests_cs
+  {blank}:{}
+  905:{Mark Twain}
+  908:{Shawnee}
+  911:{Old Wayne-Hoosier combined code (mapped to Hoosier)}
+  912:{Hoosier}
+//end   Forests_cs
+
+
+//start Forests_ls
+  {blank}:{}
+  902:{Chequamegon}
+  903:{Chippewa}
+  904:{Huron-Manistee}
+  906:{Nicolet}
+  907:{Ottawa}
+  909:{Superior}
+  910:{Hiawatha}
+  913:{Chequamegon-Nicolet}
+  924:{Manistee (mapped to Huron-Manistee)}
+//end   Forests_ls
+
+
+//start Forests_ne
+  {blank}:{}
+  911:{Old Wayne-Hoosier combined code (mapped to Wayne)}
+  914:{Wayne}
+  919:{Allegheny}
+  920:{Green Mountain}
+  921:{Monongahela}
+  922:{White Mountain}
+  930:{Finger Lakes (mapped to Green Mtn-Finger Lakes)}
+//end   Forests_ne
+
+//start Forests_se
+  {blank}:{}
+  80101:{NFs in Alabama, Bankhead}
+  80103:{NFs in Alabama, Conecuh}
+  80104:{NFs in Alabama, Oakmulgee}
+  80105:{NFs in Alabama, Shoal Creek}
+  80106:{NFs in Alabama, Talledega}
+  80107:{NFs in Alabama, Tuskegee}
+  80211:{Daniel Boone NF, Morehead}
+  80212:{Daniel Boone NF, Stanton}
+  80213:{Daniel Boone NF, Berea}
+  80214:{Daniel Boone NF, London}
+  80215:{Daniel Boone NF, Somerset}
+  80215:{Daniel Boone NF, Stearns}
+  80217:{Daniel Boone NF, Redbird}
+  80301:{Chatt.-Oconee NF, Armuchee}
+  80302:{Chatt.-Oconee NF, Toccoa}
+  80304:{Chatt.-Oconee NF, Brasstown}
+  80305:{Chatt.-Oconee NF, Talluah}
+  80306:{Chatt.-Oconee NF, Chattooga}
+  80307:{Chatt.-Oconee NF, Cohutta}
+  80308:{Chatt.-Oconee NF, Oconee}
+  80401:{Cherokee NF, Hiwassee}
+  80402:{Cherokee NF, Nolichucky}
+  80403:{Cherokee NF, Ocoee}
+  80404:{Cherokee NF, Tellico}
+  80405:{Cherokee NF, Unaka}
+  80406:{Cherokee NF, Watuga}
+  80501:{NFs in Florida, Apalachicola}
+  80502:{NFs in Florida, Lake George}
+  80504:{NFs in Florida, Osceola}
+  80505:{NFs in Florida, Seminole}
+  80506:{NFs in Florida, Wakulla}
+  80601:{Kisatchie NF, Catahoula}
+  80602:{Kisatchie NF, Evangeline/Vernon}
+  80603:{Kisatchie NF, Kisatchie}
+  80604:{Kisatchie NF, Winn}
+  80605:{Kisatchie NF, Caney}
+  80701:{NFs in Mississippi, Bienville}
+  80702:{NFs in Mississippi, Desoto}
+  80704:{NFs in Mississippi, Homochitto}
+  80705:{NFs in Mississippi, Chickasawhay}
+  80706:{NFs in Mississippi, Delta}
+  80707:{NFs in Mississippi, Holly Springs}
+  80717:{NFs in Mississippi, Tombigbee}
+  80801:{G.Wash./Jeff. NFs, Deerfield}
+  80802:{G.Wash./Jeff. NFs, Dry River}
+  80803:{G.Wash./Jeff. NFs, James River}
+  80804:{G.Wash./Jeff. NFs, Lee}
+  80805:{G.Wash./Jeff. NFs, Pedlar}
+  80806:{G.Wash./Jeff. NFs, Warm Springs}
+  80811:{G.Wash./Jeff. NFs, Blacksburg}
+  80812:{G.Wash./Jeff. NFs, Clinch}
+  80813:{G.Wash./Jeff. NFs, Glenwood}
+  80814:{G.Wash./Jeff. NFs, Mt. Rogers}
+  80815:{G.Wash./Jeff. NFs, New Castle}
+  80816:{G.Wash./Jeff. NFs, Wythe}
+  80901:{Quachita NF, Choctaw}
+  80902:{Quachita NF, Caddo}
+  80903:{Quachita NF, Cold Springs}
+  80904:{Quachita NF, Fourche}
+  80905:{Quachita NF, Jessieville}
+  80906:{Quachita NF, Kiamichi}
+  80907:{Quachita NF, Mena}
+  80908:{Quachita NF, Oden}
+  80909:{Quachita NF, Poteau}
+  80910:{Quachita NF, Womble}
+  80911:{Quachita NF, Winona}
+  80912:{Quachita NF, Tiak}
+  81001:{Ozark & St. Francis NFs, Sylamore}
+  81002:{Ozark & St. Francis NFs, Buffalo}
+  81003:{Ozark & St. Francis NFs, Bayou}
+  81004:{Ozark & St. Francis NFs, Pleasant Hill}
+  81005:{Ozark & St. Francis NFs, Boston Mountain}
+  81006:{Ozark & St. Francis NFs, Magazine}
+  81007:{Ozark & St. Francis NFs, St. Francis}
+  81102:{NFs in North Carolina, Cheoah}
+  81103:{NFs in North Carolina, Croatan}
+  81104:{NFs in North Carolina, Appalachian}
+  81105:{NFs in North Carolina, Grandfather}
+  81106:{NFs in North Carolina, Highlands}
+  81107:{NFs in North Carolina, Pisgah}
+  81108:{NFs in North Carolina, Appalachian} 
+  81109:{NFs in North Carolina, Tusquitee}
+  81110:{NFs in North Carolina, Uwharrie}
+  81111:{NFs in North Carolina, Waysh}
+  81201:{F.Marion & Sumter NFs, Enoree/Tyger}
+  81202:{F.Marion & Sumter NFs, Andrew Pickens}
+  81203:{F.Marion & Sumter NFs, Long Cane}
+  81205:{F.Marion & Sumter NFs, Wambaw/Witherbee}
+  81301:{NFs in Texas, Angelina}
+  81303:{NFs in Texas, Davy Crockett}
+  81304:{NFs in Texas, Sam Houston}
+  81307:{NFs in Texas, Sabine}
+  81308:{NFs in Texas, Caddo/LBJ}
+//end   Forests_se
+
+//start Forests_sn
+  {blank}:{}
+  80101:{NFs in Alabama, Bankhead}
+  80103:{NFs in Alabama, Conecuh}
+  80104:{NFs in Alabama, Oakmulgee}
+  80105:{NFs in Alabama, Shoal Creek}
+  80106:{NFs in Alabama, Talledega}
+  80107:{NFs in Alabama, Tuskegee}
+  80211:{Daniel Boone NF, Morehead}
+  80212:{Daniel Boone NF, Stanton}
+  80213:{Daniel Boone NF, Berea}
+  80214:{Daniel Boone NF, London}
+  80215:{Daniel Boone NF, Somerset}
+  80215:{Daniel Boone NF, Stearns}
+  80217:{Daniel Boone NF, Redbird}
+  80301:{Chatt.-Oconee NF, Armuchee}
+  80302:{Chatt.-Oconee NF, Toccoa}
+  80304:{Chatt.-Oconee NF, Brasstown}
+  80305:{Chatt.-Oconee NF, Talluah}
+  80306:{Chatt.-Oconee NF, Chattooga}
+  80307:{Chatt.-Oconee NF, Cohutta}
+  80308:{Chatt.-Oconee NF, Oconee}
+  80401:{Cherokee NF, Hiwassee}
+  80402:{Cherokee NF, Nolichucky}
+  80403:{Cherokee NF, Ocoee}
+  80404:{Cherokee NF, Tellico}
+  80405:{Cherokee NF, Unaka}
+  80406:{Cherokee NF, Watuga}
+  80501:{NFs in Florida, Apalachicola}
+  80502:{NFs in Florida, Lake George}
+  80504:{NFs in Florida, Osceola}
+  80505:{NFs in Florida, Seminole}
+  80506:{NFs in Florida, Wakulla}
+  80601:{Kisatchie NF, Catahoula}
+  80602:{Kisatchie NF, Evangeline/Vernon}
+  80603:{Kisatchie NF, Kisatchie}
+  80604:{Kisatchie NF, Winn}
+  80605:{Kisatchie NF, Caney}
+  80701:{NFs in Mississippi, Bienville}
+  80702:{NFs in Mississippi, Desoto}
+  80704:{NFs in Mississippi, Homochitto}
+  80705:{NFs in Mississippi, Chickasawhay}
+  80706:{NFs in Mississippi, Delta}
+  80707:{NFs in Mississippi, Holly Springs}
+  80717:{NFs in Mississippi, Tombigbee}
+  80801:{G.Wash./Jeff. NFs, Deerfield}
+  80802:{G.Wash./Jeff. NFs, Dry River}
+  80803:{G.Wash./Jeff. NFs, James River}
+  80804:{G.Wash./Jeff. NFs, Lee}
+  80805:{G.Wash./Jeff. NFs, Pedlar}
+  80806:{G.Wash./Jeff. NFs, Warm Springs}
+  80811:{G.Wash./Jeff. NFs, Blacksburg}
+  80812:{G.Wash./Jeff. NFs, Clinch}
+  80813:{G.Wash./Jeff. NFs, Glenwood}
+  80814:{G.Wash./Jeff. NFs, Mt. Rogers}
+  80815:{G.Wash./Jeff. NFs, New Castle}
+  80816:{G.Wash./Jeff. NFs, Wythe}
+  80901:{Quachita NF, Choctaw}
+  80902:{Quachita NF, Caddo}
+  80903:{Quachita NF, Cold Springs}
+  80904:{Quachita NF, Fourche}
+  80905:{Quachita NF, Jessieville}
+  80906:{Quachita NF, Kiamichi}
+  80907:{Quachita NF, Mena}
+  80908:{Quachita NF, Oden}
+  80909:{Quachita NF, Poteau}
+  80910:{Quachita NF, Womble}
+  80911:{Quachita NF, Winona}
+  80912:{Quachita NF, Tiak}
+  81001:{Ozark & St. Francis NFs, Sylamore}
+  81002:{Ozark & St. Francis NFs, Buffalo}
+  81003:{Ozark & St. Francis NFs, Bayou}
+  81004:{Ozark & St. Francis NFs, Pleasant Hill}
+  81005:{Ozark & St. Francis NFs, Boston Mountain}
+  81006:{Ozark & St. Francis NFs, Magazine}
+  81007:{Ozark & St. Francis NFs, St. Francis}
+  81102:{NFs in North Carolina, Cheoah}
+  81103:{NFs in North Carolina, Croatan}
+  81105:{NFs in North Carolina, Grandfather}
+  81106:{NFs in North Carolina, Highlands}
+  81107:{NFs in North Carolina, Pisgah}
+  81108:{NFs in North Carolina, Appalachian}
+  81109:{NFs in North Carolina, Tusquitee}
+  81110:{NFs in North Carolina, Uwharrie}
+  81111:{NFs in North Carolina, Waysh}
+  81201:{F.Marion & Sumter NFs, Enoree/Tyger}
+  81202:{F.Marion & Sumter NFs, Andrew Pickens}
+  81203:{F.Marion & Sumter NFs, Long Cane}
+  81205:{F.Marion & Sumter NFs, Wambaw/Witherbee}
+  81301:{NFs in Texas, Angelina}
+  81303:{NFs in Texas, Davy Crockett}
+  81304:{NFs in Texas, Sam Houston}
+  81307:{NFs in Texas, Sabine}
+  81308:{NFs in Texas, Caddo/LBJ}
+    836:{Savannah River, Admin (mapped to Sumter)}
+    824:{Savannah River, Proclaimed (mapped to Sumter)}
+    860:{Land Between the Lakes, Admin (mapped to Daniel Boone)}
+    835:{Land Between the Lakes, Proclaimed (mapped to Daniel Boone)
+    905:{Mark Twain}
+    908:{Shawnee}
+    701:{Fort Bragg Military Reservation}
+//end   Forests_sn
+
+//start Forests_ca
+  {blank}:{}
+  505:{Klamath}
+  506:{Lassen}
+  508:{Mendocino}
+  511:{Plumas}
+  514:{Shasta-Trinity}
+  518:{Trinity (mapped to Shasta-Trinity)}
+  610:{Rogue River}
+  611:{Siskiyou}
+  710:{BLM Roseburg admin. unit}
+  711:{BLM Medford admin. unit}
+  712:{BLM Coos Bay admin. unit}
+//end   Forests_ca
+
+//start Forests_oc
+  {blank}:{}
+  505:{Klamath}
+  506:{Lassen}
+  508:{Mendocino}
+  511:{Plumas}
+  514:{Shasta-Trinity}
+  518:{Trinity (mapped to Shasta-Trinity)}
+  610:{Rogue River}
+  611:{Siskiyou}
+  710:{BLM Roseburg admin. unit}
+  711:{BLM Medford admin. unit}
+  712:{BLM Coos Bay admin. unit}
+//end   Forests_oc
+
+//start Forests_se
+  {blank}:{}
+  80101:{NFs in Alabama, Bankhead}
+  80103:{NFs in Alabama, Conecuh}
+  80104:{NFs in Alabama, Oakmulgee}
+  80105:{NFs in Alabama, Shoal Creek}
+  80106:{NFs in Alabama, Talledega}
+  80107:{NFs in Alabama, Tuskegee}
+  80211:{Daniel Boone NF, Morehead}
+  80212:{Daniel Boone NF, Stanton}
+  80213:{Daniel Boone NF, Berea}
+  80214:{Daniel Boone NF, London}
+  80215:{Daniel Boone NF, Somerset}
+  80215:{Daniel Boone NF, Stearns}
+  80217:{Daniel Boone NF, Redbird}
+  80301:{Chatt.-Oconee NF, Armuchee}
+  80302:{Chatt.-Oconee NF, Toccoa}
+  80304:{Chatt.-Oconee NF, Brasstown}
+  80305:{Chatt.-Oconee NF, Talluah}
+  80306:{Chatt.-Oconee NF, Chattooga}
+  80307:{Chatt.-Oconee NF, Cohutta}
+  80308:{Chatt.-Oconee NF, Oconee}
+  80401:{Cherokee NF, Hiwassee}
+  80402:{Cherokee NF, Nolichucky}
+  80403:{Cherokee NF, Ocoee}
+  80404:{Cherokee NF, Tellico}
+  80405:{Cherokee NF, Unaka}
+  80406:{Cherokee NF, Watuga}
+  80501:{NFs in Florida, Apalachicola}
+  80502:{NFs in Florida, Lake George}
+  80504:{NFs in Florida, Osceola}
+  80505:{NFs in Florida, Seminole}
+  80506:{NFs in Florida, Wakulla}
+  80601:{Kisatchie NF, Catahoula}
+  80602:{Kisatchie NF, Evangeline/Vernon}
+  80603:{Kisatchie NF, Kisatchie}
+  80604:{Kisatchie NF, Winn}
+  80605:{Kisatchie NF, Caney}
+  80701:{NFs in Mississippi, Bienville}
+  80702:{NFs in Mississippi, Desoto}
+  80704:{NFs in Mississippi, Homochitto}
+  80705:{NFs in Mississippi, Chickasawhay}
+  80706:{NFs in Mississippi, Delta}
+  80707:{NFs in Mississippi, Holly Springs}
+  80717:{NFs in Mississippi, Tombigbee}
+  80801:{G.Wash./Jeff. NFs, Deerfield}
+  80802:{G.Wash./Jeff. NFs, Dry River}
+  80803:{G.Wash./Jeff. NFs, James River}
+  80804:{G.Wash./Jeff. NFs, Lee}
+  80805:{G.Wash./Jeff. NFs, Pedlar}
+  80806:{G.Wash./Jeff. NFs, Warm Springs}
+  80811:{G.Wash./Jeff. NFs, Blacksburg}
+  80812:{G.Wash./Jeff. NFs, Clinch}
+  80813:{G.Wash./Jeff. NFs, Glenwood}
+  80814:{G.Wash./Jeff. NFs, Mt. Rogers}
+  80815:{G.Wash./Jeff. NFs, New Castle}
+  80816:{G.Wash./Jeff. NFs, Wythe}
+  80901:{Quachita NF, Choctaw}
+  80902:{Quachita NF, Caddo}
+  80903:{Quachita NF, Cold Springs}
+  80904:{Quachita NF, Fourche}
+  80905:{Quachita NF, Jessieville}
+  80906:{Quachita NF, Kiamichi}
+  80907:{Quachita NF, Mena}
+  80908:{Quachita NF, Oden}
+  80909:{Quachita NF, Poteau}
+  80910:{Quachita NF, Womble}
+  80911:{Quachita NF, Winona}
+  80912:{Quachita NF, Tiak}
+  81001:{Ozark & St. Francis NFs, Sylamore}
+  81002:{Ozark & St. Francis NFs, Buffalo}
+  81003:{Ozark & St. Francis NFs, Bayou}
+  81004:{Ozark & St. Francis NFs, Pleasant Hill}
+  81005:{Ozark & St. Francis NFs, Boston Mountain}
+  81006:{Ozark & St. Francis NFs, Magazine}
+  81007:{Ozark & St. Francis NFs, St. Francis}
+  81102:{NFs in North Carolina, Cheoah}
+  81103:{NFs in North Carolina, Croatan}
+  81104:{NFs in North Carolina, Appalachian}
+  81105:{NFs in North Carolina, Grandfather}
+  81106:{NFs in North Carolina, Highlands}
+  81107:{NFs in North Carolina, Pisgah}
+  81109:{NFs in North Carolina, Tusquitee}
+  81110:{NFs in North Carolina, Uwharrie}
+  81111:{NFs in North Carolina, Waysh}
+  81201:{F.Marion & Sumter NFs, Enoree/Tyger}
+  81202:{F.Marion & Sumter NFs, Andrew Pickens}
+  81203:{F.Marion & Sumter NFs, Long Cane}
+  81205:{F.Marion & Sumter NFs, Wambaw/Witherbee}
+  81301:{NFs in Texas, Angelina}
+  81303:{NFs in Texas, Davy Crockett}
+  81304:{NFs in Texas, Sam Houston}
+  81307:{NFs in Texas, Sabine}
+  81308:{NFs in Texas, Caddo/LBJ}
+//end   Forests_se

@@ -1,0 +1,68 @@
+HTOPIC USEKEYWindow "Use FVS Keywords" keyword 
+\fbUse FVS Keywords\f0
+
+The Use FVS Keywords window provides access to FVS
+\bkeywordS:keywords\b.  Its is intended to be used only if you 
+can not accomplish your desired task using any of these other 
+windows:
+
+\n
+\lSELECTEcosystemButton:Select Ecosystem Components\l
+\lSELECTModelOutputButton:Select Model Outputs\l
+\lCMNGWINWindow:Management Actions\l
+\lSPECIFYModelModButton:Specify Model Modifiers\l
+\w
+
+The windows listed above generally do not require any prior knowledge
+of FVS keywords. 
+
+Of course, you may use this window anytime you wish!
+
+There are three list boxes.  The first displays a list of FVS
+\bextenS:extensions\b that are available for you to use.  Suppose
+automatically selects the Base FVS system from this list.  Use the
+mouse to pick a different extension if you desire one.
+
+Sometimes the list will not contain an extension that you had seen
+earlier during a given Suppose session.  Extensions are deleted
+automatically by Suppose when the use of one extension precludes the
+use of another.  If neither of two conflicting extensions are in use,
+both will be in the list until one is used and then the other one will
+be deleted.  Unfortunately, Suppose does not notify you of what
+extensions are conflicting nor does Suppose return an extension to the
+list if you delete the \bcomponenT:components\b that caused the
+conflicts.
+
+The second list box displays categories of keywords.  The first
+category, All keywords, includes all the keywords in an extension.  You
+may select a category to limit the keyword list found on the Keyword
+list box located on the right side of the window.  Some keywords are
+in more than one category.  Use the mouse to select a category.
+
+The last list box contains the Keywords.  You can select a keyword
+with the mouse.  A brief description of the keyword is displayed at
+the bottom of the screen.  Once you are sure you have selected the
+correct keyword, press the Accept button.  As an alternative, you may
+double click on the keyword.  A window used to set the parameters of
+the keyword will open.
+
+As an alternative to using the category and keyword list boxes, you
+can type the keyword you desire in the \f1Select Keyword\f0 text edit
+window found at the bottom of the Keyword list box.  Press the Enter
+key to cause Suppose to look for the keyword, and start the necessary
+window.
+
+The three buttons on this window do the following:
+
+\f1Accept\f0 will cause a window to open that is used to set the
+parameters of the desired keyword.
+
+\f1Reset\f0 will cause the lists return to starting conditions.
+
+\f1Close\f0 will close this window.  Note that this window need not be
+closed to proceed with building the simulation.
+
+See topic \lGPKEYWindow:FVS Keyword Entry Windows\l for information
+about how to set the parameters of these windows.
+
+

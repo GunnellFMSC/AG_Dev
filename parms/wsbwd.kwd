@@ -1,0 +1,300 @@
+
+//start keyword.wsbwd.Damage
+
+description:
+{Instructs the model to print an output table containing a summary of
+the simulated defoliation, whether invoked via DEFOL ("manual"
+defoliation) or via GENDEFOL (insect-simulated defoliation).
+
+This table will be printed at the end of the main FVS output file.}
+
+answerForm:{Damage}
+
+//end keyword.wsbwd.Damage
+
+//start keyword.wsbwd.Defol
+
+description:
+{Specify yearly defoliation data.
+Use of this keyword allows for the simulation of "manual" defoliation.  Defoliators
+and tree--defoliator processes will NOT be simulated (as they would via keyword
+GENDEFOL).  By using this keyword, users specify the timing and amounts of
+defoliation; needles are removed from trees; no other defoliation processes are
+simulated.
+}
+
+f1:{scheduleBox}
+f1v:{1}
+f2:{listButton Species to defoliate}
+
+f2v{bm}:
+{All host species
+Douglas-fir
+Grand fir
+Engelmann spruce
+Subalpine fir
+Western larch}
+speciesCode{bm}:{ALL DF GF ES AF WL}
+!speciesCode{bm}:{0 3 4 8 9 2}
+
+f2v{ci}:
+{All host species
+Douglas-fir
+Grand fir
+Engelmann spruce
+Subalpine fir
+Western larch}
+speciesCode{ci}:{ALL DF GF ES AF WL}
+!speciesCode{ci}:{0 3 4 8 9 2}
+
+!f2v{cr}:
+!{All host species
+!Douglas-fir
+!White fir
+!Grand fir
+!Engelmann spruce
+!Subalpine fir
+!Western larch}
+!speciesCode{cr}:{ALL DF WF GF ES AF WL}
+!speciesCode{cr}:{0 3 5 4 18 1 8}
+
+f2v{ec}:
+{All host species
+Douglas-fir
+Grand fir
+Engelmann spruce
+Subalpine fir
+Western larch}
+speciesCode{ec}:{0 3 6 8 9 2}
+!speciesCode{ec}:{0 3 6 8 9 2}
+
+f2v{em}:
+{All host species
+Douglas-fir
+Engelmann spruce
+Subalpine fir
+Western larch}
+speciesCode{em}:{ALL DF ES AF WL}
+!speciesCode{em}:{0 3 8 9 2}
+
+f2v{ni}:
+{All host species
+Douglas-fir
+Grand fir
+Engelmann spruce
+Subalpine fir
+Western larch}
+speciesCode{ni}:{ALL DF GF ES AF WL}
+!speciesCode{ni}:{0 3 4 8 9 2}
+
+f2v{so}:
+{All host species
+Douglas-fir
+White fir
+Engelmann spruce
+Grand fir
+Subalpine fir
+Western larch}
+speciesCode{so}:{ALL DF WF ES GF AF WL}
+!speciesCode{so}:{0 3 4 8 12 13 17}
+
+f2v{tt}:
+{All host species
+Douglas-fir
+Engelmann spruce
+Subalpine fir}
+speciesCode{tt}:{ALL DF ES AF}
+!speciesCode{tt}:{0 3 8 9}
+
+!f2v{wc}:
+!{All host species
+!Douglas-fir
+!White fir
+!Grand fir
+!Engelmann spruce
+!Subalpine fir}
+!speciesCode{wc}:{ALL DF WF GF ES AF}
+!speciesCode{wc}:{0 16 2 3 10 4}
+
+f3:{longListButton Tree size        / Crown Third}
+f3v:{
+Small tree      / Top third
+Small tree      / Middle third
+Small tree      / Bottom third
+Small tree      / All crown thirds
+Medium tree  / Top third
+Medium tree  / Middle third
+Medium tree  / Bottom third
+Medium tree  / All crown thirds
+Large tree      / Top third
+Large tree      / Middle third
+Large tree      / Bottom third
+Large tree      / All crown thirds
+All tree sizes / Top third
+All tree sizes / Middle third
+All tree sizes / Bottom third
+All tree sizes / All crown thirds}
+
+numbers:{1 2 3 10 4 5 6 11 7 8 9 12 13 14 15 0}
+
+f4:{sliderBox Percentage of new foliage destroyed for this year}
+f4v:{0.0 0.0 100.0 0.0 100.0}
+f5:{sliderBox Percentage of 1-year-old foliage destroyed for this year}
+f5v:{0.0 0.0 100.0 0.0 100.0}
+f6:{sliderBox Percentage of 2-year-old foliage destroyed for this year}
+f6v:{0.0 0.0 100.0 0.0 100.0}
+f7:{sliderBox Percentage of remaining foliage destroyed for this year}
+f7v:{0.0 0.0 100.0 0.0 100.0}
+
+answerForm:{Defol     !1,10!!2,10,speciesCode!!3,10,numbers!!4,10!!5,10!!6,10!!7,10!}
+parmsForm=answerForm
+
+//end keyword.wsbwd.Defol
+
+
+//start keyword.wsbwd.PerDam
+
+description:
+{Instructs the model to print an output table that displays the periodic
+results of budworm defoliation.
+
+This table will be printed at the end of the FVS output.}
+
+answerForm:{PerDam}
+
+//end keyword.wsbwd.PerDam
+
+//start keyword.wsbwd.SetPrBio
+
+description:
+{This keyword is very similar to keyword DEFOL.  It allows the user to adjust the
+starting-time foliar biomass--in effect, simulating a defoliation event prior to the
+inventory year.
+}
+
+f1:{scheduleBox}
+f1v:{1}
+
+f2:{listButton Species to defoliate}
+
+f2v{bm}:
+{All host species
+Douglas-fir
+Grand fir
+Engelmann spruce
+Subalpine fir
+Western larch}
+speciesCode{bm}:{ALL DF GF ES AF WL}
+!speciesCode{bm}:{0 3 4 8 9 2}
+
+f2v{ci}:
+{All host species
+Douglas-fir
+Grand fir
+Engelmann spruce
+Subalpine fir
+Western larch}
+speciesCode{ci}:{ALL DF GF ES AF WL}
+!speciesCode{ci}:{0 3 4 8 9 2}
+
+!f2v{cr}:
+!{All host species
+!Douglas-fir
+!White fir
+!Grand fir
+!Engelmann spruce
+!Subalpine fir
+!Western larch}
+!speciesCode{cr}:{ALL DF WF GF ES AF WL}
+!speciesCode{cr}:{0 3 5 4 18 1 8}
+
+f2v{ec}:
+{All host species
+Douglas-fir
+Grand fir
+Engelmann spruce
+Subalpine fir
+Western larch}
+speciesCode{ec}:{0 3 6 8 9 2}
+!speciesCode{ec}:{0 3 6 8 9 2}
+
+f2v{em}:
+{All host species
+Douglas-fir
+Engelmann spruce
+Subalpine fir
+Western larch}
+speciesCode{em}:{ALL DF ES AF WL}
+!speciesCode{em}:{0 3 8 9 2}
+
+f2v{ni}:
+{All host species
+Douglas-fir
+Grand fir
+Engelmann spruce
+Subalpine fir
+Western larch}
+speciesCode{ni}:{ALL DF GF ES AF WL}
+!speciesCode{ni}:{0 3 4 8 9 2}
+
+f2v{so}:
+{All host species
+Douglas-fir
+White fir
+Engelmann spruce
+Grand fir
+Subalpine fir
+Western larch}
+speciesCode{so}:{ALL DF WF ES GF AF WL}
+!speciesCode{so}:{0 3 4 8 12 13 17}
+
+f2v{tt}:
+{All host species
+Douglas-fir
+Engelmann spruce
+Subalpine fir}
+speciesCode{tt}:{ALL DF ES AF}
+!speciesCode{tt}:{0 3 8 9}
+
+!f2v{wc}:
+!{All host species
+!Douglas-fir
+!White fir
+!Grand fir
+!Engelmann spruce
+!Subalpine fir}
+!speciesCode{wc}:{ALL DF WF GF ES AF}
+!speciesCode{wc}:{0 16 2 3 10 4}
+
+f3:{longListButton Tree size        / Crown Third}
+f3v:{
+Small tree      / Top third
+Small tree      / Middle third
+Small tree      / Bottom third
+Small tree      / All crown thirds
+Medium tree  / Top third
+Medium tree  / Middle third
+Medium tree  / Bottom third
+Medium tree  / All crown thirds
+Large tree      / Top third
+Large tree      / Middle third
+Large tree      / Bottom third
+Large tree      / All crown thirds
+All tree sizes / Top third
+All tree sizes / Middle third
+All tree sizes / Bottom third
+All tree sizes / All crown thirds}
+
+numbers:{1 2 3 10 4 5 6 11 7 8 9 12 13 14 15 0}
+
+f4:{sliderBox Percentage of 1-year-old foliage destroyed for this year}
+f4v:{0.0 0.0 100.0 0.0 100.0}
+f5:{sliderBox Percentage of 2-year-old foliage destroyed for this year}
+f5v:{0.0 0.0 100.0 0.0 100.0}
+f6:{sliderBox Percentage of remaining foliage destroyed for this year}
+f6v:{0.0 0.0 100.0 0.0 100.0}
+
+answerForm:{SetPrBio  !1,10!!2,10,speciesCode!!3,10,numbers!!4,10!!5,10!!6,10!}
+parmsForm=answerForm
+
+//end keyword.wsbwd.SetPrBio

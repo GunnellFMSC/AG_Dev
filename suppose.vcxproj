@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGUID>{058C93E0-DA97-4410-A53C-726EA8055E68}</ProjectGUID>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>suppose</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Debug\suppose.dir\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">suppose</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\..\..\..\FVSbin - Copy for Working VS Dir</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Release\suppose.dir\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">suppose</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(XVT_DSP_DIR)\include;$(XVT_DSP_DIR)\include\pwr;.\help;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>Default</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_USE_RTM_VERSION;_CRT_SECURE_NO_DEPRECATE=1;_RWDLL;_RWCONFIG=15dvc11;XVT_PREDEF_PLACEMENT_NEW;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ForcedIncludeFiles>xvtpwr.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_USE_RTM_VERSION;_CRT_SECURE_NO_DEPRECATE=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(XVT_DSP_DIR)\include;$(XVT_DSP_DIR)\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalOptions> /machine:X86 /debug %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;xvtnmapi.lib;xnmhb150.lib;xnmba150.lib;xnmvc150pr150d.lib;tls15dvc11.lib;comctl32.lib;comsuppw.lib;shlwapi.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(XVT_DSP_DIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>.\suppose.lib</ImportLibrary>
+      <ProgramDataBaseFile>.\suppose.pdb</ProgramDataBaseFile>
+      <SubSystem>Windows</SubSystem>
+      <Version>
+      </Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <PreBuildEvent>
+      <Command>if not exist "$(ProjectDir)$(ProjectName).ico" (copy "$(XVT_DSP_DIR)\lib\xvtapp.ico" "$(ProjectDir)$(ProjectName).ico")</Command>
+      <Message>Copying default application icon</Message>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(XVT_DSP_DIR)\include;$(XVT_DSP_DIR)\include\pwr;.\help;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>Default</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_USE_RTM_VERSION;_CRT_SECURE_NO_DEPRECATE=1;_RWDLL;_RWCONFIG=12dvc11;XVT_PREDEF_PLACEMENT_NEW;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <ForcedIncludeFiles>xvtpwr.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <DisableSpecificWarnings>4244</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_USE_RTM_VERSION;_CRT_SECURE_NO_DEPRECATE=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(XVT_DSP_DIR)\include;$(XVT_DSP_DIR)\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalOptions> /machine:X86 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;xvtnmapi.lib;xnmhb150.lib;xnmba150.lib;xnmvc150pr150.lib;tls12dvc11.lib;comctl32.lib;comsuppw.lib;shlwapi.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(XVT_DSP_DIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>.\suppose.lib</ImportLibrary>
+      <ProgramDataBaseFile>.\suppose.pdb</ProgramDataBaseFile>
+      <SubSystem>Windows</SubSystem>
+      <Version>
+      </Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <PreBuildEvent>
+      <Command>if not exist "$(ProjectDir)$(ProjectName).ico" (copy "$(XVT_DSP_DIR)\lib\xvtapp.ico" "$(ProjectDir)$(ProjectName).ico")</Command>
+    </PreBuildEvent>
+    <PreBuildEvent>
+      <Message>Copying default application icon</Message>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="src\suppose.xrc">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling Portable Resources</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+$(XVT_DSP_DIR)\bin\xrc -r rcnt -s -i . -i./bmpfiles -i $(XVT_DSP_DIR)/include -i $(XVT_DSP_DIR)/lib -d LIBDIR=$(XVT_DSP_DIR)\lib .\src\suppose.xrc
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">src\suppose.xrc</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\src\suppose.rc</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Compiling Portable Resources</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+$(XVT_DSP_DIR)\bin\xrc -r rcnt -s -i . -i./bmpfiles -i $(XVT_DSP_DIR)/include -i $(XVT_DSP_DIR)/lib -d LIBDIR=$(XVT_DSP_DIR)\lib .\src\suppose.xrc
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">src\suppose.xrc</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\src\suppose.rc</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\alllocd.cpp" />
+    <ClCompile Include="src\appdoc.cpp" />
+    <ClCompile Include="src\avefvsw.cpp" />
+    <ClCompile Include="src\boxsldr.cpp" />
+    <ClCompile Include="src\boxtext.cpp" />
+    <ClCompile Include="src\ccatwin.cpp" />
+    <ClCompile Include="src\clearwin.cpp" />
+    <ClCompile Include="src\cmdline.cpp" />
+    <ClCompile Include="src\cmgtclas.cpp" />
+    <ClCompile Include="src\cmmodwin.cpp" />
+    <ClCompile Include="src\cmngwin.cpp" />
+    <ClCompile Include="src\commands.cpp" />
+    <ClCompile Include="src\compon.cpp" />
+    <ClCompile Include="src\cparmrtn.cpp" />
+    <ClCompile Include="src\cprefswin.cpp" />
+    <ClCompile Include="src\cretcomp.cpp" />
+    <ClCompile Include="src\cwwindow.cpp" />
+    <ClCompile Include="src\cyear.cpp" />
+    <ClCompile Include="src\dlstdgrp.cpp" />
+    <ClCompile Include="src\editfvst.cpp" />
+    <ClCompile Include="src\editlocs.cpp" />
+    <ClCompile Include="src\editslf.cpp" />
+    <ClCompile Include="src\editslf2.cpp" />
+    <ClCompile Include="src\express.cpp" />
+    <ClCompile Include="src\extens.cpp" />
+    <ClCompile Include="src\filebrws.cpp" />
+    <ClCompile Include="src\fvslocs.cpp" />
+    <ClCompile Include="src\gpkey.cpp" />
+    <ClCompile Include="src\graphwn.cpp" />
+    <ClCompile Include="src\group.cpp" />
+    <ClCompile Include="src\grpmemb.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\mainwin.cpp" />
+    <ClCompile Include="src\mdloutwin.cpp" />
+    <ClCompile Include="src\msgwin.cpp" />
+    <ClCompile Include="src\mycscrol.cpp" />
+    <ClCompile Include="src\mylinetx.cpp" />
+    <ClCompile Include="src\opsys.cpp" />
+    <ClCompile Include="src\parser.cpp" />
+    <ClCompile Include="src\plantwin.cpp" />
+    <ClCompile Include="src\postproc.cpp" />
+    <ClCompile Include="src\postpwin.cpp" />
+    <ClCompile Include="src\programs.cpp" />
+    <ClCompile Include="src\radiogrp.cpp" />
+    <ClCompile Include="src\readcomp.cpp" />
+    <ClCompile Include="src\readfire.cpp" />
+    <ClCompile Include="src\readfvsw.cpp" />
+    <ClCompile Include="src\reportd.cpp" />
+    <ClCompile Include="src\reportwn.cpp" />
+    <ClCompile Include="src\runstr.cpp" />
+    <ClCompile Include="src\runwizw.cpp" />
+    <ClCompile Include="src\schcond.cpp" />
+    <ClCompile Include="src\schedobj.cpp" />
+    <ClCompile Include="src\seedwin.cpp" />
+    <ClCompile Include="src\selectsi.cpp" />
+    <ClCompile Include="src\selvar.cpp" />
+    <ClCompile Include="src\sendupdt.cpp" />
+    <ClCompile Include="src\sheltwin.cpp" />
+    <ClCompile Include="src\simnotes.cpp" />
+    <ClCompile Include="src\slfrec.cpp" />
+    <ClCompile Include="src\spfunc2.cpp" />
+    <ClCompile Include="src\spfuncs.cpp" />
+    <ClCompile Include="src\spglobal.cpp" />
+    <ClCompile Include="src\spparms.cpp" />
+    <ClCompile Include="src\spprefer.cpp" />
+    <ClCompile Include="src\stand.cpp" />
+    <ClCompile Include="src\startapp.cpp" />
+    <ClCompile Include="src\thinwin.cpp" />
+    <ClCompile Include="src\timescal.cpp" />
+    <ClCompile Include="src\usekey.cpp" />
+    <ClCompile Include="src\variants.cpp" />
+    <ClCompile Include="src\viewkey.cpp" />
+    <ClCompile Include="src\warn_dlg.cpp" />
+    <ClCompile Include="src\yearobj.cpp" />
+    <ResourceCompile Include="src\suppose.rc">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(XVT_DSP_DIR)\include;$(XVT_DSP_DIR)\lib;.\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(XVT_DSP_DIR)\include;$(XVT_DSP_DIR)\lib;.\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\alllocd.hpp" />
+    <ClInclude Include="src\appdef.hpp" />
+    <ClInclude Include="src\appdoc.hpp" />
+    <ClInclude Include="src\avefvsw.hpp" />
+    <ClInclude Include="src\boxsldr.hpp" />
+    <ClInclude Include="src\boxtext.hpp" />
+    <ClInclude Include="src\ccatwin.hpp" />
+    <ClInclude Include="src\clearwin.hpp" />
+    <ClInclude Include="src\cmdline.hpp" />
+    <ClInclude Include="src\cmgtclas.hpp" />
+    <ClInclude Include="src\cmmodwin.hpp" />
+    <ClInclude Include="src\cmngwin.hpp" />
+    <ClInclude Include="src\commands.hpp" />
+    <ClInclude Include="src\compon.hpp" />
+    <ClInclude Include="src\cparmrtn.hpp" />
+    <ClInclude Include="src\cprefswin.hpp" />
+    <ClInclude Include="src\cretcomp.hpp" />
+    <ClInclude Include="src\cwwindow.hpp" />
+    <ClInclude Include="src\cyear.hpp" />
+    <ClInclude Include="src\dirsept.hpp" />
+    <ClInclude Include="src\dlstdgrp.hpp" />
+    <ClInclude Include="src\editcomp.hpp" />
+    <ClInclude Include="src\editfvst.hpp" />
+    <ClInclude Include="src\editlocs.hpp" />
+    <ClInclude Include="src\editslf.hpp" />
+    <ClInclude Include="src\express.hpp" />
+    <ClInclude Include="src\extens.hpp" />
+    <ClInclude Include="src\filebrws.hpp" />
+    <ClInclude Include="src\fvslocs.hpp" />
+    <ClInclude Include="src\gpkey.hpp" />
+    <ClInclude Include="src\graphwn.hpp" />
+    <ClInclude Include="src\group.hpp" />
+    <ClInclude Include="src\grpmemb.hpp" />
+    <ClInclude Include="src\mainwin.hpp" />
+    <ClInclude Include="src\mdloutwin.hpp" />
+    <ClInclude Include="src\msgwin.hpp" />
+    <ClInclude Include="src\mycscrol.hpp" />
+    <ClInclude Include="src\mylinetx.hpp" />
+    <ClInclude Include="src\opsys.hpp" />
+    <ClInclude Include="src\parser.hpp" />
+    <ClInclude Include="src\plantwin.hpp" />
+    <ClInclude Include="src\postproc.hpp" />
+    <ClInclude Include="src\postpwin.hpp" />
+    <ClInclude Include="src\programs.hpp" />
+    <ClInclude Include="src\radiogrp.hpp" />
+    <ClInclude Include="src\rdtreels.hpp" />
+    <ClInclude Include="src\readcomp.hpp" />
+    <ClInclude Include="src\readfire.hpp" />
+    <ClInclude Include="src\readfvsw.hpp" />
+    <ClInclude Include="src\reportd.hpp" />
+    <ClInclude Include="src\reportwn.hpp" />
+    <ClInclude Include="src\runstr.hpp" />
+    <ClInclude Include="src\runwizw.hpp" />
+    <ClInclude Include="src\schcond.hpp" />
+    <ClInclude Include="src\schedobj.hpp" />
+    <ClInclude Include="src\seedwin.hpp" />
+    <ClInclude Include="src\selectsi.hpp" />
+    <ClInclude Include="src\selvar.hpp" />
+    <ClInclude Include="src\sendupdt.hpp" />
+    <ClInclude Include="src\sheltwin.hpp" />
+    <ClInclude Include="src\simnotes.hpp" />
+    <ClInclude Include="src\spfunc2.hpp" />
+    <ClInclude Include="src\spfuncs.hpp" />
+    <ClInclude Include="src\spglobal.hpp" />
+    <ClInclude Include="src\spparms.hpp" />
+    <ClInclude Include="src\spprefer.hpp" />
+    <ClInclude Include="src\stand.hpp" />
+    <ClInclude Include="src\startapp.hpp" />
+    <ClInclude Include="src\suppdefs.hpp" />
+    <ClInclude Include="src\thinwin.hpp" />
+    <ClInclude Include="src\timescal.hpp" />
+    <ClInclude Include="src\usekey.hpp" />
+    <ClInclude Include="src\variants.hpp" />
+    <ClInclude Include="src\viewkey.hpp" />
+    <ClInclude Include="src\warn_dlg.hpp" />
+    <ClInclude Include="src\yearobj.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="help\helpfile.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="src\suppose.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\xvtdsp150\lib\croshair.cur" />
+    <None Include="..\..\..\..\xvtdsp150\lib\objhelp.cur" />
+    <None Include="..\..\..\..\xvtdsp150\lib\splith.cur" />
+    <None Include="..\..\..\..\xvtdsp150\lib\splitv.cur" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

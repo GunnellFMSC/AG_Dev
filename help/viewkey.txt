@@ -1,0 +1,14 @@
+HTOPIC VIEWKEYWindow "View Component Keyword"
+\fbView Component Keyword\f0
+
+This window displays the \bFVs:FVS\b \bkeywordS:keywords\b used to
+represent the \bcomponenT:component\b you are creating or editing.  It
+does not allow you to edit the keywords.
+
+View Component Keywords is accessed through the Extras menu and can only
+be accessed when in a screen that is creating an FVS keyword, or when
+a component is selected in the 
+\lEDITSimulationFile:Edit Simulation File\l window.
+
+Press \f1Close\f0 to close the window.
+

@@ -1,0 +1,103 @@
+===========================================================================
+                      Suppose Programmers Documentation
+===========================================================================
+
+                            Nicholas L. Crookston
+                                RMRS - Moscow
+
+                   Date of Last Revision: September 24, 1998
+
+--------------------------- 
+Preface 
+---------------------------
+
+The goal of this document is to provide professionals with knowledge
+of C++, XVT, Rouge Wave Tools.h, and the FVS system some guidance
+concerning the Suppose computer program and some explanation about
+the program's design.  Reading this document should be the first step
+for anyone who plans to change or extend Suppose. Any one thinking of
+building a replacement might also pick up a few tips.
+
+This document, the parms files, the source code, the help files, XVT,
+and and Rogue Wave documents must be taken together as there is little
+overlap among these sources of information.  Furthermore, as long as
+Suppose is under development, this document will never be complete in
+every respect.  It will evolve as the program does.
+
+Writing Suppose has been a learning experience for me.  I did not know
+C++ before I started and had little experience with C.  I did not know
+XVT nor Rouge Wave Tools.h either.  As I learned, the coding went
+better and I was able to take better advantage of C++ and the
+supporting tools.  Modules written later in the development process
+greatly benefited from my newly found experience and knowledge.  Some
+of the older modules are, as some would say, are a bit more C-like
+than like C++!
+
+I have high hopes that writing this documentation will pay off.  You
+may think of it as a long letter to future programmers.  That is my
+view!
+
+--------------------------- 
+Introduction 
+---------------------------
+
+As pointed out in the Preface, Suppose is written in C++.  It uses as
+a foundation the XVT-Power++ application framework.  This framework is
+a library of classes that provide the bases for coding graphical user
+interfaces.  The framework uses an underlying API from XVT called the
+XVT Portability Toolkit.  XVT uses, and supplies, the Rogue Wave
+Tools.h library.  The Suppose code takes great advantage of all these
+elements.  XVT also supplies a GUI builder called Architect.  As this
+product was not fully functional when Suppose development was started.
+For this reason and because money for training was not available,
+Architect was not used.  If I had it all to do over again, I'd likely
+use Architect for those features it supports.  But, going to it now
+would be a lot of work that would most likely not pay off.  Suppose
+contains many features that Architect does not directly support
+anyway.
+
+Suppose was written to run on PC's under Windows and on AIX as a Motif
+application.  Most of the of the differences between these to systems
+are completely handled by XVT.  Differences within Suppose include how
+system calls are done, a few font considerations, and how the program
+is compiled.  On AIX, I use IBM's CSet and on Windows, I use Microsoft
+Visual C++ version 5.0 (Borland was used in the past, but I changed
+when I went to Win32 only).
+
+Here is the organization of this document:
+
+Chapter 1--Files.  Outlines the file structure of the source code,
+parms files, help files, and this programmers documentation.  There is
+also some information on naming and coding conventions.
+
+Chapter 2--Data Structures Part 1: RunStream, Stands, Groups, and
+Components.  Documents these elements of the Suppose data structure.
+
+Chapter 3--The keyword file.  Documents the content of the keyword
+file.
+
+Chapter 4--Data Structures Part 2: Parms file objects.  Describes
+these data objects and the utilities provided to manipulate them.
+
+Chapter 5--class CWwindow:CWindow. Describes the role of this class.
+
+Chapter 6--The General Purpose Screen Builder.  Describes how the
+"GPKeyword" class works and the supporting utilities.
+
+Chapter 7--The Management window.  Describes the purpose of this
+abstract class and how it is used to build management windows.
+
+Chapter 8--Automatic data propagation.  Describes how Suppose passes
+information from place to place.
+
+Chapter 9--Data Structures Part 3: Report data objects. Describes
+these data objects and code that builds reports and graphs.
+
+Chapter 10--Data Structures Part 4: External stands. Describes
+the objects used to hold information about stands that are not part of
+the simulation (read directly from the stand list files).
+
+Chapter 11--Variants, extensions, programs, and commands. Describes
+the objects used to support variant, program, and command selection.
+
+  

@@ -1,0 +1,102 @@
+HTOPIC EXPRESSWindow "Edit Expressions" logical keywords expression
+\fbEdit Expressions\f0
+
+Use this window to edit logical expressions, \bkeywordS:keywords\b
+that use the FVS \bparmS:parms\b feature, or to edit a set of keywords
+that Suppose can not identify as to being created using a different
+Suppose window.
+
+Important Notes:  
+
+1.  This window does not protect you from creating FVS keywords or
+expressions that are incorrect.
+
+2.  \bkrecordS:Keyword records\b are limited to 80 characters and this
+tool does not enforce this limit.
+
+3.  The FVS Event Monitor requires an ampersand ("&") as a
+continuation character.  This character is not supplied by Suppose,
+you must insure that it is present when it is needed.
+
+Use the \f1text box\f0 at the top of this window to change the name of
+the component if you want a different name than that presented as a
+default.
+
+Type or edit the keywords you desire in the \f1text edit\f0 box
+located in the main part of the window.  The \f1Edit\f0 menu is
+available to cut, copy, or paste text from different applications or
+within this applications if you need to.
+
+Several lists exist on this window that provide you handy access to
+FVS variables, operators, functions, and important constants.  For FVS
+functions, Suppose provides you with a tool useful in setting the
+function parameters.
+
+\f1Variables\f0 automatically maintained by the FVS Event Monitor are
+in a list button located below the variables label.  If you select a
+variable, its definition is displayed below the text edit box.  You
+can browse through the variables until you find the one you want to
+use, if any.
+
+Suppose provides you with a list of variables that can be legally
+used with the keyword you are editing.  For example, say you are
+editing an FVS thinning keyword.  Variables defined after thinning,
+like ABA (after thin basal area), are not useful in expressions
+associated with this keyword and are therefore not listed.  Suppose
+does not have perfect rules for listing or not listing variables.  As
+stated above, insuring that the expressions are correct is left to
+you.
+
+Once you have found a variable you want to use, you can either type it
+into the expression, or have Suppose \f1Insert\f0 it into the
+expression at the location pointed to by the "I" carrot in the text
+edit box.  To do so, press the \f1Insert\f0 button at the bottom of
+the window (this button only active when you have selected an item
+that can be inserted).
+
+\f1Operators\f0 that can be used in the expression are present in the
+list button located below the operators label.  This button works like
+the variables button.  You can browse through the operators, pick one
+you want, and \f1Insert\f0 it into the expression.  Only operators
+that can be used with the object you are editing are presented.  For
+example, the logical operators are not presented with "parms" or
+"compute" expressions but are when editing logical expressions.
+
+\f1FVS Functions\f0 and \f1Math Functions\f0 are next.  The list of
+functions are located in the list button below the "label" list
+button.  Here is how to use this combination set of two list buttons.
+First, select a category of functions you desire using the list button
+that contains the word "FVS Functions" when the window opens.  The
+choices are either FVS Functions or Math Functions.  Second, select
+the function you desire using the second list button.  Once a
+selection is made, you can \f1Insert\f0 it into your expression.  You
+must then insert the correct function argument.  For example, if you
+want the \fcSqrt()\f0 function to take the square root of a number,
+you must enter the argument between the parentheses.
+
+Press \f1Set Function Arguments\f0 to set the arguments to FVS
+Functions.  Using this facility will provide you with a set of
+input fields you can use to set the arguments to the function.  This
+is a very handy feature as many of the FVS Functions have complicated
+argument lists with many potential settings.
+
+Press \f1Finished Setting Function\f0 when you have completed making
+the settings you desire and the completed function will be presented
+to you.  It will not be automatically inserted into your expression.
+
+Press \f1Insert\f0 to insert the finished function into the
+expression.
+
+\f1Species\f0, \f1Forests\f0, and \f1Habitat types/Plant
+Associations\f0, all have corresponding codes that are useful in
+expressions.  Select the category of these codes in the "label" list
+button and then select the item you desire in the list button below 
+the one that displays the category.  Press \f1Insert\f0 to insert the 
+corresponding code into your expression.
+
+Press \f1Ok\f0 to save the \bcomponenT:component\b.
+
+Press \f1Cancel\f0 if you want to close without saving.
+
+
+ 

@@ -1,0 +1,32 @@
+HTOPIC POSTPWINWindow "Select Post Processors" post-processors
+\fbSelect Post Processors\f0
+
+Use the Select Post Processors window to select one or more 
+\bpostproC:post processors\b to add to the simulation.  You can also delete 
+post processors that have already been added.
+
+There are three list boxes in this window.  The first lists the post 
+processors that can be added to a simulation, the second lists those that have 
+been added, and the third contains descriptive text describing a selected 
+processor.  
+
+Use the mouse to select an available post processor you may be interested in 
+using.  A single mouse click will cause Suppose to display the descriptive 
+information in the bottom box but will not add the processor to the 
+simulation.  To add the desired processor, either double click the mouse on 
+the desired post processor or use the \f1Include\f0 button at the bottom of 
+the window. 
+
+If a post processor is in the list of those included, you can display the 
+descriptive information about it by selecting it with the mouse.  You must use 
+the \f1Delete\f0 button to remove an included post processor from this list.
+
+The list of available processors may not contain some processors you noticed 
+while using suppose on a different platform.  Some run only on Unix and others 
+only on DOS.  Suppose only displays those processors that are available for 
+the platform you are using.  
+
+\f1Close\f0 will close this window.  Note that this window need not be
+closed to proceed with building the simulation.
+
+

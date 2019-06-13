@@ -1,0 +1,283 @@
+//start evmon.variables
+
+! see the notes at the top of evmon.functions  ... they apply
+! to this list as well.
+Age:
+         {Age at beginning of an FVS cycle}
+Aspect:
+         {Aspect in degrees}
+BaDBH:
+         {Before thin quadractic mean DBH}
+BBA:
+         {Before thin basal area}
+BBdFt:
+         {Before thin board foot volume for western variants. Before thin board foot sawtimber volume for eastern variants.}
+BCanCov:
+         {Before thin percent canopy cover (StrClass keyword required)}
+BCCF:
+         {Before thin CCF}
+BDBHwtBA:         
+         {Before thin average DBH weighted by stand basal area}
+BMaxHS:
+         {Before thin height of tallest tree in uppermost stratum (StrClass keyword required)}
+BMCuFt:
+         {Before thin merchantable cubic foot volume for western variants. 
+          Before thin merchantable cubic foot sawtimber volume for eastern variants.}
+BMinHS:
+         {Before thin height of shortest tree in uppermost stratum (StrClass keyword required)}
+BNumSS:
+         {Before thin number of valid strata (StrClass keyword required)}
+BRDen:
+         {Before thin relative density (Curtis 1982)}
+BRDen2:
+         {Before thin relative density, SILVAH (Marquis and Ernst 1992)}
+BSClass:
+         {Before thin stand structural classification (StrClass keyword required)}
+BSDI:
+         {Before thin stand density index}
+BSDI2:
+         {Before thin stand density index (based on Zeide 1983)}
+BSDIMax:
+         {Before thin maximum stand density index}
+BStrDbh:
+         {Before thin dbh of the stand uppermost stratum (StrClass keyword required)}
+BTCuFt:
+         {Before thin total cubic foot volume for western variants. 
+          Before thin total merchantable cubic foot volume (pulpwood + sawtimber) for eastern variants.}
+BTopHt:
+         {Before thin top height}
+BTPA:
+         {Before thin trees/acre}
+CEndYear:
+         {Year at end of cycle}
+County:
+         {Stand location, 2-digit FIA county code}
+Cycle:
+         {Cycle number}
+Elev:
+         {Stand elevation}
+EvPhase:
+         {Event Montitor phase: 1=before cutting, 2=after}
+ForTyp:
+         {FIA Forest Type code}
+HabType:
+         {Stand habitat type code}
+InvYear:
+         {Inventory year}
+Lat:
+         {The latitude of the stand}
+Long:
+         {The longitude of the stand}
+MAI:
+         {Mean annual increment}
+No:
+         {The constant 0}
+NumTrees:
+         {Number tree records}
+PropStk:
+         {Proportion of stand considered stockable}
+Rann:
+         {Uniform random number}
+SampWt:
+         {Stand sampling weight}
+SilvahFT:
+         {Forest type as defined in SILVAH}
+Site:
+         {Site index}
+SizCls:
+         {Size class code}
+Slope:
+         {Stand slope percent}
+SMR:
+         {Stand mistletoe rating}
+State:
+         {Stand location, 2-digit FIA state code}
+StkCls:
+         {Stocking class code}
+Year:
+         {Year at the beginning of an FVS cycle}
+Yes:
+         {The constant 1}
+AADBH    {after}:
+         {After thin average DBH}
+ABA      {after}:
+         {After thin basal area}
+ABdFt    {after}:
+         {After thin board foot volume for western variants. After thin board foot sawtimber volume for eastern variants.}
+ACanCov  {after}:
+         {After thin percent canopy cover (StrClass keyword required)}
+ACCF     {after}:
+         {After thin CCF}
+ADBHwtBA {after}:         
+         {After thin average DBH weighted by stand basal area}
+AMaxHS   {after}:
+         {After thin height of tallest tree in uppermost stratum (StrClass keyword required)}
+AMCuFt   {after}:
+         {After thin merchantable cubic foot volume for western variants. 
+          After thin merchantable cubic foot sawtimber volume for eastern variants.}
+AMinHS   {after}:
+         {After thin height of shortest tree in uppermost stratum (StrClass keyword required)}
+ANumSS   {after}:
+         {After thin number of valid strata (StrClass keyword required)}
+ARDEN    {after}:
+         {After thin relative density (Curtis 1982)}
+ARDen2   {after}:
+         {After thin relative density, SILVAH (Marquis and Ernst 1992)}
+ASClass  {after}:
+         {After thin stand structural classification (StrClass keyword required)}
+ASDI     {after}:
+         {After thin stand density index}
+ASDI2    {after}:
+         {After thin stand density index (based on Zeide 1983)}
+ASDIMax  {after}:
+         {After thin maximum stand density index}
+AStrDbh  {after}:
+         {After thin dbh of the stand uppermost stratum (StrClass keyword required)}
+ATCuFt   {after}:
+         {After thin total cubic foot volume for western variants. 
+          After thin total merchantable cubic foot volume (pulpwood + sawtimber) for eastern variants.}
+ATopHt   {after}:
+         {After thin top height}
+ATPA     {after}:
+         {After thin trees/acre}
+Cut      {after}:
+         {Cutting flag: 0 if no cutting, 1 otherwise}
+RBdFt    {after}:
+         {Removed board feet volume}
+RMCuFt   {after}:
+         {Removed merch cubic feet volume}
+RTCuFt   {after}:
+         {Removed total cubic feet volume}
+RTPA     {after}:
+         {Removed trees/acre}
+ACC:
+         {Accreation form last cycle}
+DBA:
+         {Basal area change}
+DBA%:
+         {Basal area change percent}
+DCCF:
+         {CCF change}
+DCCF%:
+         {CCF change percent}
+DTPA:
+         {Trees/acre change}
+DTPA%:
+         {Trees/acre change percent}
+Mort:
+         {Mortality from last cycle}
+ORG%CC:
+	 {ORGANON percent crown closure}
+ORGAHT:
+	 {ORGANON top height value based on ORGANON Big-6 species}
+PAI:
+         {Periodic annual increment}
+Fire     {always fire}:
+         {1 if there was a fire during the previous FVS cycle, 0 otherwise (Fire and Fuels Extension)}
+FireYear {always fire}:
+         {Year of the previous fire (Fire and Fuels Extension)}
+FisherIn {always fire}:
+         {Fisher Resting Habitat Suitability Index, (Fire and Fuels Extension)}
+CrownIdx {always fire}:
+         {The crowning index reported in the potential fire report of the FFE}
+CrBaseHt {always fire}:
+         {The crown base height reported in the potential fire report of the FFE}
+CrBulkDn {always fire}:
+         {The crown bulk density reported in the potential fire report of the FFE}
+MinSoil  {always fire}:
+         {Percent mineral soil exposed (Fire and Fuels Extension)}
+TorchIdx {always fire}:
+         {The torching index reported in the potential fire report of the FFE}   
+AVBTPA   {target}:
+         {Before thinning trees per acre averaged over all stands
+that can contribute toward the target.}
+AVBTCuFt {target}:
+         {Before thinning total cubic volume averaged over all stands
+that can contribute toward the target.}
+AVBMCuFt {target}:
+         {Before thinning merchantable cubic volume averaged over all
+stands that can contribute toward the target.}
+AVBBdFt  {target}:
+         {Before thinning board foot volume averaged over all stands
+that can contribute toward the target.}
+AVBBA    {target}:
+         {Before thinning basal area per acre averaged over all stands
+that can contribute toward the target.}
+AVACC    {target}:
+         {Accreation from the previous cycle averaged over all stands
+that can contribute toward the target.}
+AVMort   {target}:
+         {Mortality from the previous cycle averaged over all stands
+that can contribute toward the target.}
+BrchWt   {ppe}:
+         {PPE branch weight factor}
+BW%Stnd  {wsbw}:
+         {The stand defoliation level caused by WSBW, pervious cycle}
+MSPeriod {ppe}:
+         {PPE length of the current master cycle}
+MSPeriod {target}:
+         {The length (years) of the current master cycle.}
+Nodes    {ppe}:
+         {PPE number of decision tree nodes}
+OldTarg  {target}:
+         {The value of the target in the previous period.}
+RdAccess {ppe}:
+         {PPE road access value of stand}
+Selected {ppe}:
+         {PPE stand selected variable}
+StndArea {ppe}:
+         {PPE stand size as specified in the AreaLocs file}
+StandWt  {ppe}:
+         {PPE stand weight factor}
+StartYr  {ppe}:
+         {PPE master starting year}
+TotalWT  {target}:
+         {Total of the PPE stand weighting factors over all stands
+that can contribute toward the target.}
+MPBProb  {mpb}:
+         {Probability of a mountain pine beetle outbreak}
+MPBTPAK  {mpb}:
+         {Trees killed per acre by mountain pine beetle, previous cycle}
+DFTMProb {dftm}:
+         {Probability of a tussock moth outbreak}
+TM%DF    {dftm}:
+         {The average defoliation level on Douglas-fir (tussock moth)}
+TM%GF    {dftm}:
+         {The average defoliation level on grand fir (tussock moth)}
+TM%Stnd  {dftm}:
+         {The stand defoliation level caused by tussock moth, previous cycle}
+WSBWProb {wsbw}:
+         {Probability of a western spruce budworm outbreak}
+DiscCost {always econ}:
+         {Accumulated discounted costs at end of previous cycle}
+DiscRate {always econ}:
+         {Discount rate}
+DiscRevn {always econ}:
+         {Accumulated discounted revenues at end of previous cycle}
+EcBdFt   {always econ}:
+         {Merchantable sawtimber board foot volume valued}
+EcCuFt   {always econ}:
+         {Merchantable cubic foot volume valued for western varaints,
+merchantable cubic foot sawtimber volume for eastern variants}          
+ForstVal {always econ}:
+         {Value of forest, land, and trees, at end of previous cycle}
+HarvCost {always econ}:
+         {Harvest cost during the previous cycle}
+HarvRevn {always econ}:
+         {Harvest revenue during the previous cycle}
+IRR      {always econ}:
+         {Internal rate of return at end of previous cycle}
+PctCost  {always econ}:
+         {Precommercial harvest cost during the previous cycle}
+PNV      {always econ}:
+         {Present net value at end of previous cycle}
+RprodVal {always econ}:
+         {Value of trees, "reprod" value, at end of previous cycle}
+SEV      {always econ}:
+         {Soil expectation value at end of previous cycle}
+UndisCst {always econ}:
+         {Accumulated undiscounted costs at end of previous cycle}
+UndisRvn {always econ}:
+         {Accumulated undiscounted revenues at end of previous cycle}
+//end  evmon.variables
+

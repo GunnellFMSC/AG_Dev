@@ -1,0 +1,207 @@
+
+//start selectModelModifiers
+
+! Every category has a PKey for category c1...cN.  None can be
+! missing.  An ATList may be specified where the list contains
+! variants.
+
+! Within a category, the PString defines, as line 1, the category
+! title.  The rest of the lines define the actions within the
+! category.  The action lines have the following format:
+! ActionName; RequiredExtension NameOfSupposeMethod
+! furthermore, when the NameOfSupposeMethod is GPSB, a additional
+! field defines the name of the MSText section used by the GPSB
+! to define the actions screen.
+
+c1:{\
+Volume Modifiers
+Adjust merchantability limits; base GPSB merch_vol
+Add Volume Defect; base GPSB keyword.base.Defect
+}
+
+c2:{\
+Mortality Modifiers
+Adjust mortality rates; base GPSB keyword.base.FixMort
+Adjust maximum SDI; base GPSB keyword.base.SDIMax
+Adjust maximum basal area; base GPSB keyword.base.BAMax
+Set maximum tree size; base GPSB keyword.base.TreeSzCp
+}
+
+c3:{\
+Diameter Growth Modifiers
+Pre-calibration, multiplier for large tree dbh growth; base GPSB keyword.base.ReadCorD
+Adjust large tree basal area increment; base GPSB keyword.base.BAIMult
+Fix diameter growth rates; base GPSB keyword.base.FixDG
+Adjust small tree diameter growth; base GPSB keyword.base.RegDMult
+}
+
+c4:{\
+Height Growth Modifiers
+Pre-calibration, multiplier for small tree height growth; base GPSB keyword.base.ReadCorR
+Turn "on" or "off" use of local Height-DBH parameters; base GPSB keyword.base.NoHtDReg
+Adjust large tree height growth; base GPSB keyword.base.HtgMult
+Adjust small tree height model; base GPSB keyword.base.RegHMult
+Fix height growth rates; base GPSB keyword.base.FixHtG 
+}
+
+c5:{\
+Crown Modifiers
+Adjust crown ratio estimates; base GPSB keyword.base.CrnMult
+Adjust crown width equation; base GPSB keyword.base.CWEqn
+Fix crown width estimates; base GPSB keyword.base.FixCW
+}
+
+c6:{\
+Modify Potential Fire Conditions
+Set fuel moistures for potential fires; fire GPSB keyword.fire.PotFMois 
+Set wind speed for potential fires; fire GPSB keyword.fire.PotFWind 
+Set temperature for potential fires; fire GPSB keyword.fire.PotFTemp
+Set % of the stand area burned for potential fires; fire GPSB keyword.fire.PotFPAB
+Set season of potential fires; fire GPSB keyword.fire.PotFSeas
+}
+
+c7:{\
+Modify Fuel Dynamics
+Set initial surface fuel loadings; fire GPSB fuelinitfuelsoft
+Set surface fuels with a photoseries photo; fire GPSB keyword.fire.FuelFoto
+Set surface fuel decay rates; fire GPSB keyword.fire.FuelDcay
+Adjust surface fuel decay rates; fire GPSB keyword.fire.FuelMult 
+Specify the decay rate class for a species; fire GPSB keyword.fire.FuelPool
+Set prop. of decayed fuel that becomes duff; fire GPSB keyword.fire.DuffProd 
+}
+
+c8:{\
+Modify Snag Dynamics
+Adjust snag fall rate; fire GPSB keyword.fire.SnagFall
+Adjust snag decay rate; fire GPSB keyword.fire.SnagDCay
+Set snag height loss; fire GPSB keyword.fire.SnagBrk
+Set post-burn snag fall rates; fire GPSB keyword.fire.SnagPBN
+Set prop. of snags considered soft; fire GPSB keyword.fire.SnagPSft
+}
+
+c9:{\
+Modify Fire Behavior
+Set fuel model(s); fire GPSB keyword.fire.FuelModl 
+Set fuel moistures for simulated fires; fire GPSB keyword.fire.Moisture
+Modify calculation of canopy fuels; fire GPSB keyword.fire.CanCalc
+Set the flame length of simulated fires; fire GPSB keyword.fire.FlameAdj
+Define or modify a fuel model; fire GPSB keyword.fire.DeFulMod
+Specify drought years; fire GPSB keyword.fire.Drought
+Select the "new" fuel model logic or modelled loads option; fire GPSB keyword.fire.FireCalc
+Adjust the fuel models with the "new" fuel model logic; fire GPSB keyword.fire.FModList
+}
+
+c10:{\
+Modify Time Scale
+Create cycle boundary; base GPSB keyword.base.CycleAt
+Set time interval for a cycle; base GPSB keyword.base.TimeInt
+Set the number of cycles; base GPSB keyword.base.NumCycle
+Set inventory year; base GPSB keyword.base.InvYear
+}
+
+c11:{\
+Modify Dwarf Mistletoe Impact Model
+Turn off DM impacts; mist GPSB keyword.mist.MistOff
+Add DM infections; mist GPSB keyword.mist.MistPInf
+Modify DM spread and intensification; mist GPSB keyword.mist.MistMult
+Modify DM diameter growth impacts; mist GPSB keyword.mist.MistGMod
+Modify DM height growth impacts; mist GPSB keyword.mist.MistHMod
+Modify DM mortality impacts; mist GPSB keyword.mist.MistMort
+}
+
+c12:{\
+Modify Western Root Disease Model
+Modify Disease Host Species; ardwrd3 GPSB keyword.ardwrd3.RRHosts
+Initialize Root Disease; ardwrd3&armwrd3&phewrd3 GPSB wrd_initialization
+Modify Root Disease behavior; ardwrd3&armwrd3&phewrd3 GPSB wrd_behavior
+Modify Root Disease bark beetles; ardwrd3&armwrd3&phewrd3 GPSB wrd_brk_btl
+}
+
+c13:{\
+Modify Sprouting
+Turn off Sprouting; strp GPSB keyword.estbstrp.NoSprout
+Adjust Sprouting; strp GPSB keyword.estbstrp.Sprout 
+Turn off Sprouting; estb GPSB keyword.estbstrp.NoSprout
+Adjust Sprouting; estb GPSB keyword.estbstrp.Sprout 
+}
+
+c14:{\
+Modify Percent Canopy Cover 
+Adjust Overlap Correction; base GPSB keyword.base.CCAdj  
+}
+//end selectModelModifiers
+
+//start fuelinitfuelsoft
+
+description:
+{Set the initial fuel loading for each surface fuel size class.
+
+If you don't specify the values, the model assigns default values
+based on stand attributes.  You may replace the default for some
+or all size classes.}
+
+f1:{numberBox Initial fuel levels for hard fuels 0-.25" (tons/acre)}
+f1v:{blank 0 Fmax}
+
+f2:{numberBox Initial fuel levels for hard fuels .25-1" (tons/acre)}
+f2v:{blank 0 Fmax}
+
+f3:{numberBox Initial fuel levels for hard fuels 1-3" (tons/acre)}
+f3v:{blank 0 Fmax}
+
+f4:{numberBox Initial fuel levels for hard fuels 3-6" (tons/acre)}
+f4v:{blank 0 Fmax}
+
+f5:{numberBox Initial fuel levels for hard fuels 6-12"(tons/acre)}
+f5v:{blank 0 Fmax}
+
+f6:{numberBox Initial fuel levels for hard fuels 12-20" (tons/acre)}
+f6v:{blank 0 Fmax}
+
+f7:{numberBox Initial fuel levels for hard fuels 20-35"(tons/acre)}
+f7v:{blank 0 Fmax}
+
+f8:{numberBox Initial fuel levels for hard fuels 35-50"(tons/acre)}
+f8v:{blank 0 Fmax}
+
+f9:{numberBox Initial fuel levels for hard fuels >50"(tons/acre)}
+f9v:{blank 0 Fmax}
+
+f10:{numberBox Initial fuel levels for litter (tons/acre)}
+f10v:{blank 0 Fmax}
+
+f11:{numberBox Initial fuel levels for duff (tons/acre)}
+f11v:{blank 0 Fmax}
+
+f12:{numberBox Initial fuel levels for soft fuels 0-.25" (tons/acre)}
+f12v:{blank 0 Fmax}
+
+f13:{numberBox Initial fuel levels for soft fuels .25-1" (tons/acre)}
+f13v:{blank 0 Fmax}
+
+f14:{numberBox Initial fuel levels for soft fuels 1-3" (tons/acre)}
+f14v:{blank 0 Fmax}
+
+f15:{numberBox Initial fuel levels for soft fuels 3-6" (tons/acre)}
+f15v:{blank 0 Fmax}
+
+f16:{numberBox Initial fuel levels for soft fuels 6-12"(tons/acre)}
+f16v:{blank 0 Fmax}
+
+f17:{numberBox Initial fuel levels for soft fuels 12-20" (tons/acre)}
+f17v:{blank 0 Fmax}
+
+f18:{numberBox Initial fuel levels for soft fuels 20-35"(tons/acre)}
+f18v:{blank 0 Fmax}
+
+f19:{numberBox Initial fuel levels for soft fuels 35-50"(tons/acre)}
+f19v:{blank 0 Fmax}
+
+f20:{numberBox Initial fuel levels for soft fuels >50"(tons/acre)}
+f20v:{blank 0 Fmax}
+
+answerForm:{\
+FuelInit            !3,10!!4,10!!5,10!!6,10!!10,10!!11,10!!1,10!!2,10!!7,10!!8,10!!9,10!
+FuelSoft  !12,10!!13,10!!14,10!!15,10!!16,10!!17,10!!18,10!!19,10!!20,10!}
+
+//end fuelinitfuelsoft

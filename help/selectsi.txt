@@ -1,0 +1,336 @@
+HTOPIC SELECTSIWindow "Select Simulation Stands" stand group space
+\fbSelect Simulation Stands\f0
+
+The Select Simulation Stands window supports the process of picking 
+\bstanD:stand(s)\b that will be included in the simulation.  This
+window is accessed using the Select Simulation Stands button on the
+Selections window, or by using the menu item of the same name under
+the Basics menu.  
+\a
+
+Stands are picked from a list of 
+\lSELECTSIWinStandListBox:available stands\l and are added to the 
+simulation using the
+\lSELECTSIWinAddStandsButton:Add Stand(s)\l button.
+\a
+
+Prior to using this window, it is good to gain a basic understanding
+of the \lvegdatA:vegetation data used by Suppose\l.  However, you may
+wish to experiment with the tools in this window first and then learn
+about the source of the data!
+\a
+
+The following topics provide detailed information on the window's
+elements:
+
+\n
+\lSELECTSIWinByLocOrGroupButtons:Pick Locations First or Pick Groups First\l
+\lSELECTSIWinLocListBox:Locations List\l
+\lSELECTSIWinGroupListBox:Groups List\l
+\lSELECTSIWinStandListBox:Available Stands List\l
+\lSELECTSIWinStandIDText:Desired Stand\l
+\lSELECTSIWinAddFileYesOrNoButtons:Include or Do Not Include Add Files\l
+\lSELECTSIWinStandSelectionButtons:Stands Listed From Any or Every Group\l
+\lSELECTSIWinAddStandsButton:Add Stand(s) Button\l
+\lSELECTSIWinDelSButton:Delete Stand\l
+\lSELECTSIWinBareGroundButton:Bare Ground\l
+\lSELECTSIWinCloseButton:Close\l
+\w
+
+Note that you may use this window repeatedly and you may add stands to
+a simulation at any time.
+
+HTOPIC SELECTSIWinByLocOrGroupButtons "Pick Locations First or Pick Groups First"
+\fbPick Locations or Pick Groups First\f0
+
+Two radio buttons \lSELECTSIWindow:Select Simulation Stands\l window
+allow you to narrow the possible list of available
+stands using one of two strategies.  The first strategy, Pick Locations First,
+is to first pick one or more locations from the locations list.  A
+location will appear in the list for each one listed in the
+\llocationsFile:locations file\l.  Picking one or more locations will
+cause \bgroupCode:Groups\b that are represented at the selected locations
+to be listed in the group list.  Selecting one or more groups will cause
+the stands to be listed in the list of available stands if they are in 
+\lSELECTSIWinStandSelectionButtons:any or every selected group\l and 
+are located at any of the selected locations, to be listed in the 
+available stand list.
+
+The second strategy, Pick Groups First, is to first pick one or more groups.
+The locations where the groups are represented are then listed in the
+locations list box.  Selecting one or more locations will cause stands
+that are found at the selected locations, and members of 
+\lSELECTSIWinStandSelectionButtons:any or every selected groups,\l
+to be listed in the available stand list.
+
+Use Pick Locations First, the default, unless you see a clear benefit
+to the Pick Groups First strategy.
+
+HTOPIC SELECTSIWinLocListBox "Locations List"
+\fbLocations List\f0
+
+The locations list contains a list of locations referenced in the
+\llocationsFile:locations file\l.  You can pick one or more
+locations.  See the 
+\lSELECTSIWinByLocOrGroupButtons:Pick Locations First or Pick Groups First\l
+topic for information on how this list is loaded.
+
+To select one location, simply click on the desired location.  To
+select all the locations, point the mouse at the first location and
+press down on the left mouse button.  While holding the left mouse
+button down, drag the mouse to the bottom of the list.  Hold the mouse
+down until all items are selected and then release it.
+
+To select two different locations, first select the first and then
+select the second while holding down the shift key.
+
+To deselect one location, hold the control key down and click the left
+mouse button.
+
+To reload the list, press the Pick Locations First or the Pick Groups
+First radio buttons.
+
+HTOPIC SELECTSIWinGroupListBox "Groups List"
+\fbGroups List\f0
+
+The groups list contains a list of \bgroupCode:group codes\b.  The
+group codes are those specified in the \bSLf:stand list files\b.  See
+the \lSELECTSIWinByLocOrGroupButtons:Pick Locations First or Pick Groups First\l
+topic for information on how this list is loaded.
+
+You can pick any combination of groups.  See
+\lSELECTSIWinLocListBox:Locations List\l to see how to make
+multiple selections and deselections in list boxes.
+
+To reload the list, press the Pick Locations First or the Pick Groups
+First radio buttons.
+
+HTOPIC SELECTSIWinStandListBox "Available Stands List"
+\fbAvailable Stands List\f0
+
+Stands picked from this list will be added to the simulation when
+you press the \lSELECTSIWinAddStandsButton:Add Stand(s)\l button.  
+
+Stands in this list are those that are in a selected location and in
+\lSELECTSIWinStandSelectionButtons:any or every selected group\l,
+depending on the logic used to add stands to the list. 
+
+You can pick more than one stand prior to adding stands.  Hold the
+shift key down and click the left mouse button to select additional
+stands.  Hold the control key down and click the left mouse button to
+deselect a group.  
+
+To pick all stands, press the All Stands button or point the mouse at
+the first stand, press down on the left mouse button, while holding the
+left mouse button down, drag the mouse to the bottom of the list.
+
+Note that the All Stands button has a special meaning in the case
+where no stands are listed in the available stands list.  In that
+special case, pressing this button will cause all stands, at all
+locations, to be loaded into the available stands list.  Pressing it a
+second time selects all the stands.  See topic
+\lSELECTSIWinStandSelectionButtons:Stands Listed From Any or Every Group\l 
+for more information.
+
+You can use the \lSELECTSIWinStandIDText:Desired Stand\l text entry to
+type a stand identification of a stand you desire.  Press the CR key
+to cause Suppose to search for the desired stand and mark for possible
+addition.
+
+The number of stands in the available stand list is displayed at the
+top of the list when the list contains some entries.
+
+The number of picked stands is shown on the
+\lSELECTSIWinAddStandsButton:Add Stand(s)\l button.
+
+To reload the list, reselect a group or location.
+
+HTOPIC SELECTSIWinStandIDText "Desired Stand"
+\fbDesired Stand\f0
+
+You can cause a stand to be picked from the 
+\lSELECTSIWinStandListBox:Available Stands List\l by entering the
+stand identification into the desired stand text box and pressing the
+CR key.  Suppose will search the available stands list for the stand
+and mark it picked if it is found.  You must still press the 
+\lSELECTSIWinAddStandsButton:Add Stand(s)\l button to cause the stand(s)
+to be added to the simulation.
+
+All of the stands that match the search string (which can be a \f1regular
+expression\f0, see instructions below) are marked selected.
+
+If you use this text box when the
+\lSELECTSIWinStandListBox:Available Stands List\l is empty,
+Suppose will automatically load all stands referenced through the 
+\blocatioN:locations file\b into the available stand list.  The 
+resulting list is then searched for the desired stand.  To load all
+stands into the list, Suppose sets the stand selection criteria so
+that stands are listed as available if they are in 
+\lSELECTSIWinStandSelectionButtons:any selected group\l.  Suppose then
+automatically selects all locations and all groups.
+
+When the Select Simulation Stands window opens, Suppose checks to see
+if there are stands in the simulation.  If there are already stands in
+the simulation, the identification code of the last stand is entered
+into the desired stand text edit box as a default.  If you wish to add
+that stand again, simply click inside the box, and press the CR key.
+Suppose will search for the stand and mark it picked if it is found.
+You can also edit this box.
+
+\fbUsing Regular Expressions to Find Desired Stands\f0
+
+As stated above, you can enter a \f1regular expression\f0 as a search
+string when looking for desired stands.  Regular expressions are
+search strings that allow you to search for a string without knowing
+its exact match or in the case where you want to find all the strings
+that match the search criteria.  For example, if you are looking for
+all stands that contain the numbers 123 as the first 3 characters you
+can use a regular expression to find the stands with those characters.
+
+If you want the search string to be a regular expression, code an
+equal sign (\fb=\f0) as the first character (this character is not
+used in the regular expression).  Otherwise, the string is
+taken as a simple string and the match must be exact.  In either case,
+Suppose marks all stands that match search criteria as selected.
+
+When a regular expression is coded, special characters are used in the
+search.  These rules are long standing in the computer industry are
+are used in Suppose without modification.  Be very aware that these
+search rules are different than those used in finding files, say with
+a dir command in DOS.
+
+1.  The following determine one-character regular expressions:
+
+1.1  Any character that is not a special character (listed below)
+matches itself.
+
+1.2  A backslash (\\) followed by a special character matches the
+special character.  That is, the backslash \f1escapes\f0 the special
+character.  For example, you want the special character \f1$\f0 to match
+itself, then code \f1\\$\f0.
+
+1.3  The special characters are: + * ? . [ ] ^ $
+
+1.4  The period (.) matches any character except the end-of-line
+character.
+
+1.5  A set of characters enclosed in brackets is a one-character
+regular expression that matches any character in the set.  For
+example, \f1[123]\f0 matches either 1 or 2 or 3.  A range can be
+indicated with a dash.  For example, \f1[0-9]\f0 matches any number.
+However, if the first character inside the brackets is a caret (^),
+then the match is any character that is not in the set.  So,
+\f1[^0-9]\f0 matches any character that is not a number.
+
+2.  The following can be used to build multicharacter regular expressions:
+
+2.1  One or more one-character regular expressions can be put together
+to form a multicharacter expression.  For example, the string \f1ab\f0
+is two regular expressions that follow rule 1.1 (that is, the 2
+letters only match themselves).
+
+2.2  A one-character regular expression followed by an asterisk (*)
+matches zero or more occurrences of the expression.  So, \f1[0-9]*\f0
+matches zero or more numbers.
+
+2.3  A one-character regular expression followed by a plus sign (+)
+matches one or more occurrences of the expression.  So, \f1[0-9]+\f0
+matches one or more numbers.
+
+2.3  If a question mark (?) is include, then the regular expression
+that preceeds it can occur zero or once, but no more.  So,
+\f1a[0-9]?\f0, matches the letter a, followed by zero or one number,
+but not more than one number.
+
+3. A multicharacter regular expression can be anchored to match only
+the beginning or end of a line.
+
+3.1 If a caret (^) is at the beginning of the regular expression, then
+the matched string must be at the beginning of the line.  In Suppose,
+when searching for a list of stands, use the caret (^) to insure that
+the string starts in the first character of the stand identification.
+For example, the regular expression \f13\f0 matches any stand that has
+a 3 in the identification.  But, the expression \f1^3\f0 matches
+only stands that have a 3 as the first character.
+
+3.2 If a dollar sign ($) is at the end of the regular expression, then
+the matched string must be at the end of the line.  When searching for
+a list of stands, use the dollar sign ($) to insure that the string is
+at the end of the stand identification.  For example, the regular
+expression \f13\f0 matches any stand that has a 3 in the the
+identification.  But, the expression \f13$\f0 matches only stands that
+have a 3 as the last character.
+
+Other rules governing regular expressions do not apply to searching a
+list as is the case in Suppose.
+
+HTOPIC SELECTSIWinAddFileYesOrNoButtons "Include or Do Not Include AddFiles"
+\fbInclude or Do Not Include AddFiles\f0
+
+\baddfilE:Addfiles\b that are explicitly related to \bstanD:stands\b
+or \bgroupCode:groups\b are added to the simulation when picked stands
+are added.  The contents of the addfiles become \bcomponenT:components\b.
+
+Use the Include or Do Not Include AddFiles radio buttons to control
+the automatic addition of these files.
+
+Read help topics that describe the \lvegdatA:vegetation data\l for
+more general background and information regarding the 
+\llocationsFile:Locations\l and \lstandlistFile:Stand List\l files for
+detailed information on how addfiles are related to groups and stands.
+
+HTOPIC SELECTSIWinStandSelectionButtons "Stands Listed From Any or Every Group"
+\fbStands Listed From Any or Every Group\f0
+
+You can control how \bgroupCode:group\b membership is used to load the
+list of \lSELECTSIWinStandListBox:available stands\l.  
+
+In the first case, a stand is added to the list of available stands if
+it is in any selected group.
+
+In the second case, a stand is added to the list only if it is in
+every selected group.  This is the default.
+
+Note that the All Stands button, located below the 
+\lSELECTSIWinStandListBox:Available Stands List\l 
+has a special meaning in the case where no stands are listed in the 
+available stands list.  In that special case, pressing this button
+will cause all stands, at all locations, to be loaded into the
+available stands list.  This is accomplished by Suppose automatically
+changing the way stands are listed to the method whereby stands are
+listed if they are in any selected group.  Then Suppose selects all
+locations and all groups.  This results in the available stands list
+being loaded with all stands referenced through the 
+\llocationsFile:locations file\l.  Pressing this button a second time 
+selects all the stands.  
+
+HTOPIC SELECTSIWinCloseButton "Close"
+\fbClose\f0
+
+Close the Select Simulation Stands window.  You may reopen it at any
+time.  
+
+HTOPIC SELECTSIWinDelSButton "Delete Stand"
+\fbDelete Stand\f0
+
+Opens the \lDELETEStandWindow:Delete Stand\l window with the last
+added stand preselected.
+
+HTOPIC SELECTSIWinBareGroundButton "Bare Ground"
+\fbBare Ground\f0
+
+Push this button to add a bare ground stand to the vegetation data.
+The stand is automatically added to a
+\lstandlistFile:Stand List File\l called \f1baregrnd.slf\f0 which is
+created if necessary.  And, the stand list file is automatically added
+to the active  \llocationsFile:Locations file\l if it is not already
+present. 
+
+HTOPIC SELECTSIWinAddStandsButton "Add Stand(s) Button"
+\fbAdd Stand(s)\f0
+
+Press this button to add stands that are marked picked in the 
+\lSELECTSIWinStandListBox:Available Stands List\l to the simulation.
+Picked stands are not added until this button is pushed.
+
+

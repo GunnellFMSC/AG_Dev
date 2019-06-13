@@ -1,0 +1,1167 @@
+//start keyword.ppe.NBDenEff
+
+description:
+{Request that neighboring density effects be represented.}
+
+f1:{numberBox Group size (acres)}
+f1v:{1}
+
+ppe:top
+
+//end keyword.ppe.NBDenEff
+
+//start keyword.ppe.ActSum
+
+description:
+{Turn on output of individual activity summaries
+}
+
+f1:{noInput}
+
+ppe:report
+
+//end keyword.ppe.ActSum
+
+//start keyword.ppe.NoActSum
+
+description:
+{Turn off output of individual activity summaries
+}
+
+f1:{noInput}
+
+ppe:report
+
+//end keyword.ppe.NoActSum
+
+//start keyword.ppe.AreaLocs
+
+description:
+{Signals that the stand area and locations are to be read.
+}
+
+f1:{textEdit File name of stand locations file}
+f1v:{arealocs.alc}
+
+f2:{numberBox The file reference number}
+f2v:{51}
+
+f3:{numberBox Scale factor for location data (to meters)}
+f3v:{1.0 0 Fmax}
+
+f4:{numberBox Scale factor for data area (to acres)}
+f4v:{1.0 0 Fmax}
+
+parmsForm:{\
+Open      !2,10!
+!1!
+AreaLocs  !2,10!!3,10!!4,10!
+Close     !2,10!
+}
+
+answerForm:{\
+Open      !2,10!
+!1!
+AreaLocs  !2,10!!3,10!!4,10!
+Close     !2,10!
+}
+
+ppe:top
+
+//end keyword.ppe.AreaLocs
+
+//start keyword.ppe.AutoID
+
+description:
+{Request the PPE to generate unique management identification codes for
+summary tables and the composite yield tables.  NoAutoID turns the option
+off and is the default.
+}
+
+f1:{numberBox Starting sequence number for identification code}
+f1v:{blank}
+
+ppe:report
+
+//end keyword.ppe.AutoID
+
+//start keyword.ppe.NoAutoID
+
+description:
+{Turns off PPE to generate unique management identification codes for
+summary tables and the composite yield tables.
+}
+
+f1:{noInput}
+
+ppe:report
+
+//end keyword.ppe.NoAutoID
+
+//start keyword.ppe.ByMgmID
+
+description:
+{All of the stands that have the same management will be grouped.  A
+composite yield table is generated for each management identification.
+}
+
+f1:{noInput}
+
+ppe:report
+
+//end keyword.ppe.ByMgmID
+
+//start keyword.ppe.ByMSPLb
+
+description:
+{Subgroups of stands are formed for each multistand treatment policy;
+a composite yield table is generated for each.
+}
+
+f1:{noInput}
+
+ppe:report
+
+//end keyword.ppe.ByMSPLb
+
+//start keyword.ppe.BySPLab
+
+description:
+{A list of unique stand policy labels is created by the PPE (by taking a
+union over all stand policy label sets).  Subgroups are formed for each
+unique label by creating lists of stands that contain the unique label in
+the stand policy label set.  A composite yield table is generated for each.
+}
+
+f1:{noInput}
+
+ppe:report
+
+//end keyword.ppe.BySPLab
+
+//start keyword.ppe.ByStand
+
+description:
+{All of the stands have the same stand identification will be grouped.  A
+composite yield table is generated for each unique stand identification.
+}
+
+f1:{noInput}
+
+ppe:report
+
+//end keyword.ppe.ByStand
+
+//start keyword.ppe.Close_PPETop
+
+description:
+{Close a file that is related to the data set reference number
+coded in the first field.}
+
+f1:{numberBox File reference number for the input or output file.}
+f1v:{50}
+
+ppe:top
+
+answerForm:{Close     !1,10!}
+
+//end keyword.ppe.Close_PPETop
+
+//start keyword.ppe.Close_PPEBottom
+
+description:
+{Close a file that is related to the data set reference number
+coded in the first field.}
+
+f1:{numberBox File reference number for the input or output file.}
+f1v:{50}
+
+ppe:report
+
+answerForm:{Close     !1,10!}
+
+//end keyword.ppe.Close_PPEBottom
+
+//start keyword.ppe.Close_PPERecord
+
+description:
+{Close a file that is related to the data set reference number
+coded in the first field.}
+
+f1:{numberBox File reference number for the input or output file.}
+f1v:{50}
+
+ppe:top
+
+answerForm:{Close     !1,10!}
+
+//end keyword.ppe.Close_PPERecord
+
+//start keyword.ppe.CMUint
+
+description:
+{Activate the coordinated management unit logic for selecting stands.
+}
+
+f1:{noInput}
+
+ppe:top
+
+//end keyword.ppe.CMUint
+
+//start keyword.ppe.NoCMUint
+
+description:
+{Deactivate the coordinated management unit logic for selecting stands.
+}
+
+f1:{noInput}
+
+ppe:top
+
+//end keyword.ppe.NoCMUint
+
+//start keyword.ppe.Comment_PPETop
+
+description:
+{Add a comments into the top of the PPE run prior to adding stand data. Use
+the Parms button to write your comments.
+}
+
+parmsform:{
+COMMENT
+!Delete this line and add your comments here
+END
+}
+
+ppe:top
+
+//end keyword.ppe.Comment_PPETop
+
+//start keyword.ppe.Comment_PPEBottom
+
+description:
+{Add a comments into the bottom of the PPE run after to adding stand data. Use
+the Parms button to write your comments.
+}
+
+parmsform:{
+COMMENT
+!Delete this line and add your comments here
+END
+}
+
+ppe:report
+
+//end keyword.ppe.Comment_PPEBottom
+
+//start keyword.ppe.Comment_PPEReport
+
+description:
+{Add a comments into the end of the PPE with the reporting keywords. Use
+the Parms button to write your comments.
+}
+
+parmsform:{
+COMMENT
+!Delete this line and add your comments here
+END
+}
+
+ppe:report
+
+//end keyword.ppe.Comment_PPEReport
+
+//start keyword.ppe.CompID
+
+description:
+{Enter a management identification for the composite yield tables.
+}
+
+f1:{textEdit Management ID code (4 characters)}
+
+answerForm:
+{CompID
+!1,4!}
+
+ppe:report
+
+//end keyword.ppe.CompID
+
+//start keyword.ppe.Composit
+
+description:
+{Print the composit yield table when the Yields keyword is used.
+}
+
+f1:{noInput}
+
+ppe:report
+
+//end keyword.ppe.Composit
+
+//start keyword.ppe.NoCompos
+
+description:
+{Do not print the composit yield table when the Yields keyword is used.
+}
+
+f1:{noInput}
+
+ppe:report
+
+//end keyword.ppe.NoCompos
+
+//start keyword.ppe.CopyComp
+
+description:
+{Create a machine-readable copy of the composite yield table when the
+Yields keyword is entered.
+}
+
+f1:{textEdit File name of machine readable composit yield file}
+f1v:{copycomp.cyt}
+
+f2:{numberBox The file reference number}
+f2v:{55}
+
+parmsForm:
+{CopyComp  !2,10!
+Open      !2,10!
+!1!}
+
+answerForm:
+{CopyComp  !2,10!
+Open      !2,10!
+!1!}
+
+ppe:report
+
+//end keyword.ppe.CopyComp
+
+//start keyword.ppe.NoCopCmp
+
+description:
+{Do not create a machine-readable copy of the composite yield table when the
+Yields keyword is entered.
+}
+
+f1:{noInput}
+
+ppe:report
+
+//end keyword.ppe.NoCopCmp
+
+//start keyword.ppe.CopySum
+
+description:
+{Make a machine readable version of summary statistics tables.
+This keyword must be used in conjunction with the YIELDS keyword,
+and should be entered prior to the YIELDS keyword.
+}
+
+f1:{noInput}
+
+ppe:report
+
+//end keyword.ppe.CopySum
+
+//start keyword.ppe.NoCopSum
+
+description:
+{Do not make a machine readable version of summary statistics tables.}
+
+f1:{noInput}
+
+ppe:report
+
+//end keyword.ppe.NoCopSum
+
+//start keyword.ppe.CvOutput
+
+description:
+{Generate reports computed by the Cover Model for stands that have been
+selected using the keyword SelMgmdID, SelMSPLb, SelSPLab, or SelStand.
+}
+
+f1:{listButton Print canopy cover statistics?}
+f1v:{> No
+ Yes}
+
+f2:{listButton Print shrubs statistics?}
+f2v:{> No
+ Yes}
+
+f3:{listButton Print canopy and shrubs summary?}
+f3v:{> No
+ Yes}
+
+f4:{listButton Write output to machine readable data file?}
+f4v:{> No
+ Yes}
+
+f5:{intNumberBox File reference number for machine readable output}
+f5v:{blank}
+
+ppe:report
+
+//end keyword.ppe.CvOutput
+
+//start keyword.ppe.Debug
+
+description:
+{Output debugging information to a file.
+}
+
+f1:{numberBox Enter file reference number}
+f1v:{blank}
+
+ppe:top
+
+//end keyword.ppe.Debug
+
+//start keyword.ppe.NoDebug
+
+description:
+{Stop output of debugging information.
+}
+
+f1:{numberBox Enter data set reference number}
+f1v:{blank}
+
+ppe:top
+
+//end keyword.ppe.NoDebug
+
+//start keyword.ppe.DefCCut
+
+description:
+{Define a clear cut stand.  A clearcut is a stand that has a top height less
+than the maximum and has fewer trees per acre than the defined maximum.
+}
+
+f1:{numberBox Max tree height inside a clear cut}
+f1v:{blank}
+
+f2:{numberBox Maximum density inside a clear cut}
+f2v:{blank}
+
+ppe:top
+
+//end keyword.ppe.DefCCut
+
+//start keyword.ppe.Exact
+
+description:
+{Signal that the PPE should exactly meet the target by selecting partial
+stands (Exact is the default).
+}
+
+f1:{noInput}
+
+ppe:top
+
+//end keyword.ppe.Exact
+
+//start keyword.ppe.NotExact
+
+description:
+{Signal that PPE should meet the target on the average and only cut compete
+stands.
+}
+
+f1:{noInput}
+
+ppe:top
+
+//end keyword.ppe.NotExact
+
+//start keyword.ppe.Interact
+
+description:
+{Set the master cycle number that will be processed using the within-cycle
+stand interrelation logic; if blank the keyword affects all cycles.
+}
+
+f1:{intNumberBox Master cycle number}
+f1v:{blank}
+
+ppe:top
+
+//end keyword.ppe.Interact
+
+//start keyword.ppe.LabWts
+
+description:
+{Request that a label and weights file be written when yields is entered.
+}
+
+f1:{textEdit Name of label and weights file}
+f1v:{labwts.lbw}
+
+f2:{intNumberBox File reference number}
+f2v:{52}
+
+answerForm:{LabWts    !2,10!
+Open     !2,10!
+!1!}
+
+ppe:bottom
+
+//end keyword.ppe.LabWts
+
+//start keyword.ppe.NoLabWts
+
+description:
+{Stop writing label and weights information to label and weights file.
+}
+
+f1:{noInput}
+
+ppe:bottom
+
+//end keyword.ppe.NoLabWts
+
+//start keyword.ppe.LabWtSID
+
+description:
+{Set the four-character identification for the label and weights record
+created when the LabWts keyword is used.
+}
+
+f1:{textEdit Label and weights record identification code (4 char)}
+ppe:bottom
+
+//end keyword.ppe.LabWtSID
+
+//start keyword.ppe.LdMgmtID
+
+description:
+{Allows the user to enter a list of stand ID's and related management codes.
+
+Use the Parms button to set this keyword.
+}
+
+f1:{textEdit Management ID file name}
+f1v:{copycomp.cyt}
+
+f2:{numberBox The file reference number}
+f2v:{56}
+
+parmsForm:
+{LdMgmtID  !2,10!
+Open      !2,10!
+!1!}
+
+answerForm:
+{LdMgmtID  !2,10!
+Open      !2,10!
+!1!}
+
+ppe:bottom
+
+//end keyword.ppe.LdMgmtID
+
+//start keyword.ppe.MSPolicy
+
+description:
+{Enter a new multistand treatment policy.
+
+When entering policy number, if left blank, PPE assigns the next available
+number.  If the entry contains a number that has already been used, the old
+policy definition is replaced.
+
+The policy target expression is an algebraic expression that may contain
+variables listed in table 1 of the PPE documentation, constants and all
+operators used in the Event Monitor except logical operators.  Rules for
+coding expressions described for the Event Monitor apply.
+
+The selection priorities expression may use any variable in Event Monitor
+expression except those defined only after thinning each cycle.  It may be
+a function defined using the COMPUTE facility.
+
+The target contribution credit expression defines the method used to
+calculate each stand's contribution toward meeting the target. Coded same
+as Event Monitor.
+}
+
+f1:{intNumberBox Policy number}
+f1v:{blank}
+
+f2:{listButton Do you want reports generated?}
+f2v:{No
+> Yes}
+
+f3:{numberBox Initialize OLDTARG variable to}
+f3v:{blank}
+
+f4:{listButton Do you want a policy hierarchy?}
+f4v:{> No
+ Yes}
+
+f5:{textEdit Policy Target =}
+f5v:{TotalWt*.1}
+f6:{textEdit Policy Priority =}
+f6v:{Age}
+f7:{textEdit Policy Credit =}
+f7v:{StandWt*Cut}
+f8:{textEdit Policy Label =}
+f8v:{All}
+
+answerForm:{\
+MSPolicy  !1,10!!2,10!!3,10!!4,10!
+Target   = !5!
+Priority = !6!
+Credit   = !7!
+MSPLabel = !8!
+End}
+
+parmsForm=answerForm
+
+ppe:bottom
+
+//end keyword.ppe.MSPolicy
+
+//start keyword.ppe.MxClrCut
+
+description:
+{Activate maximum clearcut constraint logic.
+}
+
+f1:{numberBox Maximum clearcut size in acres}
+f1v:{blank}
+
+ppe:bottom
+
+//end keyword.ppe.MxClrCut
+
+//start keyword.ppe.Neighbor
+
+description:
+{Specify the Neighbor file that contains boundary information for each
+stand.
+}
+
+f3:{textEdit Neighbor file name}
+f3v:{neighbor.nbr}
+
+f1:{intNumberBox File reference number for neighbors file}
+f1v:{53 1 Fmax}
+
+f2:{numberBox Multiplier to scale boarder length to meters}
+f2v:{blank}
+
+parmsForm:{\
+Open      !2,10!
+!1!
+Neighbor  !2,10!!3,10!
+Close     !2,10!
+}
+
+answerForm:{\
+Open      !2,10!
+!1!
+Neighbor  !2,10!!3,10!
+Close     !2,10!
+}
+
+ppe:top
+
+//end keyword.ppe.Neighbor
+
+//start keyword.ppe.NewWeight
+
+description:
+{Set a new branch weighing factor for a given stand.  The weighing factor
+is used in computing all subsequent composit yield tables.  Branches are
+defined by the PPE internal stand numbering system (see PPE documentation).
+}
+
+f1:{intNumberBox Internal stand number for with new weight}
+f1v:{blank}
+
+f2:{numberBox New weighting factor for branch}
+f2v:{blank}
+
+answerForm:
+{NewWeight
+!1,20!!2,10!}
+
+ppe:bottom
+
+//end keyword.ppe.NewWeight
+
+//start keyword.ppe.NoByGrp
+
+description:
+{Turn off the effects of previously specified keywords ByMgmID, ByMSPLb,
+BySPLab, and ByStand.
+}
+
+f1:{noInput}
+
+ppe:report
+
+//end keyword.ppe.NoByGrp
+
+//start keyword.ppe.NoSelect
+
+description:
+{Turn off the effects of previously specified keywords SelMgmdID, SelMSPLb,
+SelSPLab, and SelStand.
+}
+
+f1:{noInput}
+
+ppe:report
+
+//end keyword.ppe.NoSelect
+
+//start keyword.ppe.Open_PPETop
+
+description:
+{Request a Fortran OPEN for an input or output file.  A supplemental
+record is required to specify a filename for the unit that is to be
+opened.
+
+NOTE:
+File reference numbers between 1 and 30 are reserved for files that
+are currently accessed by the FVS or extensions.}
+
+f1:{numberBox File reference number for the input or output file.}
+f1v:{50}
+f2:
+{longListButton \
+Code for specifying the meaning of blanks in numeric fields}
+f2v:{Blanks are to be treated as zeroes
+     Blanks are to be treated as null characters}
+f3:{listButton File status code}
+f3v:{Unknown \n New \n Old}
+f4:{numberBox Maximum number of characters per record}
+f4v:{80}
+f5:{listButton File format switch}
+f5v:{Formatted
+     Unformatted}
+f6:{longTextEdit File name (Suppose does not insure this file exists):}
+
+answerForm:
+{Open      !1,10!!2,10!!3,10!!4,10!!5,10!
+!6!}
+
+ppe:top
+
+//end keyword.ppe.Open_PPETop
+
+//start keyword.ppe.Open_PPEBottom
+
+description:
+{Request a Fortran OPEN for an input or output file.  A supplemental
+record is required to specify a filename for the unit that is to be
+opened.
+
+NOTE:
+File reference numbers between 1 and 30 are reserved for files that
+are currently accessed by the FVS or extensions.}
+
+f1:{numberBox File reference number for the input or output file.}
+f1v:{50}
+f2:
+{longListButton \
+Code for specifying the meaning of blanks in numeric fields}
+f2v:{Blanks are to be treated as zeroes
+     Blanks are to be treated as null characters}
+f3:{listButton File status code}
+f3v:{Unknown \n New \n Old}
+f4:{numberBox Maximum number of characters per record}
+f4v:{80}
+f5:{listButton File format switch}
+f5v:{Formatted
+     Unformatted}
+f6:{longTextEdit File name (Suppose does not insure this file exists):}
+
+answerForm:
+{Open      !1,10!!2,10!!3,10!!4,10!!5,10!
+!6!}
+
+ppe:bottom
+
+//end keyword.ppe.Open_PPEBottom
+
+//start keyword.ppe.Open_PPEReport
+
+description:
+{Request a Fortran OPEN for an input or output file.  A supplemental
+record is required to specify a filename for the unit that is to be
+opened.
+
+NOTE:
+File reference numbers between 1 and 30 are reserved for files that
+are currently accessed by the FVS or extensions.}
+
+f1:{numberBox File reference number for the input or output file.}
+f1v:{50}
+f2:
+{longListButton \
+Code for specifying the meaning of blanks in numeric fields}
+f2v:{Blanks are to be treated as zeroes
+     Blanks are to be treated as null characters}
+f3:{listButton File status code}
+f3v:{Unknown \n New \n Old}
+f4:{numberBox Maximum number of characters per record}
+f4v:{80}
+f5:{listButton File format switch}
+f5v:{Formatted
+     Unformatted}
+f6:{longTextEdit File name (Suppose does not insure this file exists):}
+
+answerForm:
+{Open      !1,10!!2,10!!3,10!!4,10!!5,10!
+!6!}
+
+ppe:report
+
+//end keyword.ppe.Open_PPEReport
+
+//start keyword.ppe.Pause
+
+description:
+{Pauses model execution at the end of a master cycle.}
+
+f1:{intNumberBox The master cycle at which to pause execution}
+f1v:{blank}
+
+ppe:bottom
+
+//end keyword.ppe.Pause
+
+//start keyword.ppe.Project
+
+description:
+{Suppose builds the first necessary Project keyword. Additional commands
+are needed to signal that the simulation should continue after a pause.}
+
+f1:{noInput Signal that the simulation should continue.}
+
+ppe:bottom
+
+//end keyword.ppe.Project
+
+//start keyword.ppe.RdAccess
+
+description:
+{Read in stand access to roads information data file.
+}
+
+f1:{textEdit Name of road access file to be read in}
+f2:{intNumberBox The file reference number to use}
+f2v:{54 1 Fmax}
+
+f3:{numberBox Multiplier used to scale the data access}
+f3v:{1 0 Fmax}
+
+parmsForm:{\
+Open      !2,10!
+!1!
+RdAccess  !2,10!!3,10!
+Close     !2,10!
+}
+answerForm:{\
+Open      !2,10!
+!1!
+RdAccess  !2,10!!3,10!
+Close     !2,10!
+}
+
+ppe:bottom
+
+//end keyword.ppe.RdAccess
+
+//start keyword.ppe.Restore
+
+description:
+{Restore the PPE's memory after pause has been executed.
+}
+
+f1:{noInput}
+
+ppe:bottom
+
+//end keyword.ppe.Restore
+
+//start keyword.ppe.Rewind_PPETop
+
+description:
+{Rewind (set to read at beginning) a file data set.
+}
+
+f1:{intNumberBox File reference number to rewind}
+f1v:{blank}
+
+answerForm:{Rewind    !1,10!}
+
+ppe:top
+
+//end keyword.ppe.Rewind_PPETop
+
+//start keyword.ppe.Rewind_PPEBottom
+
+description:
+{Rewind (set to read at beginning) a file data set.
+}
+
+f1:{intNumberBox File reference number to rewind}
+f1v:{blank}
+
+answerForm:{Rewind    !1,10!}
+
+ppe:bottom
+
+//end keyword.ppe.Rewind_PPEBottom
+
+//start keyword.ppe.Rewind_PPEReport
+
+description:
+{Rewind (set to read at beginning) a file data set.
+}
+
+f1:{intNumberBox File reference number to rewind}
+f1v:{blank}
+
+answerForm:{Rewind    !1,10!}
+
+ppe:report
+
+//end keyword.ppe.Rewind_PPEReport
+
+//start keyword.ppe.SelISN
+
+description:
+{Select PPE internal stand numbers (ISN) of stands to be processed when
+Yields and/or StndTabs are requested.  If no range is input all stands are
+selected.  If only a lower range is input, only that stand will be
+selected.
+}
+
+f1:{intNumberBox Lower range ISN}
+f1v:{blank}
+
+f2:{intNumberBox Upper range ISN}
+f2v:{blank}
+
+answerForm{SelISN
+!1,20!!2,20!}
+
+ppe:bottom
+
+//end keyword.ppe.SelISN
+
+//start keyword.ppe.SelMgmID
+
+description:
+{Select management code ID's of stands to be processed when
+Yields and/or StndTabs are requested.  If no range is input all stands are
+selected.  If only a lower range is input, only that stand will be
+selected.
+}
+
+f1:{textEdit Lower range management ID (4 char)}
+f2:{textEdit Upper range management ID (4 char)}
+
+answerForm:{SelMgmID
+!1,4!      !2,4!}
+
+ppe:bottom
+
+//end keyword.ppe.SelMgmID
+
+//start keyword.ppe.SelMSPLb
+
+description:
+{Select multistand treatment policies of stands to be processed when
+Yields and/or StndTabs are requested.
+}
+
+f1:{textEdit Multistand policy label}
+
+answerForm:{SelMSPLb
+!1!}
+
+ppe:bottom
+
+//end keyword.ppe.SelMSPLb
+
+//start keyword.ppe.SelSPLab
+
+description:
+{Select stand policy label set of stands to be processed when
+Yields and/or StndTabs are requested.  If no range is input all stands are
+selected.  If only a lower range is input, only that stand will be
+selected.
+}
+
+f1:{textEdit Stand policy labels (common separated)}
+
+answerForm:{SelMSPLb
+!1!}
+
+ppe:bottom
+
+//end keyword.ppe.SelSPLab
+
+//start keyword.ppe.SelStand
+
+description:
+{Select stand identification of stands to be processed when
+Yields and/or StndTabs are requested.  If no range is input all stands are
+selected.  If only a lower range is input, only that stand will be
+selected.
+}
+
+f1:{textEdit Lower range stand ID {8 char}}
+f2:{textEdit Upper range stand ID (8 char)}
+
+answerForm:{SelStand
+!1,8!  !2,8!}
+
+ppe:bottom
+
+//end keyword.ppe.SelStand
+
+//start keyword.ppe.SmpTre
+
+description:
+{Request the sample tree and stand attribute table be output when keyword
+StndTabs is used.
+}
+
+f1:{noInput}
+
+ppe:report
+
+//end keyword.ppe.SmpTre
+
+//start keyword.ppe.NoSmpTre
+
+description:
+{Request the sample tree and stand attribute table be suppressed when keyword
+StndTabs is used.
+}
+
+f1:{noInput}
+
+ppe:report
+
+//end keyword.ppe.NoSmpTre
+
+//start keyword.ppe.SndCmp
+
+description:
+{Request the stand composition tables be output when keyword StndTabs is
+used.
+}
+
+f1:{noInput}
+
+ppe:report
+
+//end keyword.ppe.SndCmp
+
+//start keyword.ppe.NoSndCmp
+
+description:
+{Request the stand composition tables be suppressed when keyword StndTabs
+is used.
+}
+
+f1:{noInput}
+
+ppe:report
+
+//end keyword.ppe.NoSndCmp
+
+//start keyword.ppe.StndTabs
+
+description:
+{Set PPE to output stand tables.  Unless SndCmp, NoSndcmp, SmpTre, and
+NoSmpTre keywords are used to change default conditions, the stand
+composition table and the sample tree and stand attribute table are output
+when this keyword is entered.
+}
+
+f1:{noInput}
+
+ppe:report
+
+//end keyword.ppe.StndTabs
+
+//start keyword.ppe.Summary
+
+description:
+{Request the output of the individual summary tables when Yields is
+entered. The Summary keyword is default when the Yields keyword is
+selected.
+}
+
+f1:{numberBox Branch weight multiplier}
+f1v:{blank}
+
+ppe:report
+
+//end keyword.ppe.Summary
+
+//start keyword.ppe.NoSum
+
+description:
+{Suppress the output of the individual summary tables when Yields is
+entered.
+}
+
+f1:{noInput}
+
+ppe:report
+
+//end keyword.ppe.NoSum
+
+//start keyword.ppe.System_Top
+
+description:
+{Enter a command that is processed by the operating system.}
+
+f1:{longTextEdit Enter the system command}
+f1v:{echo top command}
+
+answerForm:{System\n!1!}
+
+ppe:top
+
+//end keyword.ppe.System_Top
+
+//start keyword.ppe.System_Bottom
+
+description:
+{Enter a command that is processed by the operating system.}
+
+f1:{longTextEdit Enter the system command}
+f1v:{echo bottom command}
+
+answerForm:{System\n!1!}
+
+ppe:bottom
+
+//end keyword.ppe.System_Bottom
+
+//start keyword.ppe.Yields
+
+description:
+{Set processing of yield data (composit and summary tables) to occur.
+Unless other keywords are used to change the default options, the Yield
+processing consists of outputing the summary statistics and activity
+summary tables for each stand, and after computing a weighted average
+yield table from all stands, a composite yield table is output.
+}
+
+f1:{noInput}
+
+ppe:report
+
+//end keyword.ppe.Yields

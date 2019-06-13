@@ -1,0 +1,50 @@
+//start variants
+
+! The PKey is the variant abbreviation, the PString is the name.
+
+ak:  {Southeast AK - Coastal BC}
+bm:  {Blue Mountains, Oregon}
+ca:  {Inland CA, Southern Cascades}
+ci:  {Central ID}
+cr:  {Central Rockies GENGYM}
+sw:  {GENGYM: Southwest Mixed Conifers}
+sp:  {GENGYM: Southwest Ponderosa Pine}
+bp:  {GENGYM: Black Hills Ponderosa Pine}
+sf:  {GENGYM: Spruce-fir}
+lp:  {GENGYM: Lodgepole pine}
+ec:  {East Cascades, Washington}
+em:  {Eastern Montana}
+ie:  {Inland Empire  - 23 species}
+nc:  {Klammath Mountains, Northern CA}
+ni:  {Inland Empire, Northern ID - Western MT}
+oc:  {ORGANON SWO - FVSca hybrid}
+op:  {ORGANON NWO/SMC - FVSpn hybrid}
+so:  {South Central OR N CA}
+tt:  {Tetons, Wyoming}
+ut:  {Utah}
+wc:  {West Cascades}
+pn:  {Pacific Northwest Coast}
+ws:  {Western Sierra Nevada, CA}
+cs:  {Central States}
+kt:  {Kootenai/Kaniksu/Tally LK, ID - MT}
+ls:  {Lake States}
+ne:  {Northeast}
+se:  {Southeast Twigs}
+sn:  {Southern}
+
+//end variants
+
+//start timing
+
+! cycleLength and simLength are both in years.
+! the PKeys are cycleLength and simLength, the ATList is the variant,
+! the PString is the number of years.
+
+cycleLength : 10
+simLength   : 100
+
+cycleLength{sn nc oc op}: 5
+simLength  {sn nc oc op}: 50
+
+
+//end timing

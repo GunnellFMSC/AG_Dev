@@ -1,0 +1,271 @@
+HTOPIC authorshiP  "Author and Acknowledgments" suppose about author acknowledgments
+\pFigures/logo.bmp\p
+
+\fbAuthor and Acknowledgments\f0
+
+This version of Suppose was primarily developed by:
+
+\n
+Nicholas L. Crookston
+Operations Research Analyst
+USDA Forest Service
+Rocky Mountain Research Station
+1221 South Main
+Moscow, ID 83843
+
+E-Mail:  ncrookston@fs.fed.us
+\w
+
+Thanks go to...
+
+Albert R. Stage for providing support, council, and encouragement.
+Without Al, I would not have done this project.
+
+Kathleen Duncan, Washington State University, worked on the project
+for the first year.  We learned C++ and XVT together as we built many
+of the core elements of Suppose.
+
+Shawn Brant, formally of Sterling Wood Group, provided some base
+classes and a great deal of expert advice on C++.  Shawn was a C++
+teacher and mentor to Kathleen and me.
+
+The British Columbia Ministry of Forests (Jon Vivian) for paying
+Shawn.
+
+Barry Snowdon of the B.C. Ministry for some great ideas and support. 
+
+Fred Martin of the Washington State Department of Natural Resources
+for ideas and support.
+
+The Forest Management Service Center, Ft Collins, for providing
+operating funds.  Rich Teck from that group has helped with the
+design.  Gary Dixon believed Suppose could and should be done.
+
+Renate Bush, formally of the Forest Management Service Center,
+provided ideas and bug reports.  She also checked the parameters file.
+
+The Forest Health and Technology Enterprise Team, Ft Collins, for
+providing operating funds and the aid of Missy Shelly, Matt Thompson,
+and Mark Riffe.  
+
+Bill Wykoff, a fellow member of Research Work Unit 4154 in Moscow,
+provided review of the tutorial.
+
+NLC - Moscow Idaho - October 1996.
+
+
+HTOPIC introductioN "Introduction to Suppose" suppose about introduction background 
+\pFigures/logo.bmp\p
+
+\fbIntroduction to Suppose\f0
+
+Suppose is a computer program that makes it easy to simulate the
+changes in forest vegetation over a long time span and over a
+"landscape" spatial scope.  By a long time span, we mean 100-400
+years.  A landscape is defined to be 1 to about 1,000 forest stands.
+
+Suppose accomplishes the simulation by creating an input file used by
+\bFVs:FVS\b and by then starting the appropriate FVS \bprograM:program\b
+that reads and processes the input file.  The program contains the
+desired geographic \bvarianT:variant\b, and \bextenS:extensions\b to
+the base FVS system.  FVS, and not Suppose, actually accomplishes 
+the desired simulation.  The input file is called a 
+\bsimfilE:simulation file\b.  
+
+Suppose provides access to \bstanD:stand\b and \btreedatA:tree data\b and is
+capable of editing the \bsimfilE:simulation file\b it creates using
+the same tools used to create the files.
+
+Version 1 does not contain all features planned for Suppose.  What
+you are using today is a work in progress!
+
+Also see:
+
+\n
+\lbackgrounD:Background on Suppose\l
+\loperatioN:Basic Operation\l
+\lvegdatA:Vegetation Data\l used by FVS and Suppose.
+\lfileS:Suppose files\l
+\w
+
+HTOPIC backgrounD "Suppose Background" suppose about introduction background
+\pFigures/logo.bmp\p
+
+\fbSuppose Background\f0
+
+The USDA Forest Service, the State of Washington Department of Natural
+Resources, British Columbia Ministry of Forests,
+and several state, university, and private organizations, use a
+system of computer models to simulate changes in vegetation over time
+given various management alternatives.  This system of models, now
+called the Forest Vegetation Simulator (\bFVs:FVS\b), is based on the
+\bFVs:Prognosis Model\b (Stage 1973; Wykoff et al. 1982; Wykoff 1986;
+Crookston 1990; Ferguson and Crookston 1991) and other models that
+have been adapted for FVS.  These other models include TWIGS
+(Miner 1988), NE-TWIGS (Hilt and Teck 1989), and GENGYM (Edminster et
+al. 1991) (see \lreferenceS:References\l).
+
+The time scale of the simulations varies from 0 years to 400 years and
+the spatial scale is normally one forest stand, between 2 and 50
+hectares (4 to 100 acres).  Recently, a strong interest in increasing
+the spatial scope to include landscapes, contiguous areas of several
+to 1,000 stands, has grown into a fundamental requirement of forest
+vegetation simulations.  The Parallel Processing Extension to the
+Prognosis Model (Crookston and Stage 1991) represents this expanded
+spatial scale.  
+
+The primary capability of the models, and their only universal
+capability, is to simulate the changes in the trees that make up
+forest stands.  The simulations can represent changes due to managing
+trees by thinning, adding fertilizer, and other management actions.
+Secondary capabilities include the ability to represent the dynamics
+of pest damage coupled with the subsequent effects on tree growth, and
+the ability to represent growth and development of shrubs, grasses,
+and forbs.  
+
+FVS system components are controlled by a \bkeywordS:keyword\b command
+system.  The advantage of the keyword system is that the input is a
+simple ASCII-character file that serves to document and control the
+simulations.  The disadvantages are that users must learn the
+commands, the command formats, and the complicated strategies needed
+to achieve desired results.  Very complicated keyword files are
+routinely created by practiced resource professionals.  
+
+The role of Suppose is to support forest resource specialists who do not 
+have the opportunity to develop a detailed familiarity with FVS, however 
+much they might depend upon its output.  Suppose is designed
+to reduce the amount of detailed FVS command knowledge needed to 
+make full use of FVS.  In addition, Suppose will aid 
+expert FVS users by simplifying and automating tasks they now must do 
+by hand or by ad-hoc automated means.  
+
+Suppose users should be able to use most features of FVS without first
+learning the FVS keyword system.  In addition, FVS users that know the
+keyword system and wish to take advantage of FVS features not
+otherwise supported by Suppose should have direct access to them.  In
+other words: Suppose must help and not hinder users, whether novice or
+expert.
+
+See \loperatioN:Basic Operation\l understand the basic use of
+Suppose.   Use the Help menu item and select Tutorial to gain
+practical experience using Suppose.
+
+
+HTOPIC operatioN "Basic Operation" operation basics 
+\pFigures/logo.bmp\p
+
+\fbBasic Operation\f0
+
+Operation of Suppose follows these basic steps:
+
+\i20.- 	Specify the \bspacescopE:spatial scope\b of a simulation by
+picking which \bstanD:stands\b you wish to include. This task is
+accomplished using the 
+\lSELECTSIWindow:Select Simulations Stands\l button.
+
+\i20.	See the descriptions of the \lvegdatA:vegetation data\l and the
+\llocationsFile:locations file\l for information on how Suppose knows
+which stands are available for your use.  If you do not have a
+locations file, you can not use Suppose.  However, you can use the 
+\lRUNTUTORIAL:tutorial\l because it will build a simple locations file
+for you.
+
+\i20.-	Once you have selected stands, you may run the simulation by 
+pressing the \lRUNSimulation:Run Simulation\l button on the main 
+selections window.
+
+\i20.	 Prior to running the simulation you may wish to set the time
+scale, sepecify management, or take other actions you desire to
+include in the simulation.  Some of these potential actions are listed
+below, all actions are optional except picking stands and using the
+run simulation button.
+
+\i20.-	 Specify the \btimescopE:temporal scope\b of a simulation by
+setting the ending year of the projection.  This is done using the 
+\lTIMESCALWindow:Set Time Scale\l button.
+
+\i20.-	Specify the \lCMNGWINWindow:management actions\l you
+want to simulate by selection actions from the management actions.  
+
+\i20.    When you have more that one stand in the simulation, you may
+wish to specify different management actions for each group of stands or for
+each stand in your run.  To accomplish this task, you must select either the 
+"Current Group" or "Current Stand" radio button on the Selections 
+window and then select a group or stand from the list found to the
+right of these two radio buttons prior to specifying management actions.
+
+Suppose features available on the main Selections window are also
+available from the "Basics" menu item.  Additional features are
+accessed using the "Extras" menu item.  Features that control Suppose
+itself, rather than the characteristics of the simulation, are found
+under the Options menu.  See \lMENUbar:menus\l for more information.
+
+Run the \lRUNTUTORIAL:tutorial\l to gain some practical 
+experience using Suppose.
+
+See \lfileS:suppose files\l for information on the inputs and outputs
+of Suppose and their relationship to \bFVs:FVS\b.
+
+See \lvegdatA:Vegetation Data\l for an overview of the data used by
+Suppose and FVS.
+
+
+HTOPIC vegdatA "Vegetation Data Used by FVS and Suppose" input file location stand tree_data
+\fbVegetation Data Used by FVS and Suppose\f0
+
+There are three kinds of data used by Suppose and FVS.
+
+\i20.1.	Tree-level inventory data.  These data are often held in a
+series of flat files but are more recently being held in data bases.
+These data are converted from whatever form they are stored in to a
+format that Suppose and FVS can use.  This conversion is done with
+\btranslatoR:translators\b.  
+
+\i20.2.	Stand-level inventory.  These data are sometimes held in the
+same flat files as the tree-level data and more often held in separate
+data bases or flat files.  As done with the tree-level data, these
+data are processed by the \btranslatoR:translators\b into data called
+\lstandlistFile:stand list files\l. 
+
+\i20.3.	Spatial data.  These data are not currently being used. 
+They are in GIS systems and will be needed by the Parallel Processing 
+Extension (PPE).
+
+Suppose uses a data base that stores tree- and stand-level data in a
+format that can created and edited using a standard text editor.  This
+data base is implemented using a set of flat files.  While other
+bases may be built in the future, only the flat file structure is
+available in Version 1.
+
+The first element of the Suppose database is the
+\llocationsFile:locations file\l.  This file contains one record for
+each set of stand data.  For example, a set of stand data may consist of 
+all of the stands on a given map.  The name of the set, called the
+location name, could be the name of the map.  Besides the location
+name, a set of stand data will have a common data translation method
+and will be related to another file containing a list of stands.  The data
+translation may be done using \btranslatoR:translators\b.  
+
+The list of stands are stored in \lstandlistFile:stand list file(s)\l.
+The tree-level data will be stored in FVS ready format in separate
+flat files which have exactly the same format currently read by FVS.
+Necessary information in addition to the information in the stand list
+file and individual tree data files are stored in
+\baddfilE:addfiles\b.  The names of these addfiles are data elements
+in the stand list file.
+
+Addfiles can also be associated with stands using the stand group
+codes.  This is done using the separate data records in the locations
+file.
+
+The \llocationsFile:locations file\l can be edited using the 
+\lEDITLOCSWindow:Edit Locations File\l window.
+
+The \lstandlistFile:stand list file(s)\l can be edited using the 
+\lEDITSLFWindow:Edit Stand List File\l window.
+
+The \lFVSTREEDATA:tree data\l can also be entered or edited using the 
+\lEDITFVSTWindow:Edit FVS Tree Data File\l window.
+
+See \lfileS:suppose files\l for more information.
+

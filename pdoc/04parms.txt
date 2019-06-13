@@ -1,0 +1,51 @@
+---------------------------------------------------------------------------  
+            Chapter 4--Data Structures Part 2: Parms file objects
+
+                   Date of Last Revision: December 30, 1997
+---------------------------------------------------------------------------
+
+Before continuing to read this section, read the Suppose on line help
+about the parameters file.  That help file will provide you with an
+understanding of the file's role, contents, and the supporting
+terminology.    
+
+When Suppose starts, it creates one instance of class
+SpParms:RWBinaryTree.  A pointer to this object is held in SpGlobals.
+The general approach is this: The constructor of this class is passed
+a const char * to the parameter file name.  The code in SpParms reads
+this file and creates a collection of MSText:CStringRWC objects.  Each MSText
+object contains a file position value that points to the beginning of
+the data related to that object.  If and when Suppose needs the data,
+the file is opened to that position and the MSText is read and parsed
+into is member elements.  In short, Suppose only stores the names of
+each MSText not all the included data until that data is needed.
+
+---------------------------
+Related files:
+---------------------------
+
+spparms.?pp
+
+---------------------------
+Thoughts:
+---------------------------
+
+1.  The basic idea of the Suppose parms file works well.  The ability
+to modify many basic data elements within Suppose without having XVT
+and without C++ is a major selling point. 
+
+2.  The file is completely reread when the File, New or Open menu
+items are selected.  This is likely not necessary and takes a lot of
+extra computer time.  I suggest adding a Reset menu item to the File
+menu and then change the CsupposeDoc::ResetSuppose method so that the
+parms file is not reset unless the reset command is selected.
+
+3.  As it turned out, there is a lot of duplication in the Parms file.
+Much could be eliminated by creating a reference logic for MSText that
+works like the PKeyData's equal sign (=).  This allows one PKeyData to
+refer to another.  I don't know if this would be used much, however.
+
+4.  Some programmers may wonder why I did not use dictionary objects for
+MSText and PKeyData.  The reason is simple: I did not understand them
+very well at the time and now that I do understand them I'm sure that
+the current approach works just fine.

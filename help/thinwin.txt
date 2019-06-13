@@ -1,0 +1,39 @@
+HTOPIC THINWINWindow "Thin From Above or Below" thinning  management silviculture
+\fbThin From Above or Below\f0
+
+This window is used to schedule a thinning from either above or below.
+It is found under the Even-aged:Thinning action.
+
+Use the text box at the top of this window to change the name of the
+component if you want a different name than that presented as a default.
+
+Use the elements of the scrolling part of the window to set the
+parameters of the thinning.  
+
+For information about how to schedule the thinning, see
+\lSCHEDOBJSubview:Scheduling Actions by Year or Condition\l
+
+Use the radio buttons to select the residual density of the thinning.
+If you select trees per acre (hactare), then the horizontal slidebars
+for the density metric and the spacing metrics are linked.
+
+You can select to hold as a residual a percentage of trees or basal
+rather than specify a specific amount.
+
+The thinning applies only to the range of trees that are within the
+diameter and heigth limits specified using the last four horizontal
+slide bars.  That is, FVS computes the residual density for the trees
+within these limits, not for the stand as a whole.
+
+Press \f1Ok\f0 to accept the selections and close the window.  
+
+Press \f1Reset\f0 to reset the window to the state it was in when it
+was opened.
+
+Press \f1Cancel\f0 to close the window without creating a component
+(or without saving changes to a component you are editing).
+
+Use the \f1Extras\f0 menu and the \f1View Component Keywords\f0 item
+if you want to view the FVS keywords generated for the component.
+
+

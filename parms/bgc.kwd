@@ -1,0 +1,71 @@
+
+//start keyword.bgc.BGCIN
+description:
+{Run FVS-BGC extension and generate BGC output.
+
+Note:  Does not use BGC increments across FVS cycle 
+boundaries. To invoke the use of BGC's growth and 
+mortality estimates, use BGCGROW keyword.}
+
+f1:{noInput}
+answerForm:{ }
+//end keyword.bgc.BGCIN
+
+//start keyword.bgc.BGCGrow
+description:
+{Invokes the use of BGC-estimated growth and mortality increments across 
+FVS cycle boundaries.}
+
+f1:{noInput Turns on BGC growth and mortality}
+
+//end keyword.bgc.BGCGrow
+
+//start keyword.bgc.VegOpt
+
+description:
+{Specify the understory vegetation calculation
+
+If you specify option number 2, then you will need to also use the 
+UnderVeg keyword.}
+
+f1:{longListButton Calculation method}
+f1v:{\
+1 = Understory vegetation will be entered via the Cover extension
+2 = Understory vegetation will be specified by user}
+
+answerForm:{VegOpt    !1,10,numbers!}
+parmsForm=answerForm
+numbers:{1 2}
+
+//end keyword.bgc.VegOpt
+
+//start keyword.bgc.UnderVeg
+description:
+{Manually specify understory vegetation.}
+
+f1:{listButton Life form type (First entity)}
+f1v:{Grass/Forb \n Shrub}
+f2:{numberBox Height in feet}
+f2v:{0.75 0 50}
+f3:{numberBox Percent Cover}
+f3v:{10 0 100}
+
+f4:{listButton Life form type (Second entity)}
+f4v:{Grass/Forb \n >Shrub}
+f5:{numberBox Height in feet}
+f5v:{1.5 0 50}
+f6:{numberBox Percent Cover}
+f6v:{15 0 100}
+
+answerForm:{
+UnderVeg 
+!1,,lut! !1,,lut2! !2! !3!
+!4,,lut! !4,,lut2! !5! !6!
+ENDENT}
+parmsForm=answerForm
+lut:{G S}
+lut2:{GR SH}
+
+//end keyword.bgc.UnderVeg
+
+

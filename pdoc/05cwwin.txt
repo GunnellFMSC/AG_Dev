@@ -1,0 +1,21 @@
+---------------------------------------------------------------------------  
+                     Chapter 5--class CWwindow:CWindow
+
+                   Date of Last Revision: February 9, 1998
+---------------------------------------------------------------------------
+
+Class CWwindow:CWindow is a base class for most Suppose windows.  It's
+role is to establish help associations for the menu items and to close
+the application if the last window is closed.  
+
+All windows that need the standard help associations should inherent
+form this class.  Otherwise, inherent from CWindow directly, or
+inherent from this window and then change the help associations as
+necessary. 
+
+---------------------------
+Related files:
+---------------------------
+
+cwwindow.?pp
+

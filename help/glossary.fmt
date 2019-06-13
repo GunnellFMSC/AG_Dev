@@ -1,0 +1,41 @@
+
+
+
+\baddfilE:addfile\b
+\batlisT:ATList\b
+\bavailStanD:available stand\b
+\bcasE:case\b
+\bcommanD:command\b
+\bcycInterval:common cycle length\b
+\bendYeaR:common ending year\b
+\bstartYeaR:common starting year\b
+\bcomponenT:component\b
+\bcyclE:cycle\b
+\bextenS:extension\b
+\bfreeForm:free form\b
+\bFVs:FVS\b
+\bgroupCode:group code\b
+\bkrecordS:keyword records\b
+\bkeywordS:keywords\b
+\blandscapE:landscape\b
+\blocatioN:locations file\b
+\bmgmtiD:management identification\b
+\bmsnamE:MSName\b
+\bmstexT:MSText\b
+\bppE:Parallel Processing Extension (PPE)\b
+\bparameteR:parameters file\b
+\bparmS:parms (FVS feature)\b
+\bpkeydatA:PKeyData\b
+\bpkeY:PKey\b
+\bpostproC:post processor\b
+\bprograM:program\b
+\bpstrinG:PString\b
+\bselecTW:Selections Window\b
+\bsimfilE:simulation file\b
+\bSLf:SLF\b
+\bspacescopE:spatial scope\b
+\bSLf:stand list file\b
+\bstanD:stand\b
+\btimescopE:temporal scope\b
+\btreedatA:tree data\b
+\bvarianT:variant\b

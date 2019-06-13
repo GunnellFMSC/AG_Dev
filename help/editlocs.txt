@@ -1,0 +1,53 @@
+HTOPIC EDITLOCSWindow "Edit Locations File" names stand group file location 
+\fbEdit Locations File\f0
+
+The Edit Locations File window supports the process editing a
+\llocationsFile:Locations File\l.  
+
+An overview of the \lvegdatA:vegetation data used by Suppose\l 
+is available.
+
+When the window opens, the currently active locations file is loaded.
+Its name appears in the text box at the top of the window. 
+
+Note that this window does not support an undo feature.  Press
+\f1Cancel\f0 to close the window without saving any changes to the
+currently loaded file.
+
+Changes made to a locations file are not available in the 
+\lSELECTSIWindow:Select Simulation Stands\l window until after the
+file is saved and the Select Simulation Stands window is opened (or
+reopened). 
+
+Press the \f1Browse\f0 button to select a different file or type the
+desired file name in the text box and press the return key.
+
+Press the radio button corresponding the one of two record types in
+the \llocationsFile:Locations File\l you desire to edit.  Record
+numbers refer to the type A or type B records, not the total of the
+two types.
+
+Press \f1\<\<Previous\f0 or \f1Next\>\>\f0 to navigate through the
+records.
+
+Press \f1New\f0 to insert a blank record after the current record.
+
+Press \f1Delete\f0 to delete the current record.
+
+Press \f1Duplicate\f0 to duplicate the current record, placing the
+duplicate after the current record.
+
+Use the text boxes to change the values in the corresponding text
+boxes.  The \f1Browse\f0 button can be used to select a file name for
+the text boxes that require one. 
+
+Press \f1Ok\f0 to save the current file and close the window.
+
+Press \f1Save\f0 to save the current file without closing the window.
+
+Press \f1Save As\f0 to save the current data with a different file
+name without closing the window.
+
+Press \f1Cancel\f0 to close the window without saving the data.  Note
+that this is the only way to avoid saving the changes you have made.
+

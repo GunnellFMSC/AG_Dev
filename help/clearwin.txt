@@ -1,0 +1,47 @@
+HTOPIC CLEARWINWindow "Clearcut" uneven-age management silviculture
+\fbClearcut\f0
+
+This window is used to specify the elements of the clearcut
+silvicultural method.  It is found under the Even-aged:Regeneration
+Harvesting action.
+
+Use the text box at the top of this window to change the name of the 
+component if you want a different name than that presented as a default.
+
+Use the elements of the scrolling part of the window to set the
+parameters of the clearcut.  
+
+For information about how to schedule the clearcut, see 
+\lSCHEDOBJSubview:Scheduling Actions by Year or Condition\l
+
+Set the diameter of the smallest tree cut.
+
+Set the number and minimum diameter of the legacy trees.  Legacy trees are
+left in the stand.  The number of legacy actually left by FVS partly
+depends on the minimum diameter you specify.  Use the radio buttons to
+select how you wish to specify this diameter.
+
+The first radio button causes the diameter to be a fixed size that is
+set using the horizontal slide bar.  The second causes FVS to pick the
+diameter limit by finding a the diameter of the tree nearest a
+percentile point in the tree distribution.  You can select the
+percentile point using a list button.
+
+FVS will not keep any legacy trees if there are none greater than the
+fixed diameter.  By specifying the diameter limit as a function of the
+tree distribution, you are assured that there will be some trees above
+that percentile point.  However, there may not be more trees above the
+percentile point than you requested.  If there are over the number,
+FVS cuts the excess.
+
+Press \f1Ok\f0 to accept the selections and close the window.  
+
+Press \f1Reset\f0 to reset the window to the state it was in when it
+was opened.
+
+Press \f1Cancel\f0 to close the window without creating a component
+(or without saving changes to a component you are editing).
+
+Use the \f1Extras\f0 menu and the \f1View Component Keywords\f0 item
+if you want to view the FVS keywords generated for the component.
+

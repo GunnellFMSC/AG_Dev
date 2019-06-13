@@ -1,0 +1,71 @@
+---------------------------------------------------------------------------  
+           Chapter 10--Data Structures Part 4: External stands
+
+                Date of Last Revision: September 24, 1998
+---------------------------------------------------------------------------
+
+Describes the objects used to hold information about stands that are
+not part of the simulation (read directly from the stand list files).
+
+---------------------------
+Objects that hold the data
+---------------------------
+
+class AllLocationData holds two lists, one is a list of locations
+(read from the suppose.loc file) and the other is a list of groups
+(created by reading all of the .slf files referenced in the
+suppose.loc file.
+
+Each location is stored as an instance of class ExLocation:CStringRWC.
+One of the data members is a list of all the stands at the location.
+Another data member is a list of all the groups that are represented
+at the location.
+
+Each stand is stored as an instance of class ExStand:CStringRWC.  The
+stands membership in groups is stored in a member list.
+
+Each group is stored as an instance of class ExGroup:CStringRWC.  The
+locations where at least one stand exists that is a member of the
+group are stored in a member list.
+
+The usage notes in alllocd.hpp provide information on how this set of
+classes are used.
+
+---------------------------
+Select Simulations Stands
+---------------------------
+
+When the Select Simulations Stands window is opened (class
+SelectSimStandWin:CWindow), an instance of AllLocationData is
+created.  The data in this structure are used to load the pick lists
+in the window and to convert chosen ExStands into Stands.    
+
+---------------------------
+Related files:
+---------------------------
+
+alllocd.?pp
+selectsi.?pp
+
+---------------------------
+Thoughts:
+---------------------------
+
+1.  Some of the data, like the contents of the .slf records, are
+stored as character vectors.  They should be stored as CStringRW data.
+The fact that they are character vectors (in fact, simply pointers to
+char), means that the data are not easily manipulated.  This caused
+some coding errors in early releases and makes changing the program
+difficult as coding errors could easily creep back into the code if
+changes are made.
+
+2.  The "Stand Locations Editor" and "Stand List File Editor" also
+store the information about locations and stands.  The classes used
+those cases are separate and different from the classes used in this
+case.  This was done because each data element in the files needed to
+be editable (see file editslf.hpp and not how class
+SLFRecord:CStringRWC is constructed).  In the AllLocationData class
+structure, the data are not editable.  The editors were written over a
+year after the AllLocationData were constructed so a consistent
+approach was not designed at the start of development.
+

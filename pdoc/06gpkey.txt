@@ -1,0 +1,117 @@
+---------------------------------------------------------------------------
+                Chapter 6--The General Purpose Screen Builder
+
+                   Date of Last Revision: December 30, 1997
+---------------------------------------------------------------------------
+
+Nearly all keywords are supported using a "facility" called the
+General Purpose Keyword facility.  This is a window that builds basic
+elements by default, including the component title, a CScroller, and
+these buttons: OK, Use Parms, Reset, and Close.  The technique has
+been extended to support some parts of the free form edit window
+(a.k.a the expression editor).
+
+Read the on line help file entries to understand the supporting terms
+and purpose of the GPKeyword facility.
+
+When the user presses the "Use FVS Keywords" button, Suppose creates
+an instance of UseFVSKey:CWwindow.  This window displays keywords
+organized by FVS extension, category within the extension, and then
+the keywords.  The data for this information are loaded from
+the parms file MSText sections named: keycats, exten, and
+keyword_list.
+
+When a keyword is selected, and the Accept button pushed,
+UseFVSKey::LaunchKeywordWindow is called.  This method usually creates
+a new instance of GPKeyword for the keyword.  LaunchKeywordWindow
+contains a table that allows any keyword to be supported with any
+window.  So, creating a special window to support a keyword is simply
+done by adding the relationship between the keyword and the window in
+the table and launching the correct window.
+
+GPKeyword can alternatively be started from the Edit Simulation
+window.  In this case, the keyword's component already exists but the
+user desires to change some setting(s).  A lot of complicated code
+exists in GPKeyword to handle these two alternative modes (see
+Thoughts, below for some comments on this matter).
+
+Note that GPKeyword does not create a component until the OK button is
+pushed (unless it is editing a component, in which case it never
+creates one).  It also maintains a relationship between a keyword
+component and its condition, when a related condition exists.
+
+---------------------------
+The CScroller
+---------------------------
+
+The graphical elements of a keyword are loaded into a CScroller a
+regular function called BuildField (see spfuncs.?pp).  Companion
+functions are used to BuildTheKeywords, ResetObjects, BuildCParms, and
+so on.  Read the spfuncs.cpp file understand the basic functions that
+support loading the CScroller and the keywords.
+
+To add a new graphical element to the list of those supported with the
+GPKeyword facility simply requires that the functions in spfuncs.?pp
+be modified according to the needs of the new graphical element.
+
+Note that the functions in spfuncs.?pp are used by express.?pp to
+support setting function arguments.
+
+---------------------------
+Related files:
+---------------------------
+
+parms/keylist.prm
+parms/exten.prm
+parms/keycats.prm
+parms/*.kwd
+
+src/usekey.?pp
+src/gpkey.?pp
+src/boxsldr.?pp
+src/schedobj.?pp
+src/schcond.?pp
+src/express.?pp
+src/spfuncs.?pp
+
+and a few others, see the include file list in gpkey.cpp
+
+---------------------------
+Thoughts:
+---------------------------
+
+1.  GPKeyword works differently when it is creating a new keyword
+component (where Cancel means don't create the component, among other
+things) and when it is editing an existing component (where Cancel
+means don't save the changes to the existing component).  Best C++
+programming would be to identify the common program elements for these
+two approaches and place them in a supporting class that is inherited
+from two new classes that each have only one mode.  This was not
+done.
+
+2.  There is another class, called CMgtClassWindow (cmgtclas.?pp),
+that duplicates much of the code in GPKeyword for supporting editing
+verses creating components and the program logic to handle related
+condition components (IF-Then).  GPKeyword should inherent form
+CMgtClassWindow but does not.
+
+3.  The code that deals with related condition components is different
+for the case where a component is being edited verses initially
+created.  GPKeyword suffers from very complex code to handle all the
+various cases.  This code was a source of many early core dumps and
+general protection faults.  If it is correct now (and it seems to
+work), then I am of the mind to LEAVE IT BE!  The "leave it be"
+approach is why item 2 was not done.
+
+4.  Many functions in spfuncs.cpp could have been more C++ like than
+C-like.  Any rewrite should take better advantage of the Rogue Wave
+string class manipulation functions and they are easy to use and work
+well (I used them a lot in other parts of the code). What is done is
+done, however.
+
+5.  Some may wonder why the function in spfuncs.?pp are not member
+functions of GPKeyword.  The reason is that these functions are called
+by other classes that do not have common inheritance (another C-like
+rather than C++-like feature of the code).
+
+

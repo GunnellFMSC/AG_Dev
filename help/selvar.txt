@@ -1,0 +1,64 @@
+HTOPIC SELVARWindow "Select Variant and Extension" variant extension run program command
+\fbSelect Variant and Extension\f0
+
+Suppose will automatically keep track of the FVS \bvarianT:variant\b
+and \bextenS:extensions\b you need to run your simulation.  By picking
+stands and other options that require a specific variant or extension,
+Suppose determines the FVS \bprograM:program\b that contains the
+required features and selects it to run your simulation.  Given the
+program is selected, Suppose also picks the correct
+\bcommanD:command\b used to run the program on the computer you are
+using.
+
+It is best to let Suppose pick these items automatically.
+
+You can use this window to either simply view the selections Suppose
+has made or to manually pick a \bvarianT:variant\b, a desired set of 
+\bextenS:extensions\b, a \bprograM:program\b, and a \bcommanD:command\b.
+
+Be aware that the selections you make take immediate effect.  There is
+no \f1Cancel\f0 button!  
+
+The elements of the window and their behaviors are as follows:
+
+\f1FVS Variants\f0 list button can be used to select a desired variant
+from a list of currently legal variants.  Variants are deemed legal if
+using them is consistent with selections you have already made for the
+simulation you are constructing.  For example, if you have selected an
+FVS keyword that is part of an extension, and "OKed" the keyword so
+that it is in the simulation, then that extension is "required".  Only
+variants that are part of programs that contain the required extension
+are legal.
+
+You can lock your variant selection.  Locking a variant means that no
+other variant can be used.  From that point on, in the Suppose run,
+only programs that contain the locked variant are legal.  And, only
+extensions in the legal programs are legal.
+
+\f1FVS Program\f0 list button provides a list of programs that are
+currently legal.  If you select a program, the variant it contains
+becomes the selected variant and extensions it contains are marked as
+selected.  If you lock a program, then the variant and extension set
+is also locked.
+
+\f1Run Command\f0 list button will provide the ability to change the run
+command.  In Suppose Version 1, this feature is not implemented.
+
+\f1FVS Extensions\f0 list box allows you to select extensions you
+desire.  You can pick more than one extension using the multiple
+selection methods for list boxes.  Suppose attempts to find a program that
+contains all the selected extensions and also contains the currently
+selected variant.  If it can not find a program that contains the
+currently selected variant, and furthermore if the variant selection
+is not locked, then Suppose will search for any program that contains
+the desired extensions changing the selected variant if necessary.
+
+You can lock the extension set causing Suppose to insure that the
+locked extensions are in all legal programs.  Locking the extensions
+is a button rather than a check box because locking one set of 
+extensions may not preclude locking some additional extensions.  
+
+\f1Close\f0 simply closes the window.  As stated above, all selections
+take place as they are made.  There is no way to cancel or undo your
+unwanted selections.
+

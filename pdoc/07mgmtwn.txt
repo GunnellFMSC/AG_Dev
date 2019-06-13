@@ -1,0 +1,65 @@
+---------------------------------------------------------------------------  
+                      Chapter 7--The Management windows
+
+                   Date of Last Revision: February 9, 1998
+---------------------------------------------------------------------------
+
+The management window is the one that opens when the user presses the
+"Select Management Actions" button on the main window.
+
+The class is CMngWin:CcatWin:CWwindow:CWindow.  CWwindow provides base
+window support and relates the help topics to menu items.  CcatWin
+provides a "Category-Item" relationship in twin list boxes.  The first
+list is a list of categories, the second a list of items in each
+category.  The user selects an item, and the window that supports that
+item is launched.
+
+However, CcatWin is an abstract class in that it does not provide this
+behavior to a specific list of categories and items.  For that,
+CMngWin is used.  This class processes the list in the parameter file
+stored as MSText mgmtCategories.  Each item is related to an actual
+object name in this list.
+
+Note that the source code in CMngWin must be updated if new windows
+are written to provide functionality beyond those CMngWin can open.
+
+Once an item is selected by the user, the Window that supports the
+management action is opened.  These windows are either based on the
+GPSB or class CMgtClassWindow:CWwindow:CWindow 
+
+This class provides the bases for all the management windows that are
+built without using the GPSB.  It has the built in tools necessary to
+handle creating components and relating them to condition components.
+It can deal with a component that is being edited verses one that is
+being created.  The code for these various states is complicated.
+Future management windows should also be based on CMgtClassWindow.
+For a recent example of this window, see
+PlantNaturalWin:CMgtClassWindow:CWwindow:CWindow in the files
+plantwin.?pp. 
+
+---------------------------
+Related files:
+---------------------------
+
+cmngwin.?pp
+ccatwin.?pp
+cmgtclas.?pp
+clearwin.?pp
+seedwin.?pp
+sheltwin.?pp
+thinwin.?pp
+plantwin.?pp
+
+mgmtcats.prm
+
+---------------------------
+Thoughts:
+---------------------------
+
+1.  The "Select Model Outputs" and "Select Ecosystem Components"
+components of Suppose should be build to work like the management
+window.  That is, each should be based on a class that directly
+inherits from CcatWin:CWwindow:CWindow.  The parms file can then be
+used to load the categories and action lists and relate them to
+actions.  The GPSB could be used to build some of the windows and
+CMgtClassWindow can be the basis of others.

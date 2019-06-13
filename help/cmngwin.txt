@@ -1,0 +1,32 @@
+HTOPIC CMNGWINWindow  "Management Actions" management_actions 
+\fbManagement Actions Window\f0
+
+There are two lists in the Management Actions window.  The first list
+is a set of categories of actions.  When you select one of the
+categories, the second list is filled with actions within the selected
+category.  Selection of an action in the second list causes Suppose to
+start the window that is used to set up the management action.
+
+Many of the management actions windows have help entries of their
+own.  However, some management actions are supported directly with FVS
+keyword entry windows.  For those window, read the instructions at the
+bottom of the scrollable area of the keyword entry screen.
+
+Suppose limits the list of categories and management actions to those
+that the can be run using the FVS \bprograM:program\b being used.
+Therefore, the list of available actions will vary depending on the
+\bvarianT:variant\b and \bextenS:extensions\b available in the
+program.  Furthermore, this list may change as you make selections.
+That is, the selection of one option may result in Suppose eliminating
+other selections. 
+
+See these related topics:
+
+\n
+\lCLEARWINWindow:Clearcut\l
+\lSHELTWINWindow:One Entry Shelterwood\l
+\lSEEDWINWindow:Seedtree\l
+\lTHINWINWindow:Thin from Above or Below\l
+\lPLANTNATURALWindow:Planting and Natural Regeration\l
+\w
+

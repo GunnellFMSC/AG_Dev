@@ -1,0 +1,84 @@
+//start programs
+
+FVSak     {ak estb dbs mist fire econ cover}        :{}
+
+FVSbm     {bm fire econ strp dbs climate cover mist wsbwd dfb lpmpb armwrd3 phewrd3 ardwrd3}  :{}
+FVSbmc    {bm fire econ strp dbs climate cover mist}        :{}
+
+FVSca     {ca fire econ strp dbs mist climate cover}        :{}
+FVScac    {ca fire econ strp dbs mist climate cover}        :{}
+
+FVSci     {ci fire econ estb dbs climate cover mist fire wsbwd dfb lpmpb armwrd3 phewrd3 ardwrd3}  :{}
+FVScic    {ci fire econ estb dbs climate cover mist}        :{}
+FVScib    {ci fire econ estb dbs cover mist bgc}        :{}
+
+FVScr     {cr fire econ strp dbs climate mist cover lpmpb armwrd3 phewrd3 ardwrd3 wpbr} :{}
+FVScr     {sw fire econ strp dbs climate mist cover lpmpb armwrd3 phewrd3 ardwrd3 wpbr} :{}
+FVScr     {sp fire econ strp dbs climate mist cover lpmpb armwrd3 phewrd3 ardwrd3 wpbr} :{}
+FVScr     {bp fire econ strp dbs climate mist cover lpmpb armwrd3 phewrd3 ardwrd3 wpbr} :{}
+FVScr     {sf fire econ strp dbs climate mist cover lpmpb armwrd3 phewrd3 ardwrd3 wpbr} :{}
+FVScr     {lp fire econ strp dbs climate mist cover lpmpb armwrd3 phewrd3 ardwrd3 wpbr} :{}
+
+FVScrc     {cr fire econ strp dbs mist climate cover}        :{}
+FVScrc     {sw fire econ strp dbs mist climate cover}        :{}
+FVScrc     {sp fire econ strp dbs mist climate cover}        :{}
+FVScrc     {bp fire econ strp dbs mist climate cover}        :{}
+FVScrc     {sf fire econ strp dbs mist climate cover}        :{}
+FVScrc     {lp fire econ strp dbs mist climate cover}        :{}
+
+FVScrb     {cr fire econ strp dbs mist cover bgc}        :{}
+FVScrb     {sw fire econ strp dbs mist cover bgc}        :{}
+FVScrb     {sp fire econ strp dbs mist cover bgc}        :{}
+FVScrb     {bp fire econ strp dbs mist cover bgc}        :{}
+FVScrb     {sf fire econ strp dbs mist cover bgc}        :{}
+FVScrb     {lp fire econ strp dbs mist cover bgc}        :{}
+
+FVScs     {cs strp dbs fire econ}                   :{}
+
+FVSec     {ec strp dbs cover mist fire climate econ wsbwd dfb lpmpb phewrd3 armwrd3 ardwrd3} :{}
+FVSecc    {ec strp dbs cover mist fire climate econ}   :{}
+
+FVSem     {em estb dbs cover mist fire climate econ wsbwd lpmpb phewrd3 armwrd3 ardwrd3} :{}
+FVSemc    {em estb dbs cover mist fire climate econ}   :{}
+
+FVSkt     {kt estb dbs cover mist fire climate econ lpmpb phewrd3 armwrd3 ardwrd3} :{}
+FVSktc    {kt estb dbs cover mist fire climate econ}   :{}
+
+FVSie     {ie estb dbs cover mist fire climate econ dfb lpmpb armwrd3 phewrd3 ardwrd3 wpbr} :{}
+FVSiec    {ie estb dbs climate cover mist fire econ}   :{}
+
+FVSls     {ls dbs strp fire econ}              :{}
+
+FVSnc     {nc strp dbs cover mist fire econ climate phewrd3 armwrd3 ardwrd3} :{}
+FVSncc    {nc strp dbs cover mist fire econ climate}   :{}
+
+FVSne     {ne dbs strp fire econ}                   :{}
+
+FVSni     {ni estb dbs cover mist fire econ climate wsbwd dfb lpmpb armwrd3 phewrd3 ardwrd3 wpbr} :{}
+FVSnic    {ni estb dbs cover mist fire econ climate}   :{}
+
+FVSoc     {oc fire econ strp dbs mist climate cover organon}        :{}
+
+FVSop     {op strp dbs mist fire econ climate cover dfb armwrd3 phewrd3 ardwrd3 organon} :{}
+
+FVSpn     {pn strp dbs mist fire econ climate cover dfb armwrd3 phewrd3 ardwrd3} :{}
+FVSpnc    {pn strp dbs mist fire econ climate cover}         :{}
+
+FVSsn     {sn dbs strp fire econ}              :{}
+
+FVSso     {so strp dbs cover mist fire econ climate wsbwd lpmpb phewrd3 armwrd3 ardwrd3 wpbr} :{}
+FVSsoc    {so strp dbs cover mist fire econ climate}   :{}
+
+FVStt     {tt fire strp dbs cover mist climate econ wsbwd dfb lpmpb phewrd3 armwrd3 ardwrd3} :{}
+FVSttc    {tt fire strp dbs cover mist econ climate}   :{}
+
+FVSut     {ut strp dbs cover mist fire climate econ dfb lpmpb phewrd3 armwrd3 ardwrd3} :{}
+FVSutc    {ut strp dbs cover mist fire econ climate}   :{}
+
+FVSwc     {wc strp dbs mist fire climate econ cover phewrd3 armwrd3 ardwrd3} :{}
+FVSwcc    {wc strp dbs mist fire econ climate cover}         :{}
+
+FVSws     {ws strp dbs cover mist fire climate econ phewrd3 armwrd3 ardwrd3} :{}
+FVSwsc    {ws strp dbs cover mist fire econ climate}   :{}
+
+//end   programs
