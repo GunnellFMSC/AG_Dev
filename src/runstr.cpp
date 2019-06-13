@@ -106,7 +106,7 @@ int RunStream::WriteRun (FILE * filePtr)
 
    if (allStands->entries())
    {
-      fprintf (filePtr,"!!Suppose 2.07 %s %d %d\n",  //Updated 01/24/2018
+      fprintf (filePtr,"!!Suppose 2.08 %s %d %d\n",  //Updated 04/02/2019
          theSpGlobals->theVariants->GetSelectedVariant(),
          theSpGlobals->theVariants->isPPEBeingUsed,
          theSpGlobals->theVariants->PPEUseIsLocked);

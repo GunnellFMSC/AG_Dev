@@ -455,7 +455,7 @@ void * BuildField(CWindow * theParent, int theCommandNumber,
          }
          else
          {
-            if (!ptrS) ptrS = "Forests";
+            if (!ptrS) ptrS = " ";
             nItems = theSpGlobals->theForests->getNumberItems();
          }
 
@@ -499,10 +499,14 @@ void * BuildField(CWindow * theParent, int theCommandNumber,
                count++;
             }
          }
-
-         theAnswer = new NListButton((CSubview*) theWindow,
-                     CRect(342,*startPoint,552,(*startPoint)+240),
-                     *listButtonList, 0L);
+		 if (*ptrS != ' ')
+			 theAnswer = new NListButton((CSubview*)theWindow,
+				 CRect(342, *startPoint, 552, (*startPoint) + 240),
+				 *listButtonList, 0L);
+		 else
+			 theAnswer = new NListButton((CSubview*)theWindow,
+				 CRect(8, *startPoint, 552, (*startPoint) + 152),
+				 *listButtonList, 0L);
 
          ((NListButton *) theAnswer)->SelectItem(position);
 
@@ -1130,6 +1134,11 @@ int BuildTheKeywords(MSText * theMSText,
       }
    }
    theAnswer[usedCount]=NULL;
+
+   for (int i = 0; theAnswer[i] != NULL; i++)		// Check the char pointer for "{blank}", remove it if it occurs
+	   if (theAnswer[i] == '{' && theAnswer[i + 1] == 'b' && theAnswer[i + 2] == 'l' && theAnswer[i + 3] == 'a' && theAnswer[i + 4] == 'n' && theAnswer[i + 5] == 'k' && theAnswer[i + 6] == '}')
+		   for (int j = i; j < i + 7; j++)			// replace "{blank}" with spaces for duration
+			   theAnswer[j] = ' ';
 
    if (typeOfAnswer)
       theAnswerString = theAnswer;

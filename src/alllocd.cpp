@@ -446,8 +446,8 @@ void ExLocation::LoadLocationData( void )
       case CT_MSEXCEL03:
       case CT_SQLITE:
       {
-        isProcessPlotsBeingUsed = theSpGlobals->thePreferences->defaultProcessPlots;
-        //Check to see if plot table exists... 1 = Yes, 0 = No
+        databaseTableSelection = theSpGlobals->thePreferences->defaultProcessPlots;
+		//Check to see if plot table exists... 0 = No, 1 = Yes, 2 = Plots, 3 = Subplots, 4 = Conditions
           
          RWCString aSQLStmt;
          RWCString aCS;
@@ -500,14 +500,26 @@ void ExLocation::LoadLocationData( void )
          _RecordsetPtr aStandRS("ADODB.Recordset");
 
          // Open and populate the record set with stands from the following SQL
-         if(isProcessPlotsBeingUsed == 0)
+         if(databaseTableSelection == 0)
             aSQLStmt = (itsConnectionType == CT_MSEXCEL || itsConnectionType == CT_MSEXCEL03) 
                ? "Select * From [FVS_StandInit$] Where (1 = 0)"
                : "Select * From FVS_StandInit Where (1 = 0)";
-         else
-            aSQLStmt = (itsConnectionType == CT_MSEXCEL || itsConnectionType == CT_MSEXCEL03) 
-               ? "Select * From [FVS_PlotInit$] Where (1 = 0)"
-               : "Select * From FVS_PlotInit Where (1 = 0)";
+		 else if (databaseTableSelection == 1)
+			 aSQLStmt = (itsConnectionType == CT_MSEXCEL || itsConnectionType == CT_MSEXCEL03)
+			 ? "Select * From [FVS_PlotInit$] Where (1 = 0)"
+			 : "Select * From FVS_PlotInit Where (1 = 0)";
+		 else if (databaseTableSelection == 2)
+			 aSQLStmt = (itsConnectionType == CT_MSEXCEL || itsConnectionType == CT_MSEXCEL03)
+			 ? "Select * From [FVS_StandInit_Plot$] Where (1 = 0)"
+			 : "Select * From FVS_StandInit_Plot Where (1 = 0)";
+		 else if (databaseTableSelection == 3)
+			 aSQLStmt = (itsConnectionType == CT_MSEXCEL || itsConnectionType == CT_MSEXCEL03)
+			 ? "Select * From [FVS_PlotInit_Plot$] Where (1 = 0)"
+			 : "Select * From FVS_PlotInit_Plot Where (1 = 0)";
+		 else
+			 aSQLStmt = (itsConnectionType == CT_MSEXCEL || itsConnectionType == CT_MSEXCEL03)
+			 ? "Select * From [FVS_StandInit_Cond$] Where (1 = 0)"
+			 : "Select * From FVS_StandInit_Cond Where (1 = 0)";
          if (aStandOK)
          {
             try
@@ -521,14 +533,26 @@ void ExLocation::LoadLocationData( void )
          }
          if (nameForm == 1)
          {
-            if(isProcessPlotsBeingUsed == 0)
+            if(databaseTableSelection == 0)
                aSQLStmt = (itsConnectionType == CT_MSEXCEL || itsConnectionType == CT_MSEXCEL03) 
                   ? "Select * From [NRV_FVS_StandInit_VM$] Where (1 = 0)"
                   : "Select * From NRV_FVS_StandInit_VM Where (1 = 0)";
-            else 
+			else if (databaseTableSelection == 1)
                aSQLStmt = (itsConnectionType == CT_MSEXCEL || itsConnectionType == CT_MSEXCEL03) 
                   ? "Select * From [NRV_FVS_PlotInit_VM$] Where (1 = 0)"
                   : "Select * From NRV_FVS_PlotInit_VM Where (1 = 0)";
+			else if (databaseTableSelection == 2)
+				aSQLStmt = (itsConnectionType == CT_MSEXCEL || itsConnectionType == CT_MSEXCEL03)
+				? "Select * From [NRV_FVS_StandInit_Plot_VM$] Where (1 = 0)"
+				: "Select * From NRV_FVS_StandInit_Plot_VM Where (1 = 0)";
+			else if (databaseTableSelection == 3)
+				aSQLStmt = (itsConnectionType == CT_MSEXCEL || itsConnectionType == CT_MSEXCEL03)
+				? "Select * From [NRV_FVS_PlotInit_Plot_VM$] Where (1 = 0)"
+				: "Select * From NRV_FVS_PlotInit_Plot_VM Where (1 = 0)";
+			else if (databaseTableSelection == 4)
+				aSQLStmt = (itsConnectionType == CT_MSEXCEL || itsConnectionType == CT_MSEXCEL03)
+				? "Select * From [NRV_FVS_StandInit_Cond_VM$] Where (1 = 0)"
+				: "Select * From NRV_FVS_StandInit_Cond_VM Where (1 = 0)";
             try
             {
                aStandRS->Open(aSQLStmt.data(), aCS.data(), adOpenStatic, adLockReadOnly, adCmdText);
@@ -537,16 +561,8 @@ void ExLocation::LoadLocationData( void )
             {
                aStandOK = 0;
                char t[1024];
-               if(isProcessPlotsBeingUsed == 0)
-                  sprintf(t,"Database error processing location:\n  %s\n"
-                        "ADO error number: %08lx\nError message: %s\nConnection:\n  %s\nStatement:\n  %s\n"
-                        "Also failed using table name FVS_StandInit\n",
-                        this->data(), ce.Error(), ce.ErrorMessage(), aCS.data(), aSQLStmt.data());
-               else
-                  sprintf(t,"Database error processing location:\n  %s\n"
-                        "ADO error number: %08lx\nError message: %s\nConnection:\n  %s\nStatement:\n  %s\n"
-                        "Also failed using table name FVS_PlotInit\n",
-                        this->data(), ce.Error(), ce.ErrorMessage(), aCS.data(), aSQLStmt.data());
+			   sprintf(t, "**Input Database Table type selected in Modify Preferences not\n     compatible with your input database OR error with .loc file**\n"
+				   "\n\n\n\t        **Please check Preferences & .loc file**\n");
                Warn(t);
             }
          }
@@ -566,7 +582,7 @@ void ExLocation::LoadLocationData( void )
             CStringRW colName;
             aSQLStmt  = "Select";
             int fcomma = -1;
-            if(isProcessPlotsBeingUsed == 0)
+			if (databaseTableSelection == 0 || databaseTableSelection == 2 || databaseTableSelection == 4)
           {
             for (int i=0; i<nFieldCount; i++)
             {
@@ -598,11 +614,11 @@ void ExLocation::LoadLocationData( void )
                 fcomma++; if (fcomma) aSQLStmt += ","; haveGrp=1;
                 aSQLStmt += " GROUPS";
                }
-               else if (!colName.compareTo("ADDFILES",RWCString::ignoreCase)) 
+               /*else if (!colName.compareTo("ADDFILES",RWCString::ignoreCase)) 
                {
                 fcomma++; if (fcomma) aSQLStmt += ","; haveAdd=1;
                 aSQLStmt += " ADDFILES";
-               }
+               }*/
                else if (!colName.compareTo("FVSKEYWORDS",RWCString::ignoreCase)) 
                {
                 fcomma++; if (fcomma) aSQLStmt += ","; haveKey=1;
@@ -671,7 +687,7 @@ void ExLocation::LoadLocationData( void )
 
            if (aStandOK)
            {
-              if(isProcessPlotsBeingUsed ==0)
+              if(databaseTableSelection ==0)
             {
               if (itsConnectionType == CT_MSEXCEL || itsConnectionType == CT_MSEXCEL03)
                aSQLStmt += (nameForm == 1) ? " FROM [NRV_FVS_StandInit_VM$];" 
@@ -680,15 +696,42 @@ void ExLocation::LoadLocationData( void )
                aSQLStmt += (nameForm == 1) ? " FROM NRV_FVS_StandInit_VM;" 
                                            : " FROM FVS_StandInit;";
             }
-            else
-            {
-              if (itsConnectionType == CT_MSEXCEL || itsConnectionType == CT_MSEXCEL03)
-               aSQLStmt += (nameForm == 1) ? " FROM [NRV_FVS_PlotInit_VM$];" 
-                                           : " FROM [FVS_PlotInit$];";
-              else
-               aSQLStmt += (nameForm == 1) ? " FROM NRV_FVS_PlotInit_VM;" 
-                                           : " FROM FVS_PlotInit;";
-            }
+			  else if (databaseTableSelection == 1)
+			  {
+				  if (itsConnectionType == CT_MSEXCEL || itsConnectionType == CT_MSEXCEL03)
+					  aSQLStmt += (nameForm == 1) ? " FROM [NRV_FVS_PlotInit_VM$];"
+					  : " FROM [FVS_PlotInit$];";
+				  else
+					  aSQLStmt += (nameForm == 1) ? " FROM NRV_FVS_PlotInit_VM;"
+					  : " FROM FVS_PlotInit;";
+			  }
+			  else if (databaseTableSelection == 2)
+			  {
+				  if (itsConnectionType == CT_MSEXCEL || itsConnectionType == CT_MSEXCEL03)
+					  aSQLStmt += (nameForm == 1) ? " FROM [NRV_FVS_StandInit_Plot_VM$];"
+					  : " FROM [FVS_StandInit_Plot$];";
+				  else
+					  aSQLStmt += (nameForm == 1) ? " FROM NRV_FVS_StandInit_Plot_VM;"
+					  : " FROM FVS_StandInit_Plot;";
+			  }
+			  else if (databaseTableSelection == 3)
+			  {
+				  if (itsConnectionType == CT_MSEXCEL || itsConnectionType == CT_MSEXCEL03)
+					  aSQLStmt += (nameForm == 1) ? " FROM [NRV_FVS_PlotInit_Plot_VM$];"
+					  : " FROM [FVS_PlotInit_Plot$];";
+				  else
+					  aSQLStmt += (nameForm == 1) ? " FROM NRV_FVS_PlotInit_Plot_VM;"
+					  : " FROM FVS_PlotInit_Plot;";
+			  }
+			  else if (databaseTableSelection == 4)
+			  {
+				  if (itsConnectionType == CT_MSEXCEL || itsConnectionType == CT_MSEXCEL03)
+					  aSQLStmt += (nameForm == 1) ? " FROM [NRV_FVS_StandInit_Cond_VM$];"
+					  : " FROM [FVS_StandInit_Cond$];";
+				  else
+					  aSQLStmt += (nameForm == 1) ? " FROM NRV_FVS_StandInit_Cond_VM;"
+					  : " FROM FVS_StandInit_Cond;";
+			  }
 
               try
               {
@@ -713,10 +756,7 @@ void ExLocation::LoadLocationData( void )
          {
             while(!aStandRS->EndOfFile)
             {
-                if(isProcessPlotsBeingUsed == 0)
-              aV = aStandRS->Fields->GetItem("Stand_ID")->Value;
-            else 
-              aV = aStandRS->Fields->GetItem("StandPlot_ID")->Value;
+				aV = aStandRS->Fields->GetItem(databaseTableSelection == 1 || databaseTableSelection == 3 ? "StandPlot_ID" : "Stand_ID")->Value;
                 if (aV.GetVARIANT().vt == VT_NULL)
                 {
                    skip++;
@@ -737,10 +777,7 @@ void ExLocation::LoadLocationData( void )
                _bstr_t aCN;
               if (haveCN)
                {
-                  if(isProcessPlotsBeingUsed == 0)
-                aV = aStandRS->Fields->GetItem("Stand_CN")->Value;
-              else
-                aV = aStandRS->Fields->GetItem("StandPlot_CN")->Value;
+				  aV = aStandRS->Fields->GetItem(databaseTableSelection == 1 || databaseTableSelection == 3 ? "StandPlot_CN" : "Stand_CN")->Value;
                   if (aV.GetVARIANT().vt != VT_NULL)
                   {
                      aCN = aV;
@@ -848,10 +885,16 @@ void ExLocation::LoadLocationData( void )
             t.append("\nLocation: ");
             t.append(this->data());
             t.append("\nTable name: ");
-          if(isProcessPlotsBeingUsed == 0)
+          if(databaseTableSelection == 0)
             t.append((nameForm == 1) ? "NRV_FVS_StandInit_VM" : "FVS_StandInit");
-          else
-            t.append((nameForm == 1) ? "NRV_FVS_PlotInit_VM" : "FVS_PlotInit");
+		  else if (databaseTableSelection == 1)
+			  t.append((nameForm == 1) ? "NRV_FVS_PlotInit_VM" : "FVS_PlotInit");
+		  else if (databaseTableSelection == 2)
+			  t.append((nameForm == 1) ? "NRV_FVS_StandInit_Plot_VM" : "FVS_StandInit_Plot");
+		  else if (databaseTableSelection == 3)
+			  t.append((nameForm == 1) ? "NRV_FVS_PlotInit_Plot_VM" : "FVS_PlotInit_Plot");
+		  else if (databaseTableSelection == 4)
+			  t.append((nameForm == 1) ? "NRV_FVS_StandInit_Cond_VM" : "FVS_StandInit_Cond");
             t.append("\nNumber skipped: ");
             t.append(ConvertToString(skip));
             Warn (t.data());

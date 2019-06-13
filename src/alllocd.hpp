@@ -120,7 +120,7 @@ class ExLocation : public CStringRWC
       char * itsDSN;
       char * itsUid;
       char * itsPwd;
-      int    isProcessPlotsBeingUsed; // -1 = not set, 0 = no, 1 = yes
+	  int    databaseTableSelection; // 0 = No, 1 = Yes, 2 = Plots, 3 = Subplots, 4 = Conditions
 
 };
 

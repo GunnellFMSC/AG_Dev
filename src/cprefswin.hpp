@@ -36,8 +36,10 @@ private:
    NEditControl *itsDefaultEditor;
    NEditControl *itsDefaultUsePPE;
    NEditControl *itsDefaultSegmentCycle;
-   NEditControl *itsDefaultProcessPlots;
    NEditControl *itsDefaultWorkingDirectory;
+   RWCString databaseAnswers[5];
+
+   void  *itsDefaultProcessPlots;
 
    NButton *itsApply;
    NButton *itsClose;

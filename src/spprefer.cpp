@@ -144,7 +144,29 @@ void SpPreferences::upDateDefaultsFromPrefFile( void )
 
    // get the default value for segmenting the initial cycle, is this used?
    aTempStr = theSpGlobals->ReadPrefString("General Preferences", "defaultProcessPlots");
-   if (!aTempStr.empty()) defaultProcessPlots = tolower((int)aTempStr[0]) == (int)'y';
+   if (!aTempStr.empty())
+   {
+	   int asciiChar = tolower((int)aTempStr[0]);
+	   switch (asciiChar)// 0 = No, 1 = Yes, 2 = Plots, 3 = Subplots, 4 = Conditions
+	   {
+	   case (int)'n': //"Stands (FVS_StandInit)"
+	   default:
+		   defaultProcessPlots = 0;
+		   break;
+	   case (int)'y': //"Plots within stands (FVS_PlotInit)"
+		   defaultProcessPlots = 1;
+		   break;
+	   case (int)'p': //"Inventory Plots (FVS_StandInit_Plot Table, e.g.: FIA plots)"
+		   defaultProcessPlots = 2;
+		   break;
+	   case (int)'s': //"Inventory Subplots (FVS_PlotInit_Plot Table, e.g.: FIA subplots)"
+		   defaultProcessPlots = 3;
+		   break;
+	   case (int)'c': //"Conditions (FVS_StandInit_Cond Table, e.g.: FIA conditions)"
+		   defaultProcessPlots = 4;
+		   break;
+	   }
+   }
 
    // get the default working diectory.
    aTempStr = theSpGlobals->ReadPrefString("General Preferences", "defaultWorkingDirectory");
@@ -191,7 +213,27 @@ void SpPreferences::saveDefaultsToPrefFile( void )
    theSpGlobals->WritePrefString("General Preferences", "defaultSegmentCycle", (defaultSegmentCycle ? "y" : "n"));
 
    // save the default value of use PPE, is this used?
-   theSpGlobals->WritePrefString("General Preferences", "defaultProcessPlots", (defaultProcessPlots ? "y" : "n"));
+   RWCString dbOrganization;
+   switch (defaultProcessPlots)
+   {// 0 = No, 1 = Yes, 2 = Plots, 3 = Subplots, 4 = Conditions
+   case 0:
+   default:
+	   dbOrganization = "n";
+	   break;
+   case 1:
+	   dbOrganization = "y";
+	   break;
+   case 2:
+	   dbOrganization = "p";
+	   break;
+   case 3:
+	   dbOrganization = "s";
+	   break;
+   case 4:
+	   dbOrganization = "c";
+	   break;
+   }
+   theSpGlobals->WritePrefString("General Preferences", "defaultProcessPlots", dbOrganization);
 
    // save the default working diectory.
    if (!defaultWorkingDirectory.isNull())

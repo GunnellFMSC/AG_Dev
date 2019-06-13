@@ -112,13 +112,11 @@ CsupposeDoc::CsupposeDoc (CApplication *theApplication,int theId )
 
    if (!helpInfo)
    {
-      RWCString tmpName = theSpGlobals->theCommandLine->getFVSBIN();
-      tmpName += SEPARATOR;
-      if (temp) tmpName += temp;
-      else      tmpName += "suppose";
-      tmpName += ".csc";
-      strcpy(itsHelpFilePointer.name, tmpName.data());
-      helpInfo = xvt_help_open_helpfile(&itsHelpFilePointer,0L);  // open it
+	   std::string holder = theSpGlobals->theCommandLine->getFVSBIN();		// put FVSBIN path into holder
+	   char *str = new char[holder.length()];
+	   strcpy(str, holder.c_str());											// copy to str pointer
+	   xvt_fsys_convert_str_to_dir(str, &(itsHelpFilePointer.dir));			// put path in itsHelpFilePointer
+	   helpInfo = xvt_help_open_helpfile(&itsHelpFilePointer, 0L);			// open it
       if (!helpInfo) Warn ("Can't open help file.");
    }
 

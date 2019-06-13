@@ -12,10 +12,12 @@ see cprefswin.hpp for notes.
 #include "cprefswin.hpp"
 #include "spfunc2.hpp"
 
+#include CStringCollection_i
 #include CEnvironment_i
 #include CText_i
 #include CWindow_i
 #include NButton_i
+#include NListButton_i
 #include NEditControl_i
 #include "opsys.hpp"
 
@@ -28,9 +30,10 @@ see cprefswin.hpp for notes.
 
 ////////////////////////////////////////////////////////////////////////////
 CPrefsWin::CPrefsWin(CDocument *theDocument)
-: CWindow(theDocument, CenterWinPlacement(CRect(0, 0, 600, 400)),
-          "Modify Preferences", WSF_NO_MENUBAR, W_MODAL)
+	: CWindow(theDocument, CenterWinPlacement(CRect(0, 0, 640, 392)),
+		"Modify Preferences", WSF_NO_MENUBAR, W_MODAL)
 {
+	int inputBoxWidth = 617;
    // Set modification flag
    itsModified = FALSE;
 
@@ -41,72 +44,111 @@ CPrefsWin::CPrefsWin(CDocument *theDocument)
 
    // Display default variant identifier
    new CText(this, CPoint(25, (1*kCtlHeight)), "Default Variant:");
-   itsDefaultVariant = new NEditControl(this, CRect(220, (1*kCtlHeight)-2, 575, (2*kCtlHeight)-2),
+   itsDefaultVariant = new NEditControl(this, CRect(220, (1 * kCtlHeight) - 2, inputBoxWidth, (2 * kCtlHeight) - 2),
       theSpGlobals->thePreferences->defaultVariant);
    itsDefaultVariant->SetTextCommand(CMD_MODIFIED);
 
    // Display default locations file name
    new CText(this, CPoint(25, (2*kCtlHeight)), "Default Locations File:");
-   itsDefaultLocationsFileName = new NEditControl(this, CRect(220, (2*kCtlHeight)-2, 575, (3*kCtlHeight)-2),
+   itsDefaultLocationsFileName = new NEditControl(this, CRect(220, (2 * kCtlHeight) - 2, inputBoxWidth, (3 * kCtlHeight) - 2),
       theSpGlobals->thePreferences->defaultLocationsFileName);
    itsDefaultLocationsFileName->SetTextCommand(CMD_MODIFIED);
 
    // Display default parameters file name
    new CText(this, CPoint(25, (3*kCtlHeight)), "Default Parameters File:");
-   itsDefaultParametersFileName = new NEditControl(this, CRect(220, (3*kCtlHeight)-2, 575, (4*kCtlHeight)-2),
+   itsDefaultParametersFileName = new NEditControl(this, CRect(220, (3 * kCtlHeight) - 2, inputBoxWidth, (4 * kCtlHeight) - 2),
       theSpGlobals->thePreferences->defaultParametersFileName);
    itsDefaultParametersFileName->SetTextCommand(CMD_MODIFIED);
 
    // Display default post processior information file name
    new CText(this, CPoint(25, (4*kCtlHeight)), "Default Database Name:");
-   itsDefaultDataBaseName = new NEditControl(this, CRect(220, (4*kCtlHeight)-2, 575, (5*kCtlHeight)-2),
+   itsDefaultDataBaseName = new NEditControl(this, CRect(220, (4 * kCtlHeight) - 2, inputBoxWidth, (5 * kCtlHeight) - 2),
       theSpGlobals->thePreferences->defaultDataBaseName);
    itsDefaultDataBaseName->SetTextCommand(CMD_MODIFIED);
 
    // Display default PPE is used
    new CText(this, CPoint(25, (5*kCtlHeight)), "PPE Used:");
-   itsDefaultUsePPE = new NEditControl(this, CRect(220, (5*kCtlHeight)-2, 575, (6*kCtlHeight)-2),
+   itsDefaultUsePPE = new NEditControl(this, CRect(220, (5 * kCtlHeight) - 2, inputBoxWidth, (6 * kCtlHeight) - 2),
       (theSpGlobals->thePreferences->defaultUsePPE ? "Yes" : "No"));
    itsDefaultUsePPE->SetTextCommand(CMD_MODIFIED);
 
    // Display default editor
    new CText(this, CPoint(25, (6*kCtlHeight)), "Default Editor:");
-   itsDefaultEditor = new NEditControl(this, CRect(220, (6*kCtlHeight)-2, 575, (7*kCtlHeight)-2),
+   itsDefaultEditor = new NEditControl(this, CRect(220, (6 * kCtlHeight) - 2, inputBoxWidth, (7 * kCtlHeight) - 2),
       theSpGlobals->thePreferences->defaultEditor);
    itsDefaultEditor->SetTextCommand(CMD_MODIFIED);
 
    // Display default for segmenting the initial cycle is used
    new CText(this, CPoint(25, (7*kCtlHeight)), "Segment the initial cycle:");
-   itsDefaultSegmentCycle = new NEditControl(this, CRect(220, (7*kCtlHeight)-2, 575, (8*kCtlHeight)-2),
+   itsDefaultSegmentCycle = new NEditControl(this, CRect(220, (7 * kCtlHeight) - 2, inputBoxWidth, (8 * kCtlHeight) - 2),
       (theSpGlobals->thePreferences->defaultSegmentCycle ? "Yes" : "No"));
    itsDefaultSegmentCycle->SetTextCommand(CMD_MODIFIED);
 
    // Display default for segmenting the initial cycle is used
-   new CText(this, CPoint(25, (8*kCtlHeight)), "Process plots as stands:");
-   itsDefaultProcessPlots = new NEditControl(this, CRect(220, (8*kCtlHeight)-2, 575, (9*kCtlHeight)-2),
-      (theSpGlobals->thePreferences->defaultProcessPlots ? "Yes" : "No"));
-   itsDefaultProcessPlots->SetTextCommand(CMD_MODIFIED);
+   databaseAnswers[0] = "Stands (FVS_StandInit)";
+   databaseAnswers[1] = "Plots within stands (FVS_PlotInit)";
+   databaseAnswers[2] = "Inventory Plots (FVS_StandInit_Plot)(e.g.: FIA plots)";
+   databaseAnswers[3] = "Inventory Subplots (FVS_PlotInit_Plot)(e.g.: FIA subplots)";
+   databaseAnswers[4] = "Conditions (FVS_StandInit_Cond)(e.g.: FIA conditions)";
+   new CText(this, CPoint(25, (8 * kCtlHeight)), "Input Database Table");
+   RWCString dbOrganization;
+   switch (theSpGlobals->thePreferences->defaultProcessPlots)
+   {// 0 = No, 1 = Yes, 2 = Plots, 3 = Subplots, 4 = Conditions
+   case 0:
+   default:
+	   dbOrganization = databaseAnswers[0].data();
+	   break;
+   case 1:
+	   dbOrganization = databaseAnswers[1].data();
+	   break;
+   case 2:
+	   dbOrganization = databaseAnswers[2].data();
+	   break;
+   case 3:
+	   dbOrganization = databaseAnswers[3].data();
+	   break;
+   case 4:
+	   dbOrganization = databaseAnswers[4].data();
+	   break;
+   }
+
+   RWOrdered * listButtonList = new RWOrdered(5);
+   CStringRWC * dropboxOption = new CStringRWC(databaseAnswers[0].data());
+   listButtonList->insert(dropboxOption);
+   CStringRWC *dropboxOption2 = new CStringRWC(databaseAnswers[1].data());
+   listButtonList->insert(dropboxOption2);
+   CStringRWC *dropboxOption3 = new CStringRWC(databaseAnswers[2].data());
+   listButtonList->insert(dropboxOption3);
+   CStringRWC *dropboxOption4 = new CStringRWC(databaseAnswers[3].data());
+   listButtonList->insert(dropboxOption4);
+   CStringRWC *dropboxOption5 = new CStringRWC(databaseAnswers[4].data());
+   listButtonList->insert(dropboxOption5);
+   itsDefaultProcessPlots = new NListButton((CSubview*)this,
+	   CRect(220, (8 * kCtlHeight) - 2, inputBoxWidth, (9 * kCtlHeight) + 152),
+	   *listButtonList, 0L);
+   ((NListButton *)itsDefaultProcessPlots)->SetCommand(CMD_MODIFIED);
+   ((NListButton *)itsDefaultProcessPlots)->SelectItem(theSpGlobals->thePreferences->defaultProcessPlots);
 
    // Display default current working direcotry
    new CText(this, CPoint(25, (9*kCtlHeight)), "Default Working Directory:");
-   itsDefaultWorkingDirectory = new NEditControl(this, CRect(220, (9*kCtlHeight)-2, 575, (10*kCtlHeight)-2),
+   itsDefaultWorkingDirectory = new NEditControl(this, CRect(220, (9 * kCtlHeight) - 2, inputBoxWidth, (10 * kCtlHeight) - 2),
       theSpGlobals->thePreferences->defaultWorkingDirectory);
    itsDefaultWorkingDirectory->SetTextCommand(CMD_MODIFIED);
 
    // Apply and Close
-   itsSetDir = new NButton(this, CRect(220, (10*kCtlHeight)+4, 575, (11*kCtlHeight)+4), 
+   itsSetDir = new NButton(this, CRect(220, (10 * kCtlHeight) + 4, inputBoxWidth, (11 * kCtlHeight) + 4),
                            "Set Default to Current Working Directory");
    itsSetDir->SetCommand(CMD_SETDIR);
 
    // Instructions
-   double tempHolder = 11.7*kCtlHeight; //Variable created and next line edited to remove compiler warning (C4305)
+   double tempHolder = 11.4*kCtlHeight; //Variable created and next line edited to remove compiler warning (C4305)
    new CText(this, CPoint(25, (tempHolder)), "Applied changes will take effect upon next use of Suppose."); 
 
    // Apply and Close
-   itsApply = new NButton(this, CRect(125, (13*kCtlHeight), 275, (14*kCtlHeight)), "Apply");
+   itsApply = new NButton(this, CRect(125, (int)(12.7*kCtlHeight), 275, (int)(13.7*kCtlHeight)), "Apply");
    itsApply->SetCommand(CMD_APPLY);
 
-   itsClose = new NButton(this, CRect(325, (13*kCtlHeight), 475, (14*kCtlHeight)), "Close", CTL_FLAG_DEFAULT);
+   itsClose = new NButton(this, CRect(325, (int)(12.7*kCtlHeight), 475, (int)(13.7*kCtlHeight)), "Close", CTL_FLAG_DEFAULT);
    itsClose->SetCommand(CMD_CLOSE);
 
    // Ensure objects created in the constructor are updated are drawn.
@@ -143,18 +185,16 @@ void CPrefsWin::DoCommand(long theCommand,void* theData)
             theSpGlobals->thePreferences->defaultEditor = itsDefaultEditor->GetTitle().strip(RWCString::both, ' ');
 
             // Update default PPE is used
-//            RWCString aPrefValue = itsDefaultSegmentCycle->GetTitle().strip(RWCString::both, ' ');
             aPrefValue = itsDefaultSegmentCycle->GetTitle().strip(RWCString::both, ' ');
 			if (!aPrefValue.isNull())
                theSpGlobals->thePreferences->defaultSegmentCycle = tolower((int)aPrefValue[0]) == (int)'y';
 			
 			// Update default PPE is used
-//            RWCString aPrefValue = itsDefaultSegmentCycle->GetTitle().strip(RWCString::both, ' ');
-            aPrefValue = itsDefaultProcessPlots->GetTitle().strip(RWCString::both, ' ');
+			aPrefValue = ((NListButton *)itsDefaultProcessPlots)->GetFirstSelectedItem();
 			if (!aPrefValue.isNull())
-               theSpGlobals->thePreferences->defaultProcessPlots = tolower((int)aPrefValue[0]) == (int)'y';
-
-			// Update default current working direcotry
+				for (int i = 0; i <= 4; i++) // 0 = No, 1 = Yes, 2 = Plots, 3 = Subplots, 4 = Conditions
+					if (strcmp(aPrefValue.data(), databaseAnswers[i].data()) == 0)
+						theSpGlobals->thePreferences->defaultProcessPlots = i;
             theSpGlobals->thePreferences->defaultWorkingDirectory = itsDefaultWorkingDirectory->GetTitle().strip(RWCString::both, ' ');
             theSpGlobals->thePreferences->saveDefaultsToPrefFile();
             SpChangeDirectory(theSpGlobals->thePreferences->defaultWorkingDirectory);

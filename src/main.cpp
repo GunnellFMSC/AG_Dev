@@ -117,8 +117,8 @@ int main(int argc, char* argv[], char* envp[])
 #endif
 
    // start the application.
-   // Version incremented 01/24/2018
-   char * sTitle = "Suppose v2.07";
+   // Version incremented 04/02/2019
+   char * sTitle = "Suppose v2.08";
 
    CsupposeApp theApplication;
    theApplication.Go(argc, argv, TASK_MENUBAR, 0,

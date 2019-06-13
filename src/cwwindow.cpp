@@ -6,7 +6,7 @@
 
    Purpose:
 
-   CWwindow class is an instance of CWindow.  Its purpose is to use it as
+   CWwindow class inherits from CWindow.  Its purpose is to use it as
    the base class for instancing other windows.
 
  *                                                                  *

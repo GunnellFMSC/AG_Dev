@@ -86,8 +86,10 @@ std::string SpGlobal::GetMyDocumentsPath(void)
 
 std::string SpGlobal::GetPrefFilePath(void)
 {
-	std::string dirPath = "C:\\FVSbin";
-	return dirPath;
+	char buffer[MAX_PATH];
+	GetModuleFileName(NULL, buffer, MAX_PATH);
+	std::string::size_type pos = std::string(buffer).find_last_of("\\/");
+	return std::string(buffer).substr(0, pos);
 }
 
 std::string SpGlobal::ReadPrefString(const char* theSection, const char* theKey)
