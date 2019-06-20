@@ -292,7 +292,7 @@ CRect AdjWinPlacement(CRect theRect)
 
    UNITS aWidth = (UNITS)xvt_vobj_get_attr(NULL_WIN, ATTR_DOCFRAME_WIDTH);
    UNITS aHeight = (UNITS)xvt_vobj_get_attr(NULL_WIN, ATTR_DOC_STAGGER_VERT);
-   CRect aNewRect(aWidth, aHeight, theRect.Right()-theRect.Left()+aWidth, theRect.Bottom()-theRect.Top()+aHeight);
+   CRect aNewRect(aWidth, aHeight, theRect.Right()-theRect.Left()+(aWidth * 3), theRect.Bottom()-theRect.Top()+(aHeight + aWidth * 2));
 
    return aNewRect;
 }

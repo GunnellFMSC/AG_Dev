@@ -58,7 +58,7 @@ void SetTimeScale()
 //TimeScale():CWindow(theSpGlobals->theAppDocument,CRect(118,115,637,268), "Set Time Scale",WSF_DEFER_MODAL, W_MODAL)
 TimeScale::TimeScale()
           :CWindow(theSpGlobals->theAppDocument,
-                   CRect(118,115,637,268), "Set Time Scale",
+                   CRect(110,107,637,268), "Set Time Scale",
                    WSF_DEFER_MODAL, W_MODAL)
 {
 
